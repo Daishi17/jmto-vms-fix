@@ -1617,6 +1617,17 @@ class Tender_diikuti extends CI_Controller
         $this->load->view('info_tender/ajax_buka_penawaran', $data);
     }
 
+    public function get_mengikuti_penawaran()
+    {
+        $id_url_rup = $this->input->post('id_url_rup');
+        $data['rup'] = $this->M_tender->get_row_rup($id_url_rup);
+        $get_row_mengikuti = $this->M_tender->cek_mengikuti($data['rup']['id_rup']);
+        $response = [
+            'row' => $get_row_mengikuti
+        ];
+        $this->output->set_content_type('application/json')->set_output(json_encode($response));
+    }
+
 
     function kirim_token_penawaran()
     {
@@ -1646,61 +1657,67 @@ class Tender_diikuti extends CI_Controller
     public function upload_penawaran_1()
     {
         $id_vendor = $this->input->post('id_vendor');
-        $nama_dokumen_pengadaan_vendor = $this->input->post('nama_dokumen_pengadaan_vendor');
+        $id_vendor_mengikuti_paket = $this->input->post('id_vendor_mengikuti_paket');
         $id_url_rup = $this->input->post('id_url_rup');
         $id_rup = $this->input->post('id_rup');
-        $nama_rup = $this->M_tender->get_rup_byid($id_rup);
+        $nama_rup = $this->M_tender->get_row_rup_byid($id_url_rup);
         $nama_usaha = $this->session->userdata('nama_usaha');
         $type_post = $this->input->post('type_post');
-        if ($type_post == 'tambah') {
-            if (!is_dir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_I')) {
-                mkdir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_I', 0777, TRUE);
-            }
-            $config['upload_path'] = './file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_I';
-            $config['allowed_types'] = 'pdf|xlsx|xls';
-            $config['max_size'] = 0;
-            $this->load->library('upload', $config);
-            if ($this->upload->do_upload('file_dokumen_pengadaan_vendor')) {
-                $fileData = $this->upload->data();
 
+
+        if (!is_dir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_I')) {
+            mkdir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_I', 0777, TRUE);
+        }
+        $config['upload_path'] = './file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_I';
+        $config['allowed_types'] = 'pdf|xlsx|xls';
+        $config['max_size'] = 0;
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('file_dokumen_pengadaan_vendor')) {
+            $fileData = $this->upload->data();
+            $where = [
+                'id_vendor_mengikuti_paket' => $id_vendor_mengikuti_paket
+            ];
+
+            if ($type_post == 'file1_administrasi') {
                 $upload = [
-                    'id_rup' => $id_rup,
-                    'id_url_rup' => $id_url_rup,
-                    'id_vendor' => $id_vendor,
-                    'nama_dokumen_pengadaan_vendor' => $nama_dokumen_pengadaan_vendor,
-                    'file_dokumen_pengadaan_vendor' => $fileData['file_name']
+                    'file1_administrasi' => $fileData['file_name']
                 ];
-
-                $this->M_tender->insert_dok_pengadaan_file_I($upload);
-                $this->output->set_content_type('application/json')->set_output(json_encode('success'));
-            } else {
-                $this->output->set_content_type('application/json')->set_output(json_encode('gagal'));
-            }
-        } else {
-            $id_dokumen_pengadaan_vendor = $this->input->post('id_dokumen_pengadaan_vendor');
-            if (!is_dir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_I')) {
-                mkdir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_I', 0777, TRUE);
-            }
-            $config['upload_path'] = './file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_I';
-            $config['allowed_types'] = 'pdf|xlsx|xls';
-            $config['max_size'] = 0;
-            $this->load->library('upload', $config);
-            if ($this->upload->do_upload('file_dokumen_pengadaan_vendor')) {
-                $fileData = $this->upload->data();
-                $where = [
-                    'id_dokumen_pengadaan_vendor' => $id_dokumen_pengadaan_vendor
-                ];
+            } else if ($type_post == 'file1_teknis') {
                 $upload = [
-                    'id_rup' => $id_rup,
-                    'id_url_rup' => $id_url_rup,
-                    'id_vendor' => $id_vendor,
-                    'nama_dokumen_pengadaan_vendor' => $nama_dokumen_pengadaan_vendor,
-                    'file_dokumen_pengadaan_vendor' => $fileData['file_name']
+                    'file1_teknis' => $fileData['file_name']
                 ];
-
-                $this->M_tender->update_dok_pengadaan_file_I($upload, $where);
-                $this->output->set_content_type('application/json')->set_output(json_encode('success'));
+            } else if ($type_post == 'file1_organisasi') {
+                $upload = [
+                    'file1_organisasi' => $fileData['file_name']
+                ];
+            } else if ($type_post == 'file1_pabrikan') {
+                $upload = [
+                    'file1_pabrikan' => $fileData['file_name']
+                ];
+            } else if ($type_post == 'file1_peralatan') {
+                $upload = [
+                    'file1_peralatan' => $fileData['file_name']
+                ];
+            } else if ($type_post == 'file1_personil') {
+                $upload = [
+                    'file1_personil' => $fileData['file_name']
+                ];
+            } else if ($type_post == 'file1_makalah_teknis') {
+                $upload = [
+                    'file1_makalah_teknis' => $fileData['file_name']
+                ];
+            } else if ($type_post == 'file1_pra_rk3') {
+                $upload = [
+                    'file1_pra_rk3' => $fileData['file_name']
+                ];
+            } else if ($type_post == 'file1_spek') {
+                $upload = [
+                    'file1_spek' => $fileData['file_name']
+                ];
             }
+
+            $this->M_tender->update_dok_pengadaan_file_II($upload, $where);
+            $this->output->set_content_type('application/json')->set_output(json_encode('success'));
         }
     }
 

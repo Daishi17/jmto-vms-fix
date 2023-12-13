@@ -44,9 +44,9 @@
 
     var form_upload_dok_penawaran_1 = $('#form_upload_dok_penawaran_1')
     form_upload_dok_penawaran_1.on('submit', function(e) {
-        var file_dokumen_pengadaan_vendor = $('[name="file_dokumen_pengadaan_vendor"]').val();
+        var nama_dokumen = $('[name="nama_dokumen"]').val();
         var upload_dok_file_1 = $('#upload_dok_file_1');
-        if (file_dokumen_pengadaan_vendor == '') {
+        if (nama_dokumen == '') {
             e.preventDefault();
             Swal.fire({
                 icon: 'error',
@@ -80,9 +80,11 @@
                         willClose: () => {
                             clearInterval(timerInterval)
                             Swal.fire('Data Berhasil Di Simpan!', '', 'success')
-                            reloadtable_dok_penawaran_file_I();
+                            // reloadtable_dok_penawaran_file_I();
                             $('.btn-upload').attr("disabled", false);
                             upload_dok_file_1.modal('hide')
+                            get_mengikuti()
+                            form_upload_dok_penawaran_1[0].reset()
                         }
                     }).then((result) => {
                         if (result.dismiss === Swal.DismissReason.timer) {
@@ -121,14 +123,14 @@
         })
     }
 
-    $("#upload_dok_file_1").on('hide.bs.modal', function() {
-        $('[name="type_post"]').val('tambah');
-        $('[name="id_dokumen_pengadaan_vendor"]').val('');
-        $('[name="nama_dokumen_pengadaan_vendor"]').val('');
-        $('[name="tkdn_dokumen_pengadaan"]').val('');
-        $('[name="persentase_tkdn_dokumen_pengadaan"]').val('');
-        $('[name="file_dokumen_pengadaan_vendor"]').val('');
-    });
+    // $("#upload_dok_file_1").on('hide.bs.modal', function() {
+    //     $('[name="type_post"]').val('tambah');
+    //     $('[name="id_dokumen_pengadaan_vendor"]').val('');
+    //     $('[name="nama_dokumen_pengadaan_vendor"]').val('');
+    //     $('[name="tkdn_dokumen_pengadaan"]').val('');
+    //     $('[name="persentase_tkdn_dokumen_pengadaan"]').val('');
+    //     $('[name="file_dokumen_pengadaan_vendor"]').val('');
+    // });
 
     function Question_dok_pengadaan_file_I(id_dokumen_pengadaan_vendor, nama) {
         Swal.fire({
@@ -315,4 +317,223 @@
         $(this).val(result);
 
     });
+
+    get_mengikuti()
+
+    function get_mengikuti() {
+        var id_url_rup = $('[name="id_url_rup"]').val()
+        $.ajax({
+            type: "POST",
+            url: '<?= base_url('tender_diikuti/get_mengikuti_penawaran') ?>',
+            data: {
+                id_url_rup: id_url_rup,
+            },
+            dataType: "JSON",
+            success: function(response) {
+                if (response['row']['file2_penawaran']) {
+                    var file1_administrasi = `<a href="javascript:;" class="btn btn-sm btn-warning text-white"><i class="fa fa-file"></i> Buka</a>`
+                    var btn_file1_administrasi = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_administrasi')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                } else {
+                    var file1_administrasi = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var btn_file1_administrasi = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_administrasi')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                }
+                if (response['row']['file1_teknis']) {
+                    var file1_teknis = `<a href="javascript:;" class="btn btn-sm btn-warning text-white"><i class="fa fa-file"></i> Buka</a>`
+                    var btn_file1_teknis = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_teknis')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                } else {
+                    var file1_teknis = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var btn_file1_teknis = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_teknis')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                }
+
+                if (response['row']['file1_organisasi']) {
+                    var file1_organisasi = `<a href="javascript:;" class="btn btn-sm btn-warning text-white"><i class="fa fa-file"></i> Buka</a>`
+                    var btn_file1_organisasi = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_organisasi')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                } else {
+                    var file1_organisasi = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var btn_file1_organisasi = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_organisasi')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                }
+
+                if (response['row']['file1_pabrikan']) {
+                    var file1_pabrikan = `<a href="javascript:;" class="btn btn-sm btn-warning text-white"><i class="fa fa-file"></i> Buka</a>`
+                    var btn_file1_pabrikan = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_pabrikan')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                } else {
+                    var file1_pabrikan = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var btn_file1_pabrikan = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_pabrikan')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                }
+
+                if (response['row']['file1_peralatan']) {
+                    var file1_peralatan = `<a href="javascript:;" class="btn btn-sm btn-warning text-white"><i class="fa fa-file"></i> Buka</a>`
+                    var btn_file1_peralatan = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_peralatan')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                } else {
+                    var file1_peralatan = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var btn_file1_peralatan = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_peralatan')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                }
+
+                if (response['row']['file1_personil']) {
+                    var file1_personil = `<a href="javascript:;" class="btn btn-sm btn-warning text-white"><i class="fa fa-file"></i> Buka</a>`
+                    var btn_file1_personil = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_personil')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                } else {
+                    var file1_personil = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var btn_file1_personil = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_personil')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                }
+
+                if (response['row']['file1_makalah_teknis']) {
+                    var file1_makalah_teknis = `<a href="javascript:;" class="btn btn-sm btn-warning text-white"><i class="fa fa-file"></i> Buka</a>`
+                    var btn_file1_makalah_teknis = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_makalah_teknis')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                } else {
+                    var file1_makalah_teknis = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var btn_file1_makalah_teknis = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_makalah_teknis')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                }
+
+                if (response['row']['file1_pra_rk3']) {
+                    var file1_pra_rk3 = `<a href="javascript:;" class="btn btn-sm btn-warning text-white"><i class="fa fa-file"></i> Buka</a>`
+                    var btn_file1_pra_rk3 = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_pra_rk3')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                } else {
+                    var file1_pra_rk3 = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var btn_file1_pra_rk3 = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_pra_rk3')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                }
+
+                if (response['row']['file1_spek']) {
+                    var file1_spek = `<a href="javascript:;" class="btn btn-sm btn-warning text-white"><i class="fa fa-file"></i> Buka</a>`
+                    var btn_file1_spek = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_spek')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                } else {
+                    var file1_spek = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var btn_file1_spek = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_spek')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                }
+
+                var html = '';
+                html += ` <tr>
+                                                        <td>1.&ensp;File Penawaran Administrasi</td>
+                                                        <td>${file1_administrasi}</td>
+                                                        <td>${btn_file1_administrasi}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2.&ensp;File Penawaran Teknis</td>
+                                                        <td>${file1_teknis}</td>
+                                                        <td>${btn_file1_teknis}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&ensp;&ensp; a. Struktur Organisasi</td>
+                                                        <td>${file1_organisasi}</td>
+                                                        <td>${btn_file1_organisasi}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&ensp;&ensp; b. Surat Dukungan Pabrikan / Dealer</td>
+                                                        <td>${file1_pabrikan}</td>
+                                                        <td>${btn_file1_pabrikan}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&ensp;&ensp; c. Data Peralatan Pendukung Pekerjaan</td>
+                                                        <td>${file1_peralatan}</td>
+                                                        <td>${btn_file1_peralatan}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&ensp;&ensp; d. CV Personil</td>
+                                                        <td>${file1_personil}</td>
+                                                        <td>${btn_file1_personil}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&ensp;&ensp; e. Makalah Teknis Pekerjaan</td>
+                                                        <td>${file1_makalah_teknis}</td>
+                                                        <td>${btn_file1_makalah_teknis}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&ensp;&ensp; f. Dokumen Pra RK3-K dan HIRADC</td>
+                                                        <td>${file1_pra_rk3}</td>
+                                                        <td>${btn_file1_pra_rk3}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>&ensp;&ensp; g. Dokumen Spesifikasi Perangkat (Khusus IT)</td>
+                                                        <td>${file1_spek}</td>
+                                                        <td>${btn_file1_spek}</td>
+                                                    </tr>`
+                $('#load_dok_file1_statis').html(html)
+            }
+
+        })
+    }
+
+    get_mengikuti2()
+
+    function get_mengikuti2() {
+        var id_url_rup = $('[name="id_url_rup"]').val()
+        $.ajax({
+            type: "POST",
+            url: '<?= base_url('tender_diikuti/get_mengikuti_penawaran') ?>',
+            data: {
+                id_url_rup: id_url_rup,
+            },
+            dataType: "JSON",
+            success: function(response) {
+                if (response['row']['file2_penawaran']) {
+                    var file2_penawaran = `<a href="javascript:;" class="btn btn-sm btn-warning text-white"><i class="fa fa-file"></i> Buka</a>`
+                    var btn_file2_penawaran = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_penawaran')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                } else {
+                    var file2_penawaran = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var btn_file2_penawaran = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_penawaran')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                }
+
+                if (response['row']['file2_dkh']) {
+                    var file2_dkh = `<a href="javascript:;" class="btn btn-sm btn-warning text-white"><i class="fa fa-file"></i> Buka</a>`
+                    var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                } else {
+                    var file2_dkh = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                }
+
+                var html2 = '';
+                html2 += `                           <tr>
+                                                        <td>1. Dokumen Penawaran Harga</td>
+                                                        <td>${file2_penawaran}</td>
+                                                        <td>${btn_file2_penawaran}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2. File DKH</td>
+                                                        <td>${file2_dkh}</td>
+                                                        <td>${btn_file2_dkh}</td>
+                                                    </tr>
+                                                    `
+                $('#load_dok_file2_statis').html(html2)
+            }
+
+        })
+    }
+
+    function upload_file1(id_vendor_mengikuti_paket, type) {
+
+        $('[name="id_vendor_mengikuti_paket"]').val(id_vendor_mengikuti_paket)
+        $('[name="type_post"]').val(type)
+        if (type == 'file1_administrasi') {
+            $('[name="nama_dokumen"]').val('File Penawaran Administrasi')
+        } else if (type == 'file1_teknis') {
+            $('[name="nama_dokumen"]').val('File Penawaran Tenis')
+        } else if (type == 'file1_organisasi') {
+            $('[name="nama_dokumen"]').val('Struktur Organisasi')
+        } else if (type == 'file1_pabrikan') {
+            $('[name="nama_dokumen"]').val('Surat Dukungan Pabrikan / Dealer')
+        } else if (type == 'file1_peralatan') {
+            $('[name="nama_dokumen"]').val('Data Peralatan Pendukung Pekerjaan')
+        } else if (type == 'file1_personil') {
+            $('[name="nama_dokumen"]').val('CV Personil')
+        } else if (type == 'file1_makalah_teknis') {
+            $('[name="nama_dokumen"]').val('Makalah Teknis Pekerjaan')
+        } else if (type == 'file1_pra_rk3') {
+            $('[name="nama_dokumen"]').val('Dokumen Pra RK3-K dan HIRADC')
+        } else if (type == 'file1_spek') {
+            $('[name="nama_dokumen"]').val('Dokumen Spesifikasi Perangkat (Khusus IT)')
+        }
+        $('#upload_dok_file_1').modal('show')
+    }
+
+    function upload_file2(id_vendor_mengikuti_paket, type) {
+
+        $('[name="id_vendor_mengikuti_paket"]').val(id_vendor_mengikuti_paket)
+        $('[name="type_post"]').val(type)
+        if (type == 'file2_penawaran') {
+            $('[name="nama_dokumen"]').val('Dokumen Penawaran Harga')
+        } else if (type == 'file2_dkh') {
+            $('[name="nama_dokumen"]').val('File DKH')
+        }
+        $('#upload_dok_file_2').modal('show')
+    }
 </script>
