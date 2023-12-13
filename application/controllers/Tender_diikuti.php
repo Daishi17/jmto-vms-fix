@@ -1870,4 +1870,26 @@ class Tender_diikuti extends CI_Controller
         $data['peserta'] = $this->M_tender->peserta($data['rup']['id_rup']);
         $this->load->view('info_tender/undangan_pembuktian', $data);
     }
+
+    public function lihat_pengumuman_hasil_kualifikasi($id_url_rup)
+    {
+        $data['rup'] = $this->M_tender->get_row_rup($id_url_rup);
+        $data['mengikuti'] = $this->M_tender->cek_mengikuti($data['rup']['id_rup']);
+        $data['peserta'] = $this->M_tender->peserta($data['rup']['id_rup']);
+        $data['hitung_syarat'] = $this->M_tender->hitung_total_syarat($data['rup']['id_rup']);
+        $data['data_evaluasi'] = $this->M_tender->data_evaluasi($data['rup']['id_rup']);
+
+        $this->load->view('info_tender/ba_hasil_kualifikasi', $data);
+    }
+
+    public function lihat_ba_hasil_evaluasi($id_url_rup)
+    {
+        $data['rup'] = $this->M_tender->get_row_rup($id_url_rup);
+        $data['mengikuti'] = $this->M_tender->cek_mengikuti($data['rup']['id_rup']);
+        $data['peserta'] = $this->M_tender->peserta($data['rup']['id_rup']);
+        $data['hitung_syarat'] = $this->M_tender->hitung_total_syarat($data['rup']['id_rup']);
+        $data['data_evaluasi'] = $this->M_tender->data_evaluasi($data['rup']['id_rup']);
+        $data['data_panitia'] = $this->M_tender->get_panitia($data['rup']['id_rup']);
+        $this->load->view('info_tender/ba_hasil_evaluasi', $data);
+    }
 }
