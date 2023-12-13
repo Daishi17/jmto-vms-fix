@@ -205,7 +205,7 @@ class Tender_diikuti extends CI_Controller
         $data['notifikasi_manajerial'] = $this->M_dashboard->count_notifikasi_manajerial($id_vendor);
         $data['notifikasi_pengalaman'] = $this->M_dashboard->count_notifikasi_pengalaman($id_vendor);
         $data['notifikasi_pajak'] = $this->M_dashboard->count_notifikasi_pajak($id_vendor);
-     
+
 
         $update_notif = ['notifikasi' => 0];
         $where = ['id_vendor' => $id_vendor];
@@ -1617,6 +1617,7 @@ class Tender_diikuti extends CI_Controller
         $this->load->view('info_tender/ajax_buka_penawaran', $data);
     }
 
+
     function kirim_token_penawaran()
     {
         $id_url_rup = $this->input->post('id_url_rup');
@@ -1828,7 +1829,7 @@ class Tender_diikuti extends CI_Controller
         $url  = $file_url;
         return force_download($url, NULL);
     }
-     public function lihat_undangan_pembuktian($id_url_rup)
+    public function lihat_undangan_pembuktian($id_url_rup)
     {
         $data['rup'] = $this->M_tender->get_row_rup($id_url_rup);
         $data['mengikuti'] = $this->M_tender->cek_mengikuti($data['rup']['id_rup']);

@@ -705,4 +705,8 @@
             $('.btn_dapatkan_token').css('display', 'none');
         }
     }
+
+    function load_dok_file1_statis(){
+        
+    }
 </script>

@@ -210,7 +210,9 @@
 
                                             </th>
                                         </tr>
+
                                     </table>
+                                    <span class="btn btn-success"><i class="fa fa-check"></i> <?= $row_vendor['nama_usaha'] ?> Sudah Menyetujui Pakta Integritas Yang Berlaku Dalam Pengadaan Sejak Dari Mendaftar Data Rekanan Tetap Pada PT. Jasamarga Tollroad Operator</span>
                                 </div>
                             </div>
                         </div>
@@ -226,7 +228,7 @@
                                     <div class="col-lg-3 col-6">
                                         <div class="card shadow-lg" style="width: 18rem;">
 
-                                            <?php if ($count_validate >= 16) { ?>
+                                            <?php if ($count_validate >= 15) { ?>
                                                 <?php if ($count_tdk_validate > 0) { ?>
                                                     <div class="card-body bg-danger">
                                                         <div class="text-start">
@@ -248,7 +250,7 @@
                                                         <div class="text-end">
                                                             <h5>
                                                                 <input type="hidden" name="count_validate" value="<?= base_url('dashboard/count_validate') ?>">
-                                                                <small class="text-white"><b id="count_validate"><?= $count_validate ?>/16</b></small>
+                                                                <small class="text-white"><b id="count_validate"><?= $count_validate ?>/15</b></small>
                                                             </h5>
                                                             <small class="text-white"><b>Dokumen Yang Tervalidasi</b></small>
                                                         </div>
@@ -263,7 +265,7 @@
                                                     <div class="text-end">
                                                         <h5>
                                                             <input type="hidden" name="count_validate" value="<?= base_url('dashboard/count_validate') ?>">
-                                                            <small class="text-white"><b id="count_validate"><?= $count_validate ?>/16</b></small>
+                                                            <small class="text-white"><b id="count_validate"><?= $count_validate ?>/15</b></small>
                                                         </h5>
                                                         <small class="text-white"><b>Dokumen Yang Tervalidasi</b></small>
                                                     </div>

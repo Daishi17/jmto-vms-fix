@@ -110,7 +110,7 @@
                                             </div>
                                         </div>
                                         <div class="card-body">
-                                            <table id="table_dok_penawaran_file_I" class="table table-stripped table-bordered">
+                                            <table class="table table-stripped table-bordered">
                                                 <thead>
                                                     <tr>
                                                         <th>No</th>
@@ -119,7 +119,7 @@
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody id="load_dok_file1_statis">
                                                 </tbody>
                                             </table>
                                         </div>
@@ -219,26 +219,26 @@
                         </div>
                         <br>
                         <!-- <div class="form-group">
-                                                                                                        <label for=""> Nilai Penawaran</label>
-                                                                                                        <input type="text" name="nilai_penawaran_vendor" class="form-control nilai_penawaran_vendor number_only" placeholder="Nilai Penawaran" aria-describedby="helpId">
-                                                                                                        <div style="float: right;">
-                                                                                                            <input type="text" style="width: 200px;" id="rupiah_nilai_penawaran_vendor" readonly class="form-control " aria-describedby="helpId">
-                                                                                                        </div>
-                                                                                                    </div> -->
+                                                                                                                    <label for=""> Nilai Penawaran</label>
+                                                                                                                    <input type="text" name="nilai_penawaran_vendor" class="form-control nilai_penawaran_vendor number_only" placeholder="Nilai Penawaran" aria-describedby="helpId">
+                                                                                                                    <div style="float: right;">
+                                                                                                                        <input type="text" style="width: 200px;" id="rupiah_nilai_penawaran_vendor" readonly class="form-control " aria-describedby="helpId">
+                                                                                                                    </div>
+                                                                                                                </div> -->
                         <!-- <div class="form-group">
-                                                                                                        <label for=""> TKDN/PDN/IMPOR</label>
-                                                                                                        <select name="tkdn_dokumen_penawaran_vendor" class="form-control" id="">
-                                                                                                            <option value="">-- Pilih TKDN/PDN/IMPOR --</option>
-                                                                                                            <option value="TKDN">TKDN</option>
-                                                                                                            <option value="PDN">PDN</option>
-                                                                                                            <option value="IMPORT">IMPORT</option>
-                                                                                                        </select>
-                                                                                                    </div> -->
+                                                                                                                    <label for=""> TKDN/PDN/IMPOR</label>
+                                                                                                                    <select name="tkdn_dokumen_penawaran_vendor" class="form-control" id="">
+                                                                                                                        <option value="">-- Pilih TKDN/PDN/IMPOR --</option>
+                                                                                                                        <option value="TKDN">TKDN</option>
+                                                                                                                        <option value="PDN">PDN</option>
+                                                                                                                        <option value="IMPORT">IMPORT</option>
+                                                                                                                    </select>
+                                                                                                                </div> -->
                         <br>
                         <!-- <div class="form-group">
-                                                                                                        <label for=""> Persentase TKDN/PDN/IMPOR</label>
-                                                                                                        <input type="text" name="persentase_tkdn_dokumen_penawaran_vendor" class="form-control number_only" placeholder="Persentase TKDN/PDN/IMPOR" aria-describedby="helpId">
-                                                                                                    </div> -->
+                                                                                                                    <label for=""> Persentase TKDN/PDN/IMPOR</label>
+                                                                                                                    <input type="text" name="persentase_tkdn_dokumen_penawaran_vendor" class="form-control number_only" placeholder="Persentase TKDN/PDN/IMPOR" aria-describedby="helpId">
+                                                                                                                </div> -->
                         <br>
                     </div>
                     <div class="modal-footer">
