@@ -3,7 +3,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set("Asia/Jakarta");
 class Tender_diikuti extends CI_Controller
 {
-
     // var $link_dok = 'http://localhost/jmto-eproc';
     var $link_dok = 'https://jmto-eproc.kintekindo.net';
     public function __construct()
@@ -22,11 +21,13 @@ class Tender_diikuti extends CI_Controller
         if (!$id_vendor) {
             redirect('auth');
         }
+        // redirect('page_kosong/page_konstruksi');
     }
 
 
     public function index()
     {
+        redirect('page_kosong/page_konstruksi');
         $id_vendor = $this->session->userdata('id_vendor');
         $data['notifikasi'] = $this->M_dashboard->count_notifikasi($id_vendor);
         $data['notifikasi_izin'] = $this->M_dashboard->count_notifikasi_izin($id_vendor);

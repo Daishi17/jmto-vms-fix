@@ -843,15 +843,15 @@
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="<?= base_url('assets/update_patch/patch3.jpg') ?>" class="d-block w-100" alt="...">
+                            <img src="<?= base_url('assets/update_patch/patch3.JPG') ?>" class="d-block w-100" alt="...">
                             <br>
 
-                            <label>1. Khusus Untuk Rekanan Yang Sudah Terundang Jika Ada Perubahan Dokumen Silahkan Mengajukan Perubahan Terlebih Dahulu Kepada Validator DRT JMTO</label>
+                            <b>1. Khusus Untuk Rekanan Yang Sudah Terundang Jika Ada Perubahan Dokumen Silahkan Mengajukan Perubahan Terlebih Dahulu Kepada Validator DRT JMTO</b>
                         </div>
                         <div class="carousel-item ">
-                            <img src="<?= base_url('assets/update_patch//patch1.jpg') ?>" class="d-block w-100" alt="...">
+                            <img src="<?= base_url('assets/update_patch/patch1.JPG') ?>" class="d-block w-100" alt="...">
                             <br>
-                            <label>2. Berikut Adalah Tombol Untuk Pengajuan Ada Pada Menu Dashboard</label>
+                            <b>2. Berikut Adalah Tombol Untuk Pengajuan, Tombol Tersebut Berada Dalam Menu Dashboard</b>
                         </div>
 
                     </div>
