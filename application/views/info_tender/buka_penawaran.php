@@ -128,11 +128,6 @@
                                     <div class="card">
                                         <div class="card-header bg-danger text-white">
                                             Dokumen Penawaran File II
-                                            <!-- <div style="float: right;">
-                                                                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#upload_dok_file_2">
-                                                                                    + Upload Dokumen Penawaran File II
-                                                                                </button>
-                                                                            </div> -->
                                         </div>
                                         <div class="card-body">
                                             <table class="table table-bordered">
@@ -207,7 +202,7 @@
                     <h5 class="modal-title">Upload Dokumen Penawaran File II</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form id="form_upload_dok_penawaran_1" action="javascript:;" enctype="multipart/form-data">
+                <form id="form_upload_dok_penawaran_2" action="javascript:;" enctype="multipart/form-data">
                     <div class="modal-body">
                         <input type="hidden" name="id_vendor_mengikuti_paket">
                         <input type="hidden" name="type_post">
@@ -221,7 +216,7 @@
                         <br>
                         <label for="">File Dokumen</label>
                         <div class="input-group">
-                            <input type="file" class="form-control" accept=".xlsx, .xls, .pdf" name="file_dokumen_pengadaan_vendor">
+                            <input type="file" class="form-control" accept=".xlsx, .xls, .pdf" id="file_dokumen_pengadaan_vendor2" name="file_dokumen_pengadaan_vendor">
                         </div>
                     </div>
                     <div class="modal-footer">

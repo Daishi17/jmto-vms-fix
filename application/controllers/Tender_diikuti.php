@@ -1714,6 +1714,14 @@ class Tender_diikuti extends CI_Controller
                 $upload = [
                     'file1_spek' => $fileData['file_name']
                 ];
+            } else if ($type_post == 'file2_penawaran') {
+                $upload = [
+                    'file2_penawaran' => $fileData['file_name']
+                ];
+            } else if ($type_post == 'file2_dkh') {
+                $upload = [
+                    'file2_dkh' => $fileData['file_name']
+                ];
             }
 
             $this->M_tender->update_dok_pengadaan_file_II($upload, $where);
@@ -1725,12 +1733,14 @@ class Tender_diikuti extends CI_Controller
     public function upload_penawaran_2()
     {
         $id_vendor = $this->input->post('id_vendor');
-        $nilai_penawaran_vendor = $this->input->post('nilai_penawaran_vendor');
-        $tkdn_dokumen_penawaran_vendor = $this->input->post('tkdn_dokumen_penawaran_vendor');
-        $persentase_tkdn_dokumen_penawaran_vendor = $this->input->post('persentase_tkdn_dokumen_penawaran_vendor');
+        $id_vendor_mengikuti_paket = $this->input->post('id_vendor_mengikuti_paket');
+        $id_url_rup = $this->input->post('id_url_rup');
         $id_rup = $this->input->post('id_rup');
-        $nama_rup = $this->M_tender->get_rup_byid($id_rup);
+        $nama_rup = $this->M_tender->get_row_rup_byid($id_url_rup);
         $nama_usaha = $this->session->userdata('nama_usaha');
+        $type_post = $this->input->post('type_post');
+
+
         if (!is_dir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_II')) {
             mkdir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_II', 0777, TRUE);
         }
@@ -1738,18 +1748,21 @@ class Tender_diikuti extends CI_Controller
         $config['allowed_types'] = 'pdf|xlsx|xls';
         $config['max_size'] = 0;
         $this->load->library('upload', $config);
-        if ($this->upload->do_upload('dok_penawaran_harga')) {
+        if ($this->upload->do_upload('file_dokumen_pengadaan_vendor')) {
             $fileData = $this->upload->data();
             $where = [
-                'id_rup' => $id_rup,
-                'id_vendor' => $id_vendor
+                'id_vendor_mengikuti_paket' => $id_vendor_mengikuti_paket
             ];
-            $upload = [
-                'persentase_tkdn_dokumen_penawaran_vendor' => $persentase_tkdn_dokumen_penawaran_vendor,
-                'tkdn_dokumen_penawaran_vendor' => $tkdn_dokumen_penawaran_vendor,
-                'nilai_penawaran_vendor' => $nilai_penawaran_vendor,
-                'dok_penawaran_harga' => $fileData['file_name']
-            ];
+
+            if ($type_post == 'file2_penawaran') {
+                $upload = [
+                    'file2_penawaran' => $fileData['file_name']
+                ];
+            } else if ($type_post == 'file2_dkh') {
+                $upload = [
+                    'file2_dkh' => $fileData['file_name']
+                ];
+            }
 
             $this->M_tender->update_dok_pengadaan_file_II($upload, $where);
             $this->output->set_content_type('application/json')->set_output(json_encode('success'));
@@ -1829,23 +1842,27 @@ class Tender_diikuti extends CI_Controller
         $this->output->set_content_type('application/json')->set_output(json_encode('success'));
     }
 
-    public function download_dokumen_pengadaan_vendor($id_dokumen_pengadaan_vendor)
+    public function download_dokumen_pengadaan_vendor($id_vendor_mengikuti_paket)
     {
-        $root  = $this->M_tender->row_dok_pengadaan_file_I($id_dokumen_pengadaan_vendor);
+        $root  = $this->M_tender->get_row_vendor_mengikuti_paket($id_vendor_mengikuti_paket);
+        $uri = $this->uri->segment(4);
         $nama_usaha = $this->session->userdata('nama_usaha');
-        $file_url = 'file_paket/' . $root['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_I' . '/'  . $root['file_dokumen_pengadaan_vendor'];
-        $url  = $file_url;
-        return force_download($url, NULL);
+        $file_url = 'file_paket/' . $root['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_I' . '/'  . $root[$uri];
+
+        return force_download($file_url, NULL);
     }
 
     public function download_dokumen_penawaran_vendor($id_vendor_mengikuti_paket)
     {
         $root  = $this->M_tender->get_row_vendor_mengikuti_paket($id_vendor_mengikuti_paket);
+        $uri = $this->uri->segment(4);
         $nama_usaha = $this->session->userdata('nama_usaha');
-        $file_url = 'file_paket/' . $root['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_II' . '/'  . $root['dok_penawaran_harga'];
-        $url  = $file_url;
-        return force_download($url, NULL);
+        $file_url = 'file_paket/' . $root['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PENGADAAN_FILE_II' . '/'  . $root[$uri];
+
+        return force_download($file_url, NULL);
     }
+
+
     public function lihat_undangan_pembuktian($id_url_rup)
     {
         $data['rup'] = $this->M_tender->get_row_rup($id_url_rup);
