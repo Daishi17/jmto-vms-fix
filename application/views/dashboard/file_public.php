@@ -1,4 +1,13 @@
 <script>
+    load_notice_version()
+
+    function load_notice_version() {
+        setTimeout(() => {
+            $('#modal_notice_version').modal('show')
+        }, 500);
+
+    }
+
     function load_dokumen() {
         url_post = $('[name="count_validate"]').val()
         $.ajax({

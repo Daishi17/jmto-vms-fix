@@ -822,6 +822,7 @@ class M_Dashboard extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+    
 
     public function cek_row_pengajuan_terakhir($jenis_dokumen_perubahan)
     {

@@ -194,18 +194,23 @@
                                                         <a href="<?= base_url('datapenyedia/identitas_perusahaan') ?>">
                                                             <button type="button" class="btn btn-warning btn-sm">
                                                                 <i class="fa-solid fa-pen-to-square px-1"></i>
-                                                                Edit Changes
+                                                                Ubah Profile Perusahaan
                                                             </button>
                                                         </a>
                                                     </div>
-                                                    <div class="col-md-4">
-                                                        <a href="javascript:;" onclick="pengajuan_dokumen()">
-                                                            <button type="button" class="btn btn-info btn-sm">
-                                                                <i class="fa-solid fa-file px-1"></i>
-                                                                Pengajuan Dokumen Baru
-                                                            </button>
-                                                        </a>
-                                                    </div>
+                                                    <?php
+                                                    if ($row_vendor['sts_terundang'] == 1) { ?>
+                                                        <div class="col-md-4">
+                                                            <a href="javascript:;" onclick="pengajuan_dokumen()">
+                                                                <button type="button" class="btn btn-info btn-sm">
+                                                                    <i class="fa-solid fa-file px-1"></i>
+                                                                    Pengajuan Dokumen Baru
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    <?php } else { ?>
+
+                                                    <?php  }  ?>
                                                 </div>
 
                                             </th>
@@ -747,78 +752,139 @@
 </div>
 
 
-<!-- Modal -->
-<div class="modal fade" id="modal_pengajuan_dokumen" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title">Buat List Pengajuan Dokumen</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-2">
-
-                    </div>
-
-                    <div class="col-md-8">
-                        <select name="jenis_dokumen_perubahan" onchange="pilih_jenis_dokumen_perubahan()" class="form-control select2">
-                            <option value="">-- Pilih Jenis Dokumen Ingin Diubah --</option>
-                            <option value="nib">NIB</option>
-                            <option value="siup">SIUP</option>
-                            <option value="sbu">SBU</option>
-                            <option value="siujk">SIUJK</option>
-                            <option value="skdp">SKDP</option>
-                            <option value="izin_lainya">Izin Lainya</option>
-                            <option value="akta_pendirian">Akta Pendirian</option>
-                            <option value="akta_perubahan">Akta Perubahan</option>
-                            <option value="pemilik_perusahaan">Pemilik Perusahaan</option>
-                            <option value="pengurus_perusahaan">Pengurus Perusahaan</option>
-                            <option value="pengalaman_perusahaan">Pengalaman Perusahaan</option>
-                            <option value="sppkp">SPPKP</option>
-                            <option value="npwp">NPWP</option>
-                            <option value="spt">SPT</option>
-                            <option value="laporan_keuangan">Laporan Keuangan</option>
-                            <option value="neraca_keuangan">Neraca Keuangan</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-2">
-
-                    </div>
+<?php
+if ($row_vendor['sts_terundang'] == 1) { ?>
+    <div class="modal fade" id="modal_pengajuan_dokumen" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Buat List Pengajuan Dokumen</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <br>
-                <div class="row">
-                    <div class="card">
-                        <div class="card-header bg-warning text-white">
-                            List Dokumen Pengajun Perubahan Dokumen
-                        </div>
-                        <div class="card-body">
-                            <table class="table" id="datatable_pengajuan_dokumen">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Jenis Dokumen</th>
-                                        <th>Waktu Pengajuan</th>
-                                        <th>Status</th>
-                                        <th>Status Upload</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-2">
 
-                                </tbody>
-                            </table>
+                        </div>
+
+                        <div class="col-md-8">
+                            <select name="jenis_dokumen_perubahan" onchange="pilih_jenis_dokumen_perubahan()" class="form-control select2">
+                                <option value="">-- Pilih Jenis Dokumen Ingin Diubah --</option>
+                                <option value="nib">NIB</option>
+                                <option value="siup">SIUP</option>
+                                <option value="sbu">SBU</option>
+                                <option value="siujk">SIUJK</option>
+                                <option value="skdp">SKDP</option>
+                                <option value="izin_lainya">Izin Lainya</option>
+                                <option value="akta_pendirian">Akta Pendirian</option>
+                                <option value="akta_perubahan">Akta Perubahan</option>
+                                <option value="pemilik_perusahaan">Pemilik Perusahaan</option>
+                                <option value="pengurus_perusahaan">Pengurus Perusahaan</option>
+                                <option value="pengalaman_perusahaan">Pengalaman Perusahaan</option>
+                                <option value="sppkp">SPPKP</option>
+                                <option value="npwp">NPWP</option>
+                                <option value="spt">SPT</option>
+                                <option value="laporan_keuangan">Laporan Keuangan</option>
+                                <option value="neraca_keuangan">Neraca Keuangan</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-2">
+
                         </div>
                     </div>
-                </div>
+                    <br>
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-header bg-warning text-white">
+                                List Dokumen Pengajun Perubahan Dokumen
+                            </div>
+                            <div class="card-body">
+                                <table class="table" id="datatable_pengajuan_dokumen">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Jenis Dokumen</th>
+                                            <th>Waktu Pengajuan</th>
+                                            <th>Status</th>
+                                            <th>Status Upload</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+<?php } else { ?>
+
+<?php  }  ?>
+<!-- Modal -->
+
+
+
+<!-- Modal -->
+
+<?php
+if ($row_vendor['sts_terundang'] == 1) { ?>
+    <div class="modal fade" id="modal_notice_version" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a class="navbar-brand">
+                        <img src="<?php echo base_url(); ?>/assets/brand/jm1.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
+                        <b><span class="text-primary">Jasamarga Tollroad Operator</span></b>
+                        <br>
+                        <b><span class="text-primary">Update Fitur Sistem DRT JMTO</span></b>
+                    </a>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="<?= base_url('assets/update_patch/patch3.JPG') ?>" class="d-block w-100" alt="...">
+                                <br>
+
+                                <b>1. Khusus Untuk Rekanan Yang Sudah Terundang Jika Ada Perubahan Dokumen Silahkan Mengajukan Perubahan Terlebih Dahulu Kepada Validator DRT JMTO</b>
+                            </div>
+                            <div class="carousel-item ">
+                                <img src="<?= base_url('assets/update_patch/patch1.JPG') ?>" class="d-block w-100" alt="...">
+                                <br>
+                                <b>2. Berikut Adalah Tombol Untuk Pengajuan, Tombol Tersebut Berada Dalam Menu Dashboard</b>
+                            </div>
+
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tutup</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } else { ?>
+
+<?php  }  ?>
