@@ -18,6 +18,7 @@ class Tender_terundang extends CI_Controller
         if (!$id_vendor) {
             redirect('auth');
         }
+        // redirect('page_kosong/page_konstruksi');
     }
 
     function index()

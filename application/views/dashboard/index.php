@@ -195,6 +195,17 @@
                                                             <button type="button" class="btn btn-warning btn-sm">
                                                                 <i class="fa-solid fa-pen-to-square px-1"></i>
                                                                 Ubah Profile Perusahaan
+<<<<<<< HEAD
+=======
+                                                            </button>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <a href="javascript:;" onclick="pengajuan_dokumen()">
+                                                            <button type="button" class="btn btn-info btn-sm">
+                                                                <i class="fa-solid fa-file px-1"></i>
+                                                                Pengajuan Dokumen Baru
+>>>>>>> 5e9faae0f0652e6173133940bb74dbdd11cf8c85
                                                             </button>
                                                         </a>
                                                     </div>
@@ -880,7 +891,7 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tutup</button>
-                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> baru -->
                 </div>
             </div>
         </div>
