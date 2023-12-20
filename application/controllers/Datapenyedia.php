@@ -3323,6 +3323,7 @@ class Datapenyedia extends CI_Controller
 				'sts_token_dokumen_pengurus' => 1,
 				'sts_validasi' => 2
 			];
+			// angga test
 			if ($type_edit_pengurus == 'edit_excel') {
 				$this->M_datapenyedia->update_excel_pengurus_manajerial($upload, $where);
 			} else {
