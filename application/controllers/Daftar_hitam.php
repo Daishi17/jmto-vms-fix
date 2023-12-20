@@ -6,6 +6,7 @@ class Daftar_hitam extends CI_Controller
 
     public function index()
     {
+        // curut
         $this->load->view('template_menu/header_menu');
         $this->load->view('daftar_hitam/index');
         $this->load->view('template_menu/new_footer');
