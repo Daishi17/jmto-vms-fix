@@ -1,75 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <title>KLARIFIKASI & PENILAIAN KEWAJARAN HARGA
+    </title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="print.css" type="text/css" media="print" />
-    <title>JMTO - VMS</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/fontawesome-free/css/all.min.css">
-    <link href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins-lte/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins-lte/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins-lte/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="Shortcut Icon" href="https://eproc.jmtm.co.id/assets/img/unnamed.png" type="image/x-icon" sizes="96x96" />
+    <link rel="stylesheet" href="https://eproc.jmtm.co.id/assets/boostrapnew/dist/css/bootstrap.min.css" type="text/css" media="all" />
+    <!-- dataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://eproc.jmtm.co.id/assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" media="all">
 
-    <!-- Styles -->
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>//assets/brand/jm1.png" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-    <!-- Or for RTL support -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+    <!-- select2 -->
+    <link rel="stylesheet" href="https://eproc.jmtm.co.id/assets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="https://eproc.jmtm.co.id/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" media="all">
+    <!-- custom -->
+    <!-- Sweetalert-->
+    <link href="https://eproc.jmtm.co.id/assets/sweetalert2/sweetalert2.min.css" rel="stylesheet" media="all">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css"> -->
+    <link href="https://eproc.jmtm.co.id/assets/datetimepicekernew/plugins/jquery.datetimepicker.min.css" rel="stylesheet" media="all">
+    <script src="https://eproc.jmtm.co.id/assets/js/sweetalert.min.js" media="all"></script>
 
+    <script type="text/javascript" src="https://eproc.jmtm.co.id/assets/boostrapnew/dist/js/jquery.min.js" media="all"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <meta name="theme-color" content="#7952b3">
-    <?php
-    function tgl_indo($tanggal)
-    {
-        $bulan = array(
-            1 => 'Januari',
-            'Februari',
-            'Maret',
-            'April',
-            'Mei',
-            'Juni',
-            'Juli',
-            'Agustus',
-            'September',
-            'Oktober',
-            'November',
-            'Desember'
-        );
-        $hari = array(
-            1 => 'Senin',
-            'Selasa',
-            'Rabu',
-            'Kamis',
-            'Jumat',
-            'Sabtu',
-            'Minggu'
-        );
-        $pecahkan = explode('-', $tanggal);
-
-        // Contoh tanggal 20 Maret 2016 adalah hari Minggu
-        $num = date(
-            'N',
-            strtotime($tanggal)
-        );
-        return $pecahkan[2]  . '-' . $bulan[(int) $pecahkan[1]] . '-' . $pecahkan[0];
-    }
-    ?>
-
-
-
-
-    <!-- Custom styles for this template -->
-    <!-- <link href="headers.css" rel="stylesheet"> -->
 </head>
+<?php
+function tgl_indo($tanggal)
+{
+    $bulan = array(
+        1 => 'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    );
+    $hari = array(
+        1 => 'Senin',
+        'Selasa',
+        'Rabu',
+        'Kamis',
+        'Jumat',
+        'Sabtu',
+        'Minggu'
+    );
+    $pecahkan = explode('-', $tanggal);
+
+    // Contoh tanggal 20 Maret 2016 adalah hari Minggu
+    $num = date(
+        'N',
+        strtotime($tanggal)
+    );
+    return $pecahkan[2]  . '-' . $bulan[(int) $pecahkan[1]] . '-' . $pecahkan[0];
+}
+?>
+
+
+
+
 
 <body style="font-size: 13px;">
     <div class="container mt-5">
@@ -122,7 +119,7 @@
                 <div class="col-md-8">
                     <b>Kepada Yth.</b>
                     <br>
-                    <b>Peserta Pra Kualifikasi Tender Umum/Terbatas</b>
+                    <b>Peserta Pra Kualifikasi <?= $rup['nama_metode_pengadaan'] ?></b>
                     <br>
                     <b><?= $rup['nama_rup'] ?></b>
                     <br>
@@ -134,7 +131,7 @@
 
             <div class="row mt-5">
                 <div class="col-md-12">
-                    Sehubungan dengan kegiatan Tender Umum dengan Pra Kualifikasi <b> Pengadaan <?= $rup['nama_rup'] ?>, </b> dengan ini kami mengundang Saudara untuk hadir dalam tahapan <b> Pembuktian Kualifikasi</b> yang akan diselenggarakan pada:
+                    Sehubungan dengan kegiatan <?= $rup['nama_metode_pengadaan'] ?> dengan Pra Kualifikasi <b> Pengadaan <?= $rup['nama_rup'] ?>, </b> dengan ini kami mengundang Saudara untuk hadir dalam tahapan <b> Pembuktian Kualifikasi</b> yang akan diselenggarakan pada:
                 </div>
             </div>
 
@@ -242,280 +239,24 @@
             </div>
         </div>
     </div>
-</body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/dist/js/bootstrap.bundle.min.js"></script>
-<!-- InputMask -->
-<script src="<?php echo base_url(); ?>assets/plugins/moment/moment.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/inputmask/jquery.inputmask.min.js"></script>
-<!-- DataTables  & Plugins -->
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/jszip/jszip.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/pdfmake/pdfmake.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/pdfmake/vfs_fonts.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- jQuery -->
-<!-- Select2 -->
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script>
-    $(function() {
-        $("#example1").DataTable({
-            "responsive": false,
-            "ordering": false,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false,
-            "responsive": false,
-        });
-    });
-</script>
-<script>
-    $(function() {
-        $('#example2').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false,
-            "responsive": false,
-        });
-    });
-</script>
-<script>
-    $(function() {
-        $("#example5").DataTable({
-            "responsive": false,
-            "ordering": false,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example5_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false,
-            "responsive": false,
-        });
-    });
-</script>
-<script>
-    $(function() {
-        $("#example7").DataTable({
-            "responsive": false,
-            "ordering": false,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example7_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false,
-            "responsive": false,
-        });
-    });
-</script>
-<script>
-    $(function() {
-        $("#example8").DataTable({
-            "responsive": false,
-            "ordering": false,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example8_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false,
-            "responsive": false,
-        });
-    });
-</script>
-<script>
-    $(function() {
-        //Money Euro
-        $('[data-mask]').inputmask()
-    });
-    $('.date-own').datepicker({
-        minViewMode: 2,
-        format: 'yyyy'
-    });
-</script>
+    <!-- Jquery -->
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="https://eproc.jmtm.co.id/assets/boostrapnew/dist/js/bootstrap.min.js" media="all"></script>
+    <!-- dataTables -->
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" media="all"></script>
+    <!-- select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" media="all"></script>
 
-<script type="text/javascript">
-    var rupiah = document.getElementById('rupiah');
-    rupiah.addEventListener('keyup', function(e) {
-        // tambahkan 'Rp.' pada saat form di ketik
-        // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-        rupiah.value = formatRupiah(this.value, 'Rp. ');
-    });
-    var rupiah1 = document.getElementById('rupiah1');
-    rupiah1.addEventListener('keyup', function(e) {
-        // tambahkan 'Rp.' pada saat form di ketik
-        // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-        rupiah1.value = formatRupiah(this.value, 'Rp. ');
-    });
-    var rupiah2 = document.getElementById('rupiah2');
-    rupiah2.addEventListener('keyup', function(e) {
-        // tambahkan 'Rp.' pada saat form di ketik
-        // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-        rupiah2.value = formatRupiah(this.value, 'Rp. ');
-    });
+    <!-- custom js -->
+    <script type="text/javascript" src="https://eproc.jmtm.co.id/assets/kintek.js" media="all"></script>
 
-
-    /* Fungsi formatRupiah */
-    function formatRupiah(angka, prefix) {
-        var number_string = angka.replace(/[^,\d]/g, '').toString(),
-            split = number_string.split(','),
-            sisa = split[0].length % 3,
-            rupiah = split[0].substr(0, sisa),
-            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-        // tambahkan titik jika yang di input sudah menjadi angka ribuan
-        if (ribuan) {
-            separator = sisa ? '.' : '';
-            rupiah += separator + ribuan.join('.');
-        }
-
-        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-        return prefix == undefined ? rupiah : (rupiah ? rupiah : '');
-    }
-</script>
-<script>
-    /* Tanpa Rupiah */
-    var tanpa_rupiah = document.getElementById('tanpa-rupiah');
-    tanpa_rupiah.addEventListener('keyup', function(e) {
-        tanpa_rupiah.value = formatRupiah(this.value);
-    });
-    var tanpa_rupiah1 = document.getElementById('tanpa-rupiah1');
-    tanpa_rupiah1.addEventListener('keyup', function(e) {
-        tanpa_rupiah1.value = formatRupiah(this.value);
-    });
-
-    var rupiahku = $('.rupiahku');
-    rupiahku.addEventListener('keyup', function(e) {
-        rupiahku.value = formatRupiah(this.value);
-    });
-
-    /* Dengan Rupiah */
-    var dengan_rupiah = document.getElementById('dengan-rupiah');
-    dengan_rupiah.addEventListener('keyup', function(e) {
-        dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
-    });
-
-    /* Fungsi */
-    function formatRupiah(angka, prefix) {
-        var number_string = angka.replace(/[^,\d]/g, '').toString(),
-            split = number_string.split(','),
-            sisa = split[0].length % 3,
-            rupiah = split[0].substr(0, sisa),
-            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-        if (ribuan) {
-            separator = sisa ? '.' : '';
-            rupiah += separator + ribuan.join('.');
-        }
-
-        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-    }
-</script>
-
-<script>
-    $("#multiple").select2({
-        placeholder: " Pilih Jenis Usaha...",
-        allowClear: true
-    });
-    $("#multiple2").select2({
-        placeholder: " Pilih Provinsi...",
-        allowClear: true
-    });
-    $("#multiple3").select2({
-        placeholder: " Pilih Kabupaten/Kota...",
-        allowClear: true
-    });
-    $("#multiple4").select2({
-        placeholder: " Pilih Kecamatan...",
-        allowClear: true
-    });
-    $("#multiple5").select2({
-        placeholder: " Pilih KBLI...",
-        allowClear: true
-    });
-
-    $('.single-select-field').select2({
-        theme: "bootstrap-5",
-        width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-        placeholder: $(this).data('placeholder'),
-    });
-</script>
-<script>
-    window.onload = function() {
-        jam();
-    }
-
-    function jam() {
-        var e = document.getElementById('jam'),
-            d = new Date(),
-            h, m, s;
-        h = d.getHours();
-        m = set(d.getMinutes());
-        s = set(d.getSeconds());
-
-        e.innerHTML = h + ':' + m + ':' + s;
-
-        setTimeout('jam()', 1000);
-    }
-
-    function set(e) {
-        e = e < 10 ? '0' + e : e;
-        return e;
-    }
-</script>
-
-<script>
-    function update_time_login() {
-        $.ajax({
-            url: '<?= base_url('auth/update_time') ?>',
-            type: 'post',
-            success: () => {
-
-            }
-        })
-    }
-
-    setTimeout(() => {
-        window.print()
-    }, 2000);
-</script>
+    <!-- datepicker -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js" integrity="sha512-ZrigzIl5MysuwHc2LaGI+uOLnLDdyYUth+pA5OuJC++WEleiYrztIc7nU/iBRWeP+ufmSGepuJULdgh/K0rIAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <script media="all" type="text/javascript" src="https://eproc.jmtm.co.id/assets/datetimepicekernew/plugins/jquery.datetimepicker.full.min.js"></script>
 </body>
 
 </html>
+<script>
+    window.print();
+</script>

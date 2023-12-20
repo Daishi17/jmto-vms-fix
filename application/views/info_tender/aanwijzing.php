@@ -404,11 +404,11 @@
                             <a class="nav-link active" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (PQ)</a>
                         </li>
                         <?php if ($rup['id_jadwal_tender'] == 1) { ?>
-                           
+
                         <?php  } else { ?>
                             <li class="nav-item">
-                            <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
-                        </li>
+                                <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
+                            </li>
                         <?php }
                         ?>
 
@@ -463,7 +463,7 @@
                             if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
                                 <li class="nav-item">
-                                    <a class="nav-link bg-primary text-white " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_prakualifikasi/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Prakualifikasi</a>
+                                    <a class="nav-link bg-primary text-white " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_prakualifikasi/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Kualifikasi</a>
                                 </li>
                             <?php    } else { ?>
                                 <!-- waktu Telah Selesai -->
@@ -474,7 +474,7 @@
 
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                                 <li class="nav-item">
-                                    <a class="nav-link bg-primary text-white " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_prakualifikasi/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Prakualifikasi</a>
+                                    <a class="nav-link bg-primary text-white " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_prakualifikasi/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Kualifikasi</a>
                                 </li>
                             <?php    } else { ?>
                                 <!-- Waktu Telah Berakhir -->
@@ -624,12 +624,21 @@
                                 if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
 
                                 <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                    <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
-                                    <div class="input-group-append">
-                                        <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
-                                    </div>
+                                    <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                                        <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                                        <div class="input-group-append">
+                                            <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+                                        </div>
+                                    <?php  } else { ?>
+                                        <textarea name="isi" class="form-control type_msg" placeholder="Maaf Anda Telah Gugur" disabled></textarea>
+                                        <div class="input-group-append">
+                                            <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+                                        </div>
+                                    <?php }
+                                    ?>
+
                                 <?php    } else { ?>
-                                    <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Dokumen Prakualifikasi Sudah Habis..."></textarea>
+                                    <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Dokumen Kualifikasi Sudah Habis..."></textarea>
                                     <div class="input-group-append">
                                     </div>
                                 <?php    } ?>
@@ -640,11 +649,19 @@
                                 if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
                                 <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                    <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
-                                    <div class="input-group-append">
-                                        <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+                                    <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                                        <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                                        <div class="input-group-append">
+                                            <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
 
-                                    </div>
+                                        </div>
+                                    <?php  } else { ?>
+                                        <textarea disabled name="isi" class="form-control type_msg" placeholder="Maaf Anda Telah Gugur"></textarea>
+                                        <div class="input-group-append">
+                                        </div>
+                                    <?php }
+                                    ?>
+
                                 <?php    } else { ?>
                                     <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Dokumen Pemilihan / Penawaran Sudah Habis..."></textarea>
                                     <div class="input-group-append">
@@ -686,7 +703,7 @@
                         <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-tambahan" type="button" role="tab" aria-controls="pills-tambahan" aria-selected="false">2. Evaluasi Persyaratan Tambahan</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-prakualifikasi" type="button" role="tab" aria-controls="pills-prakualifikasi" aria-selected="false">3. Evaluasi Nilai Prakualifikasi</button>
+                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-prakualifikasi" type="button" role="tab" aria-controls="pills-prakualifikasi" aria-selected="false">3. Evaluasi Nilai Kualifikasi</button>
                     </li>
 
                     <li class="nav-item" role="presentation">
@@ -767,14 +784,14 @@
                     <div class="tab-pane fade" id="pills-prakualifikasi" role="tabpanel" aria-labelledby="pills-contact-tab">
                         <div class="card">
                             <div class="card-header bg-primary text-white">
-                                Evaluasi Nilai Prakualifikasi
+                                Evaluasi Nilai Kualifikasi
                             </div>
                             <div class="card-body">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <th style="text-align: center; vertical-align: middle;">Nilai Prakualifikasi</th>
-                                            <th><input type="text" class="form-control" placeholder="Nilai Prakualifikasi"></th>
+                                            <th style="text-align: center; vertical-align: middle;">Nilai Kualifikasi</th>
+                                            <th><input type="text" class="form-control" placeholder="Nilai Kualifikasi"></th>
                                         </tr>
                                     </thead>
 

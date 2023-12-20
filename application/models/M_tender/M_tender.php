@@ -876,6 +876,8 @@ class M_tender extends CI_Model
         $this->db->from('tbl_vendor_syarat_tambahan');
         $this->db->where('tbl_vendor_syarat_tambahan.id_rup', $id_rup);
         $this->db->where('tbl_vendor_syarat_tambahan.id_vendor', $id_vendor);
+        // $this->db->order_by('tbl_vendor_syarat_tambahan.id_syarat_tambahan', 'DESC');
+        $this->db->group_by('tbl_vendor_syarat_tambahan.nama_syarat_tambahan');
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -1197,6 +1199,7 @@ class M_tender extends CI_Model
         } else {
             $this->db->order_by('tbl_vendor_mengikuti_paket.id_vendor_mengikuti_paket', 'DESC');
         }
+        $this->db->group_by('tbl_rup.id_rup');
     }
 
     public function gettable_terbatas($id_vendor) //nam[ilin data pake ini
@@ -1279,6 +1282,7 @@ class M_tender extends CI_Model
         } else {
             $this->db->order_by('tbl_vendor_mengikuti_paket.id_vendor_mengikuti_paket', 'DESC');
         }
+        $this->db->group_by('tbl_rup.id_rup');
     }
 
     public function gettable_terbatas_diikuti($id_vendor) //nam[ilin data pake ini

@@ -120,7 +120,7 @@
                                 '<td><a href="" target="_blank" onclick="download_file_syarat_tambahan(' + response['syarat_tambahan'][i].id_vendor_syarat_tambahan + ')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Download File </a></td>' +
                                 '<td><small>' + keterangan + '</small></td>' +
                                 '<td><small>' + status_dicek + '</small></td>' +
-                                '<td><a href="javascript:;" class="btn btn-sm btn-danger"><i class="fas fa fa-secondary"></i> Waktu Telah Berakhir </a></td>' +
+                                '<td><a href="javascript:;" class="btn btn-sm btn-danger"><i class="fas fa fa-secondary"></i> Tahap Sudah Selesai </a></td>' +
                                 '</tr>';
                         <?php  } ?>
                     <?php } else { ?>
@@ -141,7 +141,7 @@
                                 '<td><a href="" target="_blank" onclick="download_file_syarat_tambahan(' + response['syarat_tambahan'][i].id_vendor_syarat_tambahan + ')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Download File </a></td>' +
                                 '<td><small>' + keterangan + '</small></td>' +
                                 '<td><small>' + status_dicek + '</small></td>' +
-                                '<td><a href="javascript:;" class="btn btn-sm btn-danger"><i class="fas fa fa-secondary"></i> Waktu Telah Berakhir </a></td>' +
+                                '<td><a href="javascript:;" class="btn btn-sm btn-danger"><i class="fas fa fa-secondary"></i> Tahap Sudah Selesai </a></td>' +
                                 '</tr>';
                         <?php  } ?>
                     <?php } ?>

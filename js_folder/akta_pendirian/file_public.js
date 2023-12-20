@@ -102,7 +102,7 @@ form_akta_pendirian.on('submit', function(e) {
     var url_post = $('[name="url_post"]').val()
     var file_dokumen = $('[name="file_dokumen"]').val()
     var file_dok_kumham_pendirian = $('[name="file_dok_kumham_pendirian"]').val()
-    if (file_dokumen == '' && file_dok_kumham_pendirian == '') {
+    if (file_dokumen == '' || file_dok_kumham_pendirian == '') {
       e.preventDefault();
       Swal.fire({
           icon: 'error',

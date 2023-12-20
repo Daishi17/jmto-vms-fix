@@ -166,17 +166,23 @@
                                     <td>
                                         <div class="row">
                                             <div class="col-md-5">
-                                                <?= $rup['hari_isi_pengumuman_hasil_kualifikasi_mulai'] ?>, <?= $rup['tanggal_isi_pengumuman_hasil_kualifikasi_mulai'] ?>
+                                                <!-- <?= $rup['hari_isi_pengumuman_hasil_kualifikasi_mulai'] ?>, <?= $rup['tanggal_isi_pengumuman_hasil_kualifikasi_mulai'] ?>
                                                 <br>
-                                                <?= $rup['pukul_isi_pengumuman_hasil_kualifikasi_mulai'] ?>
+                                                <?= $rup['pukul_isi_pengumuman_hasil_kualifikasi_mulai'] ?> -->
+                                                <?= date('d-m-Y', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) ?>
+                                                &ensp;
+                                                S/D
+                                                &ensp;
+                                                <?= date('d-m-Y', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) ?>
                                             </div>
-                                            <div class="col-md-2">
-                                                SD
+                                            <div class="col-md-1">
+                                               
                                             </div>
                                             <div class="col-md-5">
-                                                <?= $rup['hari_isi_pengumuman_hasil_kualifikasi_selesai'] ?>, <?= $rup['tanggal_isi_pengumuman_hasil_kualifikasi_selesai'] ?>
+                                                <!-- <?= $rup['hari_isi_pengumuman_hasil_kualifikasi_selesai'] ?>, <?= $rup['tanggal_isi_pengumuman_hasil_kualifikasi_selesai'] ?>
                                                 <br>
-                                                <?= $rup['pukul_isi_pengumuman_hasil_kualifikasi_selesai'] ?>
+                                                <?= $rup['pukul_isi_pengumuman_hasil_kualifikasi_selesai'] ?> -->
+                                             
                                             </div>
                                         </div>
 

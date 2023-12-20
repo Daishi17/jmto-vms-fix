@@ -396,8 +396,7 @@ class Datapenyedia extends CI_Controller
 				$response = [
 					'row_nib' => $this->M_datapenyedia->get_row_nib($id_vendor),
 				];
-				if ($row_nib['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_nib['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_nib['id_dokumen_perubahan']
 					];
@@ -440,8 +439,7 @@ class Datapenyedia extends CI_Controller
 				];
 				// INI UNTUK UPDATE DOKUMEN PENGAJUAN PERUBAHAN
 				// nib
-				if ($row_nib['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_nib['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_nib['id_dokumen_perubahan']
 					];
@@ -835,8 +833,7 @@ class Datapenyedia extends CI_Controller
 					'row_siup' => $this->M_datapenyedia->get_row_siup($id_vendor),
 				];
 
-				if ($row_siup['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_siup['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_siup['id_dokumen_perubahan']
 					];
@@ -878,8 +875,7 @@ class Datapenyedia extends CI_Controller
 				$response = [
 					'row_siup' => $this->M_datapenyedia->get_row_siup($id_vendor),
 				];
-				if ($row_siup['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_siup['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_siup['id_dokumen_perubahan']
 					];
@@ -1261,8 +1257,7 @@ class Datapenyedia extends CI_Controller
 					'row_siujk' => $this->M_datapenyedia->get_row_siujk($id_vendor),
 				];
 				// siujk
-				if ($row_siujk['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_siujk['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_siujk['id_dokumen_perubahan']
 					];
@@ -1308,8 +1303,7 @@ class Datapenyedia extends CI_Controller
 				];
 
 				// siujk
-				if ($row_siujk['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_siujk['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_siujk['id_dokumen_perubahan']
 					];
@@ -1690,8 +1684,7 @@ class Datapenyedia extends CI_Controller
 					'row_sbu' => $this->M_datapenyedia->get_row_sbu($id_vendor),
 				];
 				// sbu
-				if ($row_sbu['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_sbu['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_sbu['id_dokumen_perubahan']
 					];
@@ -1737,8 +1730,7 @@ class Datapenyedia extends CI_Controller
 				];
 
 				// sbu
-				if ($row_sbu['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_sbu['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_sbu['id_dokumen_perubahan']
 					];
@@ -2155,8 +2147,7 @@ class Datapenyedia extends CI_Controller
 			$response = [
 				'row_akta' => $this->M_datapenyedia->get_row_akta_pendirian($id_vendor),
 			];
-			if ($row_akta_pendirian['id_dokumen_perubahan'] == NULL) {
-			} else {
+			if ($row_akta_pendirian['id_dokumen_perubahan'] == NULL) { } else {
 				$where_pengajuan = [
 					'id_dokumen_perubahan' => $row_akta_pendirian['id_dokumen_perubahan']
 				];
@@ -2421,8 +2412,7 @@ class Datapenyedia extends CI_Controller
 				'row_akta' => $this->M_datapenyedia->get_row_akta_perubahan($id_vendor),
 			];
 
-			if ($row_akta_perubahan['id_dokumen_perubahan'] == NULL) {
-			} else {
+			if ($row_akta_perubahan['id_dokumen_perubahan'] == NULL) { } else {
 				$where_pengajuan = [
 					'id_dokumen_perubahan' => $row_akta_perubahan['id_dokumen_perubahan']
 				];
@@ -4538,8 +4528,7 @@ class Datapenyedia extends CI_Controller
 				$response = [
 					'row_sppkp' => $this->M_datapenyedia->get_row_sppkp($id_vendor),
 				];
-				if ($row_sppkp['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_sppkp['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_sppkp['id_dokumen_perubahan']
 					];
@@ -4579,8 +4568,7 @@ class Datapenyedia extends CI_Controller
 					'row_sppkp' => $this->M_datapenyedia->get_row_sppkp($id_vendor),
 				];
 
-				if ($row_sppkp['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_sppkp['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_sppkp['id_dokumen_perubahan']
 					];
@@ -4779,8 +4767,7 @@ class Datapenyedia extends CI_Controller
 				$response = [
 					'row_npwp' => $this->M_datapenyedia->get_row_npwp($id_vendor),
 				];
-				if ($row_npwp['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_npwp['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_npwp['id_dokumen_perubahan']
 					];
@@ -4826,8 +4813,7 @@ class Datapenyedia extends CI_Controller
 					'row_npwp' => $this->M_datapenyedia->get_row_npwp($id_vendor),
 				];
 
-				if ($row_npwp['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_npwp['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_npwp['id_dokumen_perubahan']
 					];
@@ -5751,8 +5737,7 @@ class Datapenyedia extends CI_Controller
 				];
 
 				// skdp
-				if ($row_skdp['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_skdp['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_skdp['id_dokumen_perubahan']
 					];
@@ -5785,8 +5770,7 @@ class Datapenyedia extends CI_Controller
 				];
 
 				// skdp
-				if ($row_skdp['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_skdp['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_skdp['id_dokumen_perubahan']
 					];
@@ -6170,8 +6154,7 @@ class Datapenyedia extends CI_Controller
 					'row_lainnya' => $this->M_datapenyedia->get_row_lainnya($id_vendor),
 				];
 				// lainnya
-				if ($row_lainnya['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_lainnya['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_lainnya['id_dokumen_perubahan']
 					];
@@ -6204,8 +6187,7 @@ class Datapenyedia extends CI_Controller
 				];
 
 				// lainnya
-				if ($row_lainnya['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_lainnya['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_lainnya['id_dokumen_perubahan']
 					];

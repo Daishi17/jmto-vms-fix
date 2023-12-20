@@ -1000,8 +1000,7 @@ class M_datapenyedia extends CI_Model
             foreach ($cek_table as $key => $value) {
                 $this->db->where('nik !=', '' . $value['nik'] . '');
             }
-        } else {
-        }
+        } else { }
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -1015,8 +1014,7 @@ class M_datapenyedia extends CI_Model
             foreach ($cek_table2 as $key => $valu2) {
                 $this->db->or_where('nik', '' . $valu2['nik'] . '');
             }
-        } else {
-        }
+        } else { }
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -1324,8 +1322,7 @@ class M_datapenyedia extends CI_Model
             foreach ($cek_table as $key => $value) {
                 $this->db->where('nik !=', '' . $value['nik'] . '');
             }
-        } else {
-        }
+        } else { }
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -1339,8 +1336,7 @@ class M_datapenyedia extends CI_Model
             foreach ($cek_table2 as $key => $valu2) {
                 $this->db->or_where('nik', '' . $valu2['nik'] . '');
             }
-        } else {
-        }
+        } else { }
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -1386,7 +1382,7 @@ class M_datapenyedia extends CI_Model
         return $this->db->affected_rows();
     }
 
-    var $order_pengalaman =  array('id_vendor', 'no_kontrak', 'nama_pekerjaan', 'id_jenis_usaha', 'tanggal_kontrak', 'instansi_pemberi', 'nilai_kontrak', 'id_vendor', 'id_vendor');
+    var $order_pengalaman =  array('id_vendor', 'nama_pekerjaan', 'instansi_pemberi', 'tanggal_kontrak', 'tanggal_kontrak', 'instansi_pemberi', 'nilai_kontrak', 'id_vendor', 'id_vendor', 'id_vendor');
 
     private function _get_data_query_pengalaman_manjerial($id_vendor)
     {
@@ -1395,7 +1391,7 @@ class M_datapenyedia extends CI_Model
         $this->db->where('tbl_vendor_pengalaman.id_vendor', $id_vendor);
         $this->db->order_by('tbl_vendor_pengalaman.id_pengalaman', 'DESC');
         $i = 0;
-        foreach ($this->order_nib as $item) // looping awal
+        foreach ($this->order_pengalaman as $item) // looping awal
         {
             if ($_POST['search']['value']) // jika datatable mengirimkan pencarian dengan metode POST
             {
@@ -1419,7 +1415,7 @@ class M_datapenyedia extends CI_Model
         if (isset($_POST['order'])) {
             $this->db->order_by($this->order_pengalaman[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
         } else {
-            $this->db->order_by('tbl_vendor_pengalaman.id_vendor', 'DESC');
+            $this->db->order_by('tbl_vendor_pengalaman.id_pengalaman', 'DESC');
         }
     }
 
@@ -1617,8 +1613,7 @@ class M_datapenyedia extends CI_Model
             foreach ($cek_table as $key => $value) {
                 $this->db->where('no_kontrak !=', '' . $value['no_kontrak'] . '');
             }
-        } else {
-        }
+        } else { }
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -1632,8 +1627,7 @@ class M_datapenyedia extends CI_Model
             foreach ($cek_table2 as $key => $valu2) {
                 $this->db->or_where('no_kontrak', '' . $valu2['no_kontrak'] . '');
             }
-        } else {
-        }
+        } else { }
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -2613,5 +2607,4 @@ class M_datapenyedia extends CI_Model
         $this->db->update('tbl_vendor', $data, $where);
         return $this->db->affected_rows();
     }
-
 }
