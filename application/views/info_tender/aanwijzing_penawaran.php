@@ -404,20 +404,22 @@
                             <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (PQ)</a>
                         </li>
                         <?php if ($rup['id_jadwal_tender'] == 1) { ?>
-                           
-                           <?php  } else { ?>
-                               <li class="nav-item">
-                               <a class="nav-link active text-dark" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
-                           </li>
-                           <?php }
-                           ?>
+                            <li class="nav-item">
+                                <a class="nav-link active text-dark" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
+                            </li>
+                        <?php  } else { ?>
+                            <li class="nav-item">
+                                <a class="nav-link active text-dark" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
+                            </li>
+                        <?php }
+                        ?>
                         <?php if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                             <?php $date2 = $jadwal_aanwijzing['waktu_selesai'];
                             if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
                                 <!-- <li class="nav-item">
-                                                                                                                                                    <a class="nav-link active" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (PQ)</a>
-                                                                                                                                                </li> -->
+                                                                                                                                                                    <a class="nav-link active" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (PQ)</a>
+                                                                                                                                                                </li> -->
                             <?php    } else { ?>
 
                             <?php    } ?>
@@ -632,45 +634,45 @@
                             <?php if ($get_row_mengikuti['ev_kualifikasi_akhir'] >= 60) { ?>
                                 <?php if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
 
-<?php $date2 = $jadwal_aanwijzing['waktu_selesai'];
-$date20 = new DateTime($date2);
-$date_plus20 = $date20->modify("+3 hours");
-if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
+                                    <?php $date2 = $jadwal_aanwijzing['waktu_selesai'];
+                                    $date20 = new DateTime($date2);
+                                    $date_plus20 = $date20->modify("+3 hours");
+                                    if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
 
-<?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-    <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
-    <div class="input-group-append">
-        <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
-    </div>
-<?php    } else { ?>
-    <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Dokumen Prakualifikasi Sudah Habis..."></textarea>
-    <div class="input-group-append">
-    </div>
-<?php    } ?>
-<?php } else { ?>
-<?php $date1 = $jadwal_aanwijzing['waktu_selesai'];
-$date = new DateTime($date1);
-$date_plus = $date->modify("+3 hours");
-if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                                    <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
+                                        <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                                        <div class="input-group-append">
+                                            <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+                                        </div>
+                                    <?php    } else { ?>
+                                        <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Dokumen Prakualifikasi Sudah Habis..."></textarea>
+                                        <div class="input-group-append">
+                                        </div>
+                                    <?php    } ?>
+                                <?php } else { ?>
+                                    <?php $date1 = $jadwal_aanwijzing['waktu_selesai'];
+                                    $date = new DateTime($date1);
+                                    $date_plus = $date->modify("+3 hours");
+                                    if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
-<?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-    <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
-    <div class="input-group-append">
-        <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+                                    <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                        <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                                        <div class="input-group-append">
+                                            <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
 
-    </div>
-<?php    } else { ?>
-    <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Dokumen Pemilihan / Penawaran Sudah Habis..."></textarea>
-    <div class="input-group-append">
-    </div>
-<?php    } ?>
-<?php } ?>
-                           <?php } else { ?>
-                            <textarea disabled name="isi" class="form-control type_msg" placeholder="Anda Telah Gugur Dalam Pengadaan Ini"></textarea>
-    <div class="input-group-append">
-    </div>
+                                        </div>
+                                    <?php    } else { ?>
+                                        <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Dokumen Pemilihan / Penawaran Sudah Habis..."></textarea>
+                                        <div class="input-group-append">
+                                        </div>
+                                    <?php    } ?>
+                                <?php } ?>
+                            <?php } else { ?>
+                                <textarea disabled name="isi" class="form-control type_msg" placeholder="Anda Telah Gugur Dalam Pengadaan Ini"></textarea>
+                                <div class="input-group-append">
+                                </div>
                             <?php }  ?>
-                          
+
                         </div>
                     </form>
                 </div>

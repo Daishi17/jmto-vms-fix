@@ -404,7 +404,9 @@
                             <a class="nav-link active" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (PQ)</a>
                         </li>
                         <?php if ($rup['id_jadwal_tender'] == 1) { ?>
-
+                            <li class="nav-item">
+                                <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
+                            </li>
                         <?php  } else { ?>
                             <li class="nav-item">
                                 <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
@@ -566,11 +568,161 @@
                                 <a href="javascript:;" class="float-right" onclick="hapus_data_file()">X</a>
                             </div>
                         </div>
-                        <div class="input-group">
-                            <input type="hidden" name="id_pengirim" id="id_pengirim" value="<?= $this->session->userdata('id_vendor'); ?>">
-                            <input type="hidden" name="id_rup" value="<?= $rup['id_rup'] ?>">
-                            <div class="input-group-append">
+                        <?php if ($rup['id_jadwal_tender'] == 1) { ?>
+                            <div class="input-group">
+                                <input type="hidden" name="id_pengirim" id="id_pengirim" value="<?= $this->session->userdata('id_vendor'); ?>">
+                                <input type="hidden" name="id_rup" value="<?= $rup['id_rup'] ?>">
+                                <div class="input-group-append">
 
+                                    <?php if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+
+                                        <?php $date2 = $jadwal_dokumen_kualifikasi['waktu_selesai'];
+                                        $date20 = new DateTime($date2);
+                                        $date_plus20 = $date20->modify("+3 hours");
+                                        if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
+
+                                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
+                                            <div class="input-group-text attach_btn">
+                                                <button class="btn btn-danger btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file').click();"><i class="fas fa-paperclip"></i></button>
+                                                <br>
+                                                <button class="btn btn-primary btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file_img').click();"><i class="fas fa-camera-retro"></i></button>
+                                            </div>
+                                        <?php    } else { ?>
+                                            <div class="input-group-text attach_btn">
+                                                <button disabled class="btn btn-danger btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file').click();"><i class="fas fa-paperclip"></i></button>
+                                                <br>
+                                                <button disabled class="btn btn-primary btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file_img').click();"><i class="fas fa-camera-retro"></i></button>
+                                            </div>
+                                        <?php    } ?>
+                                    <?php } else { ?>
+                                        <?php $date1 = $jadwal_dokumen_kualifikasi['waktu_selesai'];
+                                        $date = new DateTime($date1);
+                                        $date_plus = $date->modify("+3 hours");
+                                        if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+
+                                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                            <div class="input-group-text attach_btn">
+                                                <button class="btn btn-danger btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file').click();"><i class="fas fa-paperclip"></i></button>
+                                                <br>
+                                                <button class="btn btn-primary btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file_img').click();"><i class="fas fa-camera-retro"></i></button>
+                                            </div>
+                                        <?php    } else { ?>
+                                            <div class="input-group-text attach_btn">
+                                                <button disabled class="btn btn-danger btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file').click();"><i class="fas fa-paperclip"></i></button>
+                                                <br>
+                                                <button disabled class="btn btn-primary btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file_img').click();"><i class="fas fa-camera-retro"></i></button>
+                                            </div>
+                                        <?php    } ?>
+                                    <?php } ?>
+
+
+                                    <input type="file" style="display:none;" id="file" name="dokumen_chat" />
+                                    <input type="file" style="display:none;" id="file_img" name="img_chat" />
+                                </div>
+                                <?php if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+
+                                    <?php $date2 = $jadwal_dokumen_kualifikasi['waktu_selesai'];
+                                    $date20 = new DateTime($date2);
+                                    $date_plus20 = $date20->modify("+3 hours");
+                                    if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
+
+                                    <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
+                                        <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                                            <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                                            <div class="input-group-append">
+                                                <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+                                            </div>
+                                        <?php  } else { ?>
+                                            <textarea name="isi" class="form-control type_msg" placeholder="Maaf Anda Telah Gugur" disabled></textarea>
+                                            <div class="input-group-append">
+                                                <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+                                            </div>
+                                        <?php }
+                                        ?>
+
+                                    <?php    } else { ?>
+                                        <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Dokumen Kualifikasi Sudah Habis..."></textarea>
+                                        <div class="input-group-append">
+                                        </div>
+                                    <?php    } ?>
+                                <?php } else { ?>
+                                    <?php $date1 = $jadwal_dokumen_kualifikasi['waktu_selesai'];
+                                    $date = new DateTime($date1);
+                                    $date_plus = $date->modify("+3 hours");
+                                    if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+
+                                    <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                        <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                                            <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                                            <div class="input-group-append">
+                                                <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+
+                                            </div>
+                                        <?php  } else { ?>
+                                            <textarea disabled name="isi" class="form-control type_msg" placeholder="Maaf Anda Telah Gugur"></textarea>
+                                            <div class="input-group-append">
+                                            </div>
+                                        <?php }
+                                        ?>
+
+                                    <?php    } else { ?>
+                                        <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Sudah Berakhir"></textarea>
+                                        <div class="input-group-append">
+                                        </div>
+                                    <?php    } ?>
+                                <?php } ?>
+                            </div>
+                        <?php } else { ?>
+                            <div class="input-group">
+                                <input type="hidden" name="id_pengirim" id="id_pengirim" value="<?= $this->session->userdata('id_vendor'); ?>">
+                                <input type="hidden" name="id_rup" value="<?= $rup['id_rup'] ?>">
+                                <div class="input-group-append">
+
+                                    <?php if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+
+                                        <?php $date2 = $jadwal_aanwijzing_pq['waktu_selesai'];
+                                        $date20 = new DateTime($date2);
+                                        $date_plus20 = $date20->modify("+3 hours");
+                                        if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
+
+                                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
+                                            <div class="input-group-text attach_btn">
+                                                <button class="btn btn-danger btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file').click();"><i class="fas fa-paperclip"></i></button>
+                                                <br>
+                                                <button class="btn btn-primary btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file_img').click();"><i class="fas fa-camera-retro"></i></button>
+                                            </div>
+                                        <?php    } else { ?>
+                                            <div class="input-group-text attach_btn">
+                                                <button disabled class="btn btn-danger btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file').click();"><i class="fas fa-paperclip"></i></button>
+                                                <br>
+                                                <button disabled class="btn btn-primary btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file_img').click();"><i class="fas fa-camera-retro"></i></button>
+                                            </div>
+                                        <?php    } ?>
+                                    <?php } else { ?>
+                                        <?php $date1 = $jadwal_aanwijzing_pq['waktu_selesai'];
+                                        $date = new DateTime($date1);
+                                        $date_plus = $date->modify("+3 hours");
+                                        if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+
+                                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                            <div class="input-group-text attach_btn">
+                                                <button class="btn btn-danger btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file').click();"><i class="fas fa-paperclip"></i></button>
+                                                <br>
+                                                <button class="btn btn-primary btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file_img').click();"><i class="fas fa-camera-retro"></i></button>
+                                            </div>
+                                        <?php    } else { ?>
+                                            <div class="input-group-text attach_btn">
+                                                <button disabled class="btn btn-danger btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file').click();"><i class="fas fa-paperclip"></i></button>
+                                                <br>
+                                                <button disabled class="btn btn-primary btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file_img').click();"><i class="fas fa-camera-retro"></i></button>
+                                            </div>
+                                        <?php    } ?>
+                                    <?php } ?>
+
+
+                                    <input type="file" style="display:none;" id="file" name="dokumen_chat" />
+                                    <input type="file" style="display:none;" id="file_img" name="img_chat" />
+                                </div>
                                 <?php if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
 
                                     <?php $date2 = $jadwal_aanwijzing_pq['waktu_selesai'];
@@ -579,16 +731,22 @@
                                     if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
 
                                     <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                        <div class="input-group-text attach_btn">
-                                            <button class="btn btn-danger btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file').click();"><i class="fas fa-paperclip"></i></button>
-                                            <br>
-                                            <button class="btn btn-primary btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file_img').click();"><i class="fas fa-camera-retro"></i></button>
-                                        </div>
+                                        <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                                            <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                                            <div class="input-group-append">
+                                                <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+                                            </div>
+                                        <?php  } else { ?>
+                                            <textarea name="isi" class="form-control type_msg" placeholder="Maaf Anda Telah Gugur" disabled></textarea>
+                                            <div class="input-group-append">
+                                                <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+                                            </div>
+                                        <?php }
+                                        ?>
+
                                     <?php    } else { ?>
-                                        <div class="input-group-text attach_btn">
-                                            <button disabled class="btn btn-danger btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file').click();"><i class="fas fa-paperclip"></i></button>
-                                            <br>
-                                            <button disabled class="btn btn-primary btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file_img').click();"><i class="fas fa-camera-retro"></i></button>
+                                        <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Dokumen Kualifikasi Sudah Habis..."></textarea>
+                                        <div class="input-group-append">
                                         </div>
                                     <?php    } ?>
                                 <?php } else { ?>
@@ -598,77 +756,28 @@
                                     if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
                                     <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                        <div class="input-group-text attach_btn">
-                                            <button class="btn btn-danger btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file').click();"><i class="fas fa-paperclip"></i></button>
-                                            <br>
-                                            <button class="btn btn-primary btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file_img').click();"><i class="fas fa-camera-retro"></i></button>
-                                        </div>
+                                        <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                                            <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                                            <div class="input-group-append">
+                                                <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
+
+                                            </div>
+                                        <?php  } else { ?>
+                                            <textarea disabled name="isi" class="form-control type_msg" placeholder="Maaf Anda Telah Gugur"></textarea>
+                                            <div class="input-group-append">
+                                            </div>
+                                        <?php }
+                                        ?>
+
                                     <?php    } else { ?>
-                                        <div class="input-group-text attach_btn">
-                                            <button disabled class="btn btn-danger btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file').click();"><i class="fas fa-paperclip"></i></button>
-                                            <br>
-                                            <button disabled class="btn btn-primary btn-md btn-block" type="button" id="loadFileXml" value="loadXml" onclick="document.getElementById('file_img').click();"><i class="fas fa-camera-retro"></i></button>
+                                        <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Sudah Berakhir"></textarea>
+                                        <div class="input-group-append">
                                         </div>
                                     <?php    } ?>
                                 <?php } ?>
-
-
-                                <input type="file" style="display:none;" id="file" name="dokumen_chat" />
-                                <input type="file" style="display:none;" id="file_img" name="img_chat" />
                             </div>
-                            <?php if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                        <?php  }  ?>
 
-                                <?php $date2 = $jadwal_aanwijzing_pq['waktu_selesai'];
-                                $date20 = new DateTime($date2);
-                                $date_plus20 = $date20->modify("+3 hours");
-                                if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
-
-                                <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                    <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
-                                        <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
-                                        <div class="input-group-append">
-                                            <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
-                                        </div>
-                                    <?php  } else { ?>
-                                        <textarea name="isi" class="form-control type_msg" placeholder="Maaf Anda Telah Gugur" disabled></textarea>
-                                        <div class="input-group-append">
-                                            <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
-                                        </div>
-                                    <?php }
-                                    ?>
-
-                                <?php    } else { ?>
-                                    <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Dokumen Kualifikasi Sudah Habis..."></textarea>
-                                    <div class="input-group-append">
-                                    </div>
-                                <?php    } ?>
-                            <?php } else { ?>
-                                <?php $date1 = $jadwal_aanwijzing_pq['waktu_selesai'];
-                                $date = new DateTime($date1);
-                                $date_plus = $date->modify("+3 hours");
-                                if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
-
-                                <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                    <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
-                                        <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
-                                        <div class="input-group-append">
-                                            <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
-
-                                        </div>
-                                    <?php  } else { ?>
-                                        <textarea disabled name="isi" class="form-control type_msg" placeholder="Maaf Anda Telah Gugur"></textarea>
-                                        <div class="input-group-append">
-                                        </div>
-                                    <?php }
-                                    ?>
-
-                                <?php    } else { ?>
-                                    <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Dokumen Pemilihan / Penawaran Sudah Habis..."></textarea>
-                                    <div class="input-group-append">
-                                    </div>
-                                <?php    } ?>
-                            <?php } ?>
-                        </div>
                     </form>
                 </div>
             </div>
