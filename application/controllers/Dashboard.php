@@ -99,31 +99,30 @@ class Dashboard extends CI_Controller
         $data['count_validate'] = $cek_siup + $cek_kbli_siup + $cek_nib + $cek_kbli_nib + $cek_sbu + $cek_kbli_sbu + $cek_akta_pendirian + $cek_pemilik + $cek_pengurus + $cek_pengalaman + $cek_sppkp + $cek_npwp + $cek_spt + $cek_neraca_keuangan + $cek_keuangan;
 
         // $row_siup = $this->M_dashboard->cek_vendor_siup_dokumen($id_vendor);
-        // $expiredDate = date('Y-m-d', strtotime($row_siup['tgl_berlaku'])); // Ganti dengan tanggal expired yang sesuai
+        // // Mendefinisikan tanggal kedaluwarsa dokumen (ganti dengan tanggal yang sesuai)
+        // $expiredDate = new DateTime('2022-01-01');
 
         // // Mendapatkan tanggal hari ini
-        // $currentDate = date('Y-m-d');
+        // $currentDate = new DateTime();
 
-        // // Menghitung selisih waktu antara tanggal expired dan tanggal hari ini dalam detik
-        // $timeDifference = $expiredDate - $currentDate;
+        // // Menghitung selisih waktu antara tanggal kedaluwarsa dan tanggal hari ini
+        // $interval = date_diff($currentDate, $expiredDate);
 
+        // // Mendapatkan jumlah bulan dan minggu dari selisih waktu
+        // $monthsDifference = $interval->format('%m');
+        // $weeksDifference = floor($interval->days / 7);
 
-        // $daysDifference = floor($timeDifference / (60 * 60 * 24));
-        // $monthsDifference = floor($timeDifference / (60 * 60 * 24 * 30));
-        // $weeksDifference = floor($timeDifference / (60 * 60 * 24 * 7));
-
+        // // Cek kondisi dokumen
         // if ($monthsDifference >= 3) {
-        //     var_dump("Dokumen Kurang Dari 3 Bulan Ini Akan Berakhir Masa Berlakunya.");
-        //     die;
+        //     var_dump("Dokumen masih berlaku lebih dari 3 bulan.");die;
+        // } elseif ($monthsDifference >= 1 && $weeksDifference >= 1) {
+        //     var_dump("Dokumen berlaku antara 1 bulan dan 1 minggu.");die;
         // } elseif ($monthsDifference >= 1) {
-        //     var_dump("Dokumen Kurang Dari 1 Bulan Ini Akan Berakhir Masa Berlakunya.");
-        //     die;
+        //     var_dump("Dokumen berlaku lebih dari 1 bulan, tapi kurang dari 3 bulan.");die;
         // } elseif ($weeksDifference >= 1) {
-        //     var_dump("Dokumen Kurang Dari 1 Minggu Ini Akan Berakhir Masa Berlakunya.");
-        //     die;
+        //     var_dump("Dokumen berlaku kurang dari 1 bulan, tapi lebih dari 1 minggu.");die;
         // } else {
-        //     var_dump("Dokumen kedaluwarsa.");
-        //     die;
+        //     var_dump("Dokumen kedaluwarsa atau berlaku kurang dari 1 minggu.");die;
         // }
 
         $this->load->view('template_menu/header_menu', $data);

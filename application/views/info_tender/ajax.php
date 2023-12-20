@@ -1,5 +1,6 @@
 <script>
     load_syarat_tambahan()
+
     function zeros(i) {
         if (i < 10) {
             return "0" + i;
@@ -7,6 +8,7 @@
             return i;
         }
     }
+
     function lihat_detail_jadwal(id_url_rup) {
         var url_detail_paket = $('[name="url_detail_paket"]').val();
         var modal_detail_jadwal = $('#modal_detail_jadwal')
@@ -40,7 +42,7 @@
                         var check = '<i class="fa fa-check text-success" aria-hidden="true"></i>';
                         var status_waktu = '<small><span class="badge bg-success"><i class="fa fa-clock" aria-hidden="true"></i> Tahap Sudah Selesai </span></small>';
                     }
-                    
+
                     if (response['jadwal'][i].alasan) {
                         var alasan = response['jadwal'][i].alasan
                     } else {
@@ -102,8 +104,8 @@
                         }
                     }
                     <?php if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                    <?php $date2 = $jadwal_upload_dokumen_prakualifikasi['waktu_selesai']; ?>
-                    <?php if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
+                        <?php $date2 = $jadwal_upload_dokumen_prakualifikasi['waktu_selesai']; ?>
+                        <?php if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
                         <?php  } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
                             html += '<tr>' +
                                 '<td><small>' + no++ + '</small></td>' +
@@ -134,8 +136,8 @@
                                 '<td><small>' + status_dicek + '</small></td>' +
                                 '<td><a href="javascript:;"  onclick="delete_syarat_tambahan(\'' + response['syarat_tambahan'][i].id_vendor_syarat_tambahan + '\'' + ',' + '\'' + response['syarat_tambahan'][i].nama_syarat_tambahan + '\')" class="btn btn-sm btn-danger"><i class="fas fa fa-trash"></i> Hapus </a></td>' +
                                 '</tr>';
-                        <?php  } else { ?> 
-                                html += '<tr>' +
+                        <?php  } else { ?>
+                            html += '<tr>' +
                                 '<td><small>' + no++ + '</small></td>' +
                                 '<td><small>' + response['syarat_tambahan'][i].nama_syarat_tambahan + '</small></td>' +
                                 '<td><a href="" target="_blank" onclick="download_file_syarat_tambahan(' + response['syarat_tambahan'][i].id_vendor_syarat_tambahan + ')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Download File </a></td>' +
@@ -324,46 +326,48 @@
             },
             dataType: "JSON",
             success: function(response) {
+                var no = 1;
                 var html = '';
-                if (response['row_sanggahan_pra'].ket_sanggah_pra) {
-                    var ket_sanggah_pra = response['row_sanggahan_pra'].ket_sanggah_pra
-                } else {
-                    var ket_sanggah_pra = '-'
-                }
+                for (i = 0; i < response['row_sanggahan_pra'].length; i++) {
+                    if (response['row_sanggahan_pra'][i].ket_sanggah_pra) {
+                        var ket_sanggah_pra = response['row_sanggahan_pra'][i].ket_sanggah_pra
+                    } else {
+                        var ket_sanggah_pra = '-'
+                    }
 
-                if (response['row_sanggahan_pra'].file_sanggah_pra) {
-                    var file_sanggah_pra = '<a target="_blank" href="' + url_open_sanggahan_pra + response['row_sanggahan_pra'].file_sanggah_pra + '"><img src="<?= base_url('assets/img/pdf.png') ?>" alt="File Sanggah" width="30px"></a>'
-                } else {
-                    var file_sanggah_pra = '<span class="badge bg-secondary">Tidak Ada File</span>'
-                }
+                    if (response['row_sanggahan_pra'][i].file_sanggah_pra) {
+                        var file_sanggah_pra = '<a target="_blank" href="' + url_open_sanggahan_pra + response['row_sanggahan_pra'][i].file_sanggah_pra + '"><img src="<?= base_url('assets/img/pdf.png') ?>" alt="File Sanggah" width="30px"></a>'
+                    } else {
+                        var file_sanggah_pra = '<span class="badge bg-secondary">Tidak Ada File</span>'
+                    }
 
-                if (response['row_sanggahan_pra'].ket_sanggah_pra_panitia) {
-                    var ket_sanggah_pra_panitia = response['row_sanggahan_pra'].ket_sanggah_pra_panitia
-                } else {
-                    var ket_sanggah_pra_panitia = '-'
-                }
+                    if (response['row_sanggahan_pra'][i].ket_sanggah_pra_panitia) {
+                        var ket_sanggah_pra_panitia = response['row_sanggahan_pra'][i].ket_sanggah_pra_panitia
+                    } else {
+                        var ket_sanggah_pra_panitia = '-'
+                    }
 
-                if (response['row_sanggahan_pra'].file_sanggah_pra_panitia) {
-                    var file_sanggah_pra_panitia = '<a target="_blank" href="' + url_open_sanggahan_pra_panitia + 'SANGGAHAN_PRAKUALIFIKASI/' + response['row_sanggahan_pra'].file_sanggah_pra_panitia + '"><img src="<?= base_url('assets/img/pdf.png') ?>" alt="File Sanggah" width="30px"></a>'
-                } else {
-                    var file_sanggah_pra_panitia = '<span class="badge bg-secondary">Tidak Ada File</span>'
-                }
-
-                html += '<tr>' +
-                    '<td><small>' + response['row_sanggahan_pra'].nama_usaha + '</small></td>' +
-                    '<td><small>' + ket_sanggah_pra + '</small></td>' +
-                    '<td><small>' + file_sanggah_pra + '</small></td>' +
-                    '<td><small>' + ket_sanggah_pra_panitia + '</small></td>' +
-                    '<td><small>' + file_sanggah_pra_panitia + '</small></td>' +
-                    '<td><a href="javascript:;"  onclick="delete_sanggah_pra(\'' + response['row_sanggahan_pra'].id_vendor_mengikuti_paket + '\')" class="btn btn-sm btn-danger"><i class="fas fa fa-trash"></i> Hapus </a></td>' +
+                    if (response['row_sanggahan_pra'][i].file_sanggah_pra_panitia) {
+                        var file_sanggah_pra_panitia = '<a target="_blank" href="' + url_open_sanggahan_pra_panitia + 'SANGGAHAN_PRAKUALIFIKASI/' + response['row_sanggahan_pra'][i].file_sanggah_pra_panitia + '"><img src="<?= base_url('assets/img/pdf.png') ?>" alt="File Sanggah" width="30px"></a>'
+                    } else {
+                        var file_sanggah_pra_panitia = '<span class="badge bg-secondary">Tidak Ada File</span>'
+                    }
+                    html += '<tr>' +
+                        '<td><small>' + response['row_sanggahan_pra'][i].nama_usaha + '</small></td>' +
+                        '<td><small>' + ket_sanggah_pra + '</small></td>' +
+                        '<td><small>' + file_sanggah_pra + '</small></td>' +
+                        '<td><small>' + ket_sanggah_pra_panitia + '</small></td>' +
+                        '<td><small>' + file_sanggah_pra_panitia + '</small></td>' +
+                        '<td><a href="javascript:;"  onclick="delete_sanggah_pra(\'' + response['row_sanggahan_pra'][i].id_sanggah_pra_detail + '\')" class="btn btn-sm btn-danger"><i class="fas fa fa-trash"></i> Hapus </a></td>' +
+                        '</tr>';
                     '</tr>';
-                '</tr>';
-                $('#tbl_sanggah_pra').html(html);
+                    $('#tbl_sanggah_pra').html(html);
+                }
             }
         })
     }
 
-    function delete_sanggah_pra(id_vendor_mengikuti_paket) {
+    function delete_sanggah_pra(id_sanggah_pra_detail) {
         var url_hapus_sanggahan_pra = $('[name="url_hapus_sanggahan_pra"]').val()
         Swal.fire({
             title: 'Apakah Anda Yakin Ingin Batalkan Sanggahan Prakualifikasi?',
@@ -380,7 +384,7 @@
                     type: "POST",
                     url: url_hapus_sanggahan_pra,
                     data: {
-                        id_vendor_mengikuti_paket: id_vendor_mengikuti_paket,
+                        id_sanggah_pra_detail: id_sanggah_pra_detail,
                     },
                     dataType: "JSON",
                     success: function(response) {
@@ -706,7 +710,7 @@
         }
     }
 
-    function load_dok_file1_statis(){
-        
+    function load_dok_file1_statis() {
+
     }
 </script>
