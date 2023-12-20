@@ -137,7 +137,7 @@
                 Dengan Hormat
                 <br><br>
                 <div class="mt-3 col-md-12">
-                    Sehubungan dengan Tahapan kegiatan <?= $rup['metode_kualifikasi'] ?> <?= $rup['nama_metode_pengadaan'] ?> <?= $rup['nama_rup'] ?>, dengan ini kami sampaikan Hasil Evaluasi Kualifikasi sebagaimana terlampir dalam surat ini.
+                    Sehubungan dengan Tahapan kegiatan <b> <?= $rup['metode_kualifikasi'] ?></b> <?= $rup['nama_metode_pengadaan'] ?> <?= $rup['nama_rup'] ?>, dengan ini kami sampaikan Hasil Evaluasi Kualifikasi sebagaimana terlampir dalam surat ini.
                 </div>
                 <br>
                 <div class="mt-3 col-md-12">
@@ -156,7 +156,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Kegiatan</th>
-                                    <th>Hari/Tanggal dan Waktu</th>
+                                    <th>Tanggal dan Waktu</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -169,20 +169,20 @@
                                                 <!-- <?= $rup['hari_isi_pengumuman_hasil_kualifikasi_mulai'] ?>, <?= $rup['tanggal_isi_pengumuman_hasil_kualifikasi_mulai'] ?>
                                                 <br>
                                                 <?= $rup['pukul_isi_pengumuman_hasil_kualifikasi_mulai'] ?> -->
-                                                <?= date('d-m-Y', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) ?>
+                                                <?= date('d-m-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) ?>
                                                 &ensp;
                                                 S/D
                                                 &ensp;
-                                                <?= date('d-m-Y', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) ?>
+                                                <?= date('d-m-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) ?>
                                             </div>
                                             <div class="col-md-1">
-                                               
+
                                             </div>
                                             <div class="col-md-5">
                                                 <!-- <?= $rup['hari_isi_pengumuman_hasil_kualifikasi_selesai'] ?>, <?= $rup['tanggal_isi_pengumuman_hasil_kualifikasi_selesai'] ?>
                                                 <br>
                                                 <?= $rup['pukul_isi_pengumuman_hasil_kualifikasi_selesai'] ?> -->
-                                             
+
                                             </div>
                                         </div>
 
@@ -191,8 +191,8 @@
 
                                 <tr>
                                     <td>2. </td>
-                                    <td>Konfirmasi Pembelian Dokumen Pengadaan & Rapat Penjelasan Pekerjaan</td>
-                                    <td>Akan dikirimkan undangan Penawaran kepada Peserta yang dinyatakan Lulus Kualifikasi melalui e-mail</td>
+                                    <td>Rapat Penjelasan dan Download Dokumen Pengadaan</td>
+                                    <td><?= date('d-m-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) ?> &ensp; S/D &ensp;<?= date('d-m-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) ?></td>
                                 </tr>
 
                             </tbody>
