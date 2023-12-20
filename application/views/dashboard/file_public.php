@@ -309,7 +309,6 @@
                     } else {
                         var tgl_periksa = '-'
                     }
-                    html_kb
                     var html_rincian_pendirian = ''
                     html_rincian_pendirian += '<tr>' +
                         '<td>' + response['row_akta_pendirian'].no_surat + '</td>' +
@@ -485,8 +484,8 @@
                             '<a href="javascript:;" onclick="NonValid_sppkp(\'' + response['row_sppkp'].id_url + '\')" class="btn btn-danger btn-sm shadow-lg"><i class="fa-solid fa-rectangle-xmark px-1"></i><small>Tidak Valid</small></a>';
                         var sts_validasi = '<span class="badge bg-warning">Revisi</span>'
                     }
-                    if (response['row_sppkp'][i].tgl_periksa) {
-                        var tgl_periksa = response['row_sppkp'][i].tgl_periksa
+                    if (response['row_sppkp'].tgl_periksa) {
+                        var tgl_periksa = response['row_sppkp'].tgl_periksa
                     } else {
                         var tgl_periksa = '-'
                     }
