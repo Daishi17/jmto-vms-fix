@@ -37,6 +37,15 @@ class M_Dashboard extends CI_Model
         return $query->num_rows();
     }
 
+    function cek_vendor_siup_dokumen($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_siup');
+        $this->db->where('id_vendor', $id_vendor);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
     function cek_vendor_tervalidasi_kbli_siup($id_vendor)
     {
         $this->db->select('sts_kbli_siup');
