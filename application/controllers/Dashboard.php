@@ -98,6 +98,33 @@ class Dashboard extends CI_Controller
 
         $data['count_validate'] = $cek_siup + $cek_kbli_siup + $cek_nib + $cek_kbli_nib + $cek_sbu + $cek_kbli_sbu + $cek_akta_pendirian + $cek_pemilik + $cek_pengurus + $cek_pengalaman + $cek_sppkp + $cek_npwp + $cek_spt + $cek_neraca_keuangan + $cek_keuangan;
 
+        // $row_siup = $this->M_dashboard->cek_vendor_siup_dokumen($id_vendor);
+        // $expiredDate = date('Y-m-d', strtotime($row_siup['tgl_berlaku'])); // Ganti dengan tanggal expired yang sesuai
+
+        // // Mendapatkan tanggal hari ini
+        // $currentDate = date('Y-m-d');
+
+        // // Menghitung selisih waktu antara tanggal expired dan tanggal hari ini dalam detik
+        // $timeDifference = $expiredDate - $currentDate;
+
+
+        // $daysDifference = floor($timeDifference / (60 * 60 * 24));
+        // $monthsDifference = floor($timeDifference / (60 * 60 * 24 * 30));
+        // $weeksDifference = floor($timeDifference / (60 * 60 * 24 * 7));
+
+        // if ($monthsDifference >= 3) {
+        //     var_dump("Dokumen Kurang Dari 3 Bulan Ini Akan Berakhir Masa Berlakunya.");
+        //     die;
+        // } elseif ($monthsDifference >= 1) {
+        //     var_dump("Dokumen Kurang Dari 1 Bulan Ini Akan Berakhir Masa Berlakunya.");
+        //     die;
+        // } elseif ($weeksDifference >= 1) {
+        //     var_dump("Dokumen Kurang Dari 1 Minggu Ini Akan Berakhir Masa Berlakunya.");
+        //     die;
+        // } else {
+        //     var_dump("Dokumen kedaluwarsa.");
+        //     die;
+        // }
 
         $this->load->view('template_menu/header_menu', $data);
         $this->load->view('dashboard/index', $data);

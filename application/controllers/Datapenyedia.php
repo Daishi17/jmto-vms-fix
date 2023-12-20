@@ -2402,7 +2402,7 @@ class Datapenyedia extends CI_Controller
 					'tgl_berlaku_akta' => $tgl_berlaku_akta,
 					'jumlah_setor_modal' => $jumlah_setor_modal,
 					'sts_token_dokumen' => 1,
-					'sts_validasi' => 3
+					'sts_validasi' => 2
 				];
 				$this->M_datapenyedia->update_akta_perubahan($upload, $where);
 				$this->M_datapenyedia->update_status_dokumen($sts_upload, $where);
@@ -3323,6 +3323,7 @@ class Datapenyedia extends CI_Controller
 				'sts_token_dokumen_pengurus' => 1,
 				'sts_validasi' => 2
 			];
+			// angga test
 			if ($type_edit_pengurus == 'edit_excel') {
 				$this->M_datapenyedia->update_excel_pengurus_manajerial($upload, $where);
 			} else {
@@ -4721,17 +4722,17 @@ class Datapenyedia extends CI_Controller
 				$option = 0;
 				$iv = str_repeat("0", openssl_cipher_iv_length($chiper));
 				$encryption_string = openssl_encrypt($file_dokumen, $chiper, $secret, $option, $iv);
-				$upload = [
-					'id_url' => $id,
-					'id_vendor' => $id_vendor,
-					'no_npwp' => $no_surat,
-					'sts_seumur_hidup' => $sts_seumur_hidup,
-					'password_dokumen' => $password_dokumen,
-					'file_dokumen' => $encryption_string,
-					'token_dokumen' => $secret,
-					'tgl_berlaku' => $tgl_berlaku,
-					'sts_token_dokumen' => 1,
-				];
+				// $upload = [
+				// 	'id_url' => $id,
+				// 	'id_vendor' => $id_vendor,
+				// 	'no_npwp' => $no_surat,
+				// 	'sts_seumur_hidup' => $sts_seumur_hidup,
+				// 	'password_dokumen' => $password_dokumen,
+				// 	'file_dokumen' => $encryption_string,
+				// 	'token_dokumen' => $secret,
+				// 	'tgl_berlaku' => $tgl_berlaku,
+				// 	'sts_token_dokumen' => 1,
+				// ];
 				$where = [
 					'id_vendor' => $id_vendor
 				];
@@ -4778,13 +4779,13 @@ class Datapenyedia extends CI_Controller
 				}
 				$this->output->set_content_type('application/json')->set_output(json_encode($response));
 			} else {
-				$upload = [
-					'id_url' => $id,
-					'id_vendor' => $id_vendor,
-					'no_npwp' => $no_surat,
-					'sts_seumur_hidup' => $sts_seumur_hidup,
-					'tgl_berlaku' => $tgl_berlaku,
-				];
+				// $upload = [
+				// 	'id_url' => $id,
+				// 	'id_vendor' => $id_vendor,
+				// 	'no_npwp' => $no_surat,
+				// 	'sts_seumur_hidup' => $sts_seumur_hidup,
+				// 	'tgl_berlaku' => $tgl_berlaku,
+				// ];
 				if (!$row_npwp) {
 					$upload = [
 						'id_url' => $id,
@@ -5724,7 +5725,7 @@ class Datapenyedia extends CI_Controller
 						'token_dokumen' => $secret,
 						'tgl_berlaku' => $tgl_berlaku,
 						'sts_token_dokumen' => 1,
-						'sts_validasi' => 3,
+						'sts_validasi' => 2,
 					];
 					$where = [
 						'id_vendor' => $id_vendor
