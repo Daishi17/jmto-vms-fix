@@ -711,6 +711,17 @@ class M_tender extends CI_Model
         return $query->result_array();
     }
 
+    public function get_syarat_by_name($nama_persyaratan_tambahan, $id_rup, $id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_syarat_tambahan');
+        $this->db->where('tbl_vendor_syarat_tambahan.nama_syarat_tambahan', $nama_persyaratan_tambahan);
+        $this->db->where('tbl_vendor_syarat_tambahan.id_vendor', $id_vendor);
+        $this->db->where('tbl_vendor_syarat_tambahan.id_rup', $id_rup);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
 
     // INI UNTUK BAGIAN SYARAT ADMINISTRASI TEJNIS
     public function get_syarat_izin_teknis_tender($id_rup)
@@ -858,6 +869,12 @@ class M_tender extends CI_Model
         return $query->result_array();
     }
 
+    public function update_syarat_tambahan($data, $where)
+    {
+        $this->db->update('tbl_vendor_syarat_tambahan', $data, $where);
+        return $this->db->affected_rows();
+    }
+
     public function insert_syarat_tambahan($data)
     {
         $this->db->insert('tbl_vendor_syarat_tambahan', $data);
@@ -876,8 +893,9 @@ class M_tender extends CI_Model
         $this->db->from('tbl_vendor_syarat_tambahan');
         $this->db->where('tbl_vendor_syarat_tambahan.id_rup', $id_rup);
         $this->db->where('tbl_vendor_syarat_tambahan.id_vendor', $id_vendor);
-        // $this->db->order_by('tbl_vendor_syarat_tambahan.id_syarat_tambahan', 'DESC');
-        $this->db->group_by('tbl_vendor_syarat_tambahan.nama_syarat_tambahan');
+        $this->db->order_by('tbl_vendor_syarat_tambahan.id_vendor_syarat_tambahan', 'DESC');
+        // $this->db->group_by('tbl_vendor_syarat_tambahan.id_vendor');
+        // $this->db->limit(1);
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -1541,7 +1559,7 @@ class M_tender extends CI_Model
         return $query->result_array();
     }
 
-    
+
     public function simpan_sanggah_prakualifikasi($data)
     {
         $this->db->insert('tbl_sanggah_detail', $data);

@@ -84,6 +84,7 @@
                                                         <option value="Firma">Firma</option>
                                                         <option value="Individu WNI">Individu WNI</option>
                                                         <option value="Individu WNA">Individu WNA</option>
+                                                        <option value="Koperasi">Koperasi</option>
                                                     </select>
                                                 </div>
                                             </div>

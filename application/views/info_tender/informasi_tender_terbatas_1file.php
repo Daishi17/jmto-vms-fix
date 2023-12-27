@@ -24,23 +24,13 @@
                         <li class="nav-item">
                             <a class="nav-link active" style="margin-left: 5px;" href="#"><i class="fa fa-columns" aria-hidden="true"></i> Informasi Pengadaan</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (PQ)</a>
+                        </li>
                         <?php if ($get_row_mengikuti['ev_teknis'] > 60 && $get_row_mengikuti['ev_keuangan']) { ?>
-                            <?php if ($rup['id_jadwal_tender'] == 1) { ?>
-                                <li class="nav-item">
-                                    <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (PQ)</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
-                                </li>
-                            <?php  } else { ?>
-                                <li class="nav-item">
-                                    <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (PQ)</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
-                                </li>
-                            <?php }  ?>
+                            <li class="nav-item">
+                                <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
+                            </li>
                         <?php } else { ?>
                         <?php  } ?>
 
@@ -77,7 +67,7 @@
                             if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
                                 <li class="nav-item">
-                                    <a class="nav-link bg-primary text-white " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_prakualifikasi/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Prakualifikasi</a>
+                                    <a class="nav-link bg-primary text-white " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_prakualifikasi/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Kualifikasi</a>
                                 </li>
                             <?php    } else { ?>
                                 <!-- waktu Telah Selesai -->
@@ -88,7 +78,7 @@
 
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                                 <li class="nav-item">
-                                    <a class="nav-link bg-primary text-white " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_prakualifikasi/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Prakualifikasi</a>
+                                    <a class="nav-link bg-primary text-white " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_prakualifikasi/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Kualifikasi</a>
                                 </li>
                             <?php    } else { ?>
                                 <!-- Waktu Telah Berakhir -->
@@ -156,7 +146,7 @@
                                 </button></th>
                         </tr>
                         <tr>
-                            <th>Dokumen Prakualifikasi</th>
+                            <th>Dokumen Kualifikasi</th>
                             <th>
                                 <div class="row">
                                     <?php if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
@@ -165,7 +155,7 @@
                                             <div class="col-md-6">
                                                 <div class="card">
                                                     <div class="card-header bg-primary text-white">
-                                                        Dokumen Prakualifikasi
+                                                        Dokumen Kualifikasi
                                                     </div>
                                                     <div class="card-body">
                                                         <table class="table table-bordered">
@@ -198,7 +188,7 @@
                                         <div class="col-md-6">
                                             <div class="card">
                                                 <div class="card-header bg-primary text-white">
-                                                    Dokumen Prakualifikasi
+                                                    Dokumen Kualifikasi
                                                 </div>
                                                 <div class="card-body">
                                                     <table class="table table-bordered">
@@ -658,8 +648,8 @@
                                                         </tr>
                                                         <!-- <tr>
                                                             <?php if ($rup['ba_evaluasi_no']) { ?>
-                                                                                                                <th>Berita Acara Hasil Evaluasi</th>
-                                                                                                                <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_hasil_evaluasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                                                                                                <th>Berita Acara Hasil Evaluasi</th>
+                                                                                                                                                <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_hasil_evaluasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                             <?php } ?>
                                                         </tr> -->
                                                         <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_teknis'] >= 60) { ?>
@@ -676,11 +666,11 @@
                                                                 <?php } ?>
                                                             </tr>
                                                             <!-- <tr>
-                                                                                        <?php if ($rup['ba_evaluasi_teknis_no']) { ?>
-                                                                                                                                        <th>Berita Acara Hasil Evaluasi Teknis</th>
-                                                                                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_hasil_evaluasi_teknis/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
-                                                                                        <?php } ?>
-                                                                                    </tr> -->
+                                                                                                                        <?php if ($rup['ba_evaluasi_teknis_no']) { ?>
+                                                                                                                                                                                                        <th>Berita Acara Hasil Evaluasi Teknis</th>
+                                                                                                                                                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_hasil_evaluasi_teknis/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                                                                        <?php } ?>
+                                                                                                                    </tr> -->
 
                                                             <tr>
                                                                 <?php if ($rup['ba_sampul2_no']) { ?>
@@ -821,13 +811,13 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-warning text-white">
-                <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-bullhorn" aria-hidden="true"></i> Pengumuman Hasil Prakualifikasi</h5>
+                <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-bullhorn" aria-hidden="true"></i> Pengumuman Hasil Kualifikasi</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="alert alert-primary d-flex align-items-center" role="alert">
                     <div>
-                        <i class="fa fa-info-circle" aria-hidden="true"> </i> Pengumuman Hasil Prakualifikasi Pengadaan !!! <br>
+                        <i class="fa fa-info-circle" aria-hidden="true"> </i> Pengumuman Hasil Kualifikasi Pengadaan !!! <br>
                     </div>
                 </div>
                 <!-- <form id="form_upload_hasil_rakualifikasi" action="javascript:;" enctype="multipart/form-data">
@@ -848,7 +838,7 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td>Pengumuman Hasil Prakualifikasi</td>
+                            <td>Pengumuman Hasil Kualifikasi</td>
                             <?php if ($rup['file_pengumuman_prakualifikasi']) { ?>
                                 <td><a href="<?= $url_dok_pengumuman_pra . $rup['id_rup'] ?>" class="btn btn-sm btn-warning"> Lihat</a></td>
                             <?php } else { ?>

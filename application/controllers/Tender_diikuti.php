@@ -420,6 +420,8 @@ class Tender_diikuti extends CI_Controller
         $nama_usaha = $this->session->userdata('nama_usaha');
         $id_vendor = $this->session->userdata('id_vendor');
 
+        $cek_syarat =  $this->M_tender->get_syarat_by_name($nama_persyaratan_tambahan, $id_rup, $id_vendor);
+
         if (!is_dir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'SYARAT_TAMBAHAN')) {
             mkdir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'SYARAT_TAMBAHAN', 0777, TRUE);
         }
@@ -430,13 +432,33 @@ class Tender_diikuti extends CI_Controller
 
         if ($this->upload->do_upload('file_syarat_tambahan')) {
             $fileData = $this->upload->data();
-            $upload = [
-                'id_rup' => $id_rup,
-                'id_vendor' => $id_vendor,
-                'nama_syarat_tambahan' => $nama_persyaratan_tambahan,
-                'file_syarat_tambahan' => $fileData['file_name']
-            ];
-            $this->M_tender->insert_syarat_tambahan($upload);
+
+            if ($cek_syarat) {
+                if ($nama_persyaratan_tambahan ==  $cek_syarat['nama_syarat_tambahan']) {
+                    $upload = [
+                        'id_rup' => $id_rup,
+                        'id_vendor' => $id_vendor,
+                        'nama_syarat_tambahan' => $nama_persyaratan_tambahan,
+                        'file_syarat_tambahan' => $fileData['file_name']
+                    ];
+                    $where = [
+                        'nama_syarat_tambahan' => $nama_persyaratan_tambahan,
+                        'id_rup' => $id_rup,
+                        'id_vendor' => $id_vendor
+                    ];
+                    $this->M_tender->update_syarat_tambahan($upload, $where);
+                }
+            } else {
+                $upload = [
+                    'id_rup' => $id_rup,
+                    'id_vendor' => $id_vendor,
+                    'nama_syarat_tambahan' => $nama_persyaratan_tambahan,
+                    'file_syarat_tambahan' => $fileData['file_name']
+                ];
+                $this->M_tender->insert_syarat_tambahan($upload);
+            }
+
+
             $this->output->set_content_type('application/json')->set_output(json_encode('success'));
         } else {
             $this->output->set_content_type('application/json')->set_output(json_encode('gagal'));
