@@ -312,7 +312,7 @@
                     var file1_administrasi = `<a href="<?= base_url('tender_diikuti/download_dokumen_pengadaan_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file1_administrasi" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
                     var btn_file1_administrasi = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_administrasi')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                 } else {
-                    var file1_administrasi = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var file1_administrasi = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                     var btn_file1_administrasi = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_administrasi')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                 }
 
@@ -320,7 +320,7 @@
                     var file1_teknis = `<a href="<?= base_url('tender_diikuti/download_dokumen_pengadaan_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file1_teknis" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
                     var btn_file1_teknis = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_teknis')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                 } else {
-                    var file1_teknis = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var file1_teknis = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                     var btn_file1_teknis = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_teknis')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                 }
 
@@ -328,7 +328,7 @@
                     var file1_organisasi = `<a href="<?= base_url('tender_diikuti/download_dokumen_pengadaan_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file1_organisasi" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
                     var btn_file1_organisasi = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_organisasi')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                 } else {
-                    var file1_organisasi = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var file1_organisasi = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                     var btn_file1_organisasi = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_organisasi')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                 }
 
@@ -336,7 +336,7 @@
                     var file1_pabrikan = `<a href="<?= base_url('tender_diikuti/download_dokumen_pengadaan_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file1_pabrikan" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
                     var btn_file1_pabrikan = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_pabrikan')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                 } else {
-                    var file1_pabrikan = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var file1_pabrikan = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                     var btn_file1_pabrikan = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_pabrikan')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                 }
 
@@ -344,7 +344,7 @@
                     var file1_peralatan = `<a href="<?= base_url('tender_diikuti/download_dokumen_pengadaan_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file1_peralatan" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
                     var btn_file1_peralatan = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_peralatan')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                 } else {
-                    var file1_peralatan = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var file1_peralatan = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                     var btn_file1_peralatan = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_peralatan')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                 }
 
@@ -352,7 +352,7 @@
                     var file1_personil = `<a href="<?= base_url('tender_diikuti/download_dokumen_pengadaan_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file1_personil" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
                     var btn_file1_personil = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_personil')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                 } else {
-                    var file1_personil = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var file1_personil = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                     var btn_file1_personil = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_personil')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                 }
 
@@ -360,7 +360,7 @@
                     var file1_makalah_teknis = `<a href="<?= base_url('tender_diikuti/download_dokumen_pengadaan_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file1_makalah_teknis" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
                     var btn_file1_makalah_teknis = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_makalah_teknis')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                 } else {
-                    var file1_makalah_teknis = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var file1_makalah_teknis = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                     var btn_file1_makalah_teknis = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_makalah_teknis')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                 }
 
@@ -368,7 +368,7 @@
                     var file1_pra_rk3 = `<a href="<?= base_url('tender_diikuti/download_dokumen_pengadaan_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file1_pra_rk3" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
                     var btn_file1_pra_rk3 = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_pra_rk3')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                 } else {
-                    var file1_pra_rk3 = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var file1_pra_rk3 = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                     var btn_file1_pra_rk3 = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_pra_rk3')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                 }
 
@@ -376,20 +376,20 @@
                     var file1_spek = `<a href="<?= base_url('tender_diikuti/download_dokumen_pengadaan_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file1_spek" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
                     var btn_file1_spek = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_spek')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                 } else {
-                    var file1_spek = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var file1_spek = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                     var btn_file1_spek = `<a href="javascript:;" onclick="upload_file1(${response['row']['id_vendor_mengikuti_paket']},'file1_spek')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                 }
 
                 var html = '';
                 html += `<tr>
-                            <td>1.&ensp;File Penawaran Administrasi</td>
+                            <td>1.&ensp;Dokumen Penawaran Administrasi</td>
                             <td>${file1_administrasi}</td>
                             <td>${btn_file1_administrasi}</td>
                         </tr>
                         <tr>
-                            <td>2.&ensp;File Penawaran Teknis</td>
-                            <td>${file1_teknis}</td>
-                            <td>${btn_file1_teknis}</td>
+                            <td>2.&ensp;Dokumen Penawaran Teknis (Disesuaikan Dengan Dokumen IKP) : </td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         <tr>
                             <td>&ensp;&ensp; a. Struktur Organisasi</td>
@@ -422,7 +422,7 @@
                             <td>${btn_file1_pra_rk3}</td>
                         </tr>
                         <tr>
-                            <td>&ensp;&ensp; g. Dokumen Spesifikasi Perangkat (Khusus IT)</td>
+                            <td>&ensp;&ensp; g. Dokumen Spesifikasi Perangkat</td>
                             <td>${file1_spek}</td>
                             <td>${btn_file1_spek}</td>
                         </tr>`
@@ -452,7 +452,7 @@
                     var file2_penawaran = `<a href="<?= base_url('tender_diikuti/download_dokumen_penawaran_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file2_penawaran" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
                     var btn_file2_penawaran = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_penawaran')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                 } else {
-                    var file2_penawaran = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var file2_penawaran = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                     var btn_file2_penawaran = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_penawaran')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                 }
 
@@ -460,7 +460,7 @@
                     var file2_dkh = `<a  href="<?= base_url('tender_diikuti/download_dokumen_penawaran_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file2_dkh" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
                     var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                 } else {
-                    var file2_dkh = `<span class="badge bg-danger">Tidak Ada File</span>`
+                    var file2_dkh = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                     var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                 }
 
@@ -471,7 +471,7 @@
                             <td>${btn_file2_penawaran}</td>
                          </tr>
                          <tr>
-                            <td>2. File DKH</td>
+                            <td>2. Dokumen DKH (Wajib Format Excel)</td>
                             <td>${file2_dkh}</td>
                             <td>${btn_file2_dkh}</td>
                         </tr>`
