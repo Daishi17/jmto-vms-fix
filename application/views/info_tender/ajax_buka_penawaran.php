@@ -138,6 +138,7 @@
                             $('.btn-upload').attr("disabled", false);
                             upload_dok_file_2.modal('hide')
                             get_mengikuti2()
+                            get_mengikuti()
                             form_upload_dok_penawaran_2[0].reset()
                         }
                     }).then((result) => {
@@ -381,52 +382,93 @@
                 }
 
                 var html = '';
-                html += `<tr>
+                if (response['rup']['id_jadwal_tender'] == 1) {
+                    if (response['row']['file2_penawaran']) {
+                        var file2_penawaran = `<a href="<?= base_url('tender_diikuti/download_dokumen_penawaran_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file2_penawaran" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
+                        var btn_file2_penawaran = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_penawaran')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                    } else {
+                        var file2_penawaran = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
+                        var btn_file2_penawaran = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_penawaran')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                    }
+
+                    if (response['row']['file2_dkh']) {
+                        var file2_dkh = `<a  href="<?= base_url('tender_diikuti/download_dokumen_penawaran_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file2_dkh" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
+                        var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                    } else {
+                        var file2_dkh = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
+                        var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                    }
+                    html += `<tr>
                             <td>1.&ensp;Dokumen Penawaran Administrasi</td>
                             <td>${file1_administrasi}</td>
                             <td>${btn_file1_administrasi}</td>
                         </tr>
                         <tr>
                             <td>2.&ensp;Dokumen Penawaran Teknis (Disesuaikan Dengan Dokumen IKP) : </td>
-                            <td></td>
-                            <td></td>
+                            <td>${file1_teknis}</td>
+                            <td>${btn_file1_teknis}</td>
                         </tr>
                         <tr>
-                            <td>&ensp;&ensp; a. Struktur Organisasi</td>
-                            <td>${file1_organisasi}</td>
-                            <td>${btn_file1_organisasi}</td>
-                        </tr>
-                        <tr>
-                            <td>&ensp;&ensp; b. Surat Dukungan Pabrikan / Dealer</td>
-                            <td>${file1_pabrikan}</td>
-                            <td>${btn_file1_pabrikan}</td>
-                        </tr>
-                        <tr>
-                            <td>&ensp;&ensp; c. Data Peralatan Pendukung Pekerjaan</td>
-                            <td>${file1_peralatan}</td>
-                            <td>${btn_file1_peralatan}</td>
-                        </tr>
-                        <tr>
-                            <td>&ensp;&ensp; d. CV Personil</td>
-                            <td>${file1_personil}</td>
-                            <td>${btn_file1_personil}</td>
-                        </tr>
-                        <tr>
-                            <td>&ensp;&ensp; e. Makalah Teknis Pekerjaan</td>
-                            <td>${file1_makalah_teknis}</td>
-                            <td>${btn_file1_makalah_teknis}</td>
-                        </tr>
-                        <tr>
-                            <td>&ensp;&ensp; f. Dokumen Pra RK3-K dan HIRADC</td>
-                            <td>${file1_pra_rk3}</td>
-                            <td>${btn_file1_pra_rk3}</td>
-                        </tr>
-                        <tr>
-                            <td>&ensp;&ensp; g. Dokumen Spesifikasi Perangkat</td>
-                            <td>${file1_spek}</td>
-                            <td>${btn_file1_spek}</td>
+                            <td>3.&ensp;Dokumen Penawaran Harga</td>
+                            <td>${file2_penawaran}</td>
+                            <td>${btn_file2_penawaran}</td>
+                         </tr>
+                         <tr>
+                            <td>4.&ensp;Dokumen DKH (Wajib Format Excel)</td>
+                            <td>${file2_dkh}</td>
+                            <td>${btn_file2_dkh}</td>
                         </tr>`
-                $('#load_dok_file1_statis').html(html)
+                    $('#load_dok_file1_statis').html(html)
+                } else {
+                    // html += `<tr>
+                    //         <td>1.&ensp;Dokumen Penawaran Administrasi</td>
+                    //         <td>${file1_administrasi}</td>
+                    //         <td>${btn_file1_administrasi}</td>
+                    //     </tr>
+                    //     <tr>
+                    //         <td>2.&ensp;Dokumen Penawaran Teknis (Disesuaikan Dengan Dokumen IKP) : </td>
+                    //         <td></td>
+                    //         <td></td>
+                    //     </tr>
+                    //     <tr>
+                    //         <td>&ensp;&ensp; a. Struktur Organisasi</td>
+                    //         <td>${file1_organisasi}</td>
+                    //         <td>${btn_file1_organisasi}</td>
+                    //     </tr>
+                    //     <tr>
+                    //         <td>&ensp;&ensp; b. Surat Dukungan Pabrikan / Dealer</td>
+                    //         <td>${file1_pabrikan}</td>
+                    //         <td>${btn_file1_pabrikan}</td>
+                    //     </tr>
+                    //     <tr>
+                    //         <td>&ensp;&ensp; c. Data Peralatan Pendukung Pekerjaan</td>
+                    //         <td>${file1_peralatan}</td>
+                    //         <td>${btn_file1_peralatan}</td>
+                    //     </tr>
+                    //     <tr>
+                    //         <td>&ensp;&ensp; d. CV Personil</td>
+                    //         <td>${file1_personil}</td>
+                    //         <td>${btn_file1_personil}</td>
+                    //     </tr>
+                    //     <tr>
+                    //         <td>&ensp;&ensp; e. Makalah Teknis Pekerjaan</td>
+                    //         <td>${file1_makalah_teknis}</td>
+                    //         <td>${btn_file1_makalah_teknis}</td>
+                    //     </tr>
+                    //     <tr>
+                    //         <td>&ensp;&ensp; f. Dokumen Pra RK3-K dan HIRADC</td>
+                    //         <td>${file1_pra_rk3}</td>
+                    //         <td>${btn_file1_pra_rk3}</td>
+                    //     </tr>
+                    //     <tr>
+                    //         <td>&ensp;&ensp; g. Dokumen Spesifikasi Perangkat</td>
+                    //         <td>${file1_spek}</td>
+                    //         <td>${btn_file1_spek}</td>
+                    //     </tr>`
+                    // $('#load_dok_file1_statis').html(html)
+                }
+
+
             }
 
         })

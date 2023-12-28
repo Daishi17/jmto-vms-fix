@@ -657,8 +657,8 @@
                                                         </tr>
                                                         <!-- <tr>
                                                             <?php if ($rup['ba_evaluasi_no']) { ?>
-                                                                                                                                                                                                                <th>Berita Acara Hasil Evaluasi</th>
-                                                                                                                                                                                                                <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_hasil_evaluasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                                                                                                                                                                                    <th>Berita Acara Hasil Evaluasi</th>
+                                                                                                                                                                                                                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_hasil_evaluasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                             <?php } ?>
                                                         </tr> -->
                                                         <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_teknis'] >= 60) { ?>
@@ -675,11 +675,11 @@
                                                                 <?php } ?>
                                                             </tr>
                                                             <!-- <tr>
-                                                                                                                                                                                        <?php if ($rup['ba_evaluasi_teknis_no']) { ?>
-                                                                                                                                                                                                                                                                                                                                        <th>Berita Acara Hasil Evaluasi Teknis</th>
-                                                                                                                                                                                                                                                                                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_hasil_evaluasi_teknis/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
-                                                                                                                                                                                        <?php } ?>
-                                                                                                                                                                                    </tr> -->
+                                                                                                                                                                                                            <?php if ($rup['ba_evaluasi_teknis_no']) { ?>
+                                                                                                                                                                                                                                                                                                                                                                                <th>Berita Acara Hasil Evaluasi Teknis</th>
+                                                                                                                                                                                                                                                                                                                                                                                <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_hasil_evaluasi_teknis/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                                                                                                                                                            <?php } ?>
+                                                                                                                                                                                                        </tr> -->
 
                                                             <tr>
                                                                 <?php if ($rup['ba_sampul2_no']) { ?>
@@ -751,14 +751,16 @@
                     <div class="col-md-2">
                     </div>
                     <div class="col-md-8">
-                        <center> <a onclick="kirim_token_ke_wa('<?= $rup['id_url_rup'] ?>')" class="btn btn-warning btn_dapatkan_token" style="width: 300px;"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Kirim Kodefikasi ke WhatsApp</a>
+                        <center>
+                            <br>
+                            <a onclick="kirim_token_ke_wa('<?= $rup['id_url_rup'] ?>')" class="btn btn-warning btn_dapatkan_token" style="width: 300px;"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Kirim Kodefikasi ke WhatsApp</a>
+                            <br>
                             <br>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"> <i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
                                 <input type="text" class="form-control" name="token_" placeholder="Masukan Kodefikasi..." aria-describedby="basic-addon1" onkeyup="Cek_token()">
                             </div>
                             <br>
-
                             <a target="_blank" onclick="buka_penawaran('<?= $rup['id_url_rup'] ?>')" style="display:none" class="btn btn-success btn_buka_penawaran"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Akses Halaman</a>
                         </center>
                     </div>

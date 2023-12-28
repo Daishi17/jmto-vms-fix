@@ -1632,7 +1632,8 @@ class Tender_diikuti extends CI_Controller
         $data['rup'] = $this->M_tender->get_row_rup($id_url_rup);
         $get_row_mengikuti = $this->M_tender->cek_mengikuti($data['rup']['id_rup']);
         $response = [
-            'row' => $get_row_mengikuti
+            'row' => $get_row_mengikuti,
+            'rup' => $data['rup']
         ];
         $this->output->set_content_type('application/json')->set_output(json_encode($response));
     }
