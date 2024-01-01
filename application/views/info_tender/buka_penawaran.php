@@ -55,12 +55,20 @@
                                 </div>
 
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-file1" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Dokumen Pengadaan File I</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-file2" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Dokumen Penawaran File II</button>
-                                </li>
+
+                                <?php if ($rup['id_jadwal_tender'] == 1) { ?>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-file1" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Dokumen Penawaran</button>
+                                    </li>
+                                <?php } else { ?>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-file1" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Dokumen Penawaran File I</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-file2" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Dokumen Penawaran File II</button>
+                                    </li>
+                                <?php  }  ?>
+
 
                             <?php    } else { ?>
                                 <div class="tab-pane fade show active" id="pills-file1" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -82,7 +90,7 @@
                     <div class="card-header border-dark bg-primary d-flex justify-content-between align-items-center">
                         <div class="flex-grow-1 bd-highlight">
                             <span class="text-dark">
-                                <small class="text-white"><strong><i class="fa-solid fa-table px-1"></i> Data Tabel - Dokumen Pengadaan</strong></small>
+                                <small class="text-white"><strong><i class="fa-solid fa-table px-1"></i> Data Tabel - Dokumen Penawaran</strong></small>
                             </span>
                         </div>
                     </div>
@@ -99,52 +107,83 @@
                         <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                             <div class="tab-content" id="pills-tabContent">
 
-                                <div class="tab-pane fade show active" id="pills-file1" role="tabpanel" aria-labelledby="pills-home-tab">
-                                    <div class="card">
-                                        <div class="card-header bg-primary text-white">
-                                            Dokumen Pengadaan File I
-                                            <div style="float: right;">
+                                <?php if ($rup['id_jadwal_tender'] == 1) { ?>
+                                    <div class="tab-pane fade show active" id="pills-file1" role="tabpanel" aria-labelledby="pills-home-tab">
+                                        <div class="card">
+                                            <div class="card-header bg-primary text-white">
+                                                Dokumen Penawaran
+                                                <div style="float: right;">
+
+                                                </div>
 
                                             </div>
+                                            <div class="card-body">
+                                                <table class="table table-stripped table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nama Dokumen</th>
+                                                            <th>Dokumen</th>
+                                                            <th>Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="load_dok_file1_statis">
 
-                                        </div>
-                                        <div class="card-body">
-                                            <table class="table table-stripped table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Nama File</th>
-                                                        <th>File</th>
-                                                        <th>Aksi</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="load_dok_file1_statis">
-
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="tab-pane fade" id="pills-file2" role="tabpanel" aria-labelledby="pills-profile-tab">
-                                    <div class="card">
-                                        <div class="card-header bg-danger text-white">
-                                            Dokumen Penawaran File II
-                                        </div>
-                                        <div class="card-body">
-                                            <table class="table table-bordered">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Nama File</th>
-                                                        <th>File</th>
-                                                        <th>Aksi</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody id="load_dok_file2_statis">
 
-                                                </tbody>
-                                            </table>
+                                <?php } else { ?>
+                                    <div class="tab-pane fade show active" id="pills-file1" role="tabpanel" aria-labelledby="pills-home-tab">
+                                        <div class="card">
+                                            <div class="card-header bg-primary text-white">
+                                                Dokumen Penawaran File I
+                                                <div style="float: right;">
+
+                                                </div>
+
+                                            </div>
+                                            <div class="card-body">
+                                                <table class="table table-stripped table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nama Dokumen</th>
+                                                            <th>Dokumen</th>
+                                                            <th>Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="load_dok_file1_statis">
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+
+                                    <div class="tab-pane fade" id="pills-file2" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                        <div class="card">
+                                            <div class="card-header bg-danger text-white">
+                                                Dokumen Penawaran File II
+                                            </div>
+                                            <div class="card-body">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nama File</th>
+                                                            <th>Dokumen</th>
+                                                            <th>Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="load_dok_file2_statis">
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php  }  ?>
+
                             </div>
 
                         <?php    } else { ?>
@@ -166,7 +205,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Upload Dokumen Pengadaan File I</h5>
+                    <h5 class="modal-title">Upload Dokumen Penawaran File I</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form id="form_upload_dok_penawaran_1" action="javascript:;" enctype="multipart/form-data">

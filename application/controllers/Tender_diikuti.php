@@ -317,6 +317,7 @@ class Tender_diikuti extends CI_Controller
             $data['jadwal_pengumuman_hasil_kualifikasi'] =  $this->M_jadwal->jadwal_pra1file_umum_8($data['rup']['id_rup']);
             $data['jadwal_masa_sanggah_kualifikasi'] =  $this->M_jadwal->jadwal_pra1file_umum_9($data['rup']['id_rup']);
             $data['jadwal_download_dokumen_pengadaan'] =  $this->M_jadwal->jadwal_pra1file_umum_11($data['rup']['id_rup']);
+            $data['jadwal_undangan_penawaran'] =  $this->M_jadwal->jadwal_pra1file_umum_10($data['rup']['id_rup']);
             $data['jadwal_aanwijzing'] =  $this->M_jadwal->jadwal_pra1file_umum_11($data['rup']['id_rup']);
             $data['jadwal_upload_dokumen_penawaran'] =  $this->M_jadwal->jadwal_pra1file_umum_13($data['rup']['id_rup']);
             $data['jadwal_pembukaan_file1'] =  $this->M_jadwal->jadwal_pra1file_umum_13($data['rup']['id_rup']);
@@ -1631,7 +1632,8 @@ class Tender_diikuti extends CI_Controller
         $data['rup'] = $this->M_tender->get_row_rup($id_url_rup);
         $get_row_mengikuti = $this->M_tender->cek_mengikuti($data['rup']['id_rup']);
         $response = [
-            'row' => $get_row_mengikuti
+            'row' => $get_row_mengikuti,
+            'rup' => $data['rup']
         ];
         $this->output->set_content_type('application/json')->set_output(json_encode($response));
     }
