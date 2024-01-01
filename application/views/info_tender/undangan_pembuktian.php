@@ -121,41 +121,31 @@ function terbilang($nilai)
 ?>
 
 
-<body style="font-size: 13px;">
-    <div class="container mt-5">
-        <img class="pull-right" alt="LOGO" src="<?= base_url() ?>assets/img/logo_asli.png" width="30%" />
+<body style="font-size: 18px; text-align:justify">
+    <div class="container">
+        <img class="pull-right" alt="LOGO" src="<?= base_url() ?>assets/logo_ba/logo_ba.png" width="50%" style="opacity: 0.5;" />
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-1">
-                    <label for="" style="margin-right: auto;">Nomor</label>
-                </div>
-                <div class="col-md-5">
-                    <label for="">: <?= $rup['no_undangan'] ?></label>
-                </div>
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-2">
-                    <label><?= $rup['tgl_surat_undangan'] ?></label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-1">
-                    <label for="" style="margin-right: auto;">Hal</label>
-                </div>
-                <div class="col-md-11">
-                    <label for=""><b>: Undangan Pembuktian Kualifikasi (Syarat Tambahan)</b></label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-1">
-                    <label for="" style="margin-right: auto;">Lampiran</label>
-                </div>
-                <div class="col-md-11">
-                    <label for="">: 1 (satu) Lembar</label>
-                </div>
-            </div>
+            <table>
+                <tr>
+                    <td width="100px">Nomor</td>
+                    <th>&ensp;&ensp;:&ensp;&ensp;</th>
+                    <td><?= $rup['no_undangan'] ?></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td width="100px">Hal</td>
+                    <th>&ensp;&ensp;:&ensp;&ensp;</th>
+                    <td>Undangan Pembuktian Kualifikasi (Syarat Tambahan)</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td width="100px">Lampiran</td>
+                    <th>&ensp;&ensp;:&ensp;&ensp;</th>
+                    <td>1 (satu) Lembar</td>
+                </tr>
+            </table>
 
             <div class="row mt-5">
                 <div class="col-md-8">
@@ -169,38 +159,36 @@ function terbilang($nilai)
                     <b>Tempat</b>
                 </div>
             </div>
+            <br>
+            <br>
+            <p> Sehubungan dengan kegiatan <?= $rup['nama_metode_pengadaan'] ?> dengan Pra Kualifikasi <b> Pengadaan <?= $rup['nama_rup'] ?>, </b> dengan ini kami mengundang Saudara untuk hadir dalam tahapan <b> Pembuktian Kualifikasi</b> yang akan diselenggarakan pada:</p>
 
-            <div class="row mt-5">
-                <div class="col-md-12">
-                    Sehubungan dengan kegiatan <?= $rup['nama_metode_pengadaan'] ?> dengan Pra Kualifikasi <b> Pengadaan <?= $rup['nama_rup'] ?>, </b> dengan ini kami mengundang Saudara untuk hadir dalam tahapan <b> Pembuktian Kualifikasi</b> yang akan diselenggarakan pada:
-                </div>
-            </div>
-            <br><br>
-            <div class="row ml-3">
-                <div class="col-md-1">
-                    <label for="">Hari/Tanggal</label>
-                </div>
-                <div class="col-md-4">
-                    <label for="">: <?= $rup['hari_undangan'] ?> / <?= $rup['tanggal_undangan'] ?></label>
-                </div>
-            </div>
-            <div class="row ml-3">
-                <div class="col-md-1">
-                    <label for="">Tempat</label>
-                </div>
-                <div class="col-md-4">
-                    <label for="">: Ruang Rapat Besar Lantai 3 & 4 PT Jasamarga Tollroad Operator
-                        & Video Conference Aplikasi Zoom</label>
-                </div>
-            </div>
-            <div class="row ml-3">
-                <div class="col-md-1">
-                    <label for="">Waktu</label>
-                </div>
-                <div class="col-md-4">
-                    <label for="">: <?= $rup['waktu_undangan'] ?></label>
-                </div>
-            </div>
+            <table>
+                <tr>
+                    <td width="100px">Hari/Tanggal</td>
+                    <th>&ensp;&ensp;:&ensp;&ensp;</th>
+                    <td> <?= $rup['hari_undangan'] ?> / <?= $rup['tanggal_undangan'] ?></td>
+                </tr>
+            </table>
+
+            <table>
+                <tr>
+                    <td width="100px">Tempat</td>
+                    <th>&ensp;&ensp;:&ensp;&ensp;</th>
+                    <td> Ruang Rapat Besar Lantai 3 & 4 PT Jasamarga Tollroad Operator& Video Conference Aplikasi Zoom</td>
+                </tr>
+            </table>
+
+
+            <table>
+                <tr>
+                    <td width="100px">Waktu</td>
+                    <th>&ensp;&ensp;:&ensp;&ensp;</th>
+                    <td> <?= $rup['waktu_undangan'] ?></td>
+                </tr>
+            </table>
+
+            <br>
             <div class="row mt-3">
                 <div class="col-md-12">
                     Dengan ketentuan sebagai berikut :
@@ -219,23 +207,14 @@ function terbilang($nilai)
             </div>
 
             <br><br>
-            <div class="row">
-                <div class="col-md-4">
-                    <center>
-                        <h6>PT Jasamarga Tollroad Operator</h6>
-                        <br>
-                        <br>
-                        <br><br>
-                        <h6> <u style="text-transform: capitalize;"></u></h6>
-                        <h6>
-                            TTD Panitia
-                        </h6>
-                    </center>
-                </div>
-                <div class="col-md-4"></div>
-                <div class="col-md-4"></div>
-
-            </div>
+            <h6>PT Jasamarga Tollroad Operator</h6>
+            <br>
+            <br>
+            <br><br>
+            <h6> <u style="text-transform: capitalize;"></u></h6>
+            <h6>
+                TTD Panitia
+            </h6>
             <!-- <div class="row mt-4">
                 <div class="col-md-12">
                     <b> PT Jasamarga Tollroad Operator</b>
@@ -252,6 +231,27 @@ function terbilang($nilai)
                 </div>
             </div> -->
 
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="float-left">
+                <img src="<?= base_url('assets/logo_ba/logo_ba2.png') ?>" alt="logo" width="30%" style="opacity: 0.5;">
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
             <div class="row mt-4">
                 <div class="col-md-12">
                     Jadwal Kegiatan Pembuktian Kualifikasi

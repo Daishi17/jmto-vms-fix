@@ -1,118 +1,155 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <title>Undangan Pembuktian</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="print.css" type="text/css" media="print" />
-    <title>JMTO - VMS</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/fontawesome-free/css/all.min.css">
-    <link href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins-lte/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins-lte/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/plugins-lte/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="Shortcut Icon" href="https://eproc.jmtm.co.id/assets/img/unnamed.png" type="image/x-icon" sizes="96x96" />
+    <link rel="stylesheet" href="https://eproc.jmtm.co.id/assets/boostrapnew/dist/css/bootstrap.min.css" type="text/css" media="all" />
+    <!-- dataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://eproc.jmtm.co.id/assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" media="all">
 
-    <!-- Styles -->
-    <link rel="shortcut icon" href="<?php echo base_url(); ?>//assets/brand/jm1.png" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
-    <!-- Or for RTL support -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.rtl.min.css" />
+    <!-- select2 -->
+    <link rel="stylesheet" href="https://eproc.jmtm.co.id/assets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="https://eproc.jmtm.co.id/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" media="all">
+    <!-- custom -->
+    <!-- Sweetalert-->
+    <link href="https://eproc.jmtm.co.id/assets/sweetalert2/sweetalert2.min.css" rel="stylesheet" media="all">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.min.css"> -->
+    <link href="https://eproc.jmtm.co.id/assets/datetimepicekernew/plugins/jquery.datetimepicker.min.css" rel="stylesheet" media="all">
+    <script src="https://eproc.jmtm.co.id/assets/js/sweetalert.min.js" media="all"></script>
 
+    <script type="text/javascript" src="https://eproc.jmtm.co.id/assets/boostrapnew/dist/js/jquery.min.js" media="all"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <meta name="theme-color" content="#7952b3">
-    <?php
-    function tgl_indo($tanggal)
-    {
-        $bulan = array(
-            1 => 'Januari',
-            'Februari',
-            'Maret',
-            'April',
-            'Mei',
-            'Juni',
-            'Juli',
-            'Agustus',
-            'September',
-            'Oktober',
-            'November',
-            'Desember'
-        );
-        $hari = array(
-            1 => 'Senin',
-            'Selasa',
-            'Rabu',
-            'Kamis',
-            'Jumat',
-            'Sabtu',
-            'Minggu'
-        );
-        $pecahkan = explode('-', $tanggal);
-
-        // Contoh tanggal 20 Maret 2016 adalah hari Minggu
-        $num = date(
-            'N',
-            strtotime($tanggal)
-        );
-        return $pecahkan[2]  . '-' . $bulan[(int) $pecahkan[1]] . '-' . $pecahkan[0];
-    }
-    ?>
-
-    <!-- Custom styles for this template -->
-    <!-- <link href="headers.css"s rel="stylesheet"> -->
 </head>
 
-<body style="font-size: 13px;">
-    <div class="container mt-5">
-        <img class="pull-right" alt="LOGO" src="<?= base_url() ?>assets/img/logo_asli.png" width="30%" />
+<?php
+function tgl_indo($tanggal)
+{
+    $bulan = array(
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    );
+    $pecahkan = explode('-', $tanggal);
+
+    // variabel pecahkan 0 = tanggal
+    // variabel pecahkan 1 = bulan
+    // variabel pecahkan 2 = tahun
+
+    return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
+} ?>
+
+<?php
+function bln_indo($bulan)
+{
+    if ($bulan == '01') {
+        echo 'Januari';
+    } else if ($bulan == '02') {
+        echo 'Februari';
+    } else if ($bulan == '03') {
+        echo 'Maret';
+    } else if ($bulan == '04') {
+        echo 'April';
+    } else if ($bulan == '05') {
+        echo 'Mei';
+    } else if ($bulan == '06') {
+        echo 'Juni';
+    } else if ($bulan == '07') {
+        echo 'Juli';
+    } else if ($bulan == '08') {
+        echo 'Agustus';
+    } else if ($bulan == '09') {
+        echo 'September';
+    } else if ($bulan == '11') {
+        echo 'November';
+    } else if ($bulan == '12') {
+        echo 'Desember';
+    }
+}
+
+function penyebut($nilai)
+{
+    $nilai = abs($nilai);
+    $huruf = array("", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "delapan", "sembilan", "sepuluh", "sebelas");
+    $temp = "";
+    if ($nilai < 12) {
+        $temp = " " . $huruf[$nilai];
+    } else if ($nilai < 20) {
+        $temp = penyebut($nilai - 10) . " belas";
+    } else if ($nilai < 100) {
+        $temp = penyebut($nilai / 10) . " puluh" . penyebut($nilai % 10);
+    } else if ($nilai < 200) {
+        $temp = " seratus" . penyebut($nilai - 100);
+    } else if ($nilai < 1000) {
+        $temp = penyebut($nilai / 100) . " ratus" . penyebut($nilai % 100);
+    } else if ($nilai < 2000) {
+        $temp = " seribu" . penyebut($nilai - 1000);
+    } else if ($nilai < 1000000) {
+        $temp = penyebut($nilai / 1000) . " ribu" . penyebut($nilai % 1000);
+    } else if ($nilai < 1000000000) {
+        $temp = penyebut($nilai / 1000000) . " juta" . penyebut($nilai % 1000000);
+    } else if ($nilai < 1000000000000) {
+        $temp = penyebut($nilai / 1000000000) . " milyar" . penyebut(fmod($nilai, 1000000000));
+    } else if ($nilai < 1000000000000000) {
+        $temp = penyebut($nilai / 1000000000000) . " trilyun" . penyebut(fmod($nilai, 1000000000000));
+    }
+    return $temp;
+}
+
+function terbilang($nilai)
+{
+    if ($nilai < 0) {
+        $hasil = "minus " . trim(penyebut($nilai));
+    } else {
+        $hasil = trim(penyebut($nilai));
+    }
+    return $hasil;
+}
+?>
+</head>
+
+<body style="font-size: 18px;">
+    <div class="container">
+        <img class="pull-right" alt="LOGO" src="<?= base_url() ?>assets/logo_ba/logo_ba.png" width="50%" style="opacity: 0.5;" />
         <div class="container-fluid">
+            <table>
+                <tr>
+                    <td width="100px">Nomor</td>
+                    <th>&ensp;&ensp;:&ensp;&ensp;</th>
+                    <td><?= $rup['no_pengumuman_hasil_kualifikasi'] ?></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td width="100px">Hal</td>
+                    <th>&ensp;&ensp;:&ensp;&ensp;</th>
+                    <td>Pengumuman Hasil Evaluasi Kualifikasi</td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td width="100px">Lampiran</td>
+                    <th>&ensp;&ensp;:&ensp;&ensp;</th>
+                    <td>1 (satu) Lembar</td>
+                </tr>
+            </table>
 
-
-            <div class="row ml-3 mr-3">
-                <div class="col-md-1">
-                    <label for="" style="margin-right: auto;">Nomor</label>
-                </div>
-                <div class="col-md-1">
-                    <label for="" style="margin-right: auto;"> :</label>
-                </div>
-                <div class="col-md-4">
-                    <label for="" style="margin-left: -90px;"><?= $rup['no_pengumuman_hasil_kualifikasi'] ?></label>
-                </div>
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-2">
-                    <label><?= $rup['tanggal_pengumuman_hasil_kualifikasi'] ?></label>
-                </div>
-            </div>
-            <div class="row ml-3 mr-3">
-                <div class="col-md-1">
-                    <label for="" style="margin-right: auto;">Hal</label>
-                </div>
-                <div class="col-md-1">
-                    <label for="" style="margin-right: auto;"> :</label>
-                </div>
-                <div class="col-md-4">
-                    <label for="" style="margin-left: -90px;"><b> Pengumuman Hasil Evaluasi Kualifikasi</b></label>
-                </div>
-            </div>
-            <div class="row ml-3 mr-3">
-                <div class="col-md-1">
-                    <label for="" style="margin-right: auto;">Lampiran</label>
-                </div>
-                <div class="col-md-1">
-                    <label for="" style="margin-right: auto;"> :</label>
-                </div>
-                <div class="col-md-4">
-                    <label for="" style="margin-left: -90px;">1 (satu) Lembar</label>
-                </div>
+            <div class="float-right">
+                Jakarta, <?= $rup['tanggal_pengumuman_hasil_kualifikasi'] ?>
             </div>
 
             <div class="row mt-5">
@@ -129,113 +166,107 @@
                 </div>
             </div>
 
-            <div class="row mt-5">
-                <br>
-                Dengan Hormat
-                <br><br>
-                <div class="mt-3 col-md-12">
-                    Sehubungan dengan Tahapan kegiatan <b> <?= $rup['metode_kualifikasi'] ?></b> <?= $rup['nama_metode_pengadaan'] ?> <?= $rup['nama_rup'] ?>, dengan ini kami sampaikan Hasil Evaluasi Kualifikasi sebagaimana terlampir dalam surat ini.
-                </div>
-                <br>
-                <div class="mt-3 col-md-12">
-                    Selanjutnya Peserta yang dapat mengikuti kegiatan Penawaran adalah Peserta yang dinyatakan Lulus.
-                </div>
-                <div class="mt-3 col-md-12">
-                    Adapun Jadwal kegiatan Penawaran adalah sebagai berikut :
-                </div>
-            </div>
 
-            <div class="row mt-3">
-                <div class="row mt-3">
-                    <div class="col-md-12">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Nama Kegiatan</th>
-                                    <th>Tanggal dan Waktu</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1. </td>
-                                    <td>Sanggahan Prakualifikasi</td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <!-- <?= $rup['hari_isi_pengumuman_hasil_kualifikasi_mulai'] ?>, <?= $rup['tanggal_isi_pengumuman_hasil_kualifikasi_mulai'] ?>
+            <br>
+            Dengan Hormat
+            <br><br>
+            <p>
+                Sehubungan dengan Tahapan kegiatan <b> <?= $rup['metode_kualifikasi'] ?></b> <?= $rup['nama_metode_pengadaan'] ?> <?= $rup['nama_rup'] ?>, dengan ini kami sampaikan Hasil Evaluasi Kualifikasi sebagaimana terlampir dalam surat ini.
+            </p>
+            <br>
+            <p>
+                Selanjutnya Peserta yang dapat mengikuti kegiatan Penawaran adalah Peserta yang dinyatakan Lulus.
+            </p>
+            <p>
+                Adapun Jadwal kegiatan Penawaran adalah sebagai berikut :
+            </p>
+
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama Kegiatan</th>
+                        <th>Tanggal dan Waktu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. </td>
+                        <td>Sanggahan Prakualifikasi</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <!-- <?= $rup['hari_isi_pengumuman_hasil_kualifikasi_mulai'] ?>, <?= $rup['tanggal_isi_pengumuman_hasil_kualifikasi_mulai'] ?>
                                                 <br>
                                                 <?= $rup['pukul_isi_pengumuman_hasil_kualifikasi_mulai'] ?> -->
-                                                <?= date('d-m-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) ?>
-                                                &ensp;
-                                                S/D
-                                                &ensp;
-                                                <?= date('d-m-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) ?>
-                                            </div>
-                                            <div class="col-md-1">
+                                    <?= date('d-m-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) ?>
+                                    &ensp;
+                                    S/D
+                                    &ensp;
+                                    <?= date('d-m-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) ?>
+                                </div>
+                                <div class="col-md-1">
 
-                                            </div>
-                                            <div class="col-md-5">
-                                                <!-- <?= $rup['hari_isi_pengumuman_hasil_kualifikasi_selesai'] ?>, <?= $rup['tanggal_isi_pengumuman_hasil_kualifikasi_selesai'] ?>
+                                </div>
+                                <div class="col-md-5">
+                                    <!-- <?= $rup['hari_isi_pengumuman_hasil_kualifikasi_selesai'] ?>, <?= $rup['tanggal_isi_pengumuman_hasil_kualifikasi_selesai'] ?>
                                                 <br>
                                                 <?= $rup['pukul_isi_pengumuman_hasil_kualifikasi_selesai'] ?> -->
 
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
 
-                                    </td>
-                                </tr>
+                        </td>
+                    </tr>
 
-                                <tr>
-                                    <td>2. </td>
-                                    <td>Rapat Penjelasan dan Download Dokumen Pengadaan</td>
-                                    <td><?= date('d-m-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) ?> &ensp; S/D &ensp;<?= date('d-m-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) ?></td>
-                                </tr>
+                    <tr>
+                        <td>2. </td>
+                        <td>Rapat Penjelasan dan Download Dokumen Pengadaan</td>
+                        <td><?= date('d-m-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) ?> &ensp; S/D &ensp;<?= date('d-m-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) ?></td>
+                    </tr>
 
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        Demikian kami sampaikan, atas perhatian Saudara, diucapkan terima kasih.
-                    </div>
-                </div>
+                </tbody>
+            </table>
 
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        <b> PT Jasamarga Tollroad Operator</b>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        TTD
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        <b> Panitia Pengadaan</b>
-                    </div>
-                </div>
+            <p>Demikian kami sampaikan, atas perhatian Saudara, diucapkan terima kasih.</p>
 
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        Catatan : <br>
-                        • Apabila ada perubahan waktu akan diberitahukan kemudian <br>
-                        • Jika ada hal yang kurang jelas dapat menghubungi (021) 22984722.
-                    </div>
-                </div>
+            <label for="">PT Jasamarga Tollroad Operator</label>
+            <br>
+            <br>
+            <br>
+            TTD
+            <br>
+            <br>
+            <br>
+            <label for="">Panitia Pengadaan</label>
+            <br>
+            <br>
+            Catatan : <br>
+            • Apabila ada perubahan waktu akan diberitahukan kemudian <br>
+            • Jika ada hal yang kurang jelas dapat menghubungi (021) 22984722.
+            <br>
+            <br>
+            <br> <br>
+            <br>
+            <br> <br>
+            <br>
+            <br> <br>
+            <br>
+            <br>
+            <div class="float-left">
+                <img src="<?= base_url('assets/logo_ba/logo_ba2.png') ?>" alt="logo" width="30%" style="opacity: 0.5;">
+            </div>
+            <br>
+            <br>
+            <center>
+                <label for="" style="text-transform:uppercase"> LAMPIRAN HASIL EVALUASI KUALIFIKASI <?= $rup['nama_metode_pengadaan'] ?>
+                    <?= $rup['nama_rup'] ?> </label>
+            </center>
 
 
-
-
-                <div class="row mt-4">
-                    <div class="mt-4 mb-5 col-md-12">
-                        <center>
-                            <label for="" style="text-transform:uppercase"> LAMPIRAN HASIL EVALUASI KUALIFIKASI <?= $rup['nama_metode_pengadaan'] ?>
-                                <?= $rup['nama_rup'] ?> </label>
-                        </center>
-                    </div>
+            <div class="row mt-1">
+                <div class="row mt-1">
                     <div class="col-md-12">
                         <table class="table table-bordered">
                             <thead>
@@ -375,262 +406,21 @@
     </div>
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/dist/js/bootstrap.bundle.min.js"></script>
-<!-- InputMask -->
-<script src="<?php echo base_url(); ?>assets/plugins/moment/moment.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins/inputmask/jquery.inputmask.min.js"></script>
-<!-- DataTables  & Plugins -->
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/jszip/jszip.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/pdfmake/pdfmake.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/pdfmake/vfs_fonts.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/plugins-lte/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- jQuery -->
-<!-- Select2 -->
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script>
-    $(function() {
-        $("#example1").DataTable({
-            "responsive": false,
-            "ordering": false,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false,
-            "responsive": false,
-        });
-    });
-</script>
-<script>
-    $(function() {
-        $('#example2').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false,
-            "responsive": false,
-        });
-    });
-</script>
-<script>
-    $(function() {
-        $("#example5").DataTable({
-            "responsive": false,
-            "ordering": false,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example5_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false,
-            "responsive": false,
-        });
-    });
-</script>
-<script>
-    $(function() {
-        $("#example7").DataTable({
-            "responsive": false,
-            "ordering": false,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example7_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false,
-            "responsive": false,
-        });
-    });
-</script>
-<script>
-    $(function() {
-        $("#example8").DataTable({
-            "responsive": false,
-            "ordering": false,
-            "lengthChange": false,
-            "autoWidth": false,
-            "buttons": ["excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example8_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": false,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": false,
-            "info": false,
-            "autoWidth": false,
-            "responsive": false,
-        });
-    });
-</script>
-<script>
-    $(function() {
-        //Money Euro
-        $('[data-mask]').inputmask()
-    });
-    $('.date-own').datepicker({
-        minViewMode: 2,
-        format: 'yyyy'
-    });
-</script>
 
-<script type="text/javascript">
-    var rupiah = document.getElementById('rupiah');
-    rupiah.addEventListener('keyup', function(e) {
-        // tambahkan 'Rp.' pada saat form di ketik
-        // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-        rupiah.value = formatRupiah(this.value, 'Rp. ');
-    });
-    var rupiah1 = document.getElementById('rupiah1');
-    rupiah1.addEventListener('keyup', function(e) {
-        // tambahkan 'Rp.' pada saat form di ketik
-        // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-        rupiah1.value = formatRupiah(this.value, 'Rp. ');
-    });
-    var rupiah2 = document.getElementById('rupiah2');
-    rupiah2.addEventListener('keyup', function(e) {
-        // tambahkan 'Rp.' pada saat form di ketik
-        // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
-        rupiah2.value = formatRupiah(this.value, 'Rp. ');
-    });
+<!-- Jquery -->
+<!-- Bootstrap -->
+<script type="text/javascript" src="https://eproc.jmtm.co.id/assets/boostrapnew/dist/js/bootstrap.min.js" media="all"></script>
+<!-- dataTables -->
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js" media="all"></script>
+<!-- select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" media="all"></script>
 
+<!-- custom js -->
+<script type="text/javascript" src="https://eproc.jmtm.co.id/assets/kintek.js" media="all"></script>
 
-    /* Fungsi formatRupiah */
-    function formatRupiah(angka, prefix) {
-        var number_string = angka.replace(/[^,\d]/g, '').toString(),
-            split = number_string.split(','),
-            sisa = split[0].length % 3,
-            rupiah = split[0].substr(0, sisa),
-            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-        // tambahkan titik jika yang di input sudah menjadi angka ribuan
-        if (ribuan) {
-            separator = sisa ? '.' : '';
-            rupiah += separator + ribuan.join('.');
-        }
-
-        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-        return prefix == undefined ? rupiah : (rupiah ? rupiah : '');
-    }
-</script>
-<script>
-    /* Tanpa Rupiah */
-    var tanpa_rupiah = document.getElementById('tanpa-rupiah');
-    tanpa_rupiah.addEventListener('keyup', function(e) {
-        tanpa_rupiah.value = formatRupiah(this.value);
-    });
-    var tanpa_rupiah1 = document.getElementById('tanpa-rupiah1');
-    tanpa_rupiah1.addEventListener('keyup', function(e) {
-        tanpa_rupiah1.value = formatRupiah(this.value);
-    });
-
-    var rupiahku = $('.rupiahku');
-    rupiahku.addEventListener('keyup', function(e) {
-        rupiahku.value = formatRupiah(this.value);
-    });
-
-    /* Dengan Rupiah */
-    var dengan_rupiah = document.getElementById('dengan-rupiah');
-    dengan_rupiah.addEventListener('keyup', function(e) {
-        dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
-    });
-
-    /* Fungsi */
-    function formatRupiah(angka, prefix) {
-        var number_string = angka.replace(/[^,\d]/g, '').toString(),
-            split = number_string.split(','),
-            sisa = split[0].length % 3,
-            rupiah = split[0].substr(0, sisa),
-            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-        if (ribuan) {
-            separator = sisa ? '.' : '';
-            rupiah += separator + ribuan.join('.');
-        }
-
-        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-    }
-</script>
-
-<script>
-    $("#multiple").select2({
-        placeholder: " Pilih Jenis Usaha...",
-        allowClear: true
-    });
-    $("#multiple2").select2({
-        placeholder: " Pilih Provinsi...",
-        allowClear: true
-    });
-    $("#multiple3").select2({
-        placeholder: " Pilih Kabupaten/Kota...",
-        allowClear: true
-    });
-    $("#multiple4").select2({
-        placeholder: " Pilih Kecamatan...",
-        allowClear: true
-    });
-    $("#multiple5").select2({
-        placeholder: " Pilih KBLI...",
-        allowClear: true
-    });
-
-    $('.single-select-field').select2({
-        theme: "bootstrap-5",
-        width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
-        placeholder: $(this).data('placeholder'),
-    });
-</script>
-<script>
-    window.onload = function() {
-        jam();
-    }
-
-    function jam() {
-        var e = document.getElementById('jam'),
-            d = new Date(),
-            h, m, s;
-        h = d.getHours();
-        m = set(d.getMinutes());
-        s = set(d.getSeconds());
-
-        e.innerHTML = h + ':' + m + ':' + s;
-
-        setTimeout('jam()', 1000);
-    }
-
-    function set(e) {
-        e = e < 10 ? '0' + e : e;
-        return e;
-    }
-</script>
+<!-- datepicker -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js" integrity="sha512-ZrigzIl5MysuwHc2LaGI+uOLnLDdyYUth+pA5OuJC++WEleiYrztIc7nU/iBRWeP+ufmSGepuJULdgh/K0rIAA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+<script media="all" type="text/javascript" src="https://eproc.jmtm.co.id/assets/datetimepicekernew/plugins/jquery.datetimepicker.full.min.js"></script>
 
 <script>
     function update_time_login() {
@@ -643,9 +433,9 @@
         })
     }
 
-    // setTimeout(() => {
-    //     window.print()
-    // }, 2000);
+    setTimeout(() => {
+        window.print()
+    }, 2000);
 </script>
 </body>
 

@@ -713,4 +713,57 @@
     function load_dok_file1_statis() {
 
     }
+
+    var form_presentasi_teknis_tender = $('#form_presentasi_teknis_tender')
+    form_presentasi_teknis_tender.on('submit', function(e) {
+        var ba_presentasi_teknis = $('[name="ba_presentasi_teknis"]').val();
+        if (ba_presentasi_teknis == '') {
+            e.preventDefault();
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Dokumen Wajib Di Isi!',
+            })
+        } else {
+            e.preventDefault();
+            $.ajax({
+                url: '<?= base_url('tender_diikuti/simpan_ba_presentasi_teknis/') ?>',
+                method: "POST",
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(response) {
+                    let timerInterval
+                    Swal.fire({
+                        title: 'Sedang Proses Menyimpan Data!',
+                        html: 'Membuat Data <b></b>',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading()
+                            const b = Swal.getHtmlContainer().querySelector('b')
+                            timerInterval = setInterval(() => {
+                                // b.textContent = Swal.getTimerRight()
+                            }, 1500)
+                        },
+                        willClose: () => {
+                            clearInterval(timerInterval)
+                            Swal.fire('Data Berhasil Di Simpan!', '', 'success')
+                            $('#upload_presentasi_teknis').modal('hide')
+                            form_presentasi_teknis_tender[0].reset()
+                            setTimeout(() => {
+                                location.reload()
+                            }, 1000);
+                        }
+                    }).then((result) => {
+                        /* Read more about handling dismissals below */
+                        if (result.dismiss === Swal.DismissReason.timer) {
+
+                        }
+                    })
+                }
+            })
+        }
+    })
 </script>

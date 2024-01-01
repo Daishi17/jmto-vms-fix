@@ -2045,4 +2045,37 @@ class Tender_diikuti extends CI_Controller
         $data['data_panitia'] = $this->M_tender->get_panitia($data['rup']['id_rup']);
         $this->load->view('info_tender/ba_hasil_evaluasi', $data);
     }
+
+    public function simpan_ba_presentasi_teknis(){
+        $id_vendor_mengikuti_paket = $this->input->post('id_vendor_mengikuti_paket');
+        $id_url_rup = $this->input->post('id_url_rup');
+        $id_rup = $this->input->post('id_rup');
+        $nama_rup = $this->M_tender->get_row_rup_byid($id_url_rup);
+        $nama_usaha = $this->session->userdata('nama_usaha');
+        $type_post = $this->input->post('type_post');
+
+
+        if (!is_dir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PRESENTASI_TEKNIS_PENGADAAN')) {
+            mkdir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PRESENTASI_TEKNIS_PENGADAAN', 0777, TRUE);
+        }
+        $config['upload_path'] = './file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'DOKUMEN_PRESENTASI_TEKNIS_PENGADAAN';
+        $config['allowed_types'] = 'pdf|xlsx|xls';
+        $config['max_size'] = 0;
+        $this->load->library('upload', $config);
+        if ($this->upload->do_upload('ba_presentasi_teknis')) {
+
+            $fileData = $this->upload->data();
+            $where = [
+                'id_vendor_mengikuti_paket' => $id_vendor_mengikuti_paket
+            ];
+
+            $upload = [
+                'ba_presentasi_teknis' => $fileData['file_name']
+            ];
+
+            $this->M_tender->update_dok_pengadaan_file_II($upload, $where);
+            $this->output->set_content_type('application/json')->set_output(json_encode('success'));
+
+        }
+    }
 }
