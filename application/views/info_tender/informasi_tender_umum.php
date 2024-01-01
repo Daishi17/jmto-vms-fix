@@ -461,6 +461,12 @@
 
 
                         <tr>
+                            <th>Undangan Penawaran</th>
+                            <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/lihat_undangan_penawran/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat Undangan Penawaran</a>
+                            <th>
+                        </tr>
+
+                        <tr>
                             <?php if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                                 <th>Dokumen Pengadaan</th>
@@ -589,6 +595,23 @@
                             <?php    } ?>
                         </tr>
 
+                        <tr>
+                            <th>Upload Presentasi Teknis Pengadaan</th>
+                            <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                                <th>
+                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#upload_presentasi_teknis">
+                                        <i class="fa fa-upload" aria-hidden="true"></i> Upload Dokumen Penawaran
+                                    </button>
+                                </th>
+                            <?php } else { ?>
+                                <th>
+                                    <button type="button" class="btn btn-sm btn-danger" disabled>
+                                        <i class="fa fa-folder-close" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
+                                    </button>
+                                </th>
+                            <?php } ?>
+
+                        </tr>
 
                         <tr>
                             <th>Berita Acara dan Pengumuman Pengadaan</th>
@@ -603,7 +626,6 @@
                                                 <table class="table table-bordered">
                                                     <thead>
                                                         <tr>
-                                                            <th>No</th>
                                                             <th>Nama File</th>
                                                             <th>File</th>
                                                         </tr>
@@ -1040,6 +1062,54 @@
                     Keluar
                 </button>
             </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="upload_presentasi_teknis" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-white">
+                <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-bullhorn" aria-hidden="true"></i> Presentasi Teknis Pengadaan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="javascript:;" id="form_presentasi_teknis_tender">
+                <input type="hidden" name="id_vendor_mengikuti_paket" value="<?= $get_row_mengikuti['id_vendor_mengikuti_paket'] ?>">
+                <input type="hidden" name="id_url_rup" value="<?= $rup['id_url_rup'] ?>">
+                <div class="modal-body">
+                    <div class="alert alert-primary d-flex align-items-center" role="alert">
+                        <div>
+                            <i class="fa fa-info-circle" aria-hidden="true"> </i> Upload Presentasi Teknis Pengadaan !!! <br>
+                            <!-- Catatan : Jika sudah upload, ketika upload yang ke-2 kalinya maka file akan menimpa! -->
+                        </div>
+                    </div>
+                    <br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nama File</th>
+                                <th>File</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Presentasi Teknis Pengadaan</td>
+                                <?php if ($get_row_mengikuti['ba_presentasi_teknis']) { ?>
+                                    <td><a target="_blank" href="<?= base_url('file_paket/' . $rup['nama_rup'] . '/' . $this->session->userdata('nama_usaha') . '/' . 'DOKUMEN_PRESENTASI_TEKNIS_PENGADAAN/' . $get_row_mengikuti['ba_presentasi_teknis']) ?>" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i> Lihat</a></td>
+                                <?php } else { ?>
+                                    <td><label for="" class="badge bg-danger"> Belum Upload File</label></td>
+                                <?php } ?>
+                                <td><input type="file" name="ba_presentasi_teknis" class="form-control" accept=".pdf"></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-success">Upload</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
