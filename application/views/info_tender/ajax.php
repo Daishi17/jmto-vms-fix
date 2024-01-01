@@ -714,3 +714,12 @@
 
     }
 </script>
+
+<script>
+    function modal_lihat_keterangan_dokumen_perubahan(keterangan_perubahan_dokumen) {
+        $('[name="keterangan_perubahan_dokumen"]').val(keterangan_perubahan_dokumen)
+        var modal_lihat_keterangan_dokumen_perubahan = $('#modal_lihat_keterangan_dokumen_perubahan');
+        modal_lihat_keterangan_dokumen_perubahan.modal('show');
+    }
+</script>
+

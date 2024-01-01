@@ -113,7 +113,7 @@
                                 </button></th>
                         </tr>
                         <tr>
-                            <th>Dokumen Pengadaan Dan Dokumen Prakualifikasi</th>
+                            <th>Dokumen Pengadaan Dan Dokumen Kualifikasi</th>
                             <th>
                                 <div class="row">
                                     <?php if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
@@ -142,7 +142,15 @@
                                                                 <tr>
                                                                     <td scope="row"><?= $i++ ?></td>
                                                                     <td><?= $value['nama_dok_pengadaan'] ?></td>
-                                                                    <td><a href="<?= $url_dok_pengadaan . $value['id_dokumen_pengadaan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a></td>
+                                                                    <td>
+                                                                        <a href="<?= $url_dok_pengadaan . $value['id_dokumen_pengadaan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
+                                                                        <?php if ($value['keterangan_dokumen']) { ?>
+                                                                            <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
+                                                                        <?php } else { ?>
+
+                                                                        <?php  }
+                                                                        ?>
+                                                                    </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -252,7 +260,7 @@
                                             <div class="col-md-6">
                                                 <div class="card">
                                                     <div class="card-header bg-primary text-white">
-                                                        Dokumen Prakualifikasi
+                                                        Dokumen Kualifikasi
                                                     </div>
                                                     <div class="card-body">
                                                         <table class="table table-bordered">
@@ -267,12 +275,20 @@
                                                                 <?php $i = 1;
                                                                 foreach ($dok_prakualifikasi as $key => $value) { ?>
 
+                                                                    <tr>
+                                                                        <td scope="row"><?= $i++ ?></td>
+                                                                        <td><?= $value['nama_dok_prakualifikasi'] ?></td>
+                                                                        <td>
+                                                                            <a href="<?= $url_dok_prakualifikasi . $value['id_dokumen_prakualifikasi'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
+                                                                            <?php if ($value['keterangan_dokumen']) { ?>
+                                                                                <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
+                                                                            <?php } else { ?>
+
+                                                                            <?php  }
+                                                                            ?>
+                                                                        </td>
+                                                                    </tr>
                                                                 <?php } ?>
-                                                                <tr>
-                                                                    <td scope="row"><?= $i++ ?></td>
-                                                                    <td><?= $value['nama_dok_prakualifikasi'] ?></td>
-                                                                    <td><a href="<?= $url_dok_prakualifikasi . $value['id_dokumen_prakualifikasi'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a></td>
-                                                                </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -285,7 +301,7 @@
                                         <div class="col-md-6">
                                             <div class="card">
                                                 <div class="card-header bg-primary text-white">
-                                                    Dokumen Prakualifikasi
+                                                    Dokumen Kualifikasi
                                                 </div>
                                                 <div class="card-body">
                                                     <table class="table table-bordered">
@@ -919,6 +935,29 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-start">
+                <button type="button" class="btn btn-default btn-danger" data-bs-dismiss="modal">
+                    <i class="fa-solid fa-rectangle-xmark"></i>
+                    Keluar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" tabindex="-1" id="modal_lihat_keterangan_dokumen_perubahan">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="navbar-brand">
+                    <img src="<?php echo base_url(); ?>/assets/brand/jm1.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
+                    <b><span class="text-primary">Keterangan Perubahan Dokumen</span></b>
+                </a>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <textarea readonly name="keterangan_perubahan_dokumen" class="form-control"></textarea>
             </div>
             <div class="modal-footer d-flex justify-content-start">
                 <button type="button" class="btn btn-default btn-danger" data-bs-dismiss="modal">
