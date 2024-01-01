@@ -482,31 +482,23 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
+                                                            <tbody>
                                                                 <?php $i = 1;
                                                                 foreach ($dok_pengadaan as $key => $value) { ?>
                                                                     <tr>
                                                                         <td scope="row"><?= $i++ ?></td>
                                                                         <td><?= $value['nama_dok_pengadaan'] ?></td>
-                                                                        <td><a href="<?= $url_dok_pengadaan . $value['id_dokumen_pengadaan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a></td>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <?php $i = 1;
-                                                                    foreach ($dok_pengadaan as $key => $value) { ?>
-                                                                        <tr>
-                                                                            <td scope="row"><?= $i++ ?></td>
-                                                                            <td><?= $value['nama_dok_pengadaan'] ?></td>
-                                                                            <td>
-                                                                                <a href="<?= $url_dok_pengadaan . $value['id_dokumen_pengadaan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
-                                                                                <?php if ($value['keterangan_dokumen']) { ?>
-                                                                                    <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
-                                                                                <?php } else { ?>
+                                                                        <td>
+                                                                            <a href="<?= $url_dok_pengadaan . $value['id_dokumen_pengadaan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
+                                                                            <?php if ($value['keterangan_dokumen']) { ?>
+                                                                                <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
+                                                                            <?php } else { ?>
 
-                                                                                <?php  }
-                                                                                ?>
-                                                                            </td>
-                                                                        </tr>
-                                                                    <?php } ?>
+                                                                            <?php  }
+                                                                            ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                <?php } ?>
 
                                                             </tbody>
                                                         </table>
@@ -1099,7 +1091,7 @@
                             <tr>
                                 <td>Presentasi Teknis Pengadaan</td>
                                 <?php if ($get_row_mengikuti['ba_presentasi_teknis']) { ?>
-                                    <td><a target="_blank" href="<?= base_url('file_paket/'. $rup['nama_rup'] . '/' . $this->session->userdata('nama_usaha') . '/' . 'DOKUMEN_PRESENTASI_TEKNIS_PENGADAAN/' . $get_row_mengikuti['ba_presentasi_teknis']) ?>" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i> Lihat</a></td>
+                                    <td><a target="_blank" href="<?= base_url('file_paket/' . $rup['nama_rup'] . '/' . $this->session->userdata('nama_usaha') . '/' . 'DOKUMEN_PRESENTASI_TEKNIS_PENGADAAN/' . $get_row_mengikuti['ba_presentasi_teknis']) ?>" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i> Lihat</a></td>
                                 <?php } else { ?>
                                     <td><label for="" class="badge bg-danger"> Belum Upload File</label></td>
                                 <?php } ?>
