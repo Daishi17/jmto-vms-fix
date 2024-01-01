@@ -896,3 +896,124 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
 <?php } else { ?>
 
 <?php  }  ?>
+
+<!-- Modal -->
+
+<div class="modal fade" id="modal_warning_dokumen" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">PERINGATAN MASA BERLAKU DOKUMEN</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- siup -->
+                <div id="siup_warning">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_siup"></label>
+                        </div>
+                        <div class="col-md-10">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_siup"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- nib -->
+                <div id="nib_warning">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_nib"></label>
+                        </div>
+                        <div class="col-md-10">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_nib"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- sbu -->
+                <div id="sbu_warning">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sbu"></label>
+                        </div>
+                        <div class="col-md-10">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_sbu"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- akta_pendirian -->
+                <div id="akta_pendirian_warning">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_akta_pendirian"></label>
+                        </div>
+                        <div class="col-md-10">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_akta_pendirian"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- sppkp -->
+                <div id="sppkp_warning">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sppkp"></label>
+                        </div>
+                        <div class="col-md-10">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_sppkp"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- npwp -->
+                <div id="npwp_warning">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_npwp"></label>
+                        </div>
+                        <div class="col-md-10">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_npwp"></label>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="modal_warning_lap_keuangan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">PERINGATAN MASA LAPORAN KEUANGAN DAN SPT</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- spt -->
+                <div id="spt_warning">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_spt"></label>
+                        </div>
+                        <div class="col-md-10">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_spt"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

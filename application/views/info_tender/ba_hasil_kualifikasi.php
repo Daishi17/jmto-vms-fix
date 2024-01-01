@@ -64,11 +64,8 @@
     }
     ?>
 
-
-
-
     <!-- Custom styles for this template -->
-    <!-- <link href="headers.css" rel="stylesheet"> -->
+    <!-- <link href="headers.css"s rel="stylesheet"> -->
 </head>
 
 <body style="font-size: 13px;">

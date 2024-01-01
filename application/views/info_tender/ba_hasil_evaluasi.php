@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="print.css" type="text/css" media="print" />
-    <title>JMTO - VMS</title>
+    <title>Pengumuman Hasil Evaluasi</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/fontawesome-free/css/all.min.css">
     <link href="<?php echo base_url(); ?>assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -75,160 +75,279 @@
     <div class="container mt-5">
         <img class="pull-right" alt="LOGO" src="<?= base_url() ?>assets/img/logo_asli.png" width="30%" />
         <div class="container-fluid">
-            <div class="row ml-3 mr-3">
-                <div class="col-md-2">
-
+            <div class="row">
+                <div class="col-md-1">
+                    <label for="" style="margin-right: auto;">Nomor</label>
                 </div>
+                <div class="col-md-7">
+                    <label for="">: <?= $rup['no_pengumuman_hasil_kualifikasi'] ?></label>
+                </div>
+                <div class="col-md-2">
+                    <label for="" style="margin-right: auto;"></label>
+                </div>
+                <div class="col-md-2">
+                    <label for="" style="margin-right: auto;"> <label><?= $rup['tanggal_pengumuman_hasil_kualifikasi'] ?></label></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <label for="" style="margin-right: auto;">Hal</label>
+                </div>
+                <div class="col-md-10">
+                    <label for=""><b>: Pengumuman Hasil Evaluasi Kualifikasi</b></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                    <label for="" style="margin-right: auto;">Lampiran</label>
+                </div>
+                <div class="col-md-4">
+                    <label for="">: 1 (satu) Lembar</label>
+                </div>
+            </div>
+
+            <div class="row mt-5">
                 <div class="col-md-8">
-                    <center>
-                        BERITA ACARA HASIL EVALUASI
-                        PRAKUALIFIKASI PESERTA TENDER UMUM
-                        PENGADAAN PEKERJAAN JASA PENGEMUDI SHUTTLE RUAS JABOTABEKDUNG, JAWA TENGAH DAN JAWA TIMUR PT JASAMARGA TOLLROAD OPERATOR
-                    </center>
-                </div>
-                <div class="col-md-2">
-                </div>
-            </div>
-            <hr>
-            <div class="row ml-3 mr-3 mt-4">
-                <center>
-                    <div class="col-md-4">
-                        <label for="" style="margin-right: auto;">Nomor : 458/BA-JMTO/VII/2023</label>
-                    </div>
-                </center>
-            </div>
-            <div class="row ml-3 mr-3 mt-3">
-                <div class="col-md-12">
-                    <label for="" style="margin-right: auto;">Pada hari ini Jumat, tanggal Dua puluh satu, bulan Juli, tahun Dua Ribu Dua Puluh Tiga (21-07-2023), Panitia Pengadaan telah mengadakan Rapat Evaluasi Prakualifikasi Peserta Tender Umum dengan hasil-hasil sebagai berikut:</label>
+                    <b>Kepada Yth.</b>
+                    <br>
+                    <b>Peserta <?= $rup['metode_kualifikasi'] ?> <?= $rup['nama_metode_pengadaan'] ?></b>
+                    <br>
+                    <b><?= $rup['nama_rup'] ?></b>
+                    <br>
+                    Di
+                    <b>Tempat</b>
                 </div>
             </div>
 
-            <div class="row ml-3 mr-3 mt-3">
-                <div class="col-md-12">
-                    <label for="" style="margin-right: auto;">1. Jumlah Perusahaan yang mendaftar dan mengambil Dokumen Prakualifikasi sebanyak 15 (Lima belas) Perusahaan, yaitu:</label>
-                    <div class="row">
-                        <div class="col-md-6">
-                            1. PT Zeta Karya Cigs <br>
-                            2. PT Semanggi Tiga <br>
-                            3. PT Labora Duta Anugrah <br>
-                            4. PT Symphony Sistem Solusi <br>
-                            5. PT Kartika Citra Nusantara <br>
-                            6. PT Sierra Solutions Indonesia <br>
-                            7. PT Pelita Adhidaya Servindo <br>
-                            8. PT Synergy Cakra Buana <br>
-                            9. PT Dapensi Trio Usaha
-                        </div>
-                        <div class="col-md-6">
-                            10. PT Zeta Karya Cigs <br>
-                            11. PT Semanggi Tiga <br>
-                            12. PT Labora Duta Anugrah <br>
-                            13. PT Symphony Sistem Solusi <br>
-                            14. PT Kartika Citra Nusantara <br>
-                            15. PT Sierra Solutions Indonesia <br>
-                            16. PT Pelita Adhidaya Servindo <br>
-                            17. PT Synergy Cakra Buana <br>
-                            18. PT Dapensi Trio Usaha
-                        </div>
-                    </div>
+            <div class="row mt-5">
+
+                <div class="mt-3 col-md-12">
+                    <br>
+                    Dengan Hormat
+                    <br><br>
+                    Sehubungan dengan Tahapan kegiatan <b> <?= $rup['metode_kualifikasi'] ?></b> <?= $rup['nama_metode_pengadaan'] ?> <?= $rup['nama_rup'] ?>, dengan ini kami sampaikan Hasil Evaluasi Kualifikasi sebagaimana terlampir dalam surat ini.
+                </div>
+                <br>
+                <div class="mt-3 col-md-12">
+                    Selanjutnya Peserta yang dapat mengikuti kegiatan Penawaran adalah Peserta yang dinyatakan Lulus.
+                </div>
+                <div class="mt-3 col-md-12">
+                    Adapun Jadwal kegiatan Penawaran adalah sebagai berikut :
                 </div>
             </div>
 
-            <div class="row ml-3 mr-3 mt-3">
-                <div class="col-md-12">
-                    <label for="" style="margin-right: auto;">2. Perusahaan yang mengembalikan dan memasukan Dokumen Prakualifikasi adalah sebanyak 9 (Sembilan) Perusahaan, yaitu:</label>
-                    <div class="row">
-                        <div class="col-md-6">
-                            1. PT Semanggi Tiga <br>
-                            2. PT Symphony Sistem Solusi <br>
-                            3. PT Kartika Citra Nusantara <br>
-                            4. PT Pelita Adhidaya Servindo <br>
-                            5. PT Dapensi Trio Usaha <br>
-                            6. PT Batanghari <br>
-                            7. PT ISS Indonesia <br>
-                            8. PT Citra Persada Infrastruk <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row ml-3 mr-3 mt-3">
-                <div class="col-md-12">
-                    <label for="" style="margin-right: auto;">3. Panitia Pengadaan melakukan evaluasi terhadap Dokumen Prakualifikasi yang masuk, meliputi aspek administrasi, keuangan dan teknis. <br>
-                        Setelah melakukan evaluasi, Panitia Pengadaan sepakat menilai dan menetapkan bahwa Perusahaan yang memenuhi persyaratan Prakualifikasi adalah sebanyak 4 (Empat) Perusahaan, yaitu:
-                    </label>
-                    <div class="row">
-                        <div class="col-md-6">
-                            1. PT Semanggi Tiga <br>
-                            2. PT Symphony Sistem Solusi <br>
-                            3. PT Kartika Citra Nusantara <br>
-                            4. PT Pelita Adhidaya Servindo <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row ml-3 mr-3 mt-3">
-                <div class="col-md-12">
-                    <label for="" style="margin-right: auto;">4. Hasil Evaluasi Prakualifikasi Peserta Tender Umum tertuang dalam Lampiran Berita Acara ini.
-                        Demikian Berita Acara Evaluasi Prakualifikasi Peserta Tender Umum Pengadaan Pekerjaan Jasa Pengemudi Shuttle Ruas Jabotabekdung, Jawa Tengah dan Jawa Timur PT Jasamarga Tollroad Operator ini dibuat untuk dapat dipergunakan sebagaimana mestinya.
-
-                    </label>
-                    <div class="row">
-                        <div class="col-md-6">
-                            1. PT Semanggi Tiga <br>
-                            2. PT Symphony Sistem Solusi <br>
-                            3. PT Kartika Citra Nusantara <br>
-                            4. PT Pelita Adhidaya Servindo <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row ml-3 mr-3 mt-3">
-                <div class="col-md-12">
-                    <label for="" style="margin-right: auto;">Hasil Evaluasi Prakualifikasi Peserta Tender Umum tertuang dalam Lampiran Berita Acara ini.
-                        Demikian Berita Acara Evaluasi Prakualifikasi Peserta Tender Umum Pengadaan Pekerjaan Jasa Pengemudi Shuttle Ruas Jabotabekdung, Jawa Tengah dan Jawa Timur PT Jasamarga Tollroad Operator ini dibuat untuk dapat dipergunakan sebagaimana mestinya.
-                    </label>
-                    <div class="row">
-                        <div class="col-md-6">
-                            1. PT Semanggi Tiga <br>
-                            2. PT Symphony Sistem Solusi <br>
-                            3. PT Kartika Citra Nusantara <br>
-                            4. PT Pelita Adhidaya Servindo <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row ml-3 mr-3 mt-3">
-                <div class="col-md-12">
-                    <label for="" style="margin-right: auto;">
-                        PANITIA <?= $rup['nama_rup'] ?>
-                    </label>
-                    <div class="row">
-                        <table class="table">
+            <div class="row mt-3">
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>No</th>
-                                    <th>Nama</th>
-                                    <th>Jabatan</th>
-                                    <th>Tanda Tangan</th>
+                                    <th>Nama Kegiatan</th>
+                                    <th>Tanggal dan Waktu</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no = 1;
-                                foreach ($data_panitia as $key => $value) { ?>
+                                <tr>
+                                    <td>1. </td>
+                                    <td>Sanggahan Prakualifikasi</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <!-- <?= $rup['hari_isi_pengumuman_hasil_kualifikasi_mulai'] ?>, <?= $rup['tanggal_isi_pengumuman_hasil_kualifikasi_mulai'] ?>
+                                                <br>
+                                                <?= $rup['pukul_isi_pengumuman_hasil_kualifikasi_mulai'] ?> -->
+                                                <?= date('d-m-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) ?>
+                                                &ensp;
+                                                S/D
+                                                &ensp;
+                                                <?= date('d-m-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) ?>
+                                            </div>
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>2. </td>
+                                    <td>Rapat Penjelasan dan Download Dokumen Pengadaan</td>
+                                    <td><?= date('d-m-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) ?> &ensp; S/D &ensp;<?= date('d-m-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) ?></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        Demikian kami sampaikan, atas perhatian Saudara, diucapkan terima kasih.
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <b> PT Jasamarga Tollroad Operator</b>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        TTD
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <b> Panitia Pengadaan</b>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        Catatan : <br>
+                        • Apabila ada perubahan waktu akan diberitahukan kemudian <br>
+                        • Jika ada hal yang kurang jelas dapat menghubungi (021) 22984722.
+                    </div>
+                </div>
+
+
+
+
+                <div class="row mt-4">
+                    <div class="mt-4 mb-5 col-md-12">
+                        <center>
+                            <label for="" style="text-transform:uppercase"> LAMPIRAN HASIL EVALUASI KUALIFIKASI <?= $rup['nama_metode_pengadaan'] ?>
+                                <?= $rup['nama_rup'] ?> </label>
+                        </center>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Perusahaan </th>
+                                    <th>Evaluasi Administrasi</th>
+                                    <th>Evaluasi Keuangan</th>
+                                    <th>Evaluasi Teknis</th>
+                                    <th>Evaluasi Akhir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $i = 1;
+                                foreach ($data_evaluasi as $key => $value) { ?>
+                                    <?php
+                                    $this->db->select('*');
+                                    $this->db->from('tbl_vendor_syarat_tambahan');
+                                    $this->db->where('tbl_vendor_syarat_tambahan.id_rup', $value['id_rup']);
+                                    $this->db->where('tbl_vendor_syarat_tambahan.id_vendor', $value['id_vendor']);
+                                    $this->db->where('tbl_vendor_syarat_tambahan.status', 1);
+                                    $cek_valid_vendor =  $this->db->count_all_results();
+                                    ?>
                                     <tr>
-                                        <td scope="row"><?= $no++ ?></td>
-                                        <td><?= $value['nama_pegawai'] ?></td>
-                                        <?php if ($value['role_panitia'] == 1) { ?>
-                                            <td>Ketua</td>
-                                        <?php } else if ($value['role_panitia'] == 2) { ?>
-                                            <td>Sekertaris</td>
-                                        <?php } else { ?>
-                                            <td>Anggota</td>
-                                        <?php } ?>
-                                        <td><label for="" class="badge bg-success">Sah</label></td>
+                                        <td><?= $i++ ?></td>
+                                        <td><?= $value['nama_usaha'] ?></td>
+                                        <td>
+                                            <?php if ($cek_valid_vendor >= $hitung_syarat) {
+                                                $sts_administrasi =  '<span class="badge bg-success">Lulus</span>';
+                                            } else {
+                                                $sts_administrasi =  '<span class="badge bg-danger">Gugur</span>';
+                                            } ?>
+                                            <label for=""><?= $sts_administrasi ?></label>
+                                        </td>
+                                        <td>
+                                            <?php  // nilai keuangan
+                                            if ($cek_valid_vendor >= $hitung_syarat) {
+                                                if ($value['ev_keuangan'] == NULL) {
+                                                    $nilai_keuangan = '00.00';
+                                                    $nilai_keuangan = '<span class="badge bg-secondary bg-sm">Tidak Dievaluasi</span>';
+                                                } else {
+                                                    if ($value['ev_keuangan'] >= 60) {
+                                                        $nilai_keuangan = number_format($value['ev_keuangan'], 2, ',', '.');
+                                                        $nilai_keuangan = '<span class="badge bg-success bg-sm">Lulus</span>';
+                                                    } else {
+                                                        $nilai_keuangan = number_format($value['ev_keuangan'], 2, ',', '.');
+                                                        $nilai_keuangan = '<span class="badge bg-danger bg-sm">Gugur</span>';
+                                                    }
+                                                }
+                                            } else {
+                                                if ($value['ev_keuangan'] == NULL) {
+                                                    $nilai_keuangan = '00.00';
+                                                    $nilai_keuangan = '<span class="badge bg-secondary bg-sm">Tidak Dievaluasi</span>';
+                                                } else {
+                                                    if ($value['ev_keuangan'] >= 60) {
+                                                        $nilai_keuangan = number_format($value['ev_keuangan'], 2, ',', '.');
+                                                        $nilai_keuangan = '<span class="badge bg-success bg-sm">Lulus</span>';
+                                                    } else {
+                                                        $nilai_keuangan = number_format($value['ev_keuangan'], 2, ',', '.');
+                                                        $nilai_keuangan = '<span class="badge bg-danger bg-sm">Gugur</span>';
+                                                    }
+                                                }
+                                            } ?>
+                                            <label for=""><?= $nilai_keuangan ?></label>
+                                        </td>
+                                        <td>
+                                            <?php
+                                            if ($cek_valid_vendor >= $hitung_syarat) {
+                                                if ($value['ev_teknis'] == NULL) {
+                                                    $nilai_teknis = '00.00';
+                                                    $nilai_teknis = '<span class="badge bg-secondary bg-sm">Tidak Dievaluasi</span>';
+                                                } else {
+                                                    if ($value['ev_teknis'] >= 60) {
+                                                        $nilai_teknis = number_format($value['ev_teknis'], 2, ',', '.');
+                                                        $nilai_teknis = '<span class="badge bg-success bg-sm">Lulus</span>';
+                                                    } else {
+                                                        $nilai_teknis = number_format($value['ev_teknis'], 2, ',', '.');
+                                                        $nilai_teknis = '<span class="badge bg-danger bg-sm">Gugur</span>';
+                                                    }
+                                                }
+                                            } else {
+                                                if ($value['ev_teknis'] == NULL) {
+                                                    $nilai_teknis = '00.00';
+                                                    $nilai_teknis = '<span class="badge bg-secondary bg-sm">Tidak Dievaluasi</span>';
+                                                } else {
+                                                    if ($value['ev_teknis'] >= 60) {
+                                                        $nilai_teknis = number_format($value['ev_teknis'], 2, ',', '.');
+                                                        $nilai_teknis = '<span class="badge bg-success bg-sm">Lulus</span>';
+                                                    } else {
+                                                        $nilai_teknis = number_format($value['ev_teknis'], 2, ',', '.');
+                                                        $nilai_teknis = '<span class="badge bg-danger bg-sm">Gugur</span>';
+                                                    }
+                                                }
+                                            } ?>
+                                            <label for=""><?= $nilai_teknis ?></label>
+                                        </td>
+                                        <td>
+                                            <?php if ($cek_valid_vendor >= $hitung_syarat) {
+                                                if ($value['ev_kualifikasi_akhir'] == NULL) {
+                                                    $nilai_akhir = '00.00';
+                                                    $nilai_akhir = '<span class="badge bg-secondary bg-sm">Tidak Dievaluasi</span>';
+                                                } else {
+                                                    if ($value['ev_kualifikasi_akhir'] >= 60) {
+                                                        $nilai_akhir = number_format($value['ev_kualifikasi_akhir'], 2, ',', '.');
+                                                        $nilai_akhir = '<span class="badge bg-success bg-sm">Lulus</span>';
+                                                    } else {
+                                                        $nilai_akhir = number_format($value['ev_kualifikasi_akhir'], 2, ',', '.');
+                                                        $nilai_akhir = '<span class="badge bg-danger bg-sm">Gugur</span>';
+                                                    }
+                                                }
+                                            } else {
+                                                if ($value['ev_kualifikasi_akhir'] == NULL) {
+                                                    $nilai_akhir = '00.00';
+                                                    $nilai_akhir = '<span class="badge bg-secondary bg-sm">Tidak Dievaluasi</span>';
+                                                } else {
+                                                    if ($value['ev_kualifikasi_akhir'] >= 60) {
+                                                        $nilai_akhir = number_format($value['ev_kualifikasi_akhir'], 2, ',', '.');
+                                                        $nilai_akhir = '<span class="badge bg-success bg-sm">Lulus</span>';
+                                                    } else {
+                                                        $nilai_akhir = number_format($value['ev_kualifikasi_akhir'], 2, ',', '.');
+                                                        $nilai_akhir = '<span class="badge bg-danger bg-sm">Gugur</span>';
+                                                    }
+                                                }
+                                            }
+                                            ?>
+                                            <label for=""><?= $nilai_akhir ?></label>
+                                        </td>
                                     </tr>
                                 <?php } ?>
+
                             </tbody>
                         </table>
                     </div>
