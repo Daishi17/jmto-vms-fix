@@ -37,15 +37,6 @@ class M_Dashboard extends CI_Model
         return $query->num_rows();
     }
 
-    function cek_vendor_siup_dokumen($id_vendor)
-    {
-        $this->db->select('*');
-        $this->db->from('tbl_vendor_siup');
-        $this->db->where('id_vendor', $id_vendor);
-        $query = $this->db->get();
-        return $query->row_array();
-    }
-
     function cek_vendor_tervalidasi_kbli_siup($id_vendor)
     {
         $this->db->select('sts_kbli_siup');
@@ -831,7 +822,7 @@ class M_Dashboard extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
-    
+
 
     public function cek_row_pengajuan_terakhir($jenis_dokumen_perubahan)
     {
@@ -855,4 +846,63 @@ class M_Dashboard extends CI_Model
         $this->db->delete('tbl_pengajuan_perubahan_dokumen', $id_dokumen_pengajuan);
         return $this->db->affected_rows();
     }
+
+    // cek_warning dokumen
+    // siup
+    function cek_vendor_siup_dokumen($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_siup');
+        $this->db->where('id_vendor', $id_vendor);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+    // nib
+    function cek_vendor_nib_dokumen($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_nib');
+        $this->db->where('id_vendor', $id_vendor);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+    // sbu
+    function cek_vendor_sbu_dokumen($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_sbu');
+        $this->db->where('id_vendor', $id_vendor);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+    // akta_pendirian
+    function cek_vendor_akta_pendirian_dokumen($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_akta_pendirian');
+        $this->db->where('id_vendor', $id_vendor);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+    // sppkp
+    function cek_vendor_sppkp_dokumen($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_sppkp');
+        $this->db->where('id_vendor', $id_vendor);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+     // npwp
+     function cek_vendor_npwp_dokumen($id_vendor)
+     {
+         $this->db->select('*');
+         $this->db->from('tbl_vendor_npwp');
+         $this->db->where('id_vendor', $id_vendor);
+         $query = $this->db->get();
+         return $query->row_array();
+     }
 }

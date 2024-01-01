@@ -37,7 +37,7 @@ class Email_send
             'smtp_crypto'  => 'tls',
             'charset'   => 'utf-8'
         );
-	$this->ci->email->initialize($config);
+        $this->ci->email->initialize($config);
         $this->ci->email->set_newline("\r\n");
         // Email dan nama pengirim
         $this->ci->email->from('e-procurement@jmto.co.id', 'JMTO');
@@ -54,6 +54,13 @@ class Email_send
             $this->ci->email->message("Silakan Klik Link Ini $base_url Untuk Melakukan Prosess Pengubahan Password Anda");
 
             $this->ci->email->send();
+        } else if ($type == 'token_penawaran') {
+            $this->ci->email->subject('E-PROCUREMENT JMTO :  TOKEN KODENISASI');
+
+            // Isi email
+            $this->ci->email->message($data);
+
+            $this->ci->email->send();
         } else {
             $this->ci->email->subject('E-PROCUREMENT JMTO :  REGISTRASI');
 
@@ -62,5 +69,36 @@ class Email_send
 
             $this->ci->email->send();
         }
+    }
+
+    public function sen_row_email_token($type, $data, $message)
+    {
+        $type = $this->ci->M_datapenyedia->get_row_vendor($data['id_vendor']);
+        $email = $data['email'];
+        $this->ci->load->library('email');
+        $config = array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'mail.jmto.co.id',
+            'smtp_port' => 26,
+            'smtp_user' => 'e-procurement@jmto.co.id',
+            'smtp_pass' => 'jmt02023!#',
+            'mailtype'  => 'html',
+            'smtp_crypto'  => 'tls',
+            'charset'   => 'utf-8'
+        );
+        $this->ci->email->initialize($config);
+        $this->ci->email->set_newline("\r\n");
+        // Email dan nama pengirim
+        $this->ci->email->from('e-procurement@jmto.co.id', 'JMTO');
+
+        // Email penerima
+
+        $this->ci->email->to($email); // Ganti dengan email tujuan
+        $this->ci->email->subject('E-PROCUREMENT JMTO :  TOKEN KODENISASI');
+
+        // Isi email
+        $this->ci->email->message($message);
+
+        $this->ci->email->send();
     }
 }
