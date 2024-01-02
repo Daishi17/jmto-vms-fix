@@ -655,19 +655,33 @@
                                                             </tr>
 
 
+                                                            <?php if ($rup['id_vendor_pemenang'] == $this->session->userdata('id_vendor')) { ?>
+                                                                <tr>
+                                                                    <?php if ($rup['ba_negosiasi_no']) { ?>
+                                                                        <th>Berita Acara Evaluasi dan Negosiasi</th>
+                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_negosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                    <?php } ?>
+                                                                </tr>
+                                                                <tr>
+                                                                    <?php if ($rup['ba_klarifikasi_no']) { ?>
+                                                                        <th>Berita Acara Klarifikasi & Penilaian Kewajaran Harga</th>
+                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_evaluasinegosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                    <?php } ?>
+                                                                </tr>
+
+
+                                                            <?php } else { ?>
+
+                                                            <?php } ?>
                                                             <tr>
-                                                                <?php if ($rup['ba_negosiasi_no']) { ?>
-                                                                    <th>Berita Acara Evaluasi dan Negosiasi</th>
-                                                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_negosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
-                                                                <?php } ?>
-                                                            </tr>
-                                                            <tr>
-                                                                <?php if ($rup['ba_klarifikasi_no']) { ?>
-                                                                    <th>Berita Acara Klarifikasi & Penilaian Kewajaran Harga</th>
-                                                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_evaluasinegosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                <?php if ($rup['ba_pemenang_no']) { ?>
+                                                                    <th>Pengumuman Pemenang Pengadaan</th>
+                                                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_pemenang_tender/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>
                                                             </tr>
                                                         <?php   } ?>
+
+
 
 
                                                     </tbody>
