@@ -75,7 +75,6 @@
                         '<td><small>' + data_mulai + '</small></td>' +
                         '<td><small>' + data_selesai + '</small></td>' +
                         '<td>' + status_waktu + '</td>' +
-                        '<td>Panitia</td>' +
                         '<td>' + alasan + '</td>' +
                         '</tr>';
                 }
