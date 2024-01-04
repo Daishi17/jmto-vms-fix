@@ -38,6 +38,7 @@ class Registrasi extends CI_Controller
 					$npwp = $this->input->post('npwp');
 					$cek_npwp = json_decode(file_get_contents("https://bts.kintekindo.net/main.php/" . $npwp));
 					$result_ceking = json_decode(json_encode($cek_npwp), true);
+					var_dump($result_ceking);die;
 					if ($result_ceking['message'] == 'The NPWP number is valid') {
 						$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 						$charactersLength = strlen($characters);

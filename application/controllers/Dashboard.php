@@ -116,8 +116,8 @@ class Dashboard extends CI_Controller
         $timeUntilExpiration_siup = $currentDate_siup->diff($expiredDate_siup);
         $monthsUntilExpiration_siup = $timeUntilExpiration_siup->format('%m');
         $weeksUntilExpiration_siup = floor($timeUntilExpiration_siup->days / 7);
-        $daysUntilExpiration_siup = $timeUntilExpiration_siup->days % 7;
-
+        $daysUntilExpiration_siup =  floor($timeUntilExpiration_siup->days % 7);
+        $yearsUntilExpiration_siup = $expiredDate_siup->format('Y');
         if ($monthsUntilExpiration_siup == 0) {
             $monthsUntilExpiration_siup = '';
             $monthsUntilExpiration_siup_validation = 0;
@@ -138,8 +138,8 @@ class Dashboard extends CI_Controller
             $daysUntilExpiration_siup = '';
             $daysUntilExpiration_siup_validation = 0;
         } else {
-            $daysUntilExpiration_siup = $timeUntilExpiration_siup->days % 7 . ' Hari';
-            $daysUntilExpiration_siup_validation = $timeUntilExpiration_siup->days % 7;
+            $daysUntilExpiration_siup =  floor($timeUntilExpiration_siup->days % 7) . ' Hari';
+            $daysUntilExpiration_siup_validation =  floor($timeUntilExpiration_siup->days % 7);
         }
         // end_siup_warning_dokumen
 
@@ -152,8 +152,8 @@ class Dashboard extends CI_Controller
         $timeUntilExpiration_nib = $currentDate_nib->diff($expiredDate_nib);
         $monthsUntilExpiration_nib = $timeUntilExpiration_nib->format('%m');
         $weeksUntilExpiration_nib = floor($timeUntilExpiration_nib->days / 7);
-        $daysUntilExpiration_nib = $timeUntilExpiration_nib->days % 7;
-
+        $daysUntilExpiration_nib =  floor($timeUntilExpiration_nib->days % 7);
+        $yearsUntilExpiration_nib = $expiredDate_nib->format('Y');
         if ($monthsUntilExpiration_nib == 0) {
             $monthsUntilExpiration_nib = '';
             $monthsUntilExpiration_nib_validation = 0;
@@ -174,8 +174,8 @@ class Dashboard extends CI_Controller
             $daysUntilExpiration_nib = '';
             $daysUntilExpiration_nib_validation = 0;
         } else {
-            $daysUntilExpiration_nib = $timeUntilExpiration_nib->days % 7 . ' Hari';
-            $daysUntilExpiration_nib_validation = $timeUntilExpiration_nib->days % 7;
+            $daysUntilExpiration_nib =  floor($timeUntilExpiration_nib->days % 7) . ' Hari';
+            $daysUntilExpiration_nib_validation =  floor($timeUntilExpiration_nib->days % 7);
         }
         // end_nib_warning_dokumen
 
@@ -187,8 +187,8 @@ class Dashboard extends CI_Controller
         $timeUntilExpiration_sbu = $currentDate_sbu->diff($expiredDate_sbu);
         $monthsUntilExpiration_sbu = $timeUntilExpiration_sbu->format('%m');
         $weeksUntilExpiration_sbu = floor($timeUntilExpiration_sbu->days / 7);
-        $daysUntilExpiration_sbu = $timeUntilExpiration_sbu->days % 7;
-
+        $daysUntilExpiration_sbu =  floor($timeUntilExpiration_sbu->days % 7);
+        $yearsUntilExpiration_sbu = $expiredDate_sbu->format('Y');
         if ($monthsUntilExpiration_sbu == 0) {
             $monthsUntilExpiration_sbu = '';
             $monthsUntilExpiration_sbu_validation = 0;
@@ -209,8 +209,8 @@ class Dashboard extends CI_Controller
             $daysUntilExpiration_sbu = '';
             $daysUntilExpiration_sbu_validation = 0;
         } else {
-            $daysUntilExpiration_sbu = $timeUntilExpiration_sbu->days % 7 . ' Hari';
-            $daysUntilExpiration_sbu_validation = $timeUntilExpiration_sbu->days % 7;
+            $daysUntilExpiration_sbu =  floor($timeUntilExpiration_sbu->days % 7) . ' Hari';
+            $daysUntilExpiration_sbu_validation =  floor($timeUntilExpiration_sbu->days % 7);
         }
         // end_sbu_warning_dokumen
 
@@ -222,7 +222,8 @@ class Dashboard extends CI_Controller
         $timeUntilExpiration_akta_pendirian = $currentDate_akta_pendirian->diff($expiredDate_akta_pendirian);
         $monthsUntilExpiration_akta_pendirian = $timeUntilExpiration_akta_pendirian->format('%m');
         $weeksUntilExpiration_akta_pendirian = floor($timeUntilExpiration_akta_pendirian->days / 7);
-        $daysUntilExpiration_akta_pendirian = $timeUntilExpiration_akta_pendirian->days % 7;
+        $daysUntilExpiration_akta_pendirian =  floor($timeUntilExpiration_akta_pendirian->days % 7);
+        $yearsUntilExpiration_akta_pendirian = $expiredDate_akta_pendirian->format('Y');
         if ($monthsUntilExpiration_akta_pendirian == 0) {
             $monthsUntilExpiration_akta_pendirian = '';
             $monthsUntilExpiration_akta_pendirian_validation = 0;
@@ -243,8 +244,8 @@ class Dashboard extends CI_Controller
             $daysUntilExpiration_akta_pendirian = '';
             $daysUntilExpiration_akta_pendirian_validation = 0;
         } else {
-            $daysUntilExpiration_akta_pendirian = $timeUntilExpiration_akta_pendirian->days % 7 . ' Hari';
-            $daysUntilExpiration_akta_pendirian_validation = $timeUntilExpiration_akta_pendirian->days % 7;
+            $daysUntilExpiration_akta_pendirian =  floor($timeUntilExpiration_akta_pendirian->days % 7) . ' Hari';
+            $daysUntilExpiration_akta_pendirian_validation =  floor($timeUntilExpiration_akta_pendirian->days % 7);
         }
         // end_akta_pendirian_warning_dokumen
 
@@ -259,7 +260,7 @@ class Dashboard extends CI_Controller
         $monthsUntilExpiration_sppkp = $timeUntilExpiration_sppkp->format('%m');
         $weeksUntilExpiration_sppkp = floor($timeUntilExpiration_sppkp->days / 7);
         $daysUntilExpiration_sppkp = $timeUntilExpiration_sppkp->days % 7;
-
+        $yearsUntilExpiration_sppkp = $expiredDate_sppkp->format('Y');
         if ($monthsUntilExpiration_sppkp == 0) {
             $monthsUntilExpiration_sppkp = '';
             $monthsUntilExpiration_sppkp_validation = 0;
@@ -280,8 +281,8 @@ class Dashboard extends CI_Controller
             $daysUntilExpiration_sppkp = '';
             $daysUntilExpiration_sppkp_validation = 0;
         } else {
-            $daysUntilExpiration_sppkp = $timeUntilExpiration_sppkp->days % 7 . ' Hari';
-            $daysUntilExpiration_sppkp_validation = $timeUntilExpiration_sppkp->days % 7;
+            $daysUntilExpiration_sppkp =  floor($timeUntilExpiration_sppkp->days % 7) . ' Hari';
+            $daysUntilExpiration_sppkp_validation =  floor($timeUntilExpiration_sppkp->days % 7);
         }
         // end_sppkp_warning_dokumen
 
@@ -293,6 +294,7 @@ class Dashboard extends CI_Controller
         $currentDate_npwp = new DateTime();
         $timeUntilExpiration_npwp = $currentDate_npwp->diff($expiredDate_npwp);
         $monthsUntilExpiration_npwp = $timeUntilExpiration_npwp->format('%m');
+        $yearsUntilExpiration_npwp = $expiredDate_npwp->format('Y');
         $weeksUntilExpiration_npwp = floor($timeUntilExpiration_npwp->days / 7);
         $daysUntilExpiration_npwp = $timeUntilExpiration_npwp->days % 7;
         if ($monthsUntilExpiration_npwp == 0) {
@@ -315,8 +317,8 @@ class Dashboard extends CI_Controller
             $daysUntilExpiration_npwp = '';
             $daysUntilExpiration_npwp_validation = 0;
         } else {
-            $daysUntilExpiration_npwp = $timeUntilExpiration_npwp->days % 7 . ' Hari';
-            $daysUntilExpiration_npwp_validation = $timeUntilExpiration_npwp->days % 7;
+            $daysUntilExpiration_npwp =  floor($timeUntilExpiration_npwp->days % 7) . ' Hari';
+            $daysUntilExpiration_npwp_validation =  floor($timeUntilExpiration_npwp->days % 7);
         }
         // end_npwp_warning_dokumen
 
@@ -328,6 +330,7 @@ class Dashboard extends CI_Controller
             'validasi_hari_siup' => $daysUntilExpiration_siup_validation,
             'warning_siup' => "Kadaluarsa Dalam $monthsUntilExpiration_siup, $weeksUntilExpiration_siup, dan $daysUntilExpiration_siup.",
             'nama_dokumen_siup' => 'siup',
+            'tahun_siup' => $yearsUntilExpiration_siup,
 
             // nib
             'row_nib' => $row_nib,
@@ -336,6 +339,7 @@ class Dashboard extends CI_Controller
             'validasi_hari_nib' => $daysUntilExpiration_nib_validation,
             'warning_nib' => "Kadaluarsa Dalam $monthsUntilExpiration_nib, $weeksUntilExpiration_nib, dan $daysUntilExpiration_nib.",
             'nama_dokumen_nib' => 'nib',
+            'tahun_nib' => $yearsUntilExpiration_nib,
 
             // sbu
             'row_sbu' => $row_sbu,
@@ -344,6 +348,7 @@ class Dashboard extends CI_Controller
             'validasi_hari_sbu' => $daysUntilExpiration_sbu_validation,
             'warning_sbu' => "Kadaluarsa Dalam $monthsUntilExpiration_sbu, $weeksUntilExpiration_sbu, dan $daysUntilExpiration_sbu.",
             'nama_dokumen_sbu' => 'sbu',
+            'tahun_sbu' => $yearsUntilExpiration_sbu,
 
             // akta_pendirian
             'row_akta_pendirian' => $row_akta_pendirian,
@@ -352,6 +357,7 @@ class Dashboard extends CI_Controller
             'validasi_hari_akta_pendirian' => $daysUntilExpiration_akta_pendirian_validation,
             'warning_akta_pendirian' => "Kadaluarsa Dalam $monthsUntilExpiration_akta_pendirian, $weeksUntilExpiration_akta_pendirian, dan $daysUntilExpiration_akta_pendirian.",
             'nama_dokumen_akta_pendirian' => 'akta pendirian',
+            'tahun_akta_pendirian' => $yearsUntilExpiration_akta_pendirian,
 
             // sppkp
             'row_sppkp' => $row_sppkp,
@@ -360,6 +366,7 @@ class Dashboard extends CI_Controller
             'validasi_hari_sppkp' => $daysUntilExpiration_sppkp_validation,
             'warning_sppkp' => "Kadaluarsa Dalam $monthsUntilExpiration_sppkp, $weeksUntilExpiration_sppkp, dan $daysUntilExpiration_sppkp.",
             'nama_dokumen_sppkp' => 'sppkp',
+            'tahun_sppkp' => $yearsUntilExpiration_sppkp,
 
             // npwp
             'row_npwp' => $row_npwp,
@@ -368,6 +375,7 @@ class Dashboard extends CI_Controller
             'validasi_hari_npwp' => $daysUntilExpiration_npwp_validation,
             'warning_npwp' => "Kadaluarsa Dalam $monthsUntilExpiration_npwp, $weeksUntilExpiration_npwp, dan $daysUntilExpiration_npwp.",
             'nama_dokumen_npwp' => 'npwp',
+            'tahun_npwp' => $yearsUntilExpiration_npwp,
         ];
         $this->output->set_content_type('application/json')->set_output(json_encode($response));
     }

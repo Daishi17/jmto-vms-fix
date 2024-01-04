@@ -27,9 +27,12 @@
                         <!-- <li class="nav-item">
                             <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (PQ)</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
-                        </li> -->
+                        <?php if ($get_row_mengikuti['ev_teknis'] > 60 && $get_row_mengikuti['ev_keuangan']) { ?>
+                            <li class="nav-item">
+                                <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
+                            </li>
+                        <?php } else { ?>
+                        <?php  } ?> -->
                         <?php if ($sts_nego == 'buka_negosiasi') { ?>
                             <?php if (date('Y-m-d H:i', strtotime($jadwal_penetapan_pemenang['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_penetapan_pemenang['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                                 <?php $date2 = $jadwal_penetapan_pemenang['waktu_selesai'];
@@ -94,156 +97,13 @@
                                 </button></th>
                         </tr>
                         <tr>
-                            <th>Dokumen Pengadaan Dan Dokumen Kualifikasi</th>
+                            <th>Dokumen Kualifikasi</th>
                             <th>
                                 <div class="row">
-                                    <?php if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                        <?php $date2 = $jadwal_aanwijzing['waktu_selesai'];
-                                        if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
-                                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                            <div class="col-md-6">
-                                                <div class="card">
-                                                    <div class="card-header bg-primary text-white">
-                                                        Dokumen Pengadaan
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <table class="table table-bordered">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>No</th>
-                                                                    <th>Nama File</th>
-                                                                    <th>File</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <?php $i = 1;
-                                                                foreach ($dok_pengadaan as $key => $value) { ?>
 
-                                                                <?php } ?>
-                                                                <tr>
-                                                                    <td scope="row"><?= $i++ ?></td>
-                                                                    <td><?= $value['nama_dok_pengadaan'] ?></td>
-                                                                    <td>
-                                                                        <a href="<?= $url_dok_pengadaan . $value['id_dokumen_pengadaan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
-                                                                        <?php if ($value['keterangan_dokumen']) { ?>
-                                                                            <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
-                                                                        <?php } else { ?>
-
-                                                                        <?php  }
-                                                                        ?>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php    } else { ?>
-                                            <!-- waktu Telah Selesai -->
-                                        <?php    } ?>
-
-                                    <?php } else { ?>
-                                        <?php if ($rup['sts_adendum'] == 1) { ?>
-                                            <?php if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                                <?php $date2 = $jadwal_aanwijzing['waktu_selesai'];
-                                                if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
-                                                <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                                    <div class="col-md-6">
-                                                        <div class="card">
-                                                            <div class="card-header bg-primary text-white">
-                                                                Dokumen Pengadaan
-                                                            </div>
-                                                            <div class="card-body">
-                                                                <table class="table table-bordered">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th>No</th>
-                                                                            <th>Nama File</th>
-                                                                            <th>File</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <?php $i = 1;
-                                                                        foreach ($dok_pengadaan as $key => $value) { ?>
-                                                                            <tr>
-                                                                                <td scope="row"><?= $i++ ?></td>
-                                                                                <td><?= $value['nama_dok_pengadaan'] ?></td>
-                                                                                <td><a href="<?= $url_dok_pengadaan . $value['id_dokumen_pengadaan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
-                                                                                    <?php if ($value['keterangan_dokumen']) { ?>
-                                                                                        <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
-                                                                                    <?php } else { ?>
-
-                                                                                    <?php  }
-                                                                                    ?>
-                                                                                </td>
-                                                                            </tr>
-                                                                        <?php } ?>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                <?php    } else { ?>
-                                                    <!-- waktu Telah Selesai -->
-                                                <?php    } ?>
-
-                                            <?php } else { ?>
-                                                <div class="col-md-6">
-                                                    <div class="card">
-                                                        <div class="card-header bg-primary text-white">
-                                                            Dokumen Pengadaan
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <table class="table table-bordered">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>No</th>
-                                                                        <th>Nama File</th>
-                                                                        <th>File</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td colspan="3"><span class="badge bg-danger"> Tahap Sudah Selesai!</span></td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <?php } ?>
-                                        <?php  } else { ?>
-                                            <div class="col-md-6">
-                                                <div class="card">
-                                                    <div class="card-header bg-primary text-white">
-                                                        Dokumen Pengadaan
-                                                    </div>
-                                                    <div class="card-body">
-                                                        <table class="table table-bordered">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>No</th>
-                                                                    <th>Nama File</th>
-                                                                    <th>File</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td colspan="3"><span class="badge bg-danger"> Tahap Sudah Selesai!</span></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php  } ?>
-
-
-                                    <?php } ?>
-
-                                    <?php if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                    <?php if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                                         <?php if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
-                                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
+                                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
                                             <div class="col-md-6">
                                                 <div class="card">
                                                     <div class="card-header bg-primary text-white">
@@ -261,20 +121,21 @@
                                                             <tbody>
                                                                 <?php $i = 1;
                                                                 foreach ($dok_prakualifikasi as $key => $value) { ?>
-                                                                    <tr>
-                                                                        <td scope="row"><?= $i++ ?></td>
-                                                                        <td><?= $value['nama_dok_prakualifikasi'] ?></td>
-                                                                        <td>
-                                                                            <a href="<?= $url_dok_prakualifikasi . $value['id_dokumen_prakualifikasi'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
-                                                                            <?php if ($value['keterangan_dokumen']) { ?>
-                                                                                <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
-                                                                            <?php } else { ?>
 
-                                                                            <?php  }
-                                                                            ?>
-                                                                        </td>
-                                                                    </tr>
                                                                 <?php } ?>
+                                                                <tr>
+                                                                    <td scope="row"><?= $i++ ?></td>
+                                                                    <td><?= $value['nama_dok_prakualifikasi'] ?></td>
+                                                                    <td>
+                                                                        <a href="<?= $url_dok_prakualifikasi . $value['id_dokumen_prakualifikasi'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
+                                                                        <?php if ($value['sts_dokumen_tambahan'] == 1) { ?>
+                                                                            <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
+                                                                        <?php } else { ?>
+
+                                                                        <?php  }
+                                                                        ?>
+                                                                    </td>
+                                                                </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -327,7 +188,14 @@
                                                             <th>No</th>
                                                             <th>Nama Persyaratan</th>
                                                             <!-- <th>Keterangan</th> -->
-                                                            <th>File Contoh</th>
+                                                            <?php
+                                                            if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+
+                                                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                                                <th>File Contoh Panitia</th>
+                                                            <?php    } else { ?>
+
+                                                            <?php    } ?>
                                                             <th>Aksi</th>
                                                         </tr>
                                                     </thead>
@@ -337,51 +205,62 @@
                                                             <tr>
                                                                 <td scope="row"><?= $i++ ?></td>
                                                                 <td><?= $value['nama_syarat_tambahan'] ?></td>
-                                                                <td>
-                                                                    <?php if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                                                        <?php $date2 = $jadwal_dokumen_kualifikasi['waktu_selesai'];
-                                                                        if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
-                                                                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                                                            <?php if ($value['file_syarat_tambahan']) { ?>
-                                                                                <a href="<?= $url_dok_syarat_tambahan . $value['id_syarat_tambahan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
-                                                                            <?php } else { ?>
-                                                                                <span href="#" class="badge bg-danger "> Tidak Ada Lampiran</span>
-                                                                            <?php  } ?>
-                                                                        <?php    } else { ?>
-                                                                            <a href="javascript:;" class="btn btn-sm btn-secondary"> Waktu Telah Berakhir</a>
-                                                                        <?php    } ?>
-                                                                    <?php } else { ?>
-                                                                        <?php
-                                                                        if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
-                                                                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                                                            <?php if ($value['file_syarat_tambahan']) { ?>
-                                                                                <a href="<?= $url_dok_syarat_tambahan . $value['id_syarat_tambahan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
-                                                                            <?php } else { ?>
-                                                                                <span href="#" class="badge bg-danger"> Tidak Ada Lampiran</span>
-                                                                            <?php  } ?>
-                                                                        <?php    } else { ?>
-                                                                            <a href="javascript:;" class="btn btn-sm btn-secondary"> Waktu Telah Berakhir</a>
-                                                                        <?php    } ?>
-                                                                    <?php } ?>
-                                                                </td>
+                                                                <?php
+                                                                if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+
+                                                                <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                                                    <td>
+                                                                        <?php if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                                                            <?php $date2 = $jadwal_dokumen_kualifikasi['waktu_selesai'];
+                                                                            if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
+                                                                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
+                                                                                <?php if ($value['file_syarat_tambahan']) { ?>
+                                                                                    <a href="<?= $url_dok_syarat_tambahan . $value['id_syarat_tambahan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
+                                                                                <?php } else { ?>
+                                                                                    <span href="#" class="badge bg-danger "> Tidak Ada Lampiran</span>
+                                                                                <?php  } ?>
+
+                                                                            <?php    } else { ?>
+                                                                                <a href="javascript:;" class="btn btn-sm btn-secondary"> Tahap Sudah Selesai</a>
+                                                                            <?php    } ?>
+                                                                        <?php } else { ?>
+                                                                            <?php
+                                                                            if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+
+                                                                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing_pq['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                                                                <?php if ($value['file_syarat_tambahan']) { ?>
+                                                                                    <a href="<?= $url_dok_syarat_tambahan . $value['id_syarat_tambahan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
+                                                                                <?php } else { ?>
+                                                                                    <span href="#" class="badge bg-danger"> Tidak Ada Lampiran</span>
+                                                                                <?php  } ?>
+                                                                            <?php    } else { ?>
+                                                                                <a href="javascript:;" class="btn btn-sm btn-secondary"> Tahap Sudah Selesai</a>
+                                                                            <?php    } ?>
+                                                                        <?php } ?>
+                                                                    </td>
+                                                                <?php    } else { ?>
+
+                                                                <?php    } ?>
+
+
                                                                 <td>
                                                                     <?php if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                                                                         <?php $date2 = $jadwal_upload_dokumen_prakualifikasi['waktu_selesai'];
                                                                         if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
                                                                         <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                                                            <a href="javascript:;" class="btn btn-sm btn-danger" onclick="upload_syarat_tambahan('<?= $value['nama_syarat_tambahan'] ?>')"><i class="fa fa-upload"></i> Upload</a>
+                                                                            <a href="javascript:;" class="btn btn-sm btn-success" onclick="upload_syarat_tambahan('<?= $value['nama_syarat_tambahan'] ?>')"><i class="fa fa-upload"></i> Upload</a>
                                                                         <?php    } else { ?>
-                                                                            <a href="javascript:;" class="btn btn-sm btn-secondary"> Waktu Telah Berakhir</a>
+                                                                            <a href="javascript:;" class="btn btn-sm btn-secondary"> Tahap Sudah Selesai</a>
                                                                         <?php    } ?>
                                                                     <?php } else { ?>
                                                                         <?php
                                                                         if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
                                                                         <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                                                            <a href="javascript:;" class="btn btn-sm btn-danger" onclick="upload_syarat_tambahan('<?= $value['nama_syarat_tambahan'] ?>')"><i class="fa fa-upload"></i> Upload</a>
+                                                                            <a href="javascript:;" class="btn btn-sm btn-success" onclick="upload_syarat_tambahan('<?= $value['nama_syarat_tambahan'] ?>')"><i class="fa fa-upload"></i> Upload</a>
                                                                         <?php    } else { ?>
-                                                                            <a href="javascript:;" class="btn btn-sm btn-secondary"> Waktu Telah Berakhir</a>
+                                                                            <a href="javascript:;" class="btn btn-sm btn-secondary"> Tahap Sudah Selesai</a>
                                                                         <?php    } ?>
                                                                     <?php } ?>
 
@@ -406,8 +285,8 @@
                                                             <th>No</th>
                                                             <th>Nama Persyaratan</th>
                                                             <th>File</th>
-                                                            <th>Keterangan Validator</th>
-                                                            <th>Status Validasi</th>
+                                                            <th>Keterangan</th>
+                                                            <th>Status Dokumen</th>
                                                             <th>Aksi</th>
                                                         </tr>
                                                     </thead>
@@ -428,16 +307,12 @@
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_pembuktian_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pembuktian_kualifikasi['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
                                 <tr>
                                     <th>Undangan Pembuktian</th>
-                                    <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#undangan_pembuktian">
-                                            <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Pembuktian
-                                        </button></th>
+                                    <th><a href="<?= base_url('tender_diikuti/lihat_undangan_pembuktian/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-danger" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Pembuktian</a></th>
                                 </tr>
                             <?php    } else { ?>
                                 <tr>
                                     <th>Undangan Pembuktian</th>
-                                    <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#undangan_pembuktian">
-                                            <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Pembuktian
-                                        </button></th>
+                                    <th><a href="<?= base_url('tender_diikuti/lihat_undangan_pembuktian/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-danger" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Pembuktian</a></th>
                                 </tr>
                             <?php    } ?>
                         <?php } else { ?>
@@ -447,35 +322,30 @@
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_pembuktian_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pembuktian_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                                 <tr>
                                     <th>Undangan Pembuktian</th>
-                                    <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#undangan_pembuktian">
-                                            <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Pembuktian
-                                        </button></th>
+                                    <th><a href="<?= base_url('tender_diikuti/lihat_undangan_pembuktian/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-danger" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Pembuktian</a></th>
                                 </tr>
                             <?php    } else { ?>
                                 <tr>
                                     <th>Undangan Pembuktian</th>
-                                    <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#undangan_pembuktian">
-                                            <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Pembuktian
-                                        </button></th>
+                                    <th><a href="<?= base_url('tender_diikuti/lihat_undangan_pembuktian/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-danger" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Pembuktian</a></th>
                                 </tr>
                             <?php    } ?>
                         <?php } ?>
+
                         <?php if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_hasil_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_hasil_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                             <?php $date2 = $jadwal_pengumuman_hasil_kualifikasi['waktu_selesai'];
                             if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_hasil_kualifikasi['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_hasil_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_hasil_kualifikasi['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
+
                                 <tr>
-                                    <th>Pengumuman Hasil Prakualifikasi</th>
-                                    <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hasil_prakualifikasi">
-                                            <i class="fa fa-download" aria-hidden="true"></i> Lihat Hasil Prakualifikasi
-                                        </button></th>
+                                    <th>Pengumuman Hasil Kualifikasi</th>
+                                    <th><a href="<?= base_url('tender_diikuti/lihat_pengumuman_hasil_kualifikasi/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-info text-white" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Pengumuman Hasil Kualifikasi</a></th>
                                 </tr>
                             <?php    } else { ?>
+
                                 <tr>
-                                    <th>Pengumuman Hasil Prakualifikasi</th>
-                                    <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hasil_prakualifikasi">
-                                            <i class="fa fa-download" aria-hidden="true"></i> Lihat Hasil Prakualifikasi
-                                        </button></th>
+                                    <th>Pengumuman Hasil Kualifikasi</th>
+                                    <th><a href="<?= base_url('tender_diikuti/lihat_pengumuman_hasil_kualifikasi/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-info text-white" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Pengumuman Hasil Kualifikasi</a></th>
                                 </tr>
                             <?php    } ?>
                         <?php } else { ?>
@@ -483,69 +353,145 @@
                             if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_hasil_kualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_hasil_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_hasil_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+
                                 <tr>
-                                    <th>Pengumuman Hasil Prakualifikasi</th>
-                                    <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hasil_prakualifikasi">
-                                            <i class="fa fa-download" aria-hidden="true"></i> Lihat Hasil Prakualifikasi
-                                        </button></th>
+                                    <th>Pengumuman Hasil Kualifikasi</th>
+                                    <th><a href="<?= base_url('tender_diikuti/lihat_pengumuman_hasil_kualifikasi/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-info text-white" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Pengumuman Hasil Kualifikasi</a></th>
                                 </tr>
                             <?php    } else { ?>
+
                                 <tr>
-                                    <th>Pengumuman Hasil Prakualifikasi</th>
-                                    <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hasil_prakualifikasi">
-                                            <i class="fa fa-download" aria-hidden="true"></i> Lihat Hasil Prakualifikasi
-                                        </button></th>
+                                    <th>Pengumuman Hasil Kualifikasi</th>
+                                    <th><a href="<?= base_url('tender_diikuti/lihat_pengumuman_hasil_kualifikasi/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-info text-white" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Pengumuman Hasil Kualifikasi</a></th>
                                 </tr>
                             <?php    } ?>
                         <?php } ?>
 
-                        <?php if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                            <?php $date2 = $jadwal_upload_dokumen_penawaran['waktu_selesai'];
-                            if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
-                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                <tr>
-                                    <th>Dokumen Penawaran</th>
-                                    <th>
-                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#buka_dokumen_penawaran">
-                                            <i class="fa fa-folder-open" aria-hidden="true"></i> Upload Dokumen Penawaran
-                                        </button>
-                                    </th>
-                                </tr>
-                            <?php    } else { ?>
-                                <tr>
-                                    <th>Dokumen Penawaran</th>
-                                    <th>
-                                        <label for="" class="badge bg-secondary">Tahap Sudah Selesai</label>
-                                    </th>
-                                </tr>
-                            <?php    } ?>
+                        <?php if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+
                         <?php } else { ?>
                             <?php
-                            if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                            if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
-                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                <tr>
-                                    <th>Dokumen Penawaran</th>
-                                    <th>
-                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#buka_dokumen_penawaran">
-                                            <i class="fa fa-folder-open" aria-hidden="true"></i> Upload Dokumen Penawaran
-                                        </button>
-                                    </th>
-                                </tr>
+                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                <?php if ($get_row_mengikuti['ev_teknis']  >= 60 || $get_row_mengikuti['ev_keuangan']  >= 60) { ?>
+                                    <tr>
+                                        <th>Undangan Penawaran</th>
+                                        <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hasil_prakualifikasi">
+                                                <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Penawaran
+                                            </button></th>
+                                    </tr>
+                                <?php } else { ?>
+                                    <tr>
+                                        <th>Undangan Penawaran</th>
+                                        <th><button type="button" class="btn btn-sm btn-danger">
+                                                <i class="fa fa-download" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
+                                            </button></th>
+                                    </tr>
+                                <?php }  ?>
+
                             <?php    } else { ?>
+                                <?php if ($get_row_mengikuti['ev_teknis']  >= 60 || $get_row_mengikuti['ev_keuangan']  >= 60) { ?>
+                                    <tr>
+                                        <th>Undangan Penawaran</th>
+                                        <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hasil_prakualifikasi">
+                                                <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Penawaran
+                                            </button></th>
+                                    </tr>
+                                <?php } else { ?>
+                                    <tr>
+                                        <th>Undangan Penawaran</th>
+                                        <th><button type="button" class="btn btn-sm btn-danger">
+                                                <i class="fa fa-download" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
+                                            </button></th>
+                                    </tr>
+                                <?php }  ?>
+
 
                             <?php    } ?>
                         <?php } ?>
 
+
                         <tr>
-                            <th>Berita Acara dan Pengumuman Pengadaan</th>
-                            <th>
-                                <div class="row">
+                            <?php if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                <th>Dokumen Pengadaan</th>
+                                <th>
+                                    <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="card">
+                                                    <div class="card-header bg-primary text-white">
+                                                        Dokumen Pengadaan
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <table class="table table-bordered">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>No</th>
+                                                                    <th>Nama File</th>
+                                                                    <th>File</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tbody>
+                                                                <?php $i = 1;
+                                                                foreach ($dok_pengadaan as $key => $value) { ?>
+                                                                    <tr>
+                                                                        <td scope="row"><?= $i++ ?></td>
+                                                                        <td><?= $value['nama_dok_pengadaan'] ?></td>
+                                                                        <td>
+                                                                            <a href="<?= $url_dok_pengadaan . $value['id_dokumen_pengadaan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
+                                                                            <?php if ($value['sts_dokumen_tambahan'] == 1) { ?>
+                                                                            <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
+                                                                        <?php } else { ?>
+
+                                                                        <?php  }
+                                                                        ?>
+                                                                        </td>
+                                                                    </tr>
+                                                                <?php } ?>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } else { ?>
+                                        <div class="col-md-6">
+                                            <div class="card">
+                                                <div class="card-header bg-primary text-white">
+                                                    Dokumen Pengadaan
+                                                </div>
+                                                <div class="card-body">
+                                                    <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>No</th>
+                                                                <th>Nama File</th>
+                                                                <th>File</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td colspan="3"><span class="badge bg-danger"> Anda Telah Gugur Dalam Pengadaan Ini!</span></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </th>
+
+                            <?php    } else { ?>
+                                <th>Dokumen Pengadaan</th>
+                                <th>
                                     <div class="col-md-6">
                                         <div class="card">
                                             <div class="card-header bg-primary text-white">
-                                                Berita Acara dan Pengumuman Pengadaan
-
+                                                Dokumen Pengadaan
                                             </div>
                                             <div class="card-body">
                                                 <table class="table table-bordered">
@@ -557,14 +503,138 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php $i = 1;
-                                                        foreach ($ba_tender as $key => $value) { ?>
+                                                        <tr>
+                                                            <td colspan="3"><span class="badge bg-danger"> Tahap Sudah Selesai!</span></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </th>
+                            <?php    } ?>
+                        </tr>
+
+
+                        <tr>
+                            <?php if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                <th>Upload Dokumen Pengadaan</th>
+                                <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                                    <th>
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#buka_dokumen_penawaran">
+                                            <i class="fa fa-folder-open" aria-hidden="true"></i> Upload Dokumen Penawaran
+                                        </button>
+                                    </th>
+                                <?php } else { ?>
+                                    <th>
+                                        <button type="button" class="btn btn-sm btn-danger" disabled>
+                                            <i class="fa fa-folder-close" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
+                                        </button>
+                                    </th>
+                                <?php } ?>
+
+                            <?php    } else { ?>
+                                <th>Dokumen Penawaran</th>
+                                <th>
+                                    <label for="" class="badge bg-secondary">Tahap Sudah Selesai</label>
+                                </th>
+                            <?php    } ?>
+                        </tr>
+
+                        <tr>
+                            <th>Upload Presentasi Teknis Pengadaan</th>
+                            <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                                <th>
+                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#upload_presentasi_teknis">
+                                        <i class="fa fa-upload" aria-hidden="true"></i> Upload Dokumen Penawaran
+                                    </button>
+                                </th>
+                            <?php } else { ?>
+                                <th>
+                                    <button type="button" class="btn btn-sm btn-danger" disabled>
+                                        <i class="fa fa-folder-close" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
+                                    </button>
+                                </th>
+                            <?php } ?>
+
+                        </tr>
+
+                        <tr>
+                            <th>Berita Acara dan Pengumuman Pengadaan</th>
+                            <th>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="card">
+                                            <div class="card-header bg-primary text-white">
+                                                Berita Acara dan Pengumuman Pengadaan
+                                            </div>
+                                            <div class="card-body">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nama File</th>
+                                                            <th>File</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <?php if ($rup['ba_pembuktian_no']) { ?>
+                                                                <th>Berita Acara Pembuktian Kualifikasi</th>
+                                                                <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_pembuktian_kualifikasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                            <?php } ?>
+
+                                                        </tr>
+                                                        <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_teknis'] >= 60) { ?>
                                                             <tr>
-                                                                <td scope="row"><?= $i++ ?></td>
-                                                                <td><?= $value['nama_file']  ?></td>
-                                                                <td><a target="_blank" href="<?= $url_dok_ba_tender . $value['file_ba'] ?>" class="btn btn-sm btn-warning"> Lihat</a></td>
+                                                                <?php if ($rup['ba_sampul1_no']) { ?>
+                                                                    <th>Berita Acara Pembukaan Dokumen Penawaran Sampul I (Administrasi Dan Teknis)</th>
+                                                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_sampul_I/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                <?php } ?>
                                                             </tr>
-                                                        <?php } ?>
+                                                            <tr>
+                                                                <?php if ($rup['undangan_rapat_no']) { ?>
+                                                                    <th>Undangan Rapat Presentasi Teknis</th>
+                                                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_undangan_rapat/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                <?php } ?>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <?php if ($rup['ba_sampul2_no']) { ?>
+                                                                    <th>Berita Acara Pembukaan Dokumen Penawaran Sampul II</th>
+                                                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_sampul_II/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                <?php } ?>
+                                                            </tr>
+
+
+                                                            <?php if ($rup['id_vendor_pemenang'] == $this->session->userdata('id_vendor')) { ?>
+                                                                <tr>
+                                                                    <?php if ($rup['ba_negosiasi_no']) { ?>
+                                                                        <th>Berita Acara Evaluasi dan Negosiasi</th>
+                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_negosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                    <?php } ?>
+                                                                </tr>
+                                                                <tr>
+                                                                    <?php if ($rup['ba_klarifikasi_no']) { ?>
+                                                                        <th>Berita Acara Klarifikasi & Penilaian Kewajaran Harga</th>
+                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_evaluasinegosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                    <?php } ?>
+                                                                </tr>
+
+
+                                                            <?php } else { ?>
+
+                                                            <?php } ?>
+                                                            <tr>
+                                                                <?php if ($rup['ba_pemenang_no']) { ?>
+                                                                    <th>Pengumuman Pemenang Pengadaan</th>
+                                                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_pemenang_tender/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                <?php } ?>
+                                                            </tr>
+                                                        <?php   } ?>
+
+
+
 
                                                     </tbody>
                                                 </table>
@@ -605,19 +675,23 @@
                 <div class="row">
                     <div class="alert alert-primary d-flex align-items-center" role="alert">
                         <div>
-                            <i class="fa fa-info-circle" aria-hidden="true"></i> Silakan Masukan Token Paket Yang Dikirim Ke Whatsaap Anda
+                            <i class="fa fa-info-circle" aria-hidden="true"></i> Silakan Masukan Kodefikasi Yang Dikirim Ke WhatsApp Anda
                         </div>
                     </div>
                     <div class="col-md-2">
                     </div>
                     <div class="col-md-8">
                         <center>
+                            <a onclick="kirim_token_ke_wa('<?= $rup['id_url_rup'] ?>')" class="btn btn-warning btn_dapatkan_token" style="width: 300px;"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Kirim Kodefikasi ke WhatsApp</a>
+                            <br>
+                            <br>
                             <div class="input-group mb-3">
+                                <br>
                                 <span class="input-group-text" id="basic-addon1"> <i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" name="token_" placeholder="Masukan Token..." aria-describedby="basic-addon1" onkeyup="Cek_token()">
+                                <input type="text" class="form-control" name="token_" placeholder="Masukan Kodefikasi Yang Telah Di Terima Dari WhatsApp..." aria-describedby="basic-addon1" onkeyup="Cek_token()">
                             </div>
                             <br>
-                            <a onclick="kirim_token_ke_wa('<?= $rup['id_url_rup'] ?>')" class="btn btn-warning btn_dapatkan_token" style="width: 300px;"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Kirim Token ke WhatsApp</a>
+
                             <a target="_blank" onclick="buka_penawaran('<?= $rup['id_url_rup'] ?>')" style="display:none" class="btn btn-success btn_buka_penawaran"><i class="fa fa-unlock-alt" aria-hidden="true"></i> Akses Halaman</a>
                         </center>
                     </div>
@@ -680,13 +754,13 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-warning text-white">
-                <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-bullhorn" aria-hidden="true"></i> Pengumuman Hasil Prakualifikasi</h5>
+                <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-bullhorn" aria-hidden="true"></i> Pengumuman Hasil Kualifikasi</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="alert alert-primary d-flex align-items-center" role="alert">
                     <div>
-                        <i class="fa fa-info-circle" aria-hidden="true"> </i> Pengumuman Hasil Prakualifikasi Pengadaan !!! <br>
+                        <i class="fa fa-info-circle" aria-hidden="true"> </i> Pengumuman Hasil Kualifikasi Pengadaan !!! <br>
                     </div>
                 </div>
                 <!-- <form id="form_upload_hasil_rakualifikasi" action="javascript:;" enctype="multipart/form-data">
@@ -707,7 +781,7 @@
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td>Pengumuman Hasil Prakualifikasi</td>
+                            <td>Pengumuman Hasil Kualifikasi</td>
                             <?php if ($rup['file_pengumuman_prakualifikasi']) { ?>
                                 <td><a href="<?= $url_dok_pengumuman_pra . $rup['id_rup'] ?>" class="btn btn-sm btn-warning"> Lihat</a></td>
                             <?php } else { ?>
@@ -949,6 +1023,55 @@
                     Keluar
                 </button>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="upload_presentasi_teknis" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-warning text-white">
+                <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-bullhorn" aria-hidden="true"></i> Presentasi Teknis Pengadaan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="javascript:;" id="form_presentasi_teknis_tender">
+                <input type="hidden" name="id_vendor_mengikuti_paket" value="<?= $get_row_mengikuti['id_vendor_mengikuti_paket'] ?>">
+                <input type="hidden" name="id_url_rup" value="<?= $rup['id_url_rup'] ?>">
+                <div class="modal-body">
+                    <div class="alert alert-primary d-flex align-items-center" role="alert">
+                        <div>
+                            <i class="fa fa-info-circle" aria-hidden="true"> </i> Upload Presentasi Teknis Pengadaan !!! <br>
+                            <!-- Catatan : Jika sudah upload, ketika upload yang ke-2 kalinya maka file akan menimpa! -->
+                        </div>
+                    </div>
+                    <br>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nama File</th>
+                                <th>File</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Presentasi Teknis Pengadaan</td>
+                                <?php if ($get_row_mengikuti['ba_presentasi_teknis']) { ?>
+                                    <td><a target="_blank" href="<?= base_url('file_paket/' . $rup['nama_rup'] . '/' . $this->session->userdata('nama_usaha') . '/' . 'DOKUMEN_PRESENTASI_TEKNIS_PENGADAAN/' . $get_row_mengikuti['ba_presentasi_teknis']) ?>" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i> Lihat</a></td>
+                                <?php } else { ?>
+                                    <td><label for="" class="badge bg-danger"> Belum Upload File</label></td>
+                                <?php } ?>
+                                <td><input type="file" name="ba_presentasi_teknis" class="form-control" accept=".pdf"></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-success">Upload</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

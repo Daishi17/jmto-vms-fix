@@ -9,7 +9,6 @@ class Kirim_wa
     {
         $token = '3HGKVEwLaF7rIt@ZhVcV';
         $target = $nomor_telpon;
-
         $curl = curl_init();
         curl_setopt_array($curl, array(
             CURLOPT_URL => 'https://api.fonnte.com/send',
@@ -33,8 +32,6 @@ class Kirim_wa
         $response = curl_exec($curl);
         curl_close($curl);
     }
-
-
     public function kirim_wa_vendor_terdaftar($nomor_telpon, $pesan)
     {
         $token = '3HGKVEwLaF7rIt@ZhVcV';

@@ -296,44 +296,61 @@
             dataType: "JSON",
             success: function(response) {
                 // siup
+                console.log(new Date().getFullYear());
                 if (response['row_siup'].sts_seumur_hidup == 2) {
                     $('#siup_warning').css('display', 'none');
                 } else {
-                    if (response['validasi_bulan_siup'] <= 2) {
-                        modal_warning_dokumen.modal('show');
-                        $('#siup_warning').css('display', 'block');
-                        $('#warning_siup').html(response['warning_siup']);
-                        $('#nama_dokumen_siup').html(response['nama_dokumen_siup']);
-                    } else {
+                    if (response['tahun_siup'] >= new Date().getFullYear()) {
                         $('#siup_warning').css('display', 'none');
+                    } else {
+                        if (response['validasi_bulan_siup'] <= 2) {
+                            modal_warning_dokumen.modal('show');
+                            $('#siup_warning').css('display', 'block');
+                            $('#warning_siup').html(response['warning_siup']);
+                            $('#nama_dokumen_siup').html(response['nama_dokumen_siup']);
+                        } else {
+                            $('#siup_warning').css('display', 'none');
+                        }
                     }
+
                 }
 
                 // nib
                 if (response['row_nib'].sts_seumur_hidup == 2) {
                     $('#nib_warning').css('display', 'none');
                 } else {
-                    if (response['validasi_bulan_nib'] <= 2) {
-                        modal_warning_dokumen.modal('show');
-                        $('#nib_warning').css('display', 'block');
-                        $('#warning_nib').html(response['warning_nib']);
-                        $('#nama_dokumen_nib').html(response['nama_dokumen_nib']);
-                    } else {
+                    // nib
+                    if (response['tahun_nib'] >= new Date().getFullYear()) {
                         $('#nib_warning').css('display', 'none');
+                    } else {
+                        if (response['validasi_bulan_nib'] <= 2) {
+                            modal_warning_dokumen.modal('show');
+                            $('#nib_warning').css('display', 'block');
+                            $('#warning_nib').html(response['warning_nib']);
+                            $('#nama_dokumen_nib').html(response['nama_dokumen_nib']);
+                        } else {
+                            $('#nib_warning').css('display', 'none');
+                        }
                     }
                 }
+
 
                 // sbu
                 if (response['row_sbu'].sts_seumur_hidup == 2) {
                     $('#sbu_warning').css('display', 'none');
                 } else {
-                    if (response['validasi_bulan_sbu'] <= 2) {
-                        modal_warning_dokumen.modal('show');
-                        $('#sbu_warning').css('display', 'block');
-                        $('#warning_sbu').html(response['warning_sbu']);
-                        $('#nama_dokumen_sbu').html(response['nama_dokumen_sbu']);
-                    } else {
+                    // sbu
+                    if (response['tahun_sbu'] >= new Date().getFullYear()) {
                         $('#sbu_warning').css('display', 'none');
+                    } else {
+                        if (response['validasi_bulan_sbu'] <= 2) {
+                            modal_warning_dokumen.modal('show');
+                            $('#sbu_warning').css('display', 'block');
+                            $('#warning_sbu').html(response['warning_sbu']);
+                            $('#nama_dokumen_sbu').html(response['nama_dokumen_sbu']);
+                        } else {
+                            $('#sbu_warning').css('display', 'none');
+                        }
                     }
                 }
 
@@ -342,13 +359,18 @@
                 if (response['row_akta_pendirian'].sts_seumur_hidup == 2) {
                     $('#akta_pendirian_warning').css('display', 'none');
                 } else {
-                    if (response['validasi_bulan_akta_pendirian'] <= 2) {
-                        modal_warning_dokumen.modal('show');
-                        $('#akta_pendirian_warning').css('display', 'block');
-                        $('#warning_akta_pendirian').html(response['warning_akta_pendirian']);
-                        $('#nama_dokumen_akta_pendirian').html(response['nama_dokumen_akta_pendirian']);
-                    } else {
+                    // akta_pendirian
+                    if (response['tahun_akta_pendirian'] >= new Date().getFullYear()) {
                         $('#akta_pendirian_warning').css('display', 'none');
+                    } else {
+                        if (response['validasi_bulan_akta_pendirian'] <= 2) {
+                            modal_warning_dokumen.modal('show');
+                            $('#akta_pendirian_warning').css('display', 'block');
+                            $('#warning_akta_pendirian').html(response['warning_akta_pendirian']);
+                            $('#nama_dokumen_akta_pendirian').html(response['nama_dokumen_akta_pendirian']);
+                        } else {
+                            $('#akta_pendirian_warning').css('display', 'none');
+                        }
                     }
                 }
 
@@ -356,13 +378,18 @@
                 if (response['row_sppkp'].sts_seumur_hidup == 2) {
                     $('#sppkp_warning').css('display', 'none');
                 } else {
-                    if (response['validasi_bulan_sppkp'] <= 2) {
-                        modal_warning_dokumen.modal('show');
-                        $('#sppkp_warning').css('display', 'block');
-                        $('#warning_sppkp').html(response['warning_sppkp']);
-                        $('#nama_dokumen_sppkp').html(response['nama_dokumen_sppkp']);
-                    } else {
+                    // sppkp
+                    if (response['tahun_sppkp'] >= new Date().getFullYear()) {
                         $('#sppkp_warning').css('display', 'none');
+                    } else {
+                        if (response['validasi_bulan_sppkp'] <= 2) {
+                            modal_warning_dokumen.modal('show');
+                            $('#sppkp_warning').css('display', 'block');
+                            $('#warning_sppkp').html(response['warning_sppkp']);
+                            $('#nama_dokumen_sppkp').html(response['nama_dokumen_sppkp']);
+                        } else {
+                            $('#sppkp_warning').css('display', 'none');
+                        }
                     }
                 }
 
@@ -370,49 +397,54 @@
                 if (response['row_npwp'].sts_seumur_hidup == 2) {
                     $('#npwp_warning').css('display', 'none');
                 } else {
-                    if (response['validasi_bulan_npwp'] <= 2) {
-                        modal_warning_dokumen.modal('show');
-                        $('#npwp_warning').css('display', 'block');
-                        $('#warning_npwp').html(response['warning_npwp']);
-                        $('#nama_dokumen_npwp').html(response['nama_dokumen_npwp']);
-                    } else {
+                     // npwp
+                     if (response['tahun_npwp'] >= new Date().getFullYear()) {
                         $('#npwp_warning').css('display', 'none');
-                    }
-                }
-
-
-
-            }
-        })
-    }
-
-
-
-    modal_warning_lap_keuangan()
-
-    function modal_warning_lap_keuangan() {
-        var modal_warning_lap_keuangan = $('#modal_warning_lap_keuangan');
-        $.ajax({
-            type: "GET",
-            url: '<?= base_url('dashboard/cek_dokumen_warning') ?>',
-            dataType: "JSON",
-            success: function(response) {
-                // spt
-                if (response['row_spt'].sts_seumur_hidup == 2) {
-                    $('#spt_warning').css('display', 'none');
-                } else {
-                    if (response['validasi_bulan_spt'] <= 2) {
-                        modal_warning_lap_keuangan.modal('show');
-                        $('#spt_warning').css('display', 'block');
-                        $('#warning_spt').html(response['warning_spt']);
-                        $('#nama_dokumen_spt').html(response['nama_dokumen_spt']);
                     } else {
-                        $('#spt_warning').css('display', 'none');
+                        if (response['validasi_bulan_npwp'] <= 2) {
+                            modal_warning_dokumen.modal('show');
+                            $('#npwp_warning').css('display', 'block');
+                            $('#warning_npwp').html(response['warning_npwp']);
+                            $('#nama_dokumen_npwp').html(response['nama_dokumen_npwp']);
+                        } else {
+                            $('#npwp_warning').css('display', 'none');
+                        }
                     }
                 }
+
+
+
             }
         })
     }
+
+
+
+    // modal_warning_lap_keuangan()
+
+    // function modal_warning_lap_keuangan() {
+    //     var modal_warning_lap_keuangan = $('#modal_warning_lap_keuangan');
+    //     $.ajax({
+    //         type: "GET",
+    //         url: '<?= base_url('dashboard/cek_dokumen_warning') ?>',
+    //         dataType: "JSON",
+    //         success: function(response) {
+    //             // spt
+    //             if (response['row_spt'].sts_seumur_hidup == 2) {
+    //                 $('#spt_warning').css('display', 'none');
+    //             } else {
+    //                 if (response['validasi_bulan_spt'] <= 2) {
+    //                     modal_warning_lap_keuangan.modal('show');
+    //                     $('#spt_warning').css('display', 'block');
+    //                     $('#warning_spt').html(response['warning_spt']);
+    //                     $('#nama_dokumen_spt').html(response['nama_dokumen_spt']);
+    //                 } else {
+    //                     $('#spt_warning').css('display', 'none');
+    //                 }
+    //             }
+    //         }
+    //     })
+    // }
 </script>
 </body>
 

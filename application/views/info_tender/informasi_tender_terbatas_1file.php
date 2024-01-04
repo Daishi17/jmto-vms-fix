@@ -174,7 +174,7 @@
                                                                         <td><?= $value['nama_dok_prakualifikasi'] ?></td>
                                                                         <td>
                                                                             <a href="<?= $url_dok_prakualifikasi . $value['id_dokumen_prakualifikasi'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
-                                                                            <?php if ($value['keterangan_dokumen']) { ?>
+                                                                            <?php if ($value['sts_dokumen_tambahan'] == 1) { ?>
                                                                                 <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
                                                                             <?php } else { ?>
 
@@ -452,7 +452,7 @@
                                                                             <td><?= $value['nama_dok_pengadaan'] ?></td>
                                                                             <td>
                                                                                 <a href="<?= $url_dok_pengadaan . $value['id_dokumen_pengadaan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
-                                                                                <?php if ($value['keterangan_dokumen']) { ?>
+                                                                                <?php if ($value['sts_dokumen_tambahan'] == 1) { ?>
                                                                                     <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
                                                                                 <?php } else { ?>
 

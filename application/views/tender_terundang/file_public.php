@@ -35,7 +35,6 @@
 
 
     function by_id_rup(id_url_rup, type) {
-
         var url_detail_paket = $('[name="url_detail_paket"]').val();
         $.ajax({
             type: "GET",
@@ -50,7 +49,6 @@
                     } else {
                         $('#tombol_mengikuti').html('<a type="javascript:;" onclick="pakta_integritas_question(\'' + response['row_rup'].id_rup + '\'' + ',' + '\'' + response['row_rup'].nama_rup + '\')" class="btn btn-default btn-warning"><i class="fa-solid fa-circle-up px-1"></i> Ikuti Pengadaan</a>')
                     }
-
                 }
                 $('#modal-xl-detail').modal('show')
                 $('#kode_rup').text(response['row_rup'].kode_rup)
@@ -298,7 +296,6 @@
     }
 
     function pakta_integritas_question_terbatas(id, nama_paket) {
-
         var url_mengikuti_terbatas = $('[name="url_mengikuti_terbatas"]').val()
         Swal.fire({
             title: 'Nama Paket : ' + nama_paket,
