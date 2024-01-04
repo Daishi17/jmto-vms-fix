@@ -99,7 +99,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -181,7 +181,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -656,6 +656,7 @@
                                             <th><small>Waktu Mulai</small></th>
                                             <th><small>Waktu Selesai</small></th>
                                             <th><small>Status Tahap</small></th>
+                                            <th><small>Alasan Perubahan</small></th>
                                         </tr>
                                     </thead>
                                     <tbody id="load_jadwal">
