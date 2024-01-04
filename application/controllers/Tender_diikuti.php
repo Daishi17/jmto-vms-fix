@@ -1009,7 +1009,6 @@ class Tender_diikuti extends CI_Controller
             $data['jadwal_masa_sanggah_akhir'] =  $this->M_jadwal->jadwal_pra_umum_20($data['rup']['id_rup']);
             $data['jadwal_upload_surat_penunjukan'] =  $this->M_jadwal->jadwal_pra_umum_21($data['rup']['id_rup']);
             // end get tahap
-            $this->load->view('info_tender/informasi_tender_umum', $data);
         } else if ($data['rup']['id_jadwal_tender'] == 2) {
             $data['jadwal_pengumuman_pengadaan'] =  $this->M_jadwal->jadwal_pra_umum_1($data['rup']['id_rup']);
             $data['jadwal_dokumen_kualifikasi'] =  $this->M_jadwal->jadwal_pra_umum_2($data['rup']['id_rup']);

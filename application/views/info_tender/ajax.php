@@ -22,11 +22,30 @@
                 var i;
                 var no = 1;
                 for (i = 0; i < response['jadwal'].length; i++) {
+                    var times_mulai = new Date(response['jadwal'][i].waktu_mulai)
+                    var times_selesai = new Date(response['jadwal'][i].waktu_selesai)
 
-                    var waktu_mulai = new Date(response['jadwal'][i].waktu_mulai);
+                    var month_mulai = times_mulai.getMonth();
+                    var month_selesai = times_selesai.getMonth();
+                    var m = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+
+
+                    // mulai
+                    var time_mulai = times_mulai.toLocaleTimeString()
+                    var tanggal_mulai = String(times_mulai.getDate()).padStart(2, '0');
+                    var bulan_mulai = String(times_mulai.getMonth() + 1).padStart(2, '0');
+                    var tahun_mulai = times_mulai.getFullYear()
+                    var data_mulai = tanggal_mulai + ' ' + m[month_mulai] + ' ' + tahun_mulai + ' ' + time_mulai
+
+                    // selesai
+                    var time_selesai = times_selesai.toLocaleTimeString()
+                    var tanggal_selesai = String(times_selesai.getDate()).padStart(2, '0');
+                    var bulan_selesai = String(times_selesai.getMonth() + 1).padStart(2, '0');
+                    var tahun_selesai = times_selesai.getFullYear()
+                    var data_selesai = tanggal_selesai + ' ' + m[month_selesai] + ' ' + tahun_selesai + ' ' + time_selesai
+
+                    var waktu_mulai = new Date();
                     var waktu_selesai = new Date(response['jadwal'][i].waktu_selesai);
-                    const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"];
-
                     var sekarang = new Date();
                     // kondisi jadwal
                     if (sekarang < waktu_mulai) {
@@ -43,6 +62,7 @@
                         var status_waktu = '<small><span class="badge bg-success"><i class="fa fa-clock" aria-hidden="true"></i> Tahap Sudah Selesai </span></small>';
                     }
 
+
                     if (response['jadwal'][i].alasan) {
                         var alasan = response['jadwal'][i].alasan
                     } else {
@@ -52,10 +72,10 @@
                     html += '<tr>' +
                         '<td><small>' + no++ + '</small></td>' +
                         '<td><small>' + response['jadwal'][i].nama_jadwal_rup + ' ' + check + '</small></td>' +
-                        `<td><small>${waktu_mulai.getDate()}-${months[waktu_mulai.getMonth()]}-${waktu_mulai.getFullYear()} ${zeros(waktu_mulai.getHours())}:${zeros(waktu_mulai.getMinutes())}</small></td>` +
-                        `<td><small>${waktu_selesai.getDate()}-${months[waktu_selesai.getMonth()]}-${waktu_selesai.getFullYear()} ${zeros(waktu_selesai.getHours())}:${zeros(waktu_mulai.getMinutes())}</small></td>` +
+                        '<td><small>' + data_mulai + '</small></td>' +
+                        '<td><small>' + data_selesai + '</small></td>' +
                         '<td>' + status_waktu + '</td>' +
-                        '<td><small>' + alasan + '</small></td>' +
+                        '<td>' + alasan + '</td>' +
                         '</tr>';
                 }
                 $('#load_jadwal').html(html);
