@@ -175,7 +175,11 @@ function terbilang($nilai)
                 <tr>
                     <td width="100px">Tempat</td>
                     <th>&ensp;&ensp;:&ensp;&ensp;</th>
-                    <td> Ruang Rapat Besar Lantai 3 & 4 PT Jasamarga Tollroad Operator& Video Conference Aplikasi Zoom</td>
+                    <td>
+                        Ruang Rapat Besar Lantai 3 & 4 PT Jasamarga Tollroad Operator (Jika Offline)
+                        <br>
+                        Video Conference Aplikasi Zoom (Jika Online)
+                    </td>
                 </tr>
             </table>
 
@@ -210,11 +214,12 @@ function terbilang($nilai)
             <h6>PT Jasamarga Tollroad Operator</h6>
             <br>
             <br>
+            <h6>
+                TTD
+            </h6>
             <br><br>
             <h6> <u style="text-transform: capitalize;"></u></h6>
-            <h6>
-                TTD Panitia
-            </h6>
+            <h6>Panitia</h6>
             <!-- <div class="row mt-4">
                 <div class="col-md-12">
                     <b> PT Jasamarga Tollroad Operator</b>
@@ -259,7 +264,7 @@ function terbilang($nilai)
                 <div class="col-md-12">
                     <table class="table table-bordered">
                         <thead>
-                            <tr class="text-center">
+                            <tr>
                                 <th class="text-center">No</th>
                                 <th class="text-center">Peserta Penawaran</th>
                                 <th class="text-center">Waktu</th>
@@ -269,9 +274,9 @@ function terbilang($nilai)
                         <tbody>
                             <?php $i = 1;
                             foreach ($peserta as $key => $value) { ?>
-                                <tr class="text-center">
+                                <tr>
                                     <td class="text-center"><?= $i++ ?></td>
-                                    <td class="text-center"><b> <?= $value['nama_usaha'] ?></b></td>
+                                    <td><b> <?= $value['nama_usaha'] ?></b></td>
                                     <td class="text-center"> <?= $value['wkt_undang_pembuktian'] ?></td>
                                     <td class="text-center"><?= $value['metode_pembuktian'] ?></td>
                                 </tr>

@@ -2046,7 +2046,8 @@ class Tender_diikuti extends CI_Controller
         $this->load->view('info_tender/ba_hasil_evaluasi', $data);
     }
 
-    public function simpan_ba_presentasi_teknis(){
+    public function simpan_ba_presentasi_teknis()
+    {
         $id_vendor_mengikuti_paket = $this->input->post('id_vendor_mengikuti_paket');
         $id_url_rup = $this->input->post('id_url_rup');
         $id_rup = $this->input->post('id_rup');
@@ -2075,7 +2076,6 @@ class Tender_diikuti extends CI_Controller
 
             $this->M_tender->update_dok_pengadaan_file_II($upload, $where);
             $this->output->set_content_type('application/json')->set_output(json_encode('success'));
-
         }
     }
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Undangan Pembuktian</title>
+    <title>Pengumuman Hasil Kualifikasi</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -148,7 +148,7 @@ function terbilang($nilai)
                 </tr>
             </table>
 
-            <div class="float-right">
+            <div class="float-right" style="margin-top: -100px;">
                 Jakarta, <?= $rup['tanggal_pengumuman_hasil_kualifikasi'] ?>
             </div>
 
@@ -195,35 +195,16 @@ function terbilang($nilai)
                         <td>1. </td>
                         <td>Sanggahan Prakualifikasi</td>
                         <td>
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <!-- <?= $rup['hari_isi_pengumuman_hasil_kualifikasi_mulai'] ?>, <?= $rup['tanggal_isi_pengumuman_hasil_kualifikasi_mulai'] ?>
-                                                <br>
-                                                <?= $rup['pukul_isi_pengumuman_hasil_kualifikasi_mulai'] ?> -->
-                                    <?= date('d-m-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) ?>
-                                    &ensp;
-                                    S/D
-                                    &ensp;
-                                    <?= date('d-m-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) ?>
-                                </div>
-                                <div class="col-md-1">
-
-                                </div>
-                                <div class="col-md-5">
-                                    <!-- <?= $rup['hari_isi_pengumuman_hasil_kualifikasi_selesai'] ?>, <?= $rup['tanggal_isi_pengumuman_hasil_kualifikasi_selesai'] ?>
-                                                <br>
-                                                <?= $rup['pukul_isi_pengumuman_hasil_kualifikasi_selesai'] ?> -->
-
-                                </div>
-                            </div>
-
+                            <?= date('d-M-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) ?>
+                            &ensp;S/D&ensp;
+                            <?= date('d-M-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) ?>
                         </td>
                     </tr>
 
                     <tr>
                         <td>2. </td>
                         <td>Rapat Penjelasan dan Download Dokumen Pengadaan</td>
-                        <td><?= date('d-m-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) ?> &ensp; S/D &ensp;<?= date('d-m-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) ?></td>
+                        <td><?= date('d-M-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) ?> &ensp;S/D&ensp;<?= date('d-M-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) ?></td>
                     </tr>
 
                 </tbody>
