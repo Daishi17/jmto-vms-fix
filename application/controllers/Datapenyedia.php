@@ -2045,9 +2045,7 @@ class Datapenyedia extends CI_Controller
 			$tgl_berlaku_akta = $this->input->post('berlaku_sampai');
 		}
 		$password_dokumen = '1234';
-
 		$this->form_validation->set_rules('no_surat_akta', 'Nomor Surat', 'required|trim', ['required' => 'Nomor Surat Wajib Diisi!']);
-
 		$this->form_validation->set_rules('jumlah_setor_modal', 'Jumlah Setor Modal', 'required|trim', ['required' => 'Jumlah Setor Modal Wajib Diisi!']);
 		$this->form_validation->set_rules('kualifikasi_usaha', 'Kualifikasi Usaha', 'required|trim', ['required' => 'Kualifikasi Usaha Wajib Diisi!']);
 		if ($this->form_validation->run() == false) {
@@ -2073,33 +2071,28 @@ class Datapenyedia extends CI_Controller
 			if (!is_dir('file_vms/' . $nama_usaha . '/Akta_pendirian')) {
 				mkdir('file_vms/' . $nama_usaha . '/Akta_pendirian', 0777, TRUE);
 			}
-
-			$chiper = "AES-128-CBC";
-			$secret_token_dokumen1 = 'jmto.1' . $id;
-			$secret_token_dokumen2 = 'jmto.2' . $id;
-
 			$config['upload_path'] = './file_vms/' . $nama_usaha . '/Akta_pendirian';
 			$config['allowed_types'] = 'pdf';
 			$config['max_size'] = 0;
 			$config['remove_spaces'] = TRUE;
-			// $config['encrypt_name'] = TRUE;
-			// anggas
+
+			$chiper = "AES-128-CBC";
 			$option = 0;
 			$iv = str_repeat("0", openssl_cipher_iv_length($chiper));
+
 			$this->load->library('upload', $config);
 			if ($this->upload->do_upload('file_dokumen')) {
 				$file_data_pendirian = $this->upload->data();
-				$file_dok_pendirian = openssl_encrypt($file_data_pendirian['file_name'], $chiper, $secret_token_dokumen1, $option, $iv);
+				$file_dok_pendirian = openssl_encrypt($file_data_pendirian['file_name'], $chiper, $token, $option, $iv);
 			} else {
 				$file_dok_pendirian = $row_akta_pendirian['file_dokumen'];
 			}
 			if ($this->upload->do_upload('file_dok_kumham_pendirian')) {
 				$file_data_kumham = $this->upload->data();
-				$file_dok_kumham = openssl_encrypt($file_data_kumham['file_name'], $chiper, $secret_token_dokumen2, $option, $iv);
+				$file_dok_kumham = openssl_encrypt($file_data_kumham['file_name'], $chiper, $token, $option, $iv);
 			} else {
 				$file_dok_kumham = $row_akta_pendirian['file_dok_kumham'];
 			}
-
 			$sts_upload = [
 				'sts_upload_dokumen' => 1,
 				'sts_terundang' => NULL
@@ -2120,6 +2113,7 @@ class Datapenyedia extends CI_Controller
 					'file_dok_kumham' => $file_dok_kumham,
 					'tgl_berlaku_akta' => $tgl_berlaku_akta,
 					'jumlah_setor_modal' => $jumlah_setor_modal,
+					'token_dokumen' => $token,
 					'sts_token_dokumen' => 1,
 					'sts_validasi' => 0,
 				];
@@ -2138,6 +2132,7 @@ class Datapenyedia extends CI_Controller
 					'file_dok_kumham' => $file_dok_kumham,
 					'tgl_berlaku_akta' => $tgl_berlaku_akta,
 					'jumlah_setor_modal' => $jumlah_setor_modal,
+					'token_dokumen' => $token,
 					'sts_token_dokumen' => 1,
 					'sts_validasi' => 3,
 				];
@@ -2167,12 +2162,11 @@ class Datapenyedia extends CI_Controller
 		$row_akta_perubahan = $this->M_datapenyedia->get_row_akta_perubahan($id_vendor);
 		$id = $this->uuid->v4();
 		$id = str_replace('-', '', $id);
-		$token = random_string('alnum', 16);
 		$chiper = "AES-128-CBC";
-		$secret_token_dokumen = $token;
+		$token = $row_akta_perubahan['token_dokumen'];
 		$option = 0;
 		$iv = str_repeat("0", openssl_cipher_iv_length($chiper));
-		$encryption_string = openssl_decrypt($row_akta_perubahan['file_dokumen'], $chiper, $secret_token_dokumen, $option, $iv);
+		$encryption_string = openssl_decrypt($row_akta_perubahan['file_dokumen'], $chiper, $token, $option, $iv);
 		$upload = [
 			'id_url' => $id,
 			'id_vendor' => $id_vendor,
@@ -2180,7 +2174,7 @@ class Datapenyedia extends CI_Controller
 			'kualifikasi_usaha' => '-',
 			'sts_seumur_hidup' => '-',
 			'file_dokumen' => $encryption_string,
-			'token_dokumen' => $secret_token_dokumen,
+			'token_dokumen' => $token,
 			'tgl_berlaku_akta' => null,
 			'jumlah_setor_modal' => null,
 			'sts_token_dokumen' => 1,
@@ -2214,13 +2208,11 @@ class Datapenyedia extends CI_Controller
 		$chiper = "AES-128-CBC";
 		$option = 0;
 		$iv = str_repeat("0", openssl_cipher_iv_length($chiper));
-		$secret_token_dokumen1 = 'jmto.1' . $id_url;
-		$secret_token_dokumen2 = 'jmto.2' . $id_url;
-
+		$token = $get_row_enkrip['token_dokumen'];
 		if ($type == 'enkrip') {
 
-			$encryption_string1 = openssl_encrypt($get_row_enkrip['file_dokumen'], $chiper, $secret_token_dokumen1, $option, $iv);
-			$encryption_string2 = openssl_encrypt($get_row_enkrip['file_dok_kumham'], $chiper, $secret_token_dokumen2, $option, $iv);
+			$encryption_string1 = openssl_encrypt($get_row_enkrip['file_dokumen'], $chiper, $token, $option, $iv);
+			$encryption_string2 = openssl_encrypt($get_row_enkrip['file_dok_kumham'], $chiper, $token, $option, $iv);
 			$where = [
 				'id_url' => $id_url
 			];
@@ -2234,8 +2226,8 @@ class Datapenyedia extends CI_Controller
 			];
 			$this->M_datapenyedia->update_akta_pendirian($data, $where);
 		} else {
-			$encryption_string1 = openssl_decrypt($get_row_enkrip['file_dokumen'], $chiper, $secret_token_dokumen1);
-			$encryption_string2 = openssl_decrypt($get_row_enkrip['file_dok_kumham'], $chiper, $secret_token_dokumen2);
+			$encryption_string1 = openssl_decrypt($get_row_enkrip['file_dokumen'], $chiper, $token, $option, $iv);
+			$encryption_string2 = openssl_decrypt($get_row_enkrip['file_dok_kumham'], $chiper, $token, $option, $iv);
 			$where = [
 				'id_url' => $id_url
 			];
@@ -2263,9 +2255,7 @@ class Datapenyedia extends CI_Controller
 		$id_vendor = $get_row_enkrip['id_vendor'];
 		$row_vendor = $this->M_datapenyedia->get_row_vendor($id_vendor);
 		$date = date('Y');
-		// $nama_file = $get_row_enkrip['nomor_surat'];
-		// $file_dokumen =  $get_row_enkrip['file_dokumen'];
-		return force_download('file_vms/' . $row_vendor['nama_usaha'] . '/Akta_Pendirian' . '/' . $get_row_enkrip['file_dokumen'], NULL);
+		return force_download('file_vms/' . $row_vendor['nama_usaha'] . '/Akta_pendirian' . '/' . $get_row_enkrip['file_dokumen'], NULL);
 	}
 
 	public function url_download_kumham_pendirian($id_url)
@@ -2277,9 +2267,7 @@ class Datapenyedia extends CI_Controller
 		$id_vendor = $get_row_enkrip['id_vendor'];
 		$row_vendor = $this->M_datapenyedia->get_row_vendor($id_vendor);
 		$date = date('Y');
-		// $nama_file = $get_row_enkrip['nomor_surat'];
-		// $file_dokumen =  $get_row_enkrip['file_dokumen'];
-		return force_download('file_vms/' . $row_vendor['nama_usaha'] . '/Akta_Pendirian' . '/' . $get_row_enkrip['file_dok_kumham'], NULL);
+		return force_download('file_vms/' . $row_vendor['nama_usaha'] . '/Akta_pendirian' . '/' . $get_row_enkrip['file_dok_kumham'], NULL);
 	}
 
 	// end akta pendirian
@@ -2336,8 +2324,8 @@ class Datapenyedia extends CI_Controller
 			$this->M_datapenyedia->update_status_dokumen($sts_upload, $where);
 
 			$chiper = "AES-128-CBC";
-			$secret_token_dokumen1 = 'jmto.1' . $id;
-			$secret_token_dokumen2 = 'jmto.2' . $id;
+			$secret_token_dokumen1 = $token;
+			$secret_token_dokumen2 = $token;
 			$date = date('Y');
 			if (!is_dir('file_vms/' . $nama_usaha . '/Akta_perubahan')) {
 				mkdir('file_vms/' . $nama_usaha . '/Akta_perubahan', 0777, TRUE);
@@ -2383,6 +2371,7 @@ class Datapenyedia extends CI_Controller
 					'file_dok_kumham' => $file_dok_kumham,
 					'tgl_berlaku_akta' => $tgl_berlaku_akta,
 					'jumlah_setor_modal' => $jumlah_setor_modal,
+					'token_dokumen' => $token,
 					'sts_token_dokumen' => 1,
 					'sts_validasi' => 0
 				];
@@ -2401,6 +2390,7 @@ class Datapenyedia extends CI_Controller
 					'file_dok_kumham' => $file_dok_kumham,
 					'tgl_berlaku_akta' => $tgl_berlaku_akta,
 					'jumlah_setor_modal' => $jumlah_setor_modal,
+					'token_dokumen' => $token,
 					'sts_token_dokumen' => 1,
 					'sts_validasi' => 2
 				];
@@ -2435,12 +2425,11 @@ class Datapenyedia extends CI_Controller
 
 		$get_row_enkrip = $this->M_datapenyedia->get_row_akta_perubahan_url($id_url);
 		$id_vendor = $get_row_enkrip['id_vendor'];
-		$row_vendor = $this->M_datapenyedia->get_row_vendor($id_vendor);
 		$chiper = "AES-128-CBC";
 		$option = 0;
 		$iv = str_repeat("0", openssl_cipher_iv_length($chiper));
-		$secret_token_dokumen1 = 'jmto.1' . $id_url;
-		$secret_token_dokumen2 = 'jmto.2' . $id_url;
+		$secret_token_dokumen1 = $get_row_enkrip['token_dokumen'];
+		$secret_token_dokumen2 = $get_row_enkrip['token_dokumen'];
 		if ($type == 'enkrip') {
 
 			$encryption_string1 = openssl_encrypt($get_row_enkrip['file_dokumen'], $chiper, $secret_token_dokumen1, $option, $iv);
@@ -2457,16 +2446,7 @@ class Datapenyedia extends CI_Controller
 				'message' => 'success'
 			];
 			$this->M_datapenyedia->update_akta_perubahan($data, $where);
-			// if ($token_dokumen == $secret_token_dokumen) {
-			// 	$response = [
-			// 		'message' => 'success'
-			// 	];
-			// 	$this->M_datapenyedia->update_akta_perubahan($data, $where);
-			// } else {
-			// 	$response = [
-			// 		'maaf' => 'Maaf Anda Memerlukan Token Yang Valid',
-			// 	];
-			// }
+		
 		} else {
 			$encryption_string1 = openssl_decrypt($get_row_enkrip['file_dokumen'], $chiper, $secret_token_dokumen1, $option, $iv);
 			$encryption_string2 = openssl_decrypt($get_row_enkrip['file_dok_kumham'], $chiper, $secret_token_dokumen2, $option, $iv);
@@ -2498,7 +2478,7 @@ class Datapenyedia extends CI_Controller
 		$date = date('Y');
 		// $nama_file = $get_row_enkrip['nomor_surat'];
 		// $file_dokumen =  $get_row_enkrip['file_dokumen'];
-		return force_download('file_vms/' . $row_vendor['nama_usaha'] . '/Akta_Perubahan' . '/' . $get_row_enkrip['file_dokumen'], NULL);
+		return force_download('file_vms/' . $row_vendor['nama_usaha'] . '/Akta_perubahan' . '/' . $get_row_enkrip['file_dokumen'], NULL);
 	}
 
 	public function url_download_kumham($id_url)
@@ -2512,9 +2492,9 @@ class Datapenyedia extends CI_Controller
 		$date = date('Y');
 		// $nama_file = $get_row_enkrip['nomor_surat'];
 		// $file_dokumen =  $get_row_enkrip['file_dokumen'];
-		return force_download('file_vms/' . $row_vendor['nama_usaha'] . '/Akta_Perubahan' . '/' . $get_row_enkrip['file_dok_kumham'], NULL);
+		return force_download('file_vms/' . $row_vendor['nama_usaha'] . '/Akta_perubahan' . '/' . $get_row_enkrip['file_dok_kumham'], NULL);
 	}
-	// end akta pendirian
+	// end akta perubahan
 
 
 	// crud manajerial
