@@ -1642,7 +1642,7 @@ class Tender_diikuti extends CI_Controller
     {
         $id_url_rup = $this->input->post('id_url_rup');
         $row_rup = $this->M_tender->get_row_rup($id_url_rup);
-        $message = 'Token : ' . $row_rup['token_vendor'] . ' , Dengan Nama Pengadaan : ' . $row_rup['nama_rup'] . '';
+        $message = 'Kodefikasi : ' . $row_rup['token_vendor'] . ' , Dengan Nama Pengadaan : ' . $row_rup['nama_rup'] . '';
         $this->kirim_wa->kirim_wa_vendor_terdaftar($this->session->userdata('no_telpon'), $message);
         $type_email = 'token_penawaran';
         $this->email_send->sen_row_email_token($type_email, $this->session->userdata('id_vendor'), $message);
