@@ -575,7 +575,7 @@
                                 <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
                                     <th>
                                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#upload_presentasi_teknis">
-                                            <i class="fa fa-upload" aria-hidden="true"></i> Upload Dokumen Presentasi Tekis
+                                            <i class="fa fa-upload" aria-hidden="true"></i> Upload Dokumen Presentasi Teknis
                                         </button>
                                     </th>
                                 <?php } else { ?>
@@ -618,7 +618,7 @@
                                                         <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_teknis'] >= 60) { ?>
                                                             <tr>
                                                                 <?php if ($rup['sts_kirim_ba_sampul1'] == 1) { ?>
-                                                                    <th>Berita Acara Pembukaan Dokumen Penawaran Sampul I (Administrasi Dan Teknis)</th>
+                                                                    <th>Berita Acara Pembukaan Dokumen Penawaran File I (Administrasi Dan Teknis)</th>
                                                                     <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_sampul_I/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>
                                                             </tr>
@@ -631,7 +631,7 @@
 
                                                             <tr>
                                                                 <?php if ($rup['sts_kirim_ba_sampul2'] == 1) { ?>
-                                                                    <th>Berita Acara Pembukaan Dokumen Penawaran Sampul II</th>
+                                                                    <th>Berita Acara Pembukaan Dokumen Penawaran File II</th>
                                                                     <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_sampul_II/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>
                                                             </tr>
