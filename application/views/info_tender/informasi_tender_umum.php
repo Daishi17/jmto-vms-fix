@@ -609,7 +609,7 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <?php if ($rup['ba_pembuktian_no']) { ?>
+                                                            <?php if ($rup['sts_kirim_pembuktian'] == 1) { ?>
                                                                 <th>Berita Acara Pembuktian Kualifikasi</th>
                                                                 <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_pembuktian_kualifikasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                             <?php } ?>
@@ -617,20 +617,20 @@
                                                         </tr>
                                                         <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_teknis'] >= 60) { ?>
                                                             <tr>
-                                                                <?php if ($rup['ba_sampul1_no']) { ?>
+                                                                <?php if ($rup['sts_kirim_ba_sampul1'] == 1) { ?>
                                                                     <th>Berita Acara Pembukaan Dokumen Penawaran Sampul I (Administrasi Dan Teknis)</th>
                                                                     <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_sampul_I/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>
                                                             </tr>
                                                             <tr>
-                                                                <?php if ($rup['undangan_rapat_no']) { ?>
+                                                                <?php if ($rup['sts_kirim_undangan_presentasi_teknis'] == 1) { ?>
                                                                     <th>Undangan Rapat Presentasi Teknis</th>
                                                                     <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_undangan_rapat/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>
                                                             </tr>
 
                                                             <tr>
-                                                                <?php if ($rup['ba_sampul2_no']) { ?>
+                                                                <?php if ($rup['sts_kirim_ba_sampul2'] == 1) { ?>
                                                                     <th>Berita Acara Pembukaan Dokumen Penawaran Sampul II</th>
                                                                     <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_sampul_II/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>
@@ -640,13 +640,13 @@
 
                                                             <?php if ($rup['id_vendor_pemenang'] == $this->session->userdata('id_vendor')) { ?>
                                                                 <tr>
-                                                                    <?php if ($rup['ba_negosiasi_no']) { ?>
+                                                                    <?php if ($rup['sts_kirim_ba_negosiasi'] == 1) { ?>
                                                                         <th>Berita Acara Evaluasi dan Negosiasi</th>
                                                                         <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_negosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                     <?php } ?>
                                                                 </tr>
                                                                 <tr>
-                                                                    <?php if ($rup['ba_klarifikasi_no']) { ?>
+                                                                    <?php if ($rup['sts_kirim_ba_evaluasi_negosiasi'] == 1) { ?>
                                                                         <th>Berita Acara Klarifikasi & Penilaian Kewajaran Harga</th>
                                                                         <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_evaluasinegosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                     <?php } ?>
@@ -657,7 +657,7 @@
 
                                                             <?php } ?>
                                                             <tr>
-                                                                <?php if ($rup['ba_pemenang_no']) { ?>
+                                                                <?php if ($rup['sts_kirim_ba_pemenang'] == 1) { ?>
                                                                     <th>Pengumuman Pemenang Pengadaan</th>
                                                                     <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_pemenang_tender/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>

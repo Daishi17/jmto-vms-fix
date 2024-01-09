@@ -267,6 +267,39 @@
         </div>
     </div>
 
+    <div class="modal fade" id="upload_dok_file_2_dkh" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Upload Dokumen Penawaran File II</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="form_upload_dok_penawaran_2_dkh" action="javascript:;" enctype="multipart/form-data">
+                    <div class="modal-body">
+                        <input type="hidden" name="id_vendor_mengikuti_paket">
+                        <input type="hidden" name="type_post">
+                        <input type="hidden" name="id_rup" value="<?= $rup['id_rup'] ?>">
+                        <input type="hidden" name="id_url_rup" value="<?= $rup['id_url_rup'] ?>">
+                        <input type="hidden" name="id_vendor" value="<?= $this->session->userdata('id_vendor') ?>">
+                        <div class="form-group">
+                            <label for="">Nama File</label>
+                            <input type="text" name="nama_dokumen" class="form-control" placeholder="Nama File" aria-describedby="helpId" readonly>
+                        </div>
+                        <br>
+                        <label for="">File Dokumen</label>
+                        <div class="input-group">
+                            <input type="file" class="form-control" accept=".xlsx, .xls" id="file_dokumen_pengadaan_vendor2" name="file_dokumen_pengadaan_vendor">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary btn-upload">Upload</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 <?php } else { ?>
     <main class="container-fluid">
         <br>

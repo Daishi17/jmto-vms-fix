@@ -151,6 +151,61 @@
         }
     })
 
+    var form_upload_dok_penawaran_2_dkh = $('#form_upload_dok_penawaran_2_dkh')
+    form_upload_dok_penawaran_2_dkh.on('submit', function(e) {
+        var file_dokumen_pengadaan_vendor2 = $('#file_dokumen_pengadaan_vendor2').val();
+        var upload_dok_file_2 = $('#upload_dok_file_2');
+        if (!file_dokumen_pengadaan_vendor2) {
+            e.preventDefault();
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Dokumen Wajib Di Isi!',
+            })
+        } else {
+            e.preventDefault();
+            $.ajax({
+                url: '<?= base_url('tender_diikuti/upload_penawaran_2') ?>',
+                method: "POST",
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+                beforeSend: function() {
+                    $('.btn-upload').attr("disabled", true);
+                },
+                success: function(response) {
+                    let timerInterval
+                    Swal.fire({
+                        title: 'Sedang Proses Menyimpan Data!',
+                        html: 'Membuat Data <b></b>',
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading()
+                            const b = Swal.getHtmlContainer().querySelector('b')
+                            timerInterval = setInterval(() => {}, 100)
+                        },
+                        willClose: () => {
+                            clearInterval(timerInterval)
+                            Swal.fire('Data Berhasil Di Simpan!', '', 'success')
+                            // reloadtable_dok_penawaran_file_I();
+                            $('.btn-upload').attr("disabled", false);
+                            upload_dok_file_2.modal('hide')
+                            get_mengikuti2()
+                            get_mengikuti()
+                            form_upload_dok_penawaran_2[0].reset()
+                        }
+                    }).then((result) => {
+                        if (result.dismiss === Swal.DismissReason.timer) {
+
+                        }
+                    })
+                }
+            })
+        }
+    })
+
     function by_id_dok_penawran_file_I(id_dokumen_pengadaan_vendor, type) {
         var id_vendor = $('[name="id_vendor"]').val();
         var id_url_rup = $('[name="id_url_rup"]').val();
@@ -396,7 +451,7 @@
                         var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                     } else {
                         var file2_dkh = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
-                        var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                        var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2_dkh(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                     }
 
                     html += `<tr>
@@ -560,5 +615,17 @@
             $('[name="nama_dokumen"]').val('File DKH')
         }
         $('#upload_dok_file_2').modal('show')
+    }
+
+    function upload_file2_dkh(id_vendor_mengikuti_paket, type) {
+
+        $('[name="id_vendor_mengikuti_paket"]').val(id_vendor_mengikuti_paket)
+        $('[name="type_post"]').val(type)
+        if (type == 'file2_penawaran') {
+            $('[name="nama_dokumen"]').val('Dokumen Penawaran Harga')
+        } else if (type == 'file2_dkh') {
+            $('[name="nama_dokumen"]').val('File DKH')
+        }
+        $('#upload_dok_file_2_dkh').modal('show')
     }
 </script>
