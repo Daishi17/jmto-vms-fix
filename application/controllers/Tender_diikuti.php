@@ -18,9 +18,9 @@ class Tender_diikuti extends CI_Controller
         $this->load->model('M_tender/M_count');
         $this->load->model('M_jadwal/M_jadwal');
         $this->load->helper('download');
-        if (!$id_vendor) {
-            redirect('auth');
-        }
+        // if (!$id_vendor) {
+        //     redirect('auth');
+        // }
         // redirect('page_kosong/page_konstruksi');
     }
 
@@ -1614,9 +1614,9 @@ class Tender_diikuti extends CI_Controller
             $data['jadwal_upload_dokumen_penawaran'] =  $this->M_jadwal->jadwal_pra1file_umum_13($data['rup']['id_rup']);
         } else if ($data['rup']['id_jadwal_tender'] == 9) {
             $data['jadwal_upload_dokumen_penawaran'] =  $this->M_jadwal->jadwal_juksung_11($data['rup']['id_rup']);
+        } else if ($data['rup']['id_jadwal_tender'] == 3) {
+            $data['jadwal_upload_dokumen_penawaran'] =  $this->M_jadwal->jadwal_tender_terbatas_pasca_1_file_3($data['rup']['id_rup']);
         }
-
-
         $data['jadwal_aanwizing'] = $this->M_tender->jadwal_aanwizing($data['rup']['id_rup']);
         $data['data2'] = $this->M_tender->getDataById($data['rup']['id_rup']);
         $this->load->view('template_menu/header_menu', $data);

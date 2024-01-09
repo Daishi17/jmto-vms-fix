@@ -398,6 +398,7 @@
                         var file2_dkh = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                         var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                     }
+
                     html += `<tr>
                             <td>1.&ensp;Dokumen Penawaran Administrasi</td>
                             <td>${file1_administrasi}</td>
@@ -420,52 +421,52 @@
                         </tr>`
                     $('#load_dok_file1_statis').html(html)
                 } else {
-                    // html += `<tr>
-                    //         <td>1.&ensp;Dokumen Penawaran Administrasi</td>
-                    //         <td>${file1_administrasi}</td>
-                    //         <td>${btn_file1_administrasi}</td>
-                    //     </tr>
-                    //     <tr>
-                    //         <td>2.&ensp;Dokumen Penawaran Teknis (Disesuaikan Dengan Dokumen IKP) : </td>
-                    //         <td></td>
-                    //         <td></td>
-                    //     </tr>
-                    //     <tr>
-                    //         <td>&ensp;&ensp; a. Struktur Organisasi</td>
-                    //         <td>${file1_organisasi}</td>
-                    //         <td>${btn_file1_organisasi}</td>
-                    //     </tr>
-                    //     <tr>
-                    //         <td>&ensp;&ensp; b. Surat Dukungan Pabrikan / Dealer</td>
-                    //         <td>${file1_pabrikan}</td>
-                    //         <td>${btn_file1_pabrikan}</td>
-                    //     </tr>
-                    //     <tr>
-                    //         <td>&ensp;&ensp; c. Data Peralatan Pendukung Pekerjaan</td>
-                    //         <td>${file1_peralatan}</td>
-                    //         <td>${btn_file1_peralatan}</td>
-                    //     </tr>
-                    //     <tr>
-                    //         <td>&ensp;&ensp; d. CV Personil</td>
-                    //         <td>${file1_personil}</td>
-                    //         <td>${btn_file1_personil}</td>
-                    //     </tr>
-                    //     <tr>
-                    //         <td>&ensp;&ensp; e. Makalah Teknis Pekerjaan</td>
-                    //         <td>${file1_makalah_teknis}</td>
-                    //         <td>${btn_file1_makalah_teknis}</td>
-                    //     </tr>
-                    //     <tr>
-                    //         <td>&ensp;&ensp; f. Dokumen Pra RK3-K dan HIRADC</td>
-                    //         <td>${file1_pra_rk3}</td>
-                    //         <td>${btn_file1_pra_rk3}</td>
-                    //     </tr>
-                    //     <tr>
-                    //         <td>&ensp;&ensp; g. Dokumen Spesifikasi Perangkat</td>
-                    //         <td>${file1_spek}</td>
-                    //         <td>${btn_file1_spek}</td>
-                    //     </tr>`
-                    // $('#load_dok_file1_statis').html(html)
+                    html += `<tr>
+                            <td>1.&ensp;Dokumen Penawaran Administrasi</td>
+                            <td>${file1_administrasi}</td>
+                            <td>${btn_file1_administrasi}</td>
+                        </tr>
+                        <tr>
+                            <td>2.&ensp;Dokumen Penawaran Teknis (Disesuaikan Dengan Dokumen IKP) : </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>&ensp;&ensp; a. Struktur Organisasi</td>
+                            <td>${file1_organisasi}</td>
+                            <td>${btn_file1_organisasi}</td>
+                        </tr>
+                        <tr>
+                            <td>&ensp;&ensp; b. Surat Dukungan Pabrikan / Dealer</td>
+                            <td>${file1_pabrikan}</td>
+                            <td>${btn_file1_pabrikan}</td>
+                        </tr>
+                        <tr>
+                            <td>&ensp;&ensp; c. Data Peralatan Pendukung Pekerjaan</td>
+                            <td>${file1_peralatan}</td>
+                            <td>${btn_file1_peralatan}</td>
+                        </tr>
+                        <tr>
+                            <td>&ensp;&ensp; d. CV Personil</td>
+                            <td>${file1_personil}</td>
+                            <td>${btn_file1_personil}</td>
+                        </tr>
+                        <tr>
+                            <td>&ensp;&ensp; e. Makalah Teknis Pekerjaan</td>
+                            <td>${file1_makalah_teknis}</td>
+                            <td>${btn_file1_makalah_teknis}</td>
+                        </tr>
+                        <tr>
+                            <td>&ensp;&ensp; f. Dokumen Pra RK3-K dan HIRADC</td>
+                            <td>${file1_pra_rk3}</td>
+                            <td>${btn_file1_pra_rk3}</td>
+                        </tr>
+                        <tr>
+                            <td>&ensp;&ensp; g. Dokumen Spesifikasi Perangkat</td>
+                            <td>${file1_spek}</td>
+                            <td>${btn_file1_spek}</td>
+                        </tr>`
+                    $('#load_dok_file1_statis').html(html)
                 }
 
 

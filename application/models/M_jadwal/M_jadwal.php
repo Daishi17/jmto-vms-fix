@@ -537,7 +537,6 @@ class M_jadwal extends CI_Model
 
     // ININ UNUTK JADWAL PASACA KUALIFIKASI TENDER TERBATAS
 
-
     public function jadwal_pasca_terbatas($id_rup)
     {
         $this->db->select('*');
