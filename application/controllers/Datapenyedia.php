@@ -2446,7 +2446,6 @@ class Datapenyedia extends CI_Controller
 				'message' => 'success'
 			];
 			$this->M_datapenyedia->update_akta_perubahan($data, $where);
-		
 		} else {
 			$encryption_string1 = openssl_decrypt($get_row_enkrip['file_dokumen'], $chiper, $secret_token_dokumen1, $option, $iv);
 			$encryption_string2 = openssl_decrypt($get_row_enkrip['file_dok_kumham'], $chiper, $secret_token_dokumen2, $option, $iv);
@@ -4315,6 +4314,15 @@ class Datapenyedia extends CI_Controller
 		$response = [
 			'row_neraca' => $this->M_datapenyedia->get_row_neraca($id_neraca),
 			'row_file_excel' => $data
+		];
+		$this->output->set_content_type('application/json')->set_output(json_encode($response));
+	}
+
+	function by_id_neraca0($id_neraca)
+	{
+		// Load the Excel fileF
+		$response = [
+			'row_neraca' => $this->M_datapenyedia->get_row_neraca($id_neraca)
 		];
 		$this->output->set_content_type('application/json')->set_output(json_encode($response));
 	}
