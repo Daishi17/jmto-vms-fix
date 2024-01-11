@@ -83,6 +83,7 @@
                                 <!-- Waktu Telah Berakhir -->
                             <?php    } ?>
                         <?php } ?>
+
                         <?php if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                             <?php $date2 = $jadwal_masa_sanggah_akhir['waktu_selesai'];
                             if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
@@ -176,7 +177,7 @@
                                                                     <td><?= $value['nama_dok_prakualifikasi'] ?></td>
                                                                     <td>
                                                                         <a href="<?= $url_dok_prakualifikasi . $value['id_dokumen_prakualifikasi'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
-                                                                        <?php if ($value['sts_dokumen_tambahan'] == 1) { ?>
+                                                                        <?php if ($value['keterangan_dokumen']) { ?>
                                                                             <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
                                                                         <?php } else { ?>
 
@@ -415,49 +416,27 @@
                             <?php    } ?>
                         <?php } ?>
 
-                        <?php if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                        <?php if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
+                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                            <?php if ($get_row_mengikuti['ev_teknis']  >= 60 || $get_row_mengikuti['ev_keuangan']  >= 60) { ?>
+                                <tr>
+                                    <th>Undangan Penawaran</th>
+                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/informasi_tender_umum_pra_2_file/lihat_undangan_penawran/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat Undangan Penawaran</a>
+                                    <th>
+                                </tr>
+                            <?php } else { ?>
+                                <tr>
+                                    <th>Undangan Penawaran</th>
+                                    <th><button type="button" class="btn btn-sm btn-danger">
+                                            <i class="fa fa-download" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
+                                        </button></th>
+                                </tr>
+                            <?php }  ?>
                         <?php } else { ?>
-                            <?php
-                            if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
-                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                <?php if ($get_row_mengikuti['ev_teknis']  >= 60 || $get_row_mengikuti['ev_keuangan']  >= 60) { ?>
-                                    <tr>
-                                        <th>Undangan Penawaran</th>
-                                        <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hasil_prakualifikasi">
-                                                <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Penawaran
-                                            </button></th>
-                                    </tr>
-                                <?php } else { ?>
-                                    <tr>
-                                        <th>Undangan Penawaran</th>
-                                        <th><button type="button" class="btn btn-sm btn-danger">
-                                                <i class="fa fa-download" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
-                                            </button></th>
-                                    </tr>
-                                <?php }  ?>
-
-                            <?php    } else { ?>
-                                <?php if ($get_row_mengikuti['ev_teknis']  >= 60 || $get_row_mengikuti['ev_keuangan']  >= 60) { ?>
-                                    <tr>
-                                        <th>Undangan Penawaran</th>
-                                        <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#hasil_prakualifikasi">
-                                                <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Penawaran
-                                            </button></th>
-                                    </tr>
-                                <?php } else { ?>
-                                    <tr>
-                                        <th>Undangan Penawaran</th>
-                                        <th><button type="button" class="btn btn-sm btn-danger">
-                                                <i class="fa fa-download" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
-                                            </button></th>
-                                    </tr>
-                                <?php }  ?>
-
-
-                            <?php    } ?>
                         <?php } ?>
+
 
 
                         <tr>
@@ -482,7 +461,6 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                            <tbody>
                                                                 <?php $i = 1;
                                                                 foreach ($dok_pengadaan as $key => $value) { ?>
                                                                     <tr>
@@ -490,12 +468,12 @@
                                                                         <td><?= $value['nama_dok_pengadaan'] ?></td>
                                                                         <td>
                                                                             <a href="<?= $url_dok_pengadaan . $value['id_dokumen_pengadaan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
-                                                                            <?php if ($value['sts_dokumen_tambahan'] == 1) { ?>
-                                                                            <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
-                                                                        <?php } else { ?>
+                                                                            <?php if ($value['keterangan_dokumen']) { ?>
+                                                                                <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
+                                                                            <?php } else { ?>
 
-                                                                        <?php  }
-                                                                        ?>
+                                                                            <?php  }
+                                                                            ?>
                                                                         </td>
                                                                     </tr>
                                                                 <?php } ?>
@@ -590,23 +568,27 @@
                             <?php    } ?>
                         </tr>
 
-                        <tr>
-                            <th>Upload Presentasi Teknis Pengadaan</th>
-                            <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
-                                <th>
-                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#upload_presentasi_teknis">
-                                        <i class="fa fa-upload" aria-hidden="true"></i> Upload Dokumen Penawaran
-                                    </button>
-                                </th>
-                            <?php } else { ?>
-                                <th>
-                                    <button type="button" class="btn btn-sm btn-danger" disabled>
-                                        <i class="fa fa-folder-close" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
-                                    </button>
-                                </th>
-                            <?php } ?>
+                        <?php if (date('Y-m-d H:i', strtotime($jadwal_presentasi_evaluasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_presentasi_evaluasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_presentasi_evaluasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                            <tr>
+                                <th>Upload Presentasi Teknis Pengadaan</th>
+                                <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                                    <th>
+                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#upload_presentasi_teknis">
+                                            <i class="fa fa-upload" aria-hidden="true"></i> Upload Dokumen Presentasi Teknis
+                                        </button>
+                                    </th>
+                                <?php } else { ?>
+                                    <th>
+                                        <button type="button" class="btn btn-sm btn-danger" disabled>
+                                            <i class="fa fa-folder-close" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
+                                        </button>
+                                    </th>
+                                <?php } ?>
+                            </tr>
+                        <?php } else { ?>
+                        <?php } ?>
 
-                        </tr>
 
                         <tr>
                             <th>Berita Acara dan Pengumuman Pengadaan</th>
@@ -627,7 +609,7 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <?php if ($rup['ba_pembuktian_no']) { ?>
+                                                            <?php if ($rup['sts_kirim_pembuktian'] == 1) { ?>
                                                                 <th>Berita Acara Pembuktian Kualifikasi</th>
                                                                 <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_pembuktian_kualifikasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                             <?php } ?>
@@ -635,35 +617,36 @@
                                                         </tr>
                                                         <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_teknis'] >= 60) { ?>
                                                             <tr>
-                                                                <?php if ($rup['ba_sampul1_no']) { ?>
-                                                                    <th>Berita Acara Pembukaan Dokumen Penawaran Sampul I (Administrasi Dan Teknis)</th>
+                                                                <?php if ($rup['sts_kirim_ba_sampul1'] == 1) { ?>
+                                                                    <th>Berita Acara Pembukaan Dokumen Penawaran File I (Administrasi Dan Teknis)</th>
                                                                     <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_sampul_I/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>
                                                             </tr>
                                                             <tr>
-                                                                <?php if ($rup['undangan_rapat_no']) { ?>
+                                                                <?php if ($rup['sts_kirim_undangan_presentasi_teknis'] == 1) { ?>
                                                                     <th>Undangan Rapat Presentasi Teknis</th>
                                                                     <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_undangan_rapat/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>
                                                             </tr>
 
                                                             <tr>
-                                                                <?php if ($rup['ba_sampul2_no']) { ?>
-                                                                    <th>Berita Acara Pembukaan Dokumen Penawaran Sampul II</th>
+                                                                <?php if ($rup['sts_kirim_ba_sampul2'] == 1) { ?>
+                                                                    <th>Berita Acara Pembukaan Dokumen Penawaran File II</th>
                                                                     <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_sampul_II/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>
                                                             </tr>
 
 
+
                                                             <?php if ($rup['id_vendor_pemenang'] == $this->session->userdata('id_vendor')) { ?>
                                                                 <tr>
-                                                                    <?php if ($rup['ba_negosiasi_no']) { ?>
+                                                                    <?php if ($rup['sts_kirim_ba_negosiasi'] == 1) { ?>
                                                                         <th>Berita Acara Evaluasi dan Negosiasi</th>
                                                                         <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_negosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                     <?php } ?>
                                                                 </tr>
                                                                 <tr>
-                                                                    <?php if ($rup['ba_klarifikasi_no']) { ?>
+                                                                    <?php if ($rup['sts_kirim_ba_evaluasi_negosiasi'] == 1) { ?>
                                                                         <th>Berita Acara Klarifikasi & Penilaian Kewajaran Harga</th>
                                                                         <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_evaluasinegosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                     <?php } ?>
@@ -674,14 +657,12 @@
 
                                                             <?php } ?>
                                                             <tr>
-                                                                <?php if ($rup['ba_pemenang_no']) { ?>
+                                                                <?php if ($rup['sts_kirim_ba_pemenang'] == 1) { ?>
                                                                     <th>Pengumuman Pemenang Pengadaan</th>
                                                                     <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_pemenang_tender/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>
                                                             </tr>
                                                         <?php   } ?>
-
-
 
 
                                                     </tbody>
@@ -1074,7 +1055,6 @@
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="upload_presentasi_teknis" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
