@@ -602,7 +602,7 @@
                 },
                 success: function(response) {
                     if (response == 'success') {
-                        Swal.fire('Token Valid!', '', 'success')
+                        Swal.fire('Kodefikasi Valid!', '', 'success')
                         setTimeout(() => {
                             $('.btn_buka_penawaran').attr("disabled", false);
                             window.open(url_buka_penawaran_token + id_url_rup, '_blank');
@@ -644,7 +644,7 @@
                             }, 100)
                         },
                         willClose: () => {
-                            Swal.fire('Token Valid!', '', 'success')
+                            Swal.fire('Kodefikasi Valid!', '', 'success')
                             setTimeout(() => {
                                 $('.btn_kirim_pengumuman').attr("disabled", false);
                             }, 2000);

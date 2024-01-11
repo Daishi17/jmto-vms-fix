@@ -151,11 +151,12 @@
         }
     })
 
+
     var form_upload_dok_penawaran_2_dkh = $('#form_upload_dok_penawaran_2_dkh')
     form_upload_dok_penawaran_2_dkh.on('submit', function(e) {
-        var file_dokumen_pengadaan_vendor2 = $('#file_dokumen_pengadaan_vendor2').val();
-        var upload_dok_file_2 = $('#upload_dok_file_2');
-        if (!file_dokumen_pengadaan_vendor2) {
+        var file_dokumen_pengadaan_vendor2_dkh = $('#file_dokumen_pengadaan_vendor2_dkh').val();
+        var upload_dok_file_2_dkh = $('#upload_dok_file_2_dkh');
+        if (!file_dokumen_pengadaan_vendor2_dkh) {
             e.preventDefault();
             Swal.fire({
                 icon: 'error',
@@ -191,7 +192,7 @@
                             Swal.fire('Data Berhasil Di Simpan!', '', 'success')
                             // reloadtable_dok_penawaran_file_I();
                             $('.btn-upload').attr("disabled", false);
-                            upload_dok_file_2.modal('hide')
+                            upload_dok_file_2_dkh.modal('hide')
                             get_mengikuti2()
                             get_mengikuti()
                             form_upload_dok_penawaran_2[0].reset()
@@ -556,10 +557,10 @@
 
                 if (response['row']['file2_dkh']) {
                     var file2_dkh = `<a  href="<?= base_url('tender_diikuti/download_dokumen_penawaran_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file2_dkh" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
-                    var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                    var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2_dkh(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                 } else {
                     var file2_dkh = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
-                    var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                    var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2_dkh(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                 }
 
                 var html2 = '';

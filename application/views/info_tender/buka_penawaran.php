@@ -288,7 +288,7 @@
                         <br>
                         <label for="">File Dokumen</label>
                         <div class="input-group">
-                            <input type="file" class="form-control" accept=".xlsx, .xls" id="file_dokumen_pengadaan_vendor2" name="file_dokumen_pengadaan_vendor">
+                            <input type="file" class="form-control" accept=".xlsx, .xls" id="file_dokumen_pengadaan_vendor2_dkh" name="file_dokumen_pengadaan_vendor">
                         </div>
                     </div>
                     <div class="modal-footer">
