@@ -607,10 +607,11 @@
                             <?php    } ?>
                         </tr>
 
-                        <?php if (date('Y-m-d H:i', strtotime($jadwal_presentasi_evaluasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
-                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_presentasi_evaluasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_presentasi_evaluasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                            <tr>
-                                <th>Upload Presentasi Teknis Pengadaan</th>
+
+                        <tr>
+                            <th>Upload Presentasi Teknis Pengadaan</th>
+                            <?php if (date('Y-m-d H:i', strtotime($jadwal_presentasi_evaluasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_presentasi_evaluasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_presentasi_evaluasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                                 <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
                                     <th>
                                         <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#upload_presentasi_teknis">
@@ -624,9 +625,23 @@
                                         </button>
                                     </th>
                                 <?php } ?>
-                            </tr>
-                        <?php } else { ?>
-                        <?php } ?>
+                            <?php } else { ?>
+                                <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                                    <th>
+                                        <button type="button" class="btn btn-sm btn-secondary" disabled>
+                                            <i class="fa fa-folder-close" aria-hidden="true"></i> Tahap Sudah Selesai
+                                        </button>
+                                    </th>
+                                <?php } else { ?>
+                                    <th>
+                                        <button type="button" class="btn btn-sm btn-danger" disabled>
+                                            <i class="fa fa-folder-close" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
+                                        </button>
+                                    </th>
+                                <?php } ?>
+                            <?php } ?>
+                        </tr>
+
 
 
                         <tr>
@@ -649,13 +664,36 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
+                                                            <?php if ($rup['sts_kirim_ba_penjelasan_kualifikasi'] == 1) { ?>
+                                                                <th>Berita Acara Penjelasan Kualifikasi</th>
+                                                                <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_penjelasan_pengadaan/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                            <?php } ?>
+                                                        </tr>
+
+                                                        <tr>
                                                             <?php if ($rup['sts_kirim_pembuktian'] == 1) { ?>
                                                                 <th>Berita Acara Pembuktian Kualifikasi</th>
                                                                 <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_pembuktian_kualifikasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                             <?php } ?>
 
                                                         </tr>
+
                                                         <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_teknis'] >= 60) { ?>
+
+                                                            <tr>
+                                                                <?php if ($rup['sts_kirim_ba_rapat_penjelasan'] == 1) { ?>
+                                                                    <th>Berita Acara Rapat Penjelasan Dokumen Pengadaan</th>
+                                                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_penjelasan_pengadaan/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                <?php } ?>
+
+                                                            </tr>
+
+                                                            <tr>
+                                                                <?php if ($rup['sts_kirim_ba_sampul1'] == 1) { ?>
+                                                                    <th>Berita Acara Pembukaan Dokumen Penawaran File I (Administrasi Dan Teknis)</th>
+                                                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_sampul_I/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                <?php } ?>
+                                                            </tr>
                                                             <tr>
                                                                 <?php if ($rup['sts_kirim_ba_sampul1'] == 1) { ?>
                                                                     <th>Berita Acara Pembukaan Dokumen Penawaran File I (Administrasi Dan Teknis)</th>

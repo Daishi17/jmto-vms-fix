@@ -221,7 +221,8 @@ class Tender_diikuti extends CI_Controller
         $data['peserta'] = $this->M_tender->peserta($id_rup);
         // count peserta
         $count_peserta = $this->M_tender->count_peserta($id_rup);
-        if ($count_peserta > 3) {
+        $count_peserta_lolos = $this->M_tender->count_peserta_lolos($id_rup);
+        if ($count_peserta_lolos < 3) {
             $data['sts_nego'] = 'buka_negosiasi';
         } else {
             $data['sts_nego'] = 'tutup_negosiasi';
@@ -2078,7 +2079,8 @@ class Tender_diikuti extends CI_Controller
         }
     }
 
-    public function simpan_setujui_ba_nego(){
+    public function simpan_setujui_ba_nego()
+    {
 
         $where = [
             'id_rup' => $this->input->post('id_rup'),
@@ -2094,7 +2096,8 @@ class Tender_diikuti extends CI_Controller
         $this->output->set_content_type('application/json')->set_output(json_encode('success'));
     }
 
-    public function simpan_setujui_ba_klarifikasi(){
+    public function simpan_setujui_ba_klarifikasi()
+    {
 
         $where = [
             'id_rup' => $this->input->post('id_rup'),
