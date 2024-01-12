@@ -8,7 +8,7 @@ class Tender_diikuti extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $id_vendor = $this->session->userdata('id_vendor');
+        $nama_jabatan_ba_nego = $this->session->userdata('id_vendor');
         $this->load->model('M_dashboard/M_dashboard');
         $this->load->model('M_jenis_usaha/M_jenis_usaha');
         $this->load->model('Wilayah/Wilayah_model');
@@ -2076,5 +2076,36 @@ class Tender_diikuti extends CI_Controller
             $this->M_tender->update_dok_pengadaan_file_II($upload, $where);
             $this->output->set_content_type('application/json')->set_output(json_encode('success'));
         }
+    }
+
+    public function simpan_setujui_ba_nego(){
+
+        $where = [
+            'id_rup' => $this->input->post('id_rup'),
+            'id_vendor' => $this->input->post('id_vendor')
+        ];
+
+        $data = [
+            'persetujuan_ba_nego' => $this->input->post('persetujuan_ba_nego'),
+            'nama_jabatan_ba_nego' => $this->input->post('nama_jabatan_ba_nego')
+        ];
+
+        $this->M_tender->update_dok_pengadaan_file_II($data, $where);
+        $this->output->set_content_type('application/json')->set_output(json_encode('success'));
+    }
+
+    public function simpan_setujui_ba_klarifikasi(){
+
+        $where = [
+            'id_rup' => $this->input->post('id_rup'),
+            'id_vendor' => $this->input->post('id_vendor')
+        ];
+
+        $data = [
+            'persetujuan_klarifikasi_nego' => $this->input->post('persetujuan_klarifikasi_nego'),
+        ];
+
+        $this->M_tender->update_dok_pengadaan_file_II($data, $where);
+        $this->output->set_content_type('application/json')->set_output(json_encode('success'));
     }
 }

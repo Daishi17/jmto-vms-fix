@@ -805,3 +805,93 @@
         }
     })
 </script>
+
+<script>
+    var form_setujui_ba_nego = $('#form_setujui_ba_nego')
+    form_setujui_ba_nego.on('submit', function(e) {
+        e.preventDefault();
+            $.ajax({
+                url: '<?= base_url('tender_diikuti/simpan_setujui_ba_nego/') ?>',
+                method: "POST",
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(response) {
+                    let timerInterval
+                    Swal.fire({
+                        title: 'Sedang Proses Menyimpan Data!',
+                        html: 'Membuat Data <b></b>',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading()
+                            const b = Swal.getHtmlContainer().querySelector('b')
+                            timerInterval = setInterval(() => {
+                                // b.textContent = Swal.getTimerRight()
+                            }, 1500)
+                        },
+                        willClose: () => {
+                            clearInterval(timerInterval)
+                            Swal.fire('Data Berhasil Di Simpan!', '', 'success')
+                            $('#modal_setujui_ba_negosiasi').modal('hide')
+                            form_presentasi_teknis_tender[0].reset()
+                            setTimeout(() => {
+                                location.reload()
+                            }, 1000);
+                        }
+                    }).then((result) => {
+                        /* Read more about handling dismissals below */
+                        if (result.dismiss === Swal.DismissReason.timer) {
+
+                        }
+                    })
+                }
+            })
+    })
+
+    var form_setujui_ba_klarifikasi = $('#form_setujui_ba_klarifikasi')
+    form_setujui_ba_klarifikasi.on('submit', function(e) {
+        e.preventDefault();
+            $.ajax({
+                url: '<?= base_url('tender_diikuti/simpan_setujui_ba_klarifikasi/') ?>',
+                method: "POST",
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(response) {
+                    let timerInterval
+                    Swal.fire({
+                        title: 'Sedang Proses Menyimpan Data!',
+                        html: 'Membuat Data <b></b>',
+                        timer: 2000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading()
+                            const b = Swal.getHtmlContainer().querySelector('b')
+                            timerInterval = setInterval(() => {
+                                // b.textContent = Swal.getTimerRight()
+                            }, 1500)
+                        },
+                        willClose: () => {
+                            clearInterval(timerInterval)
+                            Swal.fire('Data Berhasil Di Simpan!', '', 'success')
+                            $('#modal_setujui_ba_klarifikasi').modal('hide')
+                            form_setujui_ba_klarifikasi[0].reset()
+                            setTimeout(() => {
+                                location.reload()
+                            }, 1000);
+                        }
+                    }).then((result) => {
+                        /* Read more about handling dismissals below */
+                        if (result.dismiss === Swal.DismissReason.timer) {
+
+                        }
+                    })
+                }
+            })
+    })
+
+    
+</script>
