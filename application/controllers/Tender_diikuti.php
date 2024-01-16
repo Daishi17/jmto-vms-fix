@@ -1367,7 +1367,7 @@ class Tender_diikuti extends CI_Controller
     {
         $id_rup = $this->input->post('id_rup');
         $id_vendor = $this->input->post('id_vendor');
-        $row_sanggahan_akhir = $this->M_tender->get_row_vendor_sanggahan($id_rup, $id_vendor);
+        $row_sanggahan_akhir = $this->M_tender->get_row_vendor_sanggahan_akhir($id_rup, $id_vendor);
         $output = [
             'row_sanggahan_akhir' => $row_sanggahan_akhir,
         ];
@@ -1385,10 +1385,10 @@ class Tender_diikuti extends CI_Controller
         $nama_usaha = $this->session->userdata('nama_usaha');
         $id_vendor = $this->session->userdata('id_vendor');
 
-        if (!is_dir('file_paket/' . $nama_rup['nama_rup'] . '/' . $nama_usaha . '/' . 'SANGGAHAN_AKHIR')) {
-            mkdir('file_paket/' . $nama_rup['nama_rup'] . '/' . $nama_usaha . '/' . 'SANGGAHAN_AKHIR', 0777, TRUE);
+        if (!is_dir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'SANGGAHAN_AKHIR')) {
+            mkdir('file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'SANGGAHAN_AKHIR', 0777, TRUE);
         }
-        $config['upload_path'] = './file_paket/' . $nama_rup['nama_rup'] . '/' . $nama_usaha . '/' . 'SANGGAHAN_AKHIR';
+        $config['upload_path'] = './file_paket/' . $nama_rup['nama_rup'] . '/' .  $nama_usaha . '/' . 'SANGGAHAN_AKHIR';
         $config['allowed_types'] = 'pdf|xlsx|xls';
         $config['max_size'] = 0;
         $this->load->library('upload', $config);
@@ -1396,15 +1396,12 @@ class Tender_diikuti extends CI_Controller
         if ($this->upload->do_upload('file_sanggah_akhir')) {
             $fileData = $this->upload->data();
             $upload = [
-                'ket_sanggah_akhir' => $ket_sanggah_akhir,
-                'file_sanggah_akhir' => $fileData['file_name']
-            ];
-
-            $where = [
                 'id_rup' => $id_rup,
                 'id_vendor' => $id_vendor,
+                'ket_sanggah_akhir' => $ket_sanggah_akhir,
+                'file_sanggah_akhir' => $fileData['file_name'],
             ];
-            $this->M_tender->update_mengikuti($upload, $where);
+            $this->M_tender->simpan_sanggah_akhir($upload);
             $this->output->set_content_type('application/json')->set_output(json_encode('success'));
         } else {
             $this->output->set_content_type('application/json')->set_output(json_encode('gagal'));
@@ -1414,21 +1411,8 @@ class Tender_diikuti extends CI_Controller
     public function hapus_sanggahan_akhir()
     {
         // post
-        $id_vendor_mengikuti_paket = $this->input->post('id_vendor_mengikuti_paket');
-
-        // get value vendor dan paket untuk genrate file
-        $nama_usaha = $this->session->userdata('nama_usaha');
-        $id_vendor = $this->session->userdata('id_vendor');
-
-        $upload = [
-            'ket_sanggah_akhir' => '',
-            'file_sanggah_akhir' => ''
-        ];
-
-        $where = [
-            'id_vendor_mengikuti_paket' => $id_vendor_mengikuti_paket,
-        ];
-        $this->M_tender->update_mengikuti($upload, $where);
+        $id_sanggah_akhir_detail = $this->input->post('id_sanggah_akhir_detail');
+        $this->M_tender->delete_sanggah_akhir($id_sanggah_akhir_detail);
         $this->output->set_content_type('application/json')->set_output(json_encode('success'));
     }
     // end sanggahan akhir

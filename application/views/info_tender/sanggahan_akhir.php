@@ -21,34 +21,7 @@
                         <li class="nav-item">
                             <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (PQ)</a>
                         </li>
-                        <?php if ($rup['id_jadwal_tender'] == 1) { ?>
 
-                        <?php  } else { ?>
-                            <li class="nav-item">
-                                <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
-                            </li>
-                        <?php }
-                        ?>
-                        <?php if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                            <?php $date2 = $jadwal_aanwijzing['waktu_selesai'];
-                            if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
-                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                <!-- <li class="nav-item">
-                                                                            <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing</a>
-                                                                        </li> -->
-                            <?php    } else { ?>
-
-                            <?php    } ?>
-                        <?php } else { ?>
-                            <?php
-                            if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
-
-                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-
-                            <?php    } else { ?>
-
-                            <?php    } ?>
-                        <?php } ?>
 
                         <?php if ($sts_nego == 'buka_negosiasi') { ?>
                             <?php if (date('Y-m-d H:i', strtotime($jadwal_penetapan_pemenang['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_penetapan_pemenang['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
@@ -78,34 +51,39 @@
                         <?php   }
                         ?>
 
-                        <?php if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                            <?php $date2 = $jadwal_masa_sanggah_kualifikasi['waktu_selesai'];
-                            if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
-                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                <li class="nav-item">
-                                    <a class="nav-link bg-primary text-white " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_prakualifikasi/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Prakualifikasi</a>
-                                </li>
+                        <?php if ($rup['id_jadwal_tender'] == 1) { ?>
+
+                        <?php  } else { ?>
+                            <li class="nav-item">
+                                <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
+                            </li>
+                        <?php }
+                        ?>
+                        <?php if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                            <?php $date2 = $jadwal_aanwijzing['waktu_selesai'];
+                            if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
+                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
+
                             <?php    } else { ?>
-                                <!-- waktu Telah Selesai -->
+
                             <?php    } ?>
                         <?php } else { ?>
                             <?php
-                            if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                            if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
-                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                <li class="nav-item">
-                                    <a class="nav-link bg-primary text-white " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_prakualifikasi/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Prakualifikasi</a>
-                                </li>
+                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+
                             <?php    } else { ?>
-                                <!-- Waktu Telah Berakhir -->
+
                             <?php    } ?>
                         <?php } ?>
+
                         <?php if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                             <?php $date2 = $jadwal_masa_sanggah_akhir['waktu_selesai'];
                             if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
                                 <li class="nav-item">
-                                    <a class="nav-link active" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_akhir/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Pemenang </a>
+                                    <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_akhir/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Pemenang </a>
                                 </li>
                             <?php    } else { ?>
                                 <!-- waktu Telah Selesai -->
@@ -116,15 +94,35 @@
 
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                                 <li class="nav-item">
-                                    <a class="nav-link active" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_akhir/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Pemenang </a>
+                                    <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_akhir/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Pemenang </a>
                                 </li>
                             <?php    } else { ?>
                                 <!-- Waktu Telah Berakhir -->
                             <?php    } ?>
                         <?php } ?>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="#"><i class="fa fa-suitcase" aria-hidden="true"></i> Berita Acara</a>
-                        </li> -->
+
+                        <?php if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                            <?php $date2 = $jadwal_masa_sanggah_akhir['waktu_selesai'];
+                            if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
+                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
+                                <li class="nav-item">
+                                    <a class="nav-link active " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_akhir/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Prakualifikasi</a>
+                                </li>
+                            <?php    } else { ?>
+                                <!-- waktu Telah Selesai -->
+                            <?php    } ?>
+                        <?php } else { ?>
+                            <?php
+                            if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+
+                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                <li class="nav-item">
+                                    <a class="nav-link active " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_akhir/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Prakualifikasi</a>
+                                </li>
+                            <?php    } else { ?>
+                                <!-- Waktu Telah Berakhir -->
+                            <?php    } ?>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
@@ -158,7 +156,7 @@
                 <div class="card-header border-dark bg-primary d-flex justify-content-between align-items-center">
                     <div class="flex-grow-1 bd-highlight">
                         <span class="text-dark">
-                            <small class="text-white"><strong><i class="fa-solid fa-table px-1"></i> Data Tabel - Sanggahan Akhir</strong></small>
+                            <small class="text-white"><strong><i class="fa-solid fa-table px-1"></i> Data Tabel - Sanggahan Prakualifikasi</strong></small>
                         </span>
                     </div>
                 </div>
@@ -168,6 +166,7 @@
                         if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
                         <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
                             <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal_sanggahan_akhir" class="btn btn-sm btn-primary mb-2"><i class="fa fa-upload"></i> Kirim Sanggahan </a>
+
                         <?php    } else { ?>
                             <a href="javascript:;" class="btn btn-sm btn-primary mb-2"> Waktu Sudah Berakhir </a>
                         <?php    } ?>
@@ -177,16 +176,18 @@
 
                         <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                             <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal_sanggahan_akhir" class="btn btn-sm btn-primary mb-2"><i class="fa fa-upload"></i> Kirim Sanggahan </a>
+
                         <?php    } else { ?>
                             <a href="javascript:;" class="btn btn-sm btn-primary mb-2"> Waktu Sudah Berakhir </a>
                         <?php    } ?>
                     <?php } ?>
 
-                    <table class="table table-bordered" id="tbl_evaluasi">
+                    <table class="table table-bordered">
                         <thead class="bg-primary text-white">
                             <tr>
+                                <!-- <th>No</th> -->
                                 <th width="200px">Nama Peserta</th>
-                                <th>Nama File</th>
+                                <th>Keterangan Penyedia</th>
                                 <th>Download File</th>
                                 <th>File Balasan</th>
                                 <th>Keterangan Panitia</th>
@@ -207,14 +208,14 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-bullhorn" aria-hidden="true"></i> Upload Sanggahan Akhir</h5>
+                <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-bullhorn" aria-hidden="true"></i> Upload Sanggahan Prakualifikasi</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="javascript:;" id="form_sanggahan_akhir">
                 <div class="modal-body">
                     <div class="alert alert-primary d-flex align-items-center" role="alert">
                         <div>
-                            <i class="fa fa-info-circle" aria-hidden="true"> </i> Silahkan Masukkan File Sanggahan Akhir !!! <br>
+                            <i class="fa fa-info-circle" aria-hidden="true"> </i> Silahkan Masukkan File Sanggahan Prakualifikasi !!! <br>
                         </div>
                     </div>
                     <div class="form-group">
@@ -233,7 +234,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Batal</button>
-                    <button type="submit" class="btn btn-success btn-sanggah-akhir"><i class="fas fa fa-upload"></i> Upload</button>
+                    <button type="submit" class="btn btn-success btn-sanggah"><i class="fas fa fa-upload"></i> Upload</button>
                 </div>
             </form>
         </div>

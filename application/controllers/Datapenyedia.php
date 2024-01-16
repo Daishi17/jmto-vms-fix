@@ -3549,7 +3549,7 @@ class Datapenyedia extends CI_Controller
 			$option = 0;
 			$iv = str_repeat("0", openssl_cipher_iv_length($chiper));
 			// chiper, $secret_token_dokumen1, $option, $iv
-			$secret_token_dokumen1 = 'jmto.1' . $id;
+			$secret = random_string('alnum', 16);
 			// SETTING PATH 
 			$sts_upload = [
 				'sts_upload_dokumen' => 1,
@@ -3584,7 +3584,8 @@ class Datapenyedia extends CI_Controller
 				'nilai_kontrak' => $nilai_kontrak,
 				'lokasi_pekerjaan' => $lokasi_pekerjaan,
 				'jangka_waktu' => $jangka_waktu,
-				'file_kontrak_pengalaman' => openssl_encrypt($file_kontrak_pengalaman['file_name'], $chiper, $secret_token_dokumen1, $option, $iv),
+				'token_dokumen' => $secret,
+				'file_kontrak_pengalaman' => openssl_encrypt($file_kontrak_pengalaman['file_name'], $chiper, $secret, $option, $iv),
 				'sts_token_dokumen_pengalaman' => 1,
 				'sts_validasi' => 0
 			];
@@ -3592,8 +3593,7 @@ class Datapenyedia extends CI_Controller
 			$this->output->set_content_type('application/json')->set_output(json_encode('success'));
 		}
 	}
-
-
+	
 	function import_pengalaman_perusahaan()
 	{
 		$id_vendor = $this->session->userdata('id_vendor');
@@ -3666,6 +3666,7 @@ class Datapenyedia extends CI_Controller
 			$this->output->set_content_type('application/json')->set_output(json_encode($response));
 		}
 	}
+
 	public function get_data_pengalaman_manajerial()
 	{
 		$id_vendor = $this->session->userdata('id_vendor');
@@ -3707,6 +3708,7 @@ class Datapenyedia extends CI_Controller
 		);
 		$this->output->set_content_type('application/json')->set_output(json_encode($output));
 	}
+
 	public function get_data_excel_pengalaman_manajerial()
 	{
 		$id_vendor = $this->session->userdata('id_vendor');
@@ -3792,10 +3794,10 @@ class Datapenyedia extends CI_Controller
 			$this->output->set_content_type('application/json')->set_output(json_encode($response));
 		} else {
 			// seeting enkrip dokumen
-			$secret_token_dokumen1 = 'jmto.1' . $get_row_enkrip['id_url'];
 			$chiper = "AES-128-CBC";
 			$option = 0;
 			$iv = str_repeat("0", openssl_cipher_iv_length($chiper));
+			$secret =$get_row_enkrip['token_dokumen'];
 			// chiper, $secret_token_dokumen1, $option, $iv
 			// SETTING PATH 
 			$sts_upload = [
@@ -3816,7 +3818,7 @@ class Datapenyedia extends CI_Controller
 			$this->load->library('upload', $config);
 			if ($this->upload->do_upload('file_kontrak_pengalaman_edit')) {
 				$fileDataKontrak = $this->upload->data();
-				$post_file_kontrak_pengalaman = openssl_encrypt($fileDataKontrak['file_name'], $chiper, $secret_token_dokumen1, $option, $iv);
+				$post_file_kontrak_pengalaman = openssl_encrypt($fileDataKontrak['file_name'], $chiper, $secret, $option, $iv);
 			} else {
 				$fileDataKontrak = $get_row_enkrip['file_kontrak_pengalaman'];
 				$post_file_kontrak_pengalaman = $fileDataKontrak;
@@ -3839,7 +3841,8 @@ class Datapenyedia extends CI_Controller
 				'nilai_sharing' => $nilai_sharing,
 				'jangka_waktu' => $jangka_waktu,
 				'sts_token_dokumen_pengalaman' => 1,
-				'sts_validasi' => 0
+				'sts_validasi' => 0,
+				'token_dokumen' => $secret,
 			];
 			if ($type_edit_pengalaman == 'edit_excel') {
 				$this->M_datapenyedia->update_excel_pengalaman_manajerial($upload, $where);
@@ -3883,18 +3886,18 @@ class Datapenyedia extends CI_Controller
 		$chiper = "AES-128-CBC";
 		$option = 0;
 		$iv = str_repeat("0", openssl_cipher_iv_length($chiper));
-		$secret_token_dokumen1 = 'jmto.1' . $get_row_enkrip['id_url'];
+		$secret = $get_row_enkrip['token_dokumen'];
 		$where = [
 			'id_url' => $id_url
 		];
 		if ($type == 'dekrip') {
-			$file_kontrak_pengalaman = openssl_decrypt($get_row_enkrip['file_kontrak_pengalaman'], $chiper, $secret_token_dokumen1, $option, $iv);
+			$file_kontrak_pengalaman = openssl_decrypt($get_row_enkrip['file_kontrak_pengalaman'], $chiper, $secret, $option, $iv);
 			$data = [
 				'sts_token_dokumen_pengalaman' => 2,
 				'file_kontrak_pengalaman' => $file_kontrak_pengalaman,
 			];
 		} else {
-			$file_kontrak_pengalaman = openssl_encrypt($get_row_enkrip['file_kontrak_pengalaman'], $chiper, $secret_token_dokumen1, $option, $iv);
+			$file_kontrak_pengalaman = openssl_encrypt($get_row_enkrip['file_kontrak_pengalaman'], $chiper, $secret, $option, $iv);
 			$data = [
 				'sts_token_dokumen_pengalaman' => 1,
 				'file_kontrak_pengalaman' => $file_kontrak_pengalaman,
@@ -5319,9 +5322,8 @@ class Datapenyedia extends CI_Controller
 				$chiper = "AES-128-CBC";
 				$option = 0;
 				$iv = str_repeat("0", openssl_cipher_iv_length($chiper));
-				$secret_token_dokumen1 = 'jmto.1' . $id;
-				$secret_token_dokumen2 = 'jmto.2' . $id;
-				$secret = $secret_token_dokumen1 . $secret_token_dokumen2;
+				$token = random_string('alnum', 16);
+				$secret = $token;
 				$password_dokumen = '1234';
 				// SETTING PATH 
 				$sts_upload = [
@@ -5371,9 +5373,7 @@ class Datapenyedia extends CI_Controller
 				$id = str_replace('-', '', $id);
 				// seeting enkrip dokumen
 				$chiper = "AES-128-CBC";
-				$secret_token_dokumen1 = 'jmto.1' . $get_row_enkrip['id_url'];
-				$secret_token_dokumen2 = 'jmto.2' . $get_row_enkrip['id_url'];
-				$secret = $secret_token_dokumen1 . $secret_token_dokumen2;
+				$secret = $get_row_enkrip['token_dokumen'];
 				$password_dokumen = '1234';
 				// SETTING PATH 
 				$sts_upload = [
@@ -5541,23 +5541,14 @@ class Datapenyedia extends CI_Controller
 
 	public function encryption_keuangan($id_url)
 	{
-		// $id_url = $this->input->post('id_url_keuangan');
-		$token_dokumen = $this->input->post('token_dokumen');
-		// $secret_token = $this->input->post('secret_token');
-
 		$type = $this->input->post('type');
 
 		$get_row_enkrip = $this->M_datapenyedia->get_row_keuangan_url($id_url);
-		// $id_vendor = $get_row_enkrip['id_vendor'];
-		// $row_vendor = $this->M_datapenyedia->get_row_vendor($id_vendor);
-		// $secret_token_dokumen = $get_row_enkrip['token_dokumen'];
 
 		$chiper = "AES-128-CBC";
 		$option = 0;
 		$iv = str_repeat("0", openssl_cipher_iv_length($chiper));
-		$secret_token_dokumen1 = 'jmto.1' . $get_row_enkrip['id_url'];
-		$secret_token_dokumen2 = 'jmto.2' . $get_row_enkrip['id_url'];
-		$secret = $secret_token_dokumen1 . $secret_token_dokumen2;
+		$secret = $get_row_enkrip['token_dokumen'];
 		$where = [
 			'id_url' => $id_url
 		];
