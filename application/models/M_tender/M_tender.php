@@ -842,6 +842,18 @@ class M_tender extends CI_Model
         return $this->db->count_all_results();
     }
 
+    public function count_peserta_lolos($id_rup)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_rup');
+        $this->db->join('tbl_vendor_mengikuti_paket', 'tbl_rup.id_rup = tbl_vendor_mengikuti_paket.id_rup', 'left');
+        $this->db->join('tbl_vendor', 'tbl_vendor_mengikuti_paket.id_vendor = tbl_vendor.id_vendor', 'left');
+        $this->db->where('tbl_vendor_mengikuti_paket.id_rup', $id_rup);
+        $this->db->where('tbl_vendor_mengikuti_paket.ev_penawaran_teknis >=', 60);
+        $this->db->get();
+        return $this->db->count_all_results();
+    }
+
     public function dok_pengadaan($id_rup)
     {
         $this->db->select('*');
