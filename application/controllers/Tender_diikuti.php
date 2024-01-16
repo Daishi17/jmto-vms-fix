@@ -1367,9 +1367,22 @@ class Tender_diikuti extends CI_Controller
     {
         $id_rup = $this->input->post('id_rup');
         $id_vendor = $this->input->post('id_vendor');
+        
         $row_sanggahan_akhir = $this->M_tender->get_row_vendor_sanggahan_akhir($id_rup, $id_vendor);
         $output = [
             'row_sanggahan_akhir' => $row_sanggahan_akhir,
+        ];
+        $this->output->set_content_type('application/json')->set_output(json_encode($output));
+    }
+
+    public function get_negosiasi()
+    {
+        $id_rup = $this->input->post('id_rup');
+        $id_vendor = $this->input->post('id_vendor');
+
+        $row_negosiasi = $this->M_tender->get_row_vendor_negosiasi($id_rup, $id_vendor);
+        $output = [
+            'row_negosiasi' => $row_negosiasi,
         ];
         $this->output->set_content_type('application/json')->set_output(json_encode($output));
     }
