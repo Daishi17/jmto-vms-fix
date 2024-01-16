@@ -668,6 +668,23 @@
     }
 
     load_negosiasi()
+    
+
+      function formatRupiah(angka, prefix) {
+                    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                        split = number_string.split(','),
+                        sisa = split[0].length % 3,
+                        rupiah = split[0].substr(0, sisa),
+                        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+                    if (ribuan) {
+                        separator = sisa ? '.' : '';
+                        rupiah += separator + ribuan.join('.');
+                    }
+
+                    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                    return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+                }
 
     function load_negosiasi() {
         var id_rup = $('[name="id_rup"]').val()
@@ -682,6 +699,8 @@
             },
             dataType: "JSON",
             success: function(response) {
+
+                
                 var html = '';
                 if (response['row_negosiasi'].tanggal_negosiasi) {
                     var tanggal_negosiasi = response['row_negosiasi'].tanggal_negosiasi
@@ -694,11 +713,37 @@
                 } else {
                     var link_negosiasi = '<span class="badge bg-secondary">Belum Ada Link Meet Negosiasi</span>'
                 }
+
+                if (response['row_negosiasi'].total_hasil_negosiasi) {
+                    var total_hasil_negosiasi = response['row_negosiasi'].total_hasil_negosiasi
+                } else {
+                    var total_hasil_negosiasi = '<span class="badge bg-secondary">Tidak Negosiasi</span>'
+                }
+
+                if (response['row_negosiasi'].keterangan_negosiasi) {
+                    var keterangan_negosiasi = response['row_negosiasi'].keterangan_negosiasi
+                } else {
+                    var keterangan_negosiasi = '<span class="badge bg-secondary">Tidak Negosiasi</span>'
+                }
+
+                
+                if (response['row_negosiasi'].sts_deal_negosiasi) {
+                    if (response['row_negosiasi'].sts_deal_negosiasi == 'deal') {
+                        var sts_deal_negosiasi = '<span class="badge bg-success">Sepakat</span>'
+                    } else {
+                        var sts_deal_negosiasi = '<span class="badge bg-danger">Tidak Sepakat</span>'
+                    }
+                } else {
+                    var sts_deal_negosiasi = '<span class="badge bg-secondary">Tidak Negosiasi</span>'
+                }
                 html += '<tr>' +
-                    '<td><small>1</small></td>' +
-                    '<td><small>' + response['row_negosiasi'].nama_usaha + '</small></td>' +
-                    '<td>' + tanggal_negosiasi + '</td>' +
-                    '<td>' + link_negosiasi + '</td>' +
+                        '<td><small>1</small></td>' +
+                        '<td><small>' + response['row_negosiasi'].nama_usaha + '</small></td>' +
+                        '<td>' + tanggal_negosiasi + '</td>' +
+                        '<td>' + link_negosiasi + '</td>' +
+                        '<td> Rp.' + formatRupiah(total_hasil_negosiasi) + '</td>' +
+                        '<td>' + keterangan_negosiasi + '</td>' +
+                        '<td>' + sts_deal_negosiasi + '</td>' +
                     '</tr>';
                 '</tr>';
                 $('#tbl_negosiasi').html(html);

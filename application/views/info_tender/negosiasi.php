@@ -170,6 +170,9 @@
                                     <th width="200px">Nama Peserta</th>
                                     <th>Tanggal Negosiasi</th>
                                     <th>Link Meet (Jika Daring)</th>
+                                    <th>Harga Negosiasi</th>
+                                    <th>Keterangan Negosiasi</th>
+                                    <th>Kesepakatan</th>
                                 </tr>
                             </thead>
                             <tbody id="tbl_negosiasi">
