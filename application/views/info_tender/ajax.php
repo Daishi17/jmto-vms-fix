@@ -431,8 +431,8 @@
         })
     }
 
-    // upload sanggahan akhir
-    var form_sanggahan_akhir = $('#form_sanggahan_akhir')
+        // upload sanggahan akhir
+        var form_sanggahan_akhir = $('#form_sanggahan_akhir')
     form_sanggahan_akhir.on('submit', function(e) {
         var url_upload_sanggahan_akhir = $('[name="url_upload_sanggahan_akhir"]').val();
         var file_sanggah_akhir = $('[name="file_sanggah_akhir"]').val();
@@ -453,7 +453,7 @@
                 cache: false,
                 processData: false,
                 beforeSend: function() {
-                    $('.btn-sanggah-akhir').attr("disabled", true);
+                    $('.btn-sanggah').attr("disabled", true);
                 },
                 success: function(response) {
                     let timerInterval
@@ -475,7 +475,7 @@
                             $('#modal_sanggahan_akhir').modal('hide')
                             form_sanggahan_akhir[0].reset()
                             load_dok_sanggahan_akhir()
-                            $('.btn-sanggah-akhir').attr("disabled", false);
+                            $('.btn-sanggah').attr("disabled", false);
                         }
                     }).then((result) => {
                         /* Read more about handling dismissals below */
@@ -487,7 +487,6 @@
             })
         }
     })
-
     load_dok_sanggahan_akhir()
 
     function load_dok_sanggahan_akhir() {
@@ -505,49 +504,51 @@
             },
             dataType: "JSON",
             success: function(response) {
+                var no = 1;
                 var html = '';
-                if (response['row_sanggahan_akhir'].ket_sanggah_akhir) {
-                    var ket_sanggah_akhir = response['row_sanggahan_akhir'].ket_sanggah_akhir
-                } else {
-                    var ket_sanggah_akhir = '-'
-                }
+                for (i = 0; i < response['row_sanggahan_akhir'].length; i++) {
+                    if (response['row_sanggahan_akhir'][i].ket_sanggah_akhir) {
+                        var ket_sanggah_akhir = response['row_sanggahan_akhir'][i].ket_sanggah_akhir
+                    } else {
+                        var ket_sanggah_akhir = '-'
+                    }
 
-                if (response['row_sanggahan_akhir'].file_sanggah_akhir) {
-                    var file_sanggah_akhir = '<a target="_blank" href="' + url_open_sanggahan_akhir + response['row_sanggahan_akhir'].file_sanggah_akhir + '"><img src="<?= base_url('assets/img/pdf.png') ?>" alt="File Sanggah" width="30px"></a>'
-                } else {
-                    var file_sanggah_akhir = '<span class="badge bg-secondary">Tidak Ada File</span>'
-                }
+                    if (response['row_sanggahan_akhir'][i].file_sanggah_akhir) {
+                        var file_sanggah_akhir = '<a target="_blank" href="' + url_open_sanggahan_akhir + response['row_sanggahan_akhir'][i].file_sanggah_akhir + '"><img src="<?= base_url('assets/img/pdf.png') ?>" alt="File Sanggah" width="30px"></a>'
+                    } else {
+                        var file_sanggah_akhir = '<span class="badge bg-secondary">Tidak Ada File</span>'
+                    }
 
-                if (response['row_sanggahan_akhir'].ket_sanggah_akhir_panitia) {
-                    var ket_sanggah_akhir_panitia = response['row_sanggahan_akhir'].ket_sanggah_akhir_panitia
-                } else {
-                    var ket_sanggah_akhir_panitia = '-'
-                }
+                    if (response['row_sanggahan_akhir'][i].ket_sanggah_akhir_panitia) {
+                        var ket_sanggah_akhir_panitia = response['row_sanggahan_akhir'][i].ket_sanggah_akhir_panitia
+                    } else {
+                        var ket_sanggah_akhir_panitia = '-'
+                    }
 
-                if (response['row_sanggahan_akhir'].file_sanggah_akhir_panitia) {
-                    var file_sanggah_akhir_panitia = '<a target="_blank" href="' + url_open_sanggahan_akhir_panitia + 'SANGGAHAN_AKHIR/' + response['row_sanggahan_akhir'].file_sanggah_akhir_panitia + '"><img src="<?= base_url('assets/img/pdf.png') ?>" alt="File Sanggah" width="30px"></a>'
-                } else {
-                    var file_sanggah_akhir_panitia = '<span class="badge bg-secondary">Tidak Ada File</span>'
-                }
-
-                html += '<tr>' +
-                    '<td><small>' + response['row_sanggahan_akhir'].nama_usaha + '</small></td>' +
-                    '<td><small>' + ket_sanggah_akhir + '</small></td>' +
-                    '<td><small>' + file_sanggah_akhir + '</small></td>' +
-                    '<td><small>' + ket_sanggah_akhir_panitia + '</small></td>' +
-                    '<td><small>' + file_sanggah_akhir_panitia + '</small></td>' +
-                    '<td><a href="javascript:;"  onclick="delete_sanggah_akhir(\'' + response['row_sanggahan_akhir'].id_vendor_mengikuti_paket + '\')" class="btn btn-sm btn-danger"><i class="fas fa fa-trash"></i> Hapus </a></td>' +
+                    if (response['row_sanggahan_akhir'][i].file_sanggah_akhir_panitia) {
+                        var file_sanggah_akhir_panitia = '<a target="_blank" href="' + url_open_sanggahan_akhir_panitia + 'SANGGAHAN_AKHIR/' + response['row_sanggahan_akhir'][i].file_sanggah_akhir_panitia + '"><img src="<?= base_url('assets/img/pdf.png') ?>" alt="File Sanggah" width="30px"></a>'
+                    } else {
+                        var file_sanggah_akhir_panitia = '<span class="badge bg-secondary">Tidak Ada File</span>'
+                    }
+                    html += '<tr>' +
+                        '<td><small>' + response['row_sanggahan_akhir'][i].nama_usaha + '</small></td>' +
+                        '<td><small>' + ket_sanggah_akhir + '</small></td>' +
+                        '<td><small>' + file_sanggah_akhir + '</small></td>' +
+                        '<td><small>' + ket_sanggah_akhir_panitia + '</small></td>' +
+                        '<td><small>' + file_sanggah_akhir_panitia + '</small></td>' +
+                        '<td><a href="javascript:;"  onclick="delete_sanggah_akhir(\'' + response['row_sanggahan_akhir'][i].id_sanggah_akhir_detail + '\')" class="btn btn-sm btn-danger"><i class="fas fa fa-trash"></i> Hapus </a></td>' +
+                        '</tr>';
                     '</tr>';
-                '</tr>';
-                $('#tbl_sanggah_akhir').html(html);
+                    $('#tbl_sanggah_akhir').html(html);
+                }
             }
         })
     }
 
-    function delete_sanggah_akhir(id_vendor_mengikuti_paket) {
+    function delete_sanggah_akhir(id_sanggah_akhir_detail) {
         var url_hapus_sanggahan_akhir = $('[name="url_hapus_sanggahan_akhir"]').val()
         Swal.fire({
-            title: 'Apakah Anda Yakin Ingin Batalkan Sanggahan akhir?',
+            title: 'Apakah Anda Yakin Ingin Batalkan Sanggahan Prakualifikasi?',
             text: 'Peringatan! Data Yang Sudah Di Hapus Tidak Dapat Di Kembalikan Lagi! ',
             icon: 'warning',
             showCancelButton: true,
@@ -561,14 +562,14 @@
                     type: "POST",
                     url: url_hapus_sanggahan_akhir,
                     data: {
-                        id_vendor_mengikuti_paket: id_vendor_mengikuti_paket,
+                        id_sanggah_akhir_detail: id_sanggah_akhir_detail,
                     },
                     dataType: "JSON",
                     success: function(response) {
                         if (response == 'success') {
                             Swal.fire(
                                 'Berhasil!',
-                                'Sanggahan akhir Berhasil Di Batalkan!',
+                                'Sanggahan Prakualifikasi Berhasil Di Batalkan!',
                                 'success'
                             )
                             load_dok_sanggahan_akhir()
@@ -579,6 +580,8 @@
             }
         })
     }
+
+
 </script>
 
 <script>
