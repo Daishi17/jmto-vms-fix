@@ -23,7 +23,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link active " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_akhir/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Prakualifikasi</a>
+                            <a class="nav-link bg-primary text-white " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_prakualifikasi/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Prakualifikasi</a>
                         </li>
 
 
@@ -87,7 +87,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_akhir/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Pemenang </a>
+                            <a class="nav-link active" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_akhir/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Pemenang </a>
                         </li>
                         <!-- <?php if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                             <?php $date2 = $jadwal_masa_sanggah_akhir['waktu_selesai'];
@@ -194,9 +194,9 @@
                                 <!-- <th>No</th> -->
                                 <th width="200px">Nama Peserta</th>
                                 <th>Keterangan Penyedia</th>
-                                <th>Download File</th>
-                                <th>File Balasan</th>
+                                <th>Download Sanggahan Penyedia</th>
                                 <th>Keterangan Panitia</th>
+                                <th>File Balasan</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -233,7 +233,7 @@
                             </tr>
                             <tr>
                                 <th>Upload</th>
-                                <td><input type="file" name="file_sanggah_akhir"></td>
+                                <td><input accept="application/pdf" type="file" name="file_sanggah_akhir"></td>
                             </tr>
                         </table>
                     </div>

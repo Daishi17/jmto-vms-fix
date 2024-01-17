@@ -199,7 +199,7 @@
                                 <!-- <th>No</th> -->
                                 <th width="200px">Nama Peserta</th>
                                 <th>Keterangan Penyedia</th>
-                                <th>Download File</th>
+                                <th>Download Sanggahan Penyedia</th>
                                 <th>File Balasan</th>
                                 <th>Keterangan Panitia</th>
                                 <th>Aksi</th>
@@ -238,7 +238,7 @@
                             </tr>
                             <tr>
                                 <th>Upload</th>
-                                <td><input type="file" name="file_sanggah_pra"></td>
+                                <td><input type="file" accept="application/pdf" name="file_sanggah_pra"></td>
                             </tr>
                         </table>
                     </div>

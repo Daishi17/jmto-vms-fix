@@ -98,7 +98,7 @@
                         </li>
                         <!-- <?php if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                             <?php $date2 = $jadwal_masa_sanggah_akhir['waktu_selesai'];
-                            if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
+                                    if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
                                 <li class="nav-item">
                                     <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_akhir/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Pemenang </a>
@@ -107,7 +107,7 @@
                             <?php    } ?>
                         <?php } else { ?>
                             <?php
-                            if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                                    if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                                 <li class="nav-item">
@@ -734,17 +734,36 @@
                             </th>
                         </tr>
 
-                        <?php if ($rup['id_vendor_pemenang'] == $this->session->userdata('id_vendor')) { ?>
-                            <tr>
-                                <th>Surat Penunjukan Pemenang Pengadaan</th>
-                                <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#surat_penunjukan">
-                                        <i class="fa fa-download" aria-hidden="true"></i> Download Surat Penunjukan
-                                    </button></th>
-                            </tr>
+                        <?php
+                        if (date('Y-m-d H:i', strtotime($jadwal_upload_surat_penunjukan['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
-                        <?php } else { ?>
+                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_surat_penunjukan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_surat_penunjukan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                            <?php if ($rup['id_vendor_pemenang'] == $this->session->userdata('id_vendor')) { ?>
+                                <tr>
+                                    <th>Surat Penunjukan Pemenang Pengadaan</th>
+                                    <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#surat_penunjukan">
+                                            <i class="fa fa-download" aria-hidden="true"></i> Download Surat Penunjukan
+                                        </button></th>
+                                </tr>
 
-                        <?php } ?>
+                            <?php } else { ?>
+
+                            <?php } ?>
+                        <?php    } else { ?>
+                            <?php if ($rup['id_vendor_pemenang'] == $this->session->userdata('id_vendor')) { ?>
+                                <tr>
+                                    <th>Surat Penunjukan Pemenang Pengadaan</th>
+                                    <th><button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#surat_penunjukan">
+                                            <i class="fa fa-download" aria-hidden="true"></i> Download Surat Penunjukan
+                                        </button></th>
+                                </tr>
+
+                            <?php } else { ?>
+
+                            <?php } ?>
+                        <?php    } ?>
+
+
 
                     </table>
                 </div>

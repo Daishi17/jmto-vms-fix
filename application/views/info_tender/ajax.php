@@ -683,20 +683,20 @@
             dataType: "JSON",
             success: function(response) {
                 var html = '';
-                if (response['row_sanggahan_akhir'].tanggal_negosiasi) {
-                    var tanggal_negosiasi = response['row_sanggahan_akhir'].tanggal_negosiasi
+                if (response['row_negosiasi'].tanggal_negosiasi) {
+                    var tanggal_negosiasi = response['row_negosiasi'].tanggal_negosiasi
                 } else {
                     var tanggal_negosiasi = '<span class="badge bg-secondary">Belum Ada Tanggal Meet Negosiasi</span>'
                 }
 
-                if (response['row_sanggahan_akhir'].link_negosiasi) {
-                    var link_negosiasi = response['row_sanggahan_akhir'].link_negosiasi
+                if (response['row_negosiasi'].link_negosiasi) {
+                    var link_negosiasi = response['row_negosiasi'].link_negosiasi
                 } else {
                     var link_negosiasi = '<span class="badge bg-secondary">Belum Ada Link Meet Negosiasi</span>'
                 }
                 html += '<tr>' +
                     '<td><small>1</small></td>' +
-                    '<td><small>' + response['row_sanggahan_akhir'].nama_usaha + '</small></td>' +
+                    '<td><small>' + response['row_negosiasi'].nama_usaha + '</small></td>' +
                     '<td>' + tanggal_negosiasi + '</td>' +
                     '<td>' + link_negosiasi + '</td>' +
                     '</tr>';

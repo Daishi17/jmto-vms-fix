@@ -1368,8 +1368,10 @@ class Tender_diikuti extends CI_Controller
         $id_rup = $this->input->post('id_rup');
         $id_vendor = $this->input->post('id_vendor');
         $row_sanggahan_akhir = $this->M_tender->get_row_vendor_sanggahan_akhir($id_rup, $id_vendor);
+        $row_negosiasi = $this->M_tender->get_row_vendor_negosiasi($id_rup, $id_vendor);
         $output = [
             'row_sanggahan_akhir' => $row_sanggahan_akhir,
+            'row_negosiasi' => $row_negosiasi,
         ];
         $this->output->set_content_type('application/json')->set_output(json_encode($output));
     }
@@ -1581,7 +1583,7 @@ class Tender_diikuti extends CI_Controller
         $this->load->view('template_menu/header_menu', $data);
         $this->load->view('info_tender/negosiasi');
         $this->load->view('template_menu/new_footer');
-        $this->load->view('info_tender/ajax');
+        $this->load->view('info_tender/ajax', $data);
     }
 
     public function buka_penawaran($id_url_rup)

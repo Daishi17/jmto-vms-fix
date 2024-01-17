@@ -1612,6 +1612,17 @@ class M_tender extends CI_Model
         return $query->result_array();
     }
 
+    public function get_row_vendor_negosiasi($id_rup, $id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_mengikuti_paket');
+        $this->db->join('tbl_vendor', 'tbl_vendor_mengikuti_paket.id_vendor = tbl_vendor.id_vendor', 'left');
+        $this->db->where('tbl_vendor_mengikuti_paket.id_rup', $id_rup);
+        $this->db->where('tbl_vendor_mengikuti_paket.id_vendor', $id_vendor);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
     public function delete_sanggah_akhir($id_sanggah_akhir_detail)
     {
         $this->db->where('id_sanggah_akhir_detail', $id_sanggah_akhir_detail);
