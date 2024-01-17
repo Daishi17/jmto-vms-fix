@@ -488,7 +488,6 @@
         }
     })
     load_dok_sanggahan_akhir()
-
     function load_dok_sanggahan_akhir() {
         var id_rup = $('[name="id_rup"]').val()
         var id_vendor = $('[name="id_vendor"]').val()
