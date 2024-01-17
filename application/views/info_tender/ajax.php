@@ -431,8 +431,8 @@
         })
     }
 
-        // upload sanggahan akhir
-        var form_sanggahan_akhir = $('#form_sanggahan_akhir')
+    // upload sanggahan akhir
+    var form_sanggahan_akhir = $('#form_sanggahan_akhir')
     form_sanggahan_akhir.on('submit', function(e) {
         var url_upload_sanggahan_akhir = $('[name="url_upload_sanggahan_akhir"]').val();
         var file_sanggah_akhir = $('[name="file_sanggah_akhir"]').val();
@@ -580,8 +580,6 @@
             }
         })
     }
-
-
 </script>
 
 <script>
@@ -669,19 +667,38 @@
 
     load_negosiasi()
 
+
+    function formatRupiah(angka, prefix) {
+        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+            split = number_string.split(','),
+            sisa = split[0].length % 3,
+            rupiah = split[0].substr(0, sisa),
+            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+        if (ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+    }
+
     function load_negosiasi() {
         var id_rup = $('[name="id_rup"]').val()
         var id_vendor = $('[name="id_vendor"]').val()
-        var url_get_sanggahan_akhir = $('[name="url_get_sanggahan_akhir"]').val()
+        var url_get_negosiasi = $('[name="url_get_negosiasi"]').val()
         $.ajax({
             type: "POST",
-            url: url_get_sanggahan_akhir,
+            url: url_get_negosiasi,
             data: {
                 id_rup: id_rup,
                 id_vendor: id_vendor
             },
             dataType: "JSON",
             success: function(response) {
+
+
                 var html = '';
                 if (response['row_negosiasi'].tanggal_negosiasi) {
                     var tanggal_negosiasi = response['row_negosiasi'].tanggal_negosiasi
@@ -694,11 +711,37 @@
                 } else {
                     var link_negosiasi = '<span class="badge bg-secondary">Belum Ada Link Meet Negosiasi</span>'
                 }
+
+                if (response['row_negosiasi'].total_hasil_negosiasi) {
+                    var total_hasil_negosiasi = response['row_negosiasi'].total_hasil_negosiasi
+                } else {
+                    var total_hasil_negosiasi = '<span class="badge bg-secondary">Tidak Negosiasi</span>'
+                }
+
+                if (response['row_negosiasi'].keterangan_negosiasi) {
+                    var keterangan_negosiasi = response['row_negosiasi'].keterangan_negosiasi
+                } else {
+                    var keterangan_negosiasi = '<span class="badge bg-secondary">Tidak Negosiasi</span>'
+                }
+
+
+                if (response['row_negosiasi'].sts_deal_negosiasi) {
+                    if (response['row_negosiasi'].sts_deal_negosiasi == 'deal') {
+                        var sts_deal_negosiasi = '<span class="badge bg-success">Sepakat</span>'
+                    } else {
+                        var sts_deal_negosiasi = '<span class="badge bg-danger">Tidak Sepakat</span>'
+                    }
+                } else {
+                    var sts_deal_negosiasi = '<span class="badge bg-secondary">Tidak Negosiasi</span>'
+                }
                 html += '<tr>' +
                     '<td><small>1</small></td>' +
                     '<td><small>' + response['row_negosiasi'].nama_usaha + '</small></td>' +
                     '<td>' + tanggal_negosiasi + '</td>' +
                     '<td>' + link_negosiasi + '</td>' +
+                    '<td> Rp.' + formatRupiah(total_hasil_negosiasi) + '</td>' +
+                    '<td>' + keterangan_negosiasi + '</td>' +
+                    '<td>' + sts_deal_negosiasi + '</td>' +
                     '</tr>';
                 '</tr>';
                 $('#tbl_negosiasi').html(html);
@@ -813,88 +856,86 @@
     var form_setujui_ba_nego = $('#form_setujui_ba_nego')
     form_setujui_ba_nego.on('submit', function(e) {
         e.preventDefault();
-            $.ajax({
-                url: '<?= base_url('tender_diikuti/simpan_setujui_ba_nego/') ?>',
-                method: "POST",
-                data: new FormData(this),
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(response) {
-                    let timerInterval
-                    Swal.fire({
-                        title: 'Sedang Proses Menyimpan Data!',
-                        html: 'Membuat Data <b></b>',
-                        timer: 2000,
-                        timerProgressBar: true,
-                        didOpen: () => {
-                            Swal.showLoading()
-                            const b = Swal.getHtmlContainer().querySelector('b')
-                            timerInterval = setInterval(() => {
-                                // b.textContent = Swal.getTimerRight()
-                            }, 1500)
-                        },
-                        willClose: () => {
-                            clearInterval(timerInterval)
-                            Swal.fire('Data Berhasil Di Simpan!', '', 'success')
-                            $('#modal_setujui_ba_negosiasi').modal('hide')
-                            form_presentasi_teknis_tender[0].reset()
-                            setTimeout(() => {
-                                location.reload()
-                            }, 1000);
-                        }
-                    }).then((result) => {
-                        /* Read more about handling dismissals below */
-                        if (result.dismiss === Swal.DismissReason.timer) {
+        $.ajax({
+            url: '<?= base_url('tender_diikuti/simpan_setujui_ba_nego/') ?>',
+            method: "POST",
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(response) {
+                let timerInterval
+                Swal.fire({
+                    title: 'Sedang Proses Menyimpan Data!',
+                    html: 'Membuat Data <b></b>',
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading()
+                        const b = Swal.getHtmlContainer().querySelector('b')
+                        timerInterval = setInterval(() => {
+                            // b.textContent = Swal.getTimerRight()
+                        }, 1500)
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval)
+                        Swal.fire('Data Berhasil Di Simpan!', '', 'success')
+                        $('#modal_setujui_ba_negosiasi').modal('hide')
+                        form_presentasi_teknis_tender[0].reset()
+                        setTimeout(() => {
+                            location.reload()
+                        }, 1000);
+                    }
+                }).then((result) => {
+                    /* Read more about handling dismissals below */
+                    if (result.dismiss === Swal.DismissReason.timer) {
 
-                        }
-                    })
-                }
-            })
+                    }
+                })
+            }
+        })
     })
 
     var form_setujui_ba_klarifikasi = $('#form_setujui_ba_klarifikasi')
     form_setujui_ba_klarifikasi.on('submit', function(e) {
         e.preventDefault();
-            $.ajax({
-                url: '<?= base_url('tender_diikuti/simpan_setujui_ba_klarifikasi/') ?>',
-                method: "POST",
-                data: new FormData(this),
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(response) {
-                    let timerInterval
-                    Swal.fire({
-                        title: 'Sedang Proses Menyimpan Data!',
-                        html: 'Membuat Data <b></b>',
-                        timer: 2000,
-                        timerProgressBar: true,
-                        didOpen: () => {
-                            Swal.showLoading()
-                            const b = Swal.getHtmlContainer().querySelector('b')
-                            timerInterval = setInterval(() => {
-                                // b.textContent = Swal.getTimerRight()
-                            }, 1500)
-                        },
-                        willClose: () => {
-                            clearInterval(timerInterval)
-                            Swal.fire('Data Berhasil Di Simpan!', '', 'success')
-                            $('#modal_setujui_ba_klarifikasi').modal('hide')
-                            form_setujui_ba_klarifikasi[0].reset()
-                            setTimeout(() => {
-                                location.reload()
-                            }, 1000);
-                        }
-                    }).then((result) => {
-                        /* Read more about handling dismissals below */
-                        if (result.dismiss === Swal.DismissReason.timer) {
+        $.ajax({
+            url: '<?= base_url('tender_diikuti/simpan_setujui_ba_klarifikasi/') ?>',
+            method: "POST",
+            data: new FormData(this),
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: function(response) {
+                let timerInterval
+                Swal.fire({
+                    title: 'Sedang Proses Menyimpan Data!',
+                    html: 'Membuat Data <b></b>',
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading()
+                        const b = Swal.getHtmlContainer().querySelector('b')
+                        timerInterval = setInterval(() => {
+                            // b.textContent = Swal.getTimerRight()
+                        }, 1500)
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval)
+                        Swal.fire('Data Berhasil Di Simpan!', '', 'success')
+                        $('#modal_setujui_ba_klarifikasi').modal('hide')
+                        form_setujui_ba_klarifikasi[0].reset()
+                        setTimeout(() => {
+                            location.reload()
+                        }, 1000);
+                    }
+                }).then((result) => {
+                    /* Read more about handling dismissals below */
+                    if (result.dismiss === Swal.DismissReason.timer) {
 
-                        }
-                    })
-                }
-            })
+                    }
+                })
+            }
+        })
     })
-
-    
 </script>

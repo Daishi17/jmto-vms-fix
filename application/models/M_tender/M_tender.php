@@ -1616,7 +1616,9 @@ class M_tender extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_vendor_mengikuti_paket');
+        $this->db->join('tbl_rup', 'tbl_vendor_mengikuti_paket.id_rup = tbl_rup.id_rup', 'left');
         $this->db->join('tbl_vendor', 'tbl_vendor_mengikuti_paket.id_vendor = tbl_vendor.id_vendor', 'left');
+        $this->db->where('tbl_vendor_mengikuti_paket.sts_mengikuti_paket', 1);
         $this->db->where('tbl_vendor_mengikuti_paket.id_rup', $id_rup);
         $this->db->where('tbl_vendor_mengikuti_paket.id_vendor', $id_vendor);
         $query = $this->db->get();
