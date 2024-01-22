@@ -1630,4 +1630,5 @@ class M_tender extends CI_Model
         $this->db->where('id_sanggah_akhir_detail', $id_sanggah_akhir_detail);
         $this->db->delete('tbl_sanggah_detail_akhir');
     }
+
 }

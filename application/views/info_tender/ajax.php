@@ -82,7 +82,6 @@
                         '<td><small>' + data_mulaiku + '</small></td>' +
                         '<td><small>' + data_selesaiku + '</small></td>' +
                         '<td>' + status_waktu + '</td>' +
-                        '<td>Panitia</td>' +
                         '<td>' + alasan + '</td>' +
                         '</tr>';
                 }

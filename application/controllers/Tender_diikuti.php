@@ -3,8 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set("Asia/Jakarta");
 class Tender_diikuti extends CI_Controller
 {
-    // var $link_dok = 'http://localhost/jmto-eproc';
-    var $link_dok = 'https://jmto-eproc.kintekindo.net';
+    var $link_dok = 'https://drtproc.jmto.co.id';
     public function __construct()
     {
         parent::__construct();
@@ -1367,7 +1366,7 @@ class Tender_diikuti extends CI_Controller
     {
         $id_rup = $this->input->post('id_rup');
         $id_vendor = $this->input->post('id_vendor');
-        
+
         $row_sanggahan_akhir = $this->M_tender->get_row_vendor_sanggahan_akhir($id_rup, $id_vendor);
         $row_negosiasi = $this->M_tender->get_row_vendor_negosiasi($id_rup, $id_vendor);
         $output = [
@@ -1644,8 +1643,6 @@ class Tender_diikuti extends CI_Controller
         $row_rup = $this->M_tender->get_row_rup($id_url_rup);
         $message = 'Kodefikasi : ' . $row_rup['token_vendor'] . ' , Dengan Nama Pengadaan : ' . $row_rup['nama_rup'] . '';
         $this->kirim_wa->kirim_wa_vendor_terdaftar($this->session->userdata('no_telpon'), $message);
-        $type_email = 'token_penawaran';
-        $this->email_send->sen_row_email_token($type_email, $this->session->userdata('id_vendor'), $message);
         $this->output->set_content_type('application/json')->set_output(json_encode('success'));
     }
 
