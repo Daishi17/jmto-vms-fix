@@ -1200,8 +1200,8 @@ class M_tender extends CI_Model
         $this->db->join('tbl_jenis_pengadaan', 'tbl_rup.id_jenis_pengadaan = tbl_jenis_pengadaan.id_jenis_pengadaan', 'left');
         $this->db->where('tbl_vendor_mengikuti_paket.id_vendor', $id_vendor);
         // $this->db->where('tbl_vendor_mengikuti_paket.sts_mengikuti_paket', 1);
+        $this->db->where('tbl_rup.id_metode_pengadaan', 4);
         $this->db->where('tbl_rup.status_paket_diumumkan', 1);
-        $this->db->where_in('tbl_rup.id_jadwal_tender', [1,5]);
         $i = 0;
         foreach ($this->order as $item) // looping awal
         {
