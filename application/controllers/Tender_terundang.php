@@ -13,6 +13,7 @@ class Tender_terundang extends CI_Controller
         $this->load->model('M_monitoring/M_monitoring');
         $this->load->model('M_tender/M_tender');
         $this->load->model('M_tender/M_count');
+        $this->load->model('M_jadwal/M_jadwal');
         $this->load->helper('download');
         $id_vendor = $this->session->userdata('id_vendor');
         if (!$id_vendor) {
@@ -71,7 +72,7 @@ class Tender_terundang extends CI_Controller
                 $row[] = '<span class="badge bg-success text-white">Tender Telah Diikuti
                 </span>';
             } else {
-                $row[] = '<span class="badge bg-primary text-white">Pengumuman Tender
+                $row[] = '<span class="badge bg-danger text-white">Belum Diikuti
                     </span>';
             }
             $row[] = '<a href="javascript:;" class="btn btn-info btn-sm shadow-lg text-white"  onClick="by_id_rup(' . "'" . $rs->id_url_rup . "'" . ')"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</a>';
@@ -90,10 +91,13 @@ class Tender_terundang extends CI_Controller
     {
         $session = $this->session->userdata('id_vendor');
         $resultss = $this->M_tender->gettable_terbatas($session);
+
         $data = [];
         $no = $_POST['start'];
         foreach ($resultss as $rs) {
 
+            $data_rup = $this->M_tender->get_rup_url($rs->id_url_rup);
+            $data_get_jadwal_pengumuman = $this->M_jadwal->jadwal_pra1file_umum_1($data_rup['id_rup']);
             $row = array();
             $row[] = ++$no;
             $row[] = $rs->tahun_rup;
@@ -105,7 +109,7 @@ class Tender_terundang extends CI_Controller
                 $row[] = '<span class="badge bg-success text-white">Tender Telah Diikuti
                 </span>';
             } else {
-                $row[] = '<span class="badge bg-primary text-white">Pengumuman Tender
+                $row[] = '<span class="badge bg-danger text-white">Belum Diikuti
                     </span>';
             }
             $row[] = '<a href="javascript:;" class="btn btn-info btn-sm shadow-lg text-white"  onClick="by_id_rup(' . "'" . $rs->id_url_rup . "'" . ')"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</a>';
@@ -139,7 +143,7 @@ class Tender_terundang extends CI_Controller
                 $row[] = '<span class="badge bg-success text-white">Tender Telah Diikuti
                 </span>';
             } else {
-                $row[] = '<span class="badge bg-primary text-white">Pengumuman Tender
+                $row[] = '<span class="badge bg-danger text-white">Belum Diikuti
                     </span>';
             }
             $row[] = '<a href="javascript:;" class="btn btn-info btn-sm shadow-lg text-white"  onClick="by_id_rup(' . "'" . $rs->id_url_rup . "'" . ')"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</a>';
@@ -156,7 +160,6 @@ class Tender_terundang extends CI_Controller
 
     public function detail_paket($id_rup)
     {
-
         $data_rup = $this->M_tender->get_row_rup_byid($id_rup);
 
         $jadwal = $this->M_tender->get_jadwal($id_rup);
@@ -169,6 +172,9 @@ class Tender_terundang extends CI_Controller
         $get_kbli = $this->M_tender->get_persyaratan_kbli($data_rup['id_rup']);
         $get_sbu =  $this->M_tender->get_persyaratan_sbu($data_rup['id_rup']);
 
+
+        $get_penandatangan_kontrak =  $this->M_tender->get_jadwal_akhir($data_rup['id_rup'], $data_rup['id_jadwal_tender']);
+
         $response = [
             'row_rup' => $data_rup,
             'jadwal' => $jadwal,
@@ -177,7 +183,8 @@ class Tender_terundang extends CI_Controller
             'syarat_tambahan' => $syarat_tambahan,
             'cek_ikut' => $cek_ikut,
             'result_kbli' => $get_kbli,
-            'result_sbu' => $get_sbu
+            'result_sbu' => $get_sbu,
+            'get_jadwal_akhir' => $get_penandatangan_kontrak
         ];
         $this->output->set_content_type('application/json')->set_output(json_encode($response));
     }

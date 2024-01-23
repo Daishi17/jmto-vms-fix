@@ -65,7 +65,8 @@ class M_count extends CI_Model
         $this->db->join('tbl_rup', 'tbl_rup.id_rup = tbl_vendor_mengikuti_paket.id_rup', 'left');
         $this->db->where('tbl_vendor_mengikuti_paket.id_vendor', $id_vendor);
         $this->db->where('tbl_rup.id_metode_pengadaan', 3);
-         $this->db->where('tbl_rup.status_paket_diumumkan', 1);
+        $this->db->where('tbl_rup.status_paket_diumumkan', 1);
+        $this->db->group_by('tbl_rup.id_rup');
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -78,7 +79,7 @@ class M_count extends CI_Model
         $this->db->where('tbl_vendor_mengikuti_paket.id_vendor', $id_vendor);
         $this->db->where('tbl_vendor_mengikuti_paket.sts_mengikuti_paket', 1);
         $this->db->where('tbl_rup.id_metode_pengadaan', 3);
-         $this->db->where('tbl_rup.status_paket_diumumkan', 1);
+        $this->db->where('tbl_rup.status_paket_diumumkan', 1);
         $query = $this->db->get();
         return $query->result_array();
     }

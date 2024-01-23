@@ -140,7 +140,7 @@
                             <th><a href="javascript:;" onclick="lihat_detail_jadwal('<?= $rup['id_url_rup'] ?>')" class="btn btn-sm btn-primary"><i class="fa-solid fa-calendar-days px-1"></i> Detail Jadwal Pengadaan</a></th>
                         </tr>
                         <tr>
-                            <th>Jumlah Peserta</th>
+                            <th>Jumlah Peserta Kualifikasi</th>
                             <th><button type="button" class="btn btn-sm btn-primary">
                                     <i class="fa fa-users" aria-hidden="true"></i> <?= count($peserta) ?> Peserta
                                 </button></th>

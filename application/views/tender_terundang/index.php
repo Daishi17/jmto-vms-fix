@@ -388,10 +388,7 @@
                             <tr>
                                 <th class="col-2 vertical-align: middle; bg-light"><small>Status Jadwal Pengadaan</small></th>
                                 <td class="col-4 vertical-align: middle;">
-                                    <small>
-                                        <i class="fa-solid fa-calendar-days fa-lg px-1"></i>
-                                        <span class="badge bg-success">Tender Sedang Berjalan</span>
-                                    </small>
+                                    <div class="load_status_paket"></div>
                                 </td>
                                 <th class="col-2 vertical-align: middle; bg-light"><small>Detail Jadwal Pengadaan</small></th>
                                 <td class="col-4 vertical-align: middle;">

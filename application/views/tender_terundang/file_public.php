@@ -42,14 +42,39 @@
             dataType: "JSON",
             success: function(response) {
                 if (response['cek_ikut']) {
-                    $('#tombol_mengikuti').html('<button disabled type="button" class="btn btn-default btn-primary"><i class="fa fa-spinner" aria-hidden="true"></i> Anda Sedang Mengikuti Pengadaan ini</button>')
+                    $('#tombol_mengikuti').html('<button disabled type="button" class="btn btn-default btn-primary"><i class="fa fa-spinner" aria-hidden="true"></i> Anda Sudah Mengikuti Pengadaan ini</button>')
                 } else {
                     if (response['row_rup'].id_metode_pengadaan == 4) {
-                        $('#tombol_mengikuti').html('<a type="javascript:;" onclick="pakta_integritas_question_terbatas(\'' + response['row_rup'].id_rup + '\'' + ',' + '\'' + response['row_rup'].nama_rup + '\')" class="btn btn-default btn-warning"><i class="fa-solid fa-circle-up px-1"></i> Ikuti Pengadaan Terbatas</a>')
+                        var sekarang = new Date();
+                        var waktu_selesai = new Date(response['row_rup'].batas_pendaftaran_tender);
+                        // kondisi jadwal
+                        if (sekarang > waktu_selesai) {
+                            $('#tombol_mengikuti').html('<button disabled class="btn btn-default btn-danger"><i class="fa-solid fa-circle-up px-1"></i> Waktu Pendaftaran Sudah Habis</button>')
+                        } else {
+
+                            $('#tombol_mengikuti').html('<a type="javascript:;" onclick="pakta_integritas_question_terbatas(\'' + response['row_rup'].id_rup + '\'' + ',' + '\'' + response['row_rup'].nama_rup + '\')" class="btn btn-default btn-warning"><i class="fa-solid fa-circle-up px-1"></i> Ikuti Pengadaan Terbatas</a>')
+                        }
                     } else {
-                        $('#tombol_mengikuti').html('<a type="javascript:;" onclick="pakta_integritas_question(\'' + response['row_rup'].id_rup + '\'' + ',' + '\'' + response['row_rup'].nama_rup + '\')" class="btn btn-default btn-warning"><i class="fa-solid fa-circle-up px-1"></i> Ikuti Pengadaan</a>')
+                        var sekarang = new Date();
+                        var waktu_selesai = new Date(response['row_rup'].batas_pendaftaran_tender);
+                        // kondisi jadwal
+                        if (sekarang > waktu_selesai) {
+                            $('#tombol_mengikuti').html('<button disabled class="btn btn-default btn-danger"><i class="fa-solid fa-circle-up px-1"></i> Waktu Pendaftaran Sudah Habis</button>')
+                        } else {
+
+                            $('#tombol_mengikuti').html('<a type="javascript:;" onclick="pakta_integritas_question_terbatas(\'' + response['row_rup'].id_rup + '\'' + ',' + '\'' + response['row_rup'].nama_rup + '\')" class="btn btn-default btn-warning"><i class="fa-solid fa-circle-up px-1"></i> Ikuti Pengadaan Terbatas</a>')
+                        }
                     }
                 }
+
+                var waktu_selesai2 = new Date(response['get_jadwal_akhir'].waktu_selesai);
+                if (sekarang > waktu_selesai2) {
+                    var html_status_paket = '<small><span class="badge bg-danger text-white">Tender Sudah Selesai</span></small>';
+                } else {
+                    var html_status_paket = '<small><span class="badge bg-success text-white">Tender Sedang Berlangsung</span></small>';
+                }
+                $('.load_status_paket').html(html_status_paket);
+
                 $('#modal-xl-detail').modal('show')
                 $('#kode_rup').text(response['row_rup'].kode_rup)
                 $('#tahun_rup').text(response['row_rup'].tahun_rup)
@@ -481,5 +506,6 @@
     function reload_table() {
         $('#tbl_tender_terbatas').DataTable().ajax.reload();
         $('#tbl_tender_umum').DataTable().ajax.reload();
+        $('#tbl_tender_penunjukan_langsung').DataTable().ajax.reload();
     }
 </script>

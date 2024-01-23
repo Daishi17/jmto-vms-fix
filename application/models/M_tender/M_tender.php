@@ -1632,4 +1632,27 @@ class M_tender extends CI_Model
         $this->db->where('id_sanggah_akhir_detail', $id_sanggah_akhir_detail);
         $this->db->delete('tbl_sanggah_detail_akhir');
     }
+
+    public function get_rup_url($id_url_rup)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_rup');
+        $this->db->where('id_url_rup', $id_url_rup);
+        $data = $this->db->get();
+        return $data->row_array();
+    }
+
+    public function get_jadwal_akhir($id_rup, $id_jadwal_tender)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_jadwal_rup');
+        $this->db->where('id_rup', $id_rup);
+        if ($id_jadwal_tender == 3 || $id_jadwal_tender  == 6) {
+            $this->db->like('nama_jadwal_rup', 'Pemasukan Jaminan Pelaksanaan');
+        } else {
+            $this->db->like('nama_jadwal_rup', 'Penandatanganan Kontrak');
+        }
+        $data = $this->db->get();
+        return $data->row_array();
+    }
 }
