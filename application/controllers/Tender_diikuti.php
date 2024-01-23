@@ -72,10 +72,10 @@ class Tender_diikuti extends CI_Controller
             $row[] = $rs->nama_jenis_pengadaan;
             $row[] = 'Rp. ' . number_format($rs->total_hps_rup, 2, ",", ".");;
             if ($jadwal_terakhir['waktu_mulai'] < $now) {
-                $row[] = '<span class="badge bg-success text-white">Pengadaan Sudah Selesai
+                $row[] = '<span class="badge bg-danger text-white">Pengadaan Sudah Selesai
                 </span>';
             } else {
-                $row[] = '<span class="badge bg-danger text-white">Sedang Berlangsung
+                $row[] = '<span class="badge bg-success text-white">Sedang Berlangsung
                 </span>';
             }
             $row[] = '<a href="' . base_url('tender_diikuti/informasi_tender/' . $rs->id_url_rup) . '" class="btn btn-info btn-sm shadow-lg text-white"><i class="fa fa-info-circle" aria-hidden="true"></i> Lihat Pengadaan</a>';
@@ -112,10 +112,10 @@ class Tender_diikuti extends CI_Controller
             $row[] = $rs->nama_jenis_pengadaan;
             $row[] = 'Rp. ' . number_format($rs->total_hps_rup, 2, ",", ".");;
             if ($jadwal_terakhir['waktu_mulai'] <= $now) {
-                $row[] = '<span class="badge bg-success text-white">Pengadaan Sudah Selesai
+                $row[] = '<span class="badge bg-danger text-white">Pengadaan Sudah Selesai
                 </span>';
             } else {
-                $row[] = '<span class="badge bg-danger text-white">Sedang Berlangsung
+                $row[] = '<span class="badge bg-success text-white">Sedang Berlangsung
                 </span>';
             }
             $row[] = '<a href="javascript:;" class="btn btn-info btn-sm shadow-lg text-white"  onClick="by_id_rup(' . "'" . $rs->id_url_rup . "'" . ')"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</a>';
@@ -152,10 +152,10 @@ class Tender_diikuti extends CI_Controller
             $row[] = $rs->nama_jenis_pengadaan;
             $row[] = 'Rp. ' . number_format($rs->total_hps_rup, 2, ",", ".");;
             if ($jadwal_terakhir['waktu_mulai'] < $now) {
-                $row[] = '<span class="badge bg-success text-white">Pengadaan Sudah Selesai
+                $row[] = '<span class="badge bg-danger text-white">Pengadaan Sudah Selesai
                 </span>';
             } else {
-                $row[] = '<span class="badge bg-danger text-white">Sedang Berlangsung
+                $row[] = '<span class="badge bg-success text-white">Sedang Berlangsung
                 </span>';
             }
             $row[] = '<a href="javascript:;" class="btn btn-info btn-sm shadow-lg text-white"  onClick="by_id_rup(' . "'" . $rs->id_url_rup . "'" . ')"><i class="fa fa-info-circle" aria-hidden="true"></i> Detail</a>';
