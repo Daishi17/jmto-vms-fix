@@ -161,7 +161,6 @@ class Tender_terundang extends CI_Controller
     public function detail_paket($id_rup)
     {
         $data_rup = $this->M_tender->get_row_rup_byid($id_rup);
-
         $jadwal = $this->M_tender->get_jadwal($id_rup);
         $row_syarat_administrasi_rup = $this->M_tender->get_syarat_izin_usaha_tender($data_rup['id_rup']);
         $cek_ikut =  $this->M_tender->cek_mengikuti($data_rup['id_rup']);
