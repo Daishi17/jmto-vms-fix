@@ -635,18 +635,10 @@
                                     if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
 
                                     <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                        <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
-                                            <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
+                                        <textarea name="isi" class="form-control type_msg" placeholder="Type your message..."></textarea>
                                             <div class="input-group-append">
                                                 <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
                                             </div>
-                                        <?php  } else { ?>
-                                            <textarea name="isi" class="form-control type_msg" placeholder="Maaf Anda Telah Gugur" disabled></textarea>
-                                            <div class="input-group-append">
-                                                <button type="submit" id="upload" name="upload" class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></button>
-                                            </div>
-                                        <?php }
-                                        ?>
 
                                     <?php    } else { ?>
                                         <textarea disabled name="isi" class="form-control type_msg" placeholder="Waktu Penjelasan Dokumen Kualifikasi Sudah Habis..."></textarea>
