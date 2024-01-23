@@ -607,7 +607,7 @@
                             window.open(url_buka_penawaran_token + id_url_rup, '_blank');
                         }, 2000);
                     } else {
-                        Swal.fire('Token Anda Tidak Valid!', '', 'warning')
+                        Swal.fire('Kodefikasi Anda Tidak Valid!', '', 'warning')
                         $('.btn_buka_penawaran').attr("disabled", false);
                     }
                 }
@@ -656,7 +656,7 @@
                         }
                     })
                 } else {
-                    Swal.fire('Token Anda Tidak Valid!', '', 'warning')
+                    Swal.fire('Kodefikasi Anda Tidak Valid!', '', 'warning')
                     $('.btn_kirim_pengumuman').attr("disabled", false);
                 }
             }
@@ -761,10 +761,10 @@
             },
             success: function(response) {
                 if (response == 'success') {
-                    Swal.fire('Token Berhasil Dikirim Ke Whatsapp Anda!', '', 'success')
+                    Swal.fire('Kodefikasi Berhasil Dikirim Ke Whatsapp Anda!', '', 'success')
                     $('.btn_dapatkan_token').attr("disabled", false);
                 } else {
-                    Swal.fire('Token Gagal Dikirim Ke Whatsapp Anda!', '', 'warning')
+                    Swal.fire('Kodefikasi Gagal Dikirim Ke Whatsapp Anda!', '', 'warning')
                     $('.btn_dapatkan_token').attr("disabled", false);
                 }
             }

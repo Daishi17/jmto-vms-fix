@@ -597,21 +597,30 @@
                                             <i class="fa fa-upload" aria-hidden="true"></i> Upload Dokumen Presentasi Teknis
                                         </button>
                                     </th>
+                                </tr>
                                 <?php } else { ?>
+                                <tr>
+                                    <th>Upload Presentasi Teknis Pengadaan</th>
                                     <th>
                                         <button type="button" class="btn btn-sm btn-danger" disabled>
                                             <i class="fa fa-folder-close" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
                                         </button>
                                     </th>
+                                </tr>
                                 <?php } ?>
                             <?php } else { ?>
                                 <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                                <tr>
+                                    <th>Upload Presentasi Teknis Pengadaan</th>
                                     <th>
                                         <button type="button" class="btn btn-sm btn-secondary" disabled>
                                             <i class="fa fa-folder-close" aria-hidden="true"></i> Tahap Sudah Selesai
                                         </button>
                                     </th>
+                                </tr>
                                 <?php } else { ?>
+                                <tr>
+                                    <th>Upload Presentasi Teknis Pengadaan</th>
                                     <th>
                                         <button type="button" class="btn btn-sm btn-danger" disabled>
                                             <i class="fa fa-folder-close" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
@@ -676,11 +685,19 @@
                                                             </tr>
 
                                                             <tr>
+                                                                <?php if ($rup['sts_kirim_undangan_presentasi_teknis'] == 1) { ?>
+                                                                    <th>Undangan Rapat Presentasi Teknis</th>
+                                                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="<?= base_url() ?>panitia/info_tender/Informasi_tender_umum_pra_2_file/ba_undangan_rapat/<?= $row_rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                <?php } ?>
+                                                            </tr>
+
+                                                            <tr>
                                                                 <?php if ($rup['sts_kirim_pengumuman_hasil_evaluasi_teknis'] == 1) { ?>
                                                                     <th>Pengumuman Hasil Evaluasi Teknis</th>
                                                                     <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_pengumuman_hasil_evaluasi_teknis/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>
                                                             </tr>
+
                                                             <?php if ($get_row_mengikuti['ev_penawaran_teknis'] >= 60) { ?>
                                                                 <tr>
                                                                     <?php if ($rup['sts_kirim_ba_sampul2'] == 1) { ?>
