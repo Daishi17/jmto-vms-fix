@@ -1655,4 +1655,13 @@ class M_tender extends CI_Model
         $data = $this->db->get();
         return $data->row_array();
     }
+
+    public function get_mengikuti($id_rup)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_mengikuti_paket');
+        $this->db->where('id_rup', $id_rup);
+        $data = $this->db->get();
+        return $data->row_array();
+    }
 }
