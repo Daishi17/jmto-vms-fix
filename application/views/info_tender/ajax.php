@@ -379,13 +379,20 @@
                     } else {
                         var file_sanggah_pra_panitia = '<span class="badge bg-secondary">Tidak Ada File</span>'
                     }
+                    <?php
+                    if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                    <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                        var action = '<a href="javascript:;"  onclick="delete_sanggah_pra(\'' + response['row_sanggahan_pra'][i].id_sanggah_pra_detail + '\')" class="btn btn-sm btn-danger"><i class="fas fa fa-trash"></i> Hapus </a>'
+                    <?php    } else { ?>
+                        var action = '<span class="badge bg-secondary">Waktu Sudah Berakhir</span>'
+                    <?php    } ?>
                     html += '<tr>' +
                         '<td><small>' + response['row_sanggahan_pra'][i].nama_usaha + '</small></td>' +
                         '<td><small>' + ket_sanggah_pra + '</small></td>' +
                         '<td><small>' + file_sanggah_pra + '</small></td>' +
                         '<td><small>' + ket_sanggah_pra_panitia + '</small></td>' +
                         '<td><small>' + file_sanggah_pra_panitia + '</small></td>' +
-                        '<td><a href="javascript:;"  onclick="delete_sanggah_pra(\'' + response['row_sanggahan_pra'][i].id_sanggah_pra_detail + '\')" class="btn btn-sm btn-danger"><i class="fas fa fa-trash"></i> Hapus </a></td>' +
+                        '<td>' + action + '</td>' +
                         '</tr>';
                     '</tr>';
                     $('#tbl_sanggah_pra').html(html);
@@ -487,6 +494,7 @@
         }
     })
     load_dok_sanggahan_akhir()
+
     function load_dok_sanggahan_akhir() {
         var id_rup = $('[name="id_rup"]').val()
         var id_vendor = $('[name="id_vendor"]').val()
@@ -528,13 +536,22 @@
                     } else {
                         var file_sanggah_akhir_panitia = '<span class="badge bg-secondary">Tidak Ada File</span>'
                     }
+
+                    <?php
+                    if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+
+                    <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                        var action = '<a href="javascript:;"  onclick="delete_sanggah_akhir(\'' + response['row_sanggahan_akhir'][i].id_sanggah_akhir_detail + '\')" class="btn btn-sm btn-danger"><i class="fas fa fa-trash"></i> Hapus </a>';
+                    <?php    } else { ?>
+                        var action = '<span class="badge bg-secondary">Waktu Telah Berakhir</span>';
+                    <?php    } ?>
                     html += '<tr>' +
                         '<td><small>' + response['row_sanggahan_akhir'][i].nama_usaha + '</small></td>' +
                         '<td><small>' + ket_sanggah_akhir + '</small></td>' +
                         '<td><small>' + file_sanggah_akhir + '</small></td>' +
                         '<td><small>' + ket_sanggah_akhir_panitia + '</small></td>' +
                         '<td><small>' + file_sanggah_akhir_panitia + '</small></td>' +
-                        '<td><a href="javascript:;"  onclick="delete_sanggah_akhir(\'' + response['row_sanggahan_akhir'][i].id_sanggah_akhir_detail + '\')" class="btn btn-sm btn-danger"><i class="fas fa fa-trash"></i> Hapus </a></td>' +
+                        '<td>' + action + '</td>' +
                         '</tr>';
                     '</tr>';
                     $('#tbl_sanggah_akhir').html(html);
@@ -695,8 +712,6 @@
             },
             dataType: "JSON",
             success: function(response) {
-
-
                 var html = '';
                 if (response['row_negosiasi'].tanggal_negosiasi) {
                     var tanggal_negosiasi = response['row_negosiasi'].tanggal_negosiasi
