@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set("Asia/Jakarta");
+error_reporting(0);
 class Tender_diikuti extends CI_Controller
 {
     var $link_dok = 'https://drtproc.jmto.co.id';
