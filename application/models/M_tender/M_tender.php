@@ -1201,6 +1201,7 @@ class M_tender extends CI_Model
         $this->db->where('tbl_vendor_mengikuti_paket.id_vendor', $id_vendor);
         // $this->db->where('tbl_vendor_mengikuti_paket.sts_mengikuti_paket', 1);
         $this->db->where('tbl_rup.id_metode_pengadaan', 4);
+        $this->db->where('tbl_rup.status_paket_panitia', 2);
         $this->db->where('tbl_rup.status_paket_diumumkan', 1);
         $i = 0;
         foreach ($this->order as $item) // looping awal
@@ -1266,8 +1267,6 @@ class M_tender extends CI_Model
         $this->db->get();
         return $this->db->count_all_results();
     }
-
-
 
     private function _get_data_query_terbatas_diikuti($id_vendor)
     {
