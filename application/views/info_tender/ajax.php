@@ -555,6 +555,7 @@
                         '</tr>';
                     '</tr>';
                     $('#tbl_sanggah_akhir').html(html);
+                    // new
                 }
             }
         })
