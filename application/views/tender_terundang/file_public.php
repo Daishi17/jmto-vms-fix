@@ -76,12 +76,12 @@
                         }
                     }
                 }
-
+                var sekarang = new Date();
                 var waktu_selesai2 = new Date(response['row_rup'].selesai_semua_tender);
                 if (sekarang > waktu_selesai2) {
-                    var html_status_paket = '<small><span class="badge bg-danger text-white">Tender Sudah Selesai</span></small>';
-                } else {
                     var html_status_paket = '<small><span class="badge bg-success text-white">Tender Sedang Berlangsung</span></small>';
+                } else {
+                    var html_status_paket = '<small><span class="badge bg-danger text-white">Tender Sudah Selesai</span></small>';
                 }
                 $('.load_status_paket').html(html_status_paket);
 
