@@ -1,3 +1,4 @@
+
 get_row_vendor();
     // nib
     $('.file_valid_nib').change(function(e) {
@@ -832,6 +833,37 @@ $(document).ready(function() {
     }).buttons().container().appendTo('#table_kbli_nib .col-md-6:eq(0)');
 });
 
+var table_kbli_nib_bawah = $('#table_kbli_nib_bawah')
+$(document).ready(function() {
+    var url_table_kbli_nib = $('[name="url_table_kbli_nib"]').val();
+    table_kbli_nib_bawah.DataTable({
+        "responsive": false,
+        "ordering": true,
+        "processing": true,
+        "serverSide": true,
+        "dom": 'Bfrtip',
+        "buttons": ["excel", "pdf", "print", "colvis"],
+        "order": [],
+        "ajax": {
+            "url": url_table_kbli_nib,
+            "type": "POST",
+        },
+        "columnDefs": [{
+            "target": [-1],
+            "orderable": false
+        }],
+        "oLanguage": {
+            "sSearch": "Pencarian : ",
+            "sEmptyTable": "Data Tidak Tersedia",
+            "sLoadingRecords": "Silahkan Tunggu - loading...",
+            "sLengthMenu": "Menampilkan &nbsp;  _MENU_  &nbsp;   Data",
+            "sZeroRecords": "Tidak Ada Data Yang Di Cari",
+            "sProcessing": "Memuat Data...."
+        }
+    }).buttons().container().appendTo('#table_kbli_nib .col-md-6:eq(0)');
+});
+
+
 function reloadTable_kbli_nib() {
     table_kbli_nib.DataTable().ajax.reload();
 }
@@ -1238,6 +1270,36 @@ var table_kbli_siup = $('#table_kbli_siup')
 $(document).ready(function() {
     var url_table_kbli_siup = $('[name="url_table_kbli_siup"]').val();
     table_kbli_siup.DataTable({
+        "responsive": false,
+        "ordering": true,
+        "processing": true,
+        "serverSide": true,
+        "dom": 'Bfrtip',
+        "buttons": ["excel", "pdf", "print", "colvis"],
+        "order": [],
+        "ajax": {
+            "url": url_table_kbli_siup,
+            "type": "POST",
+        },
+        "columnDefs": [{
+            "target": [-1],
+            "orderable": false
+        }],
+        "oLanguage": {
+            "sSearch": "Pencarian : ",
+            "sEmptyTable": "Data Tidak Tersedia",
+            "sLoadingRecords": "Silahkan Tunggu - loading...",
+            "sLengthMenu": "Menampilkan &nbsp;  _MENU_  &nbsp;   Data",
+            "sZeroRecords": "Tidak Ada Data Yang Di Cari",
+            "sProcessing": "Memuat Data...."
+        }
+    }).buttons().container().appendTo('#table_kbli_siup .col-md-6:eq(0)');
+});
+
+var table_kbli_siup_bawah = $('#table_kbli_siup_bawah')
+$(document).ready(function() {
+    var url_table_kbli_siup = $('[name="url_table_kbli_siup"]').val();
+    table_kbli_siup_bawah.DataTable({
         "responsive": false,
         "ordering": true,
         "processing": true,
@@ -1693,6 +1755,36 @@ $(document).ready(function() {
   }).buttons().container().appendTo('#table_kbli_sbu .col-md-6:eq(0)');
 });
 
+var table_kbli_sbu_bawah = $('#table_kbli_sbu_bawah')
+$(document).ready(function() {
+  var url_table_kbli_sbu = $('[name="url_table_kbli_sbu"]').val();
+  table_kbli_sbu_bawah.DataTable({
+      "responsive": false,
+      "ordering": true,
+      "processing": true,
+      "serverSide": true,
+      "dom": 'Bfrtip',
+      "buttons": ["excel", "pdf", "print", "colvis"],
+      "order": [],
+      "ajax": {
+          "url": url_table_kbli_sbu,
+          "type": "POST",
+      },
+      "columnDefs": [{
+          "target": [-1],
+          "orderable": false
+      }],
+      "oLanguage": {
+          "sSearch": "Pencarian : ",
+          "sEmptyTable": "Data Tidak Tersedia",
+          "sLoadingRecords": "Silahkan Tunggu - loading...",
+          "sLengthMenu": "Menampilkan &nbsp;  _MENU_  &nbsp;   Data",
+          "sZeroRecords": "Tidak Ada Data Yang Di Cari",
+          "sProcessing": "Memuat Data...."
+      }
+  }).buttons().container().appendTo('#table_kbli_sbu .col-md-6:eq(0)');
+});
+
 function reloadTable_kbli_sbu() {
   table_kbli_sbu.DataTable().ajax.reload();
 }
@@ -2119,6 +2211,36 @@ $(document).ready(function() {
     }).buttons().container().appendTo('#table_kbli_siujk .col-md-6:eq(0)');
 });
 
+var table_kbli_siujk_bawah = $('#table_kbli_siujk_bawah')
+$(document).ready(function() {
+    var url_table_kbli_siujk = $('[name="url_table_kbli_siujk"]').val();
+    table_kbli_siujk_bawah.DataTable({
+        "responsive": false,
+        "ordering": true,
+        "processing": true,
+        "serverSide": true,
+        "dom": 'Bfrtip',
+        "buttons": ["excel", "pdf", "print", "colvis"],
+        "order": [],
+        "ajax": {
+            "url": url_table_kbli_siujk,
+            "type": "POST",
+        },
+        "columnDefs": [{
+            "target": [-1],
+            "orderable": false
+        }],
+        "oLanguage": {
+            "sSearch": "Pencarian : ",
+            "sEmptyTable": "Data Tidak Tersedia",
+            "sLoadingRecords": "Silahkan Tunggu - loading...",
+            "sLengthMenu": "Menampilkan &nbsp;  _MENU_  &nbsp;   Data",
+            "sZeroRecords": "Tidak Ada Data Yang Di Cari",
+            "sProcessing": "Memuat Data...."
+        }
+    }).buttons().container().appendTo('#table_kbli_siujk .col-md-6:eq(0)');
+});
+
 function reloadTable_kbli_siujk() {
     table_kbli_siujk.DataTable().ajax.reload();
 }
@@ -2415,6 +2537,36 @@ var table_kbli_skdp = $('#table_kbli_skdp')
 $(document).ready(function() {
     var url_table_kbli_skdp = $('[name="url_table_kbli_skdp"]').val();
     table_kbli_skdp.DataTable({
+        "responsive": false,
+        "ordering": true,
+        "processing": true,
+        "serverSide": true,
+        "dom": 'Bfrtip',
+        "buttons": ["excel", "pdf", "print", "colvis"],
+        "order": [],
+        "ajax": {
+            "url": url_table_kbli_skdp,
+            "type": "POST",
+        },
+        "columnDefs": [{
+            "target": [-1],
+            "orderable": false
+        }],
+        "oLanguage": {
+            "sSearch": "Pencarian : ",
+            "sEmptyTable": "Data Tidak Tersedia",
+            "sLoadingRecords": "Silahkan Tunggu - loading...",
+            "sLengthMenu": "Menampilkan &nbsp;  _MENU_  &nbsp;   Data",
+            "sZeroRecords": "Tidak Ada Data Yang Di Cari",
+            "sProcessing": "Memuat Data...."
+        }
+    }).buttons().container().appendTo('#table_kbli_skdp .col-md-6:eq(0)');
+});
+
+var table_kbli_skdp_bawah = $('#table_kbli_skdp_bawah')
+$(document).ready(function() {
+    var url_table_kbli_skdp = $('[name="url_table_kbli_skdp"]').val();
+    table_kbli_skdp_bawah.DataTable({
         "responsive": false,
         "ordering": true,
         "processing": true,

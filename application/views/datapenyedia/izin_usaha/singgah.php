@@ -215,6 +215,21 @@
                                                             </tr>
                                                         </table>
                                                     </form>
+                                                    <table id="table_kbli_nib_bawah" style="width: 100%;" class="table table-bordered table-striped">
+                                                        <thead class="bg-secondary">
+                                                            <tr>
+                                                                <th style="width:10%;"><small class="text-white">No</small></th>
+                                                                <th style="width:50%;"><small class="text-white">Kode & Jenis KBLI</small></th>
+                                                                <th style="width:10%;"><small class="text-white">Kualifikasi</small></th>
+                                                                <th style="width:15%;"><small class="text-white">
+                                                                        <div class="text-center">Status Validasi</div>
+                                                                    </small></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
@@ -370,6 +385,21 @@
                                                             </tr>
                                                         </table>
                                                     </form>
+                                                    <table id="table_kbli_siup_bawah" style="width: 100%;" class="table table-bordered table-striped">
+                                                        <thead class="bg-primary">
+                                                            <tr>
+                                                                <th style="width:10%;"><small class="text-white">No</small></th>
+                                                                <th style="width:50%;"><small class="text-white">Kode & Jenis KBLI</small></th>
+                                                                <th style="width:10%;"><small class="text-white">Kualifikasi</small></th>
+                                                                <th style="width:15%;"><small class="text-white">
+                                                                        <div class="text-center">Status Validasi</div>
+                                                                    </small></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
@@ -522,6 +552,21 @@
                                                                     </div>
                                                                 </td>
                                                             </tr>
+                                                        </table>
+                                                        <table id="table_kbli_sbu_bawah" style="width: 100%;" class="table table-bordered table-striped">
+                                                            <thead class="bg-danger">
+                                                                <tr>
+                                                                    <th style="width:10%;"><small class="text-white">No</small></th>
+                                                                    <th style="width:50%;"><small class="text-white">Kode & Jenis SBU</small></th>
+                                                                    <th style="width:10%;"><small class="text-white">Kualifikasi SBU</small></th>
+                                                                    <th style="width:15%;"><small class="text-white">
+                                                                            <div class="text-center">Status Validasi</div>
+                                                                        </small></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+
+                                                            </tbody>
                                                         </table>
                                                     </form>
                                                 </div>
@@ -677,6 +722,21 @@
                                                             </tr>
                                                         </table>
                                                     </form>
+                                                    <table id="table_kbli_siujk_bawah" style="width: 100%;" class="table table-bordered table-striped">
+                                                        <thead class="bg-primary">
+                                                            <tr>
+                                                                <th style="width:10%;"><small class="text-white">No</small></th>
+                                                                <th style="width:50%;"><small class="text-white">Kode & Jenis KBLI</small></th>
+                                                                <th style="width:10%;"><small class="text-white">Kualifikasi</small></th>
+                                                                <th style="width:15%;"><small class="text-white">
+                                                                        <div class="text-center">Status Validasi</div>
+                                                                    </small></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
@@ -831,6 +891,21 @@
                                                             </tr>
                                                         </table>
                                                     </form>
+                                                    <table id="table_kbli_skdp_bawah" style="width: 100%;" class="table table-bordered table-striped">
+                                                        <thead class="bg-primary">
+                                                            <tr>
+                                                                <th style="width:10%;"><small class="text-white">No</small></th>
+                                                                <th style="width:50%;"><small class="text-white">Kode & Jenis KBLI</small></th>
+                                                                <th style="width:10%;"><small class="text-white">Kualifikasi</small></th>
+                                                                <th style="width:15%;"><small class="text-white">
+                                                                        <div class="text-center">Status Validasi</div>
+                                                                    </small></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
