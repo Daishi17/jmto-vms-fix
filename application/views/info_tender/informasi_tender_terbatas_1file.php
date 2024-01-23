@@ -428,9 +428,9 @@
                         <?php } ?>
 
 
-                        <?php if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                        <?php if (date('Y-m-d H:i', strtotime($jadwal_undangan_penawaran['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
-                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_undangan_penawaran['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_undangan_penawaran['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                             <?php if ($get_row_mengikuti['ev_teknis']  >= 60 || $get_row_mengikuti['ev_keuangan']  >= 60) { ?>
                                 <?php if ($rup['sts_undangan_penawaran'] == 1) { ?>
                                     <tr>
@@ -445,14 +445,31 @@
                                 <?php if ($rup['sts_undangan_penawaran'] == 1) { ?>
                                     <tr>
                                         <th>Undangan Penawaran</th>
-                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/informasi_tender_umum_pra_2_file/lihat_undangan_penawran/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat Undangan Penawaran</a>
-                                        <th>
+                                        <th colspan="3"><span class="badge bg-danger"> Anda Telah Gugur Dalam Pengadaan Ini!</span></th>
                                     </tr>
                                 <?php } else { ?>
                                 <?php } ?>
                             <?php }  ?>
                         <?php } else { ?>
+                            <?php if ($get_row_mengikuti['ev_teknis']  >= 60 || $get_row_mengikuti['ev_keuangan']  >= 60) { ?>
+                                <?php if ($rup['sts_undangan_penawaran'] == 1) { ?>
+                                    <tr>
+                                        <th>Undangan Penawaran</th>
+                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/informasi_tender_umum_pra_2_file/lihat_undangan_penawran/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat Undangan Penawaran</a>
+                                        <th>
+                                    </tr>
+                                <?php } else { ?>
+                                <?php } ?>
 
+                            <?php } else { ?>
+                                <?php if ($rup['sts_undangan_penawaran'] == 1) { ?>
+                                    <tr>
+                                        <th>Undangan Penawaran</th>
+                                        <th colspan="3"><span class="badge bg-danger"> Anda Telah Gugur Dalam Pengadaan Ini!</span></th>
+                                    </tr>
+                                <?php } else { ?>
+                                <?php } ?>
+                            <?php }  ?>
                         <?php } ?>
 
 

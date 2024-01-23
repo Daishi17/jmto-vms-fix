@@ -806,7 +806,7 @@ class Tender_diikuti extends CI_Controller
             $data['jadwal_pengumuman_hasil_kualifikasi'] =  $this->M_jadwal->jadwal_pra1file_umum_8($data['rup']['id_rup']);
             $data['jadwal_masa_sanggah_kualifikasi'] =  $this->M_jadwal->jadwal_pra1file_umum_9($data['rup']['id_rup']);
             $data['jadwal_download_dokumen_pengadaan'] =  $this->M_jadwal->jadwal_pra1file_umum_11($data['rup']['id_rup']);
-            $data['jadwal_aanwijzing'] =  $this->M_jadwal->jadwal_pra1file_umum_11($data['rup']['id_rup']);
+            $data['jadwal_aanwijzing'] =  $this->M_jadwal->jadwal_pra1file_umum_12($data['rup']['id_rup']);
             $data['jadwal_upload_dokumen_penawaran'] =  $this->M_jadwal->jadwal_pra1file_umum_13($data['rup']['id_rup']);
             $data['jadwal_pembukaan_file1'] =  $this->M_jadwal->jadwal_pra1file_umum_13($data['rup']['id_rup']);
             $data['jadwal_presentasi_evaluasi'] =  $this->M_jadwal->jadwal_pra1file_umum_14($data['rup']['id_rup']);
