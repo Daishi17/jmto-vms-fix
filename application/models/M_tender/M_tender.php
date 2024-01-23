@@ -1656,12 +1656,24 @@ class M_tender extends CI_Model
         return $data->row_array();
     }
 
+    // public function get_mengikuti($id_rup)
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('tbl_vendor_mengikuti_paket');
+    //     $this->db->where('id_rup', $id_rup);
+    //     $data = $this->db->get();
+    //     return $data->row_array();
+    // }
+
     public function get_mengikuti($id_rup)
     {
+        $id_vendor = $this->session->userdata('id_vendor');
         $this->db->select('*');
         $this->db->from('tbl_vendor_mengikuti_paket');
         $this->db->where('id_rup', $id_rup);
-        $data = $this->db->get();
-        return $data->row_array();
+        $this->db->where('id_vendor', $id_vendor);
+        $this->db->where('sts_mengikuti_paket', 1);
+        $query = $this->db->get();
+        return $query->row_array();
     }
 }
