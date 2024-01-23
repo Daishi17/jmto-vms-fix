@@ -67,8 +67,10 @@ class Tender_terundang extends CI_Controller
             $row[] = $rs->nama_rup;
             $row[] = $rs->nama_departemen;
             $row[] = $rs->nama_jenis_pengadaan;
-            $row[] = 'Rp. ' . number_format($rs->total_hps_rup, 2, ",", ".");;
-            if ($rs->sts_mengikuti_paket == 1) {
+            $row[] = 'Rp. ' . number_format($rs->total_hps_rup, 2, ",", ".");
+            $data_rup = $this->M_tender->get_rup_url($rs->id_url_rup);
+            $data_rup_vendor = $this->M_tender->get_mengikuti($data_rup['id_rup']);
+            if ($data_rup_vendor) {
                 $row[] = '<span class="badge bg-success text-white">Tender Telah Diikuti
                 </span>';
             } else {
