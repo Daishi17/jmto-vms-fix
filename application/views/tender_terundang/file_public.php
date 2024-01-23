@@ -46,28 +46,37 @@
                 } else {
                     if (response['row_rup'].id_metode_pengadaan == 4) {
                         var sekarang = new Date();
+                        var waktu_mulai = new Date(response['row_rup'].awal_pendaftaran_tender);
                         var waktu_selesai = new Date(response['row_rup'].batas_pendaftaran_tender);
                         // kondisi jadwal
-                        if (sekarang > waktu_selesai) {
-                            $('#tombol_mengikuti').html('<button disabled class="btn btn-default btn-danger"><i class="fa-solid fa-circle-up px-1"></i> Waktu Pendaftaran Sudah Habis</button>')
+                        if (sekarang > waktu_mulai) {
+                            $('#tombol_mengikuti').html('<a type="javascript:;" onclick="pakta_integritas_question_terbatas(\'' + response['row_rup'].id_rup + '\'' + ',' + '\'' + response['row_rup'].nama_rup + '\')" class="btn btn-default btn-warning"><i class="fa-solid fa-circle-up px-1"></i> Ikuti Pengadaan</a>')
+                        } else if (sekarang < waktu_selesai) {
+
+                            $('#tombol_mengikuti').html('<button disabled class="btn btn-default btn-danger"><i class="fa-solid fa-circle-up px-1"></i> Waktu Belum Dimulai</button>')
                         } else {
 
-                            $('#tombol_mengikuti').html('<a type="javascript:;" onclick="pakta_integritas_question_terbatas(\'' + response['row_rup'].id_rup + '\'' + ',' + '\'' + response['row_rup'].nama_rup + '\')" class="btn btn-default btn-warning"><i class="fa-solid fa-circle-up px-1"></i> Ikuti Pengadaan Terbatas</a>')
+
+                            $('#tombol_mengikuti').html('<button disabled class="btn btn-default btn-danger"><i class="fa-solid fa-circle-up px-1"></i> Waktu Pendaftaran Sudah Habis</button>')
                         }
                     } else {
                         var sekarang = new Date();
+                        var waktu_mulai = new Date(response['row_rup'].awal_pendaftaran_tender);
                         var waktu_selesai = new Date(response['row_rup'].batas_pendaftaran_tender);
-                        // kondisi jadwal
-                        if (sekarang > waktu_selesai) {
-                            $('#tombol_mengikuti').html('<button disabled class="btn btn-default btn-danger"><i class="fa-solid fa-circle-up px-1"></i> Waktu Pendaftaran Sudah Habis</button>')
+                        if (sekarang > waktu_mulai) {
+                            $('#tombol_mengikuti').html('<a type="javascript:;" onclick="pakta_integritas_question(\'' + response['row_rup'].id_rup + '\'' + ',' + '\'' + response['row_rup'].nama_rup + '\')" class="btn btn-default btn-warning"><i class="fa-solid fa-circle-up px-1"></i> Ikuti Pengadaan</a>')
+                        } else if (sekarang < waktu_selesai) {
+
+                            $('#tombol_mengikuti').html('<button disabled class="btn btn-default btn-danger"><i class="fa-solid fa-circle-up px-1"></i> Waktu Belum Dimulai</button>')
                         } else {
 
-                            $('#tombol_mengikuti').html('<a type="javascript:;" onclick="pakta_integritas_question_terbatas(\'' + response['row_rup'].id_rup + '\'' + ',' + '\'' + response['row_rup'].nama_rup + '\')" class="btn btn-default btn-warning"><i class="fa-solid fa-circle-up px-1"></i> Ikuti Pengadaan Terbatas</a>')
+
+                            $('#tombol_mengikuti').html('<button disabled class="btn btn-default btn-danger"><i class="fa-solid fa-circle-up px-1"></i> Waktu Pendaftaran Sudah Habis</button>')
                         }
                     }
                 }
 
-                var waktu_selesai2 = new Date(response['get_jadwal_akhir'].waktu_selesai);
+                var waktu_selesai2 = new Date(response['row_rup'].selesai_semua_tender);
                 if (sekarang > waktu_selesai2) {
                     var html_status_paket = '<small><span class="badge bg-danger text-white">Tender Sudah Selesai</span></small>';
                 } else {
