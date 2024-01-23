@@ -99,7 +99,6 @@ class Tender_terundang extends CI_Controller
         foreach ($resultss as $rs) {
 
             $data_rup = $this->M_tender->get_rup_url($rs->id_url_rup);
-            $data_get_jadwal_pengumuman = $this->M_jadwal->jadwal_pra1file_umum_1($data_rup['id_rup']);
             $row = array();
             $row[] = ++$no;
             $row[] = $rs->tahun_rup;
@@ -107,7 +106,8 @@ class Tender_terundang extends CI_Controller
             $row[] = $rs->nama_departemen;
             $row[] = $rs->nama_jenis_pengadaan;
             $row[] = 'Rp. ' . number_format($rs->total_hps_rup, 2, ",", ".");
-            if ($rs->sts_mengikuti_paket == 1) {
+            $data_rup_vendor = $this->M_tender->get_mengikuti($data_rup['id_rup']);
+            if ($data_rup_vendor) {
                 $row[] = '<span class="badge bg-success text-white">Tender Telah Diikuti
                 </span>';
             } else {
@@ -133,7 +133,7 @@ class Tender_terundang extends CI_Controller
         $data = [];
         $no = $_POST['start'];
         foreach ($resultss as $rs) {
-
+            $data_rup = $this->M_tender->get_rup_url($rs->id_url_rup);
             $row = array();
             $row[] = ++$no;
             $row[] = $rs->tahun_rup;
@@ -141,7 +141,8 @@ class Tender_terundang extends CI_Controller
             $row[] = $rs->nama_departemen;
             $row[] = $rs->nama_jenis_pengadaan;
             $row[] = 'Rp. ' . number_format($rs->total_hps_rup, 2, ",", ".");
-            if ($rs->sts_mengikuti_paket == 1) {
+            $data_rup_vendor = $this->M_tender->get_mengikuti($data_rup['id_rup']);
+            if ($data_rup_vendor) {
                 $row[] = '<span class="badge bg-success text-white">Tender Telah Diikuti
                 </span>';
             } else {

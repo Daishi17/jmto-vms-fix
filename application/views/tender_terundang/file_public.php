@@ -78,7 +78,7 @@
                 }
                 var sekarang = new Date();
                 var waktu_selesai2 = new Date(response['row_rup'].selesai_semua_tender);
-                if (sekarang > waktu_selesai2) {
+                if (waktu_selesai2 > sekarang) {
                     var html_status_paket = '<small><span class="badge bg-success text-white">Tender Sedang Berlangsung</span></small>';
                 } else {
                     var html_status_paket = '<small><span class="badge bg-danger text-white">Tender Sudah Selesai</span></small>';
