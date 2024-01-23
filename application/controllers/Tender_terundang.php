@@ -35,7 +35,7 @@ class Tender_terundang extends CI_Controller
 
         $data['count_tender_umum'] =  $this->M_count->count_tender_umum($id_vendor);
         $data['count_tender_terbatas'] =  $this->M_count->count_tender_terbatas($id_vendor);
-        $data['count_tender_penunjukan_langsung'] =  $this->M_count->count_tender_penunjukan_langsung($id_vendor);
+        $data['count_tender_penunjukan_langsung'] =  $this->M_count->count_tender_penunjukan_langsung_diikuti($id_vendor);
         $data['count_tender_terundang'] = $this->M_tender->hitung_terundang();
         $this->M_monitoring->update_notif($where, $update_notif);
 

@@ -24,13 +24,16 @@
                         <li class="nav-item">
                             <a class="nav-link active" style="margin-left: 5px;" href="#"><i class="fa fa-columns" aria-hidden="true"></i> Informasi Pengadaan</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/negosiasi/' . $rup['id_url_rup']) ?>"><i class="fa fa-tags" aria-hidden="true"></i> Negosiasi</a>
+                        </li>
                         <!-- <li class="nav-item">
                             <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (PQ)</a>
                         </li>
                         <?php if ($get_row_mengikuti['ev_teknis'] > 60 && $get_row_mengikuti['ev_keuangan']) { ?>
-                            <li class="nav-item">
-                                <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
-                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
+                                            </li>
                         <?php } else { ?>
                         <?php  } ?> -->
                         <?php if ($sts_nego == 'buka_negosiasi') { ?>
@@ -443,11 +446,11 @@
                                                                         <td>
                                                                             <a href="<?= $url_dok_pengadaan . $value['id_dokumen_pengadaan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
                                                                             <?php if ($value['sts_dokumen_tambahan'] == 1) { ?>
-                                                                            <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
-                                                                        <?php } else { ?>
+                                                                                <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
+                                                                            <?php } else { ?>
 
-                                                                        <?php  }
-                                                                        ?>
+                                                                            <?php  }
+                                                                            ?>
                                                                         </td>
                                                                     </tr>
                                                                 <?php } ?>
@@ -540,24 +543,6 @@
                                     <label for="" class="badge bg-secondary">Tahap Sudah Selesai</label>
                                 </th>
                             <?php    } ?>
-                        </tr>
-
-                        <tr>
-                            <th>Upload Presentasi Teknis Pengadaan</th>
-                            <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
-                                <th>
-                                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#upload_presentasi_teknis">
-                                        <i class="fa fa-upload" aria-hidden="true"></i> Upload Dokumen Penawaran
-                                    </button>
-                                </th>
-                            <?php } else { ?>
-                                <th>
-                                    <button type="button" class="btn btn-sm btn-danger" disabled>
-                                        <i class="fa fa-folder-close" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
-                                    </button>
-                                </th>
-                            <?php } ?>
-
                         </tr>
 
                         <tr>
