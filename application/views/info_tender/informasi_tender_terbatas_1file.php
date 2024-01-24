@@ -666,22 +666,25 @@
 
 
 
-                                                            <?php if ($rup['id_vendor_pemenang'] == $this->session->userdata('id_vendor')) { ?>
+                                                            <?php if ($get_row_mengikuti['ev_terendah_peringkat_akhir_hea'] == 1) { ?>
                                                                 <tr>
                                                                     <?php if ($rup['sts_kirim_ba_negosiasi'] == 1) { ?>
                                                                         <th>Berita Acara Evaluasi dan Negosiasi</th>
-                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_negosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_negosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                        <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_negosiasi">Setujui Berita Acara</a></th>
                                                                     <?php } ?>
                                                                 </tr>
                                                                 <tr>
                                                                     <?php if ($rup['sts_kirim_ba_evaluasi_negosiasi'] == 1) { ?>
                                                                         <th>Berita Acara Klarifikasi & Penilaian Kewajaran Harga</th>
-                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_evaluasinegosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_evaluasinegosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                        <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_klarifikasi">Setujui Berita Acara</a></th>
                                                                     <?php } ?>
                                                                 </tr>
 
 
                                                             <?php } else { ?>
+
 
                                                             <?php } ?>
                                                             <tr>
@@ -1096,6 +1099,104 @@
                     Keluar
                 </button>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_setujui_ba_negosiasi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="navbar-brand">
+                    <img src="<?php echo base_url(); ?>/assets/brand/jm1.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
+                    <b><span class="text-primary">Jasamarga Tollroad Operator</span></b>
+
+                </a>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="form_setujui_ba_nego" action="javascript:;">
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-header border-dark bg-primary d-flex justify-content-between align-items-center">
+                            <div class="flex-grow-1 bd-highlight">
+                                <span class="text-dark">
+                                    <small class="text-white">
+                                        <strong><i class="fa-solid fa-edit px-1"></i>
+                                            Setujui Berita Acara Evaluasi dan Negosiasi
+                                        </strong>
+                                    </small>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <input type="hidden" name="id_rup" value="<?= $rup['id_rup'] ?>">
+                            <input type="hidden" name="id_vendor" value="<?= $this->session->userdata('id_vendor') ?>">
+                            <div class="mb-1">
+                                <label for="" class="form-label">Persetujuan</label>
+                                <select name="persetujuan_ba_nego" id="" class="form-control">
+                                    <option value="1">Setuju</option>
+                                    <option value="2">Tidak Setuju</option>
+                                </select>
+                            </div>
+                            <div class="mb-1">
+                                <label for="" class="form-label">Nama Jabatan Yang Menyetujui</label>
+                                <input type="text" name="nama_jabatan_ba_nego" class="form-control" value="<?= $get_row_mengikuti['nama_jabatan_ba_nego'] ?>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-success">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_setujui_ba_klarifikasi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a class="navbar-brand">
+                    <img src="<?php echo base_url(); ?>/assets/brand/jm1.png" alt="" width="25" height="25" class="d-inline-block align-text-top">
+                    <b><span class="text-primary">Jasamarga Tollroad Operator</span></b>
+
+                </a>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="form_setujui_ba_klarifikasi" action="javascript:;">
+                <div class="modal-body">
+                    <div class="card">
+                        <div class="card-header border-dark bg-primary d-flex justify-content-between align-items-center">
+                            <div class="flex-grow-1 bd-highlight">
+                                <span class="text-dark">
+                                    <small class="text-white">
+                                        <strong><i class="fa-solid fa-edit px-1"></i>
+                                            Setujui Berita Acara Klarifikasi
+                                        </strong>
+                                    </small>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <input type="hidden" name="id_rup" value="<?= $rup['id_rup'] ?>">
+                            <input type="hidden" name="id_vendor" value="<?= $this->session->userdata('id_vendor') ?>">
+                            <div class="mb-1">
+                                <label for="" class="form-label">Persetujuan</label>
+                                <select name="persetujuan_klarifikasi_nego" id="" class="form-control">
+                                    <option value="1">Setuju</option>
+                                    <option value="2">Tidak Setuju</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-success">Simpan</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
