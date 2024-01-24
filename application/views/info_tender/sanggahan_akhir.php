@@ -166,7 +166,10 @@
                         </span>
                     </div>
                 </div>
-                <div class="card-body">
+
+                <?php 
+                if ($gugur) { ?>
+                     <div class="card-body">
                     <?php if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                         <?php $date2 = $jadwal_masa_sanggah_akhir['waktu_selesai'];
                         if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
@@ -205,6 +208,10 @@
                         </tbody>
                     </table>
                 </div>
+             <?php   } else {  ?>
+                    
+              <?php  }  ?>
+               
             </div>
         </div>
 </main>

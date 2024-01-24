@@ -328,7 +328,7 @@ class Tender_diikuti extends CI_Controller
             $data['jadwal_upload_ba'] =  $this->M_jadwal->jadwal_pra1file_umum_17($data['rup']['id_rup']);
             $data['jadwal_penetapan_pemenang'] =  $this->M_jadwal->jadwal_pra1file_umum_18($data['rup']['id_rup']);
             $data['jadwal_pengumuman_pemenang'] =  $this->M_jadwal->jadwal_pra1file_umum_19($data['rup']['id_rup']);
-            $data['jadwal_masa_sanggah_akhir'] =  $this->M_jadwal->jadwal_pra1file_umum_20($data['rup']['id_rup']);
+            $data['jadwal_masa_sanggah_akhir'] =  $this->M_jadwal->jadwal_tender_terbatas_pasca_1_file_12($data['rup']['id_rup']);
             $data['jadwal_upload_surat_penunjukan'] =  $this->M_jadwal->jadwal_pra1file_umum_21($data['rup']['id_rup']);
             // end get tahap
             $this->load->view('info_tender/informasi_tender_terbatas_1file', $data);
@@ -1266,6 +1266,7 @@ class Tender_diikuti extends CI_Controller
             $data['jadwal_upload_surat_penunjukan'] =  $this->M_jadwal->jadwal_pra_umum_21($data['rup']['id_rup']);
             // end get tahap
         } else if ($data['rup']['id_jadwal_tender'] == 1) {
+            $data['gugur'] =  $this->M_jadwal->get_mengikuti_cek_gugur($data['rup']['id_rup']);
             $data['jadwal_pengumuman_pengadaan'] =  $this->M_jadwal->jadwal_pra1file_umum_1($data['rup']['id_rup']);
             $data['jadwal_dokumen_kualifikasi'] =  $this->M_jadwal->jadwal_pra1file_umum_2($data['rup']['id_rup']);
             $data['jadwal_aanwijzing_pq'] =  $this->M_jadwal->jadwal_pra1file_umum_3($data['rup']['id_rup']);
@@ -1285,7 +1286,7 @@ class Tender_diikuti extends CI_Controller
             $data['jadwal_upload_ba'] =  $this->M_jadwal->jadwal_pra1file_umum_17($data['rup']['id_rup']);
             $data['jadwal_penetapan_pemenang'] =  $this->M_jadwal->jadwal_pra1file_umum_18($data['rup']['id_rup']);
             $data['jadwal_pengumuman_pemenang'] =  $this->M_jadwal->jadwal_pra1file_umum_19($data['rup']['id_rup']);
-            $data['jadwal_masa_sanggah_akhir'] =  $this->M_jadwal->jadwal_pra1file_umum_20($data['rup']['id_rup']);
+            $data['jadwal_masa_sanggah_akhir'] =  $this->M_jadwal->jadwal_pra1file_umum_19($data['rup']['id_rup']);
             $data['jadwal_upload_surat_penunjukan'] =  $this->M_jadwal->jadwal_pra1file_umum_21($data['rup']['id_rup']);
             // end get tahap
         } else if ($data['rup']['id_jadwal_tender'] == 9) {

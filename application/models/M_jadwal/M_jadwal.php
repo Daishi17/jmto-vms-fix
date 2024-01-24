@@ -44,6 +44,19 @@ class M_jadwal extends CI_Model
         return $query->row_array();
     }
 
+    public function get_mengikuti_cek_gugur($id_rup)
+    {
+        $id_vendor = $this->session->userdata('id_vendor');
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_mengikuti_paket');
+        $this->db->where('id_rup', $id_rup);
+        $this->db->where('id_vendor', $id_vendor);
+        $this->db->where('sts_mengikuti_paket', 1);
+        $this->db->where('ev_terendah_harga !=', NULL);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     public function jadwal_pra_umum_5($id_rup)
     {
         $this->db->select('*');
