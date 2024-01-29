@@ -801,19 +801,19 @@ $('#modal_dekrip_nib').on('hidden.bs.modal', function() {
     get_row_vendor();
 })
 
-
 // GET TABLE KBLI NIB
 var table_kbli_nib = $('#table_kbli_nib')
 $(document).ready(function() {
     var url_table_kbli_nib = $('[name="url_table_kbli_nib"]').val();
     table_kbli_nib.DataTable({
-        "responsive": false,
-        "ordering": true,
+        "responsive": true,
+        "ordering": false,
         "processing": true,
         "serverSide": true,
         "dom": 'Bfrtip',
+        "bDestroy": true,
+        "autoWidth": false,
         "buttons": ["excel", "pdf", "print", "colvis"],
-        "order": [],
         "ajax": {
             "url": url_table_kbli_nib,
             "type": "POST",
@@ -826,7 +826,7 @@ $(document).ready(function() {
             "sSearch": "Pencarian : ",
             "sEmptyTable": "Data Tidak Tersedia",
             "sLoadingRecords": "Silahkan Tunggu - loading...",
-            "sLengthMenu": "Menampilkan &nbsp;  _MENU_  &nbsp;   Data",
+            "sLengthMenu": "Menampilkan &nbsp; _MENU_ &nbsp; Data",
             "sZeroRecords": "Tidak Ada Data Yang Di Cari",
             "sProcessing": "Memuat Data...."
         }

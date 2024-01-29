@@ -225,7 +225,7 @@
                                         </tr>
 
                                     </table>
-                                    <span class="btn btn-success"><i class="fa fa-check"></i> <?= $row_vendor['nama_usaha'] ?> Sudah Menyetujui Pakta Integritas Yang Berlaku Dalam Pengadaan Sejak Dari Mendaftar Data Rekanan Tetap Pada PT. Jasamarga Tollroad Operator</span>
+                                    <span class="btn btn-success"><i class="fa fa-check"></i> <?= $row_vendor['nama_usaha'] ?> Sudah Menyetujui Pakta Integritas Yang Berlaku Dalam Pengadaan Sejak Dari Daftar Rekanan Tervalidasi Tetap Pada PT. Jasamarga Tollroad Operator</span>
                                 </div>
                             </div>
                         </div>

@@ -571,8 +571,8 @@ class Datapenyedia extends CI_Controller
 		}
 		$output = array(
 			"draw" => $_POST['draw'],
-			"recordsTotal" => $this->M_datapenyedia->count_all_data_kbli_siup($id_vendor),
-			"recordsFiltered" => $this->M_datapenyedia->count_filtered_data_kbli_siup($id_vendor),
+			"recordsTotal" => $this->M_datapenyedia->count_all_data_kbli_nib($id_vendor),
+			"recordsFiltered" => $this->M_datapenyedia->count_filtered_data_kbli_nib($id_vendor),
 			"data" => $data
 		);
 		$this->output->set_content_type('application/json')->set_output(json_encode($output));
@@ -3593,7 +3593,7 @@ class Datapenyedia extends CI_Controller
 			$this->output->set_content_type('application/json')->set_output(json_encode('success'));
 		}
 	}
-	
+
 	function import_pengalaman_perusahaan()
 	{
 		$id_vendor = $this->session->userdata('id_vendor');
@@ -3797,7 +3797,7 @@ class Datapenyedia extends CI_Controller
 			$chiper = "AES-128-CBC";
 			$option = 0;
 			$iv = str_repeat("0", openssl_cipher_iv_length($chiper));
-			$secret =$get_row_enkrip['token_dokumen'];
+			$secret = $get_row_enkrip['token_dokumen'];
 			// chiper, $secret_token_dokumen1, $option, $iv
 			// SETTING PATH 
 			$sts_upload = [

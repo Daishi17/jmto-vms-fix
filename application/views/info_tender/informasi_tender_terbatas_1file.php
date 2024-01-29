@@ -15,7 +15,7 @@
 <main class="container">
     <div class="row">
         <div class="col">
-            <div class="card border-dark mt-3">
+            <div class="card border-dark mt-3" style="position: fixed; top:100px;z-index:999;width:95%;">
                 <div class="card-header border-dark bg-white text-black">
                     <ul class="nav nav-tabs">
                         <!-- <li class="nav-item">
@@ -648,6 +648,12 @@
                                                                 <?php if ($rup['sts_kirim_ba_sampul1'] == 1) { ?>
                                                                     <th>Berita Acara Pembukaan Dokumen Penawaran File I (Administrasi Dan Teknis)</th>
                                                                     <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_sampul_I/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                <?php } ?>
+                                                            </tr>
+                                                            <tr>
+                                                                <?php if ($rup['sts_kirim_ba_sampul1_2'] == 1) { ?>
+                                                                    <th>Berita Acara Pembukaan Dokumen Penawaran File I (Administrasi Dan Teknis)</th>
+                                                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://jmto-eproc.kintekindo.net/panitia/info_tender/Informasi_tender_terbatas_pra_1_file/ba_sampul_I_2/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>
                                                             </tr>
                                                             <tr>

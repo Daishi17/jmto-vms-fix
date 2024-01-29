@@ -102,75 +102,66 @@ form_akta_pendirian.on('submit', function(e) {
     var url_post = $('[name="url_post"]').val()
     var file_dokumen = $('[name="file_dokumen"]').val()
     var file_dok_kumham_pendirian = $('[name="file_dok_kumham_pendirian"]').val()
-    if (file_dokumen == '' || file_dok_kumham_pendirian == '') {
-      e.preventDefault();
-      Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Dokumen Wajib Di Isi!',
-        })
-    } else {
-      e.preventDefault();
-      $.ajax({
-          url: url_post,
-          method: "POST",
-          data: new FormData(this),
-          contentType: false,
-          cache : false,
-          processData: false,
-          beforeSend: function() {
-            $('#on_save').attr("disabled", true);
-        },
-          success: function(response) {
-            if (response['error']) {
-              // nomor_surat
-              $(".nomor_surat_error").html(response['error']['nomor_surat']);
-              // sts_seumur_hidup
-              $(".sts_seumur_hidup_error").html(response['error']['sts_seumur_hidup']);
-              // jumlah_setor_modal
-              $(".jumlah_setor_modal_error").html(response['error']['jumlah_setor_modal']);
-              // kualifikasi_usaha
-              $(".kualifikasi_usaha_error").html(response['error']['kualifikasi_usaha']);
-              $('#on_save').attr("disabled", false);
-              $('#button_edit_modal').attr("disabled", false);
-            } else {
-              let timerInterval
-              Swal.fire({
-                title: 'Sedang Proses Menyimpan Data!',
-                html: 'Membuat Data <b></b>',
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: () => {
-                  Swal.showLoading()
-                  const b = Swal.getHtmlContainer().querySelector('b')
-                  timerInterval = setInterval(() => {
-                    // b.textContent = Swal.getTimerRight()
-                  }, 100)
-                },
-                willClose: () => {
-                  clearInterval(timerInterval)
-                  Swal.fire('Data Berhasil Di Simpan!', '', 'success')
-                  $(".nomor_surat_error").css('display','none');
-                  // sts_seumur_hidup
-                  $(".sts_seumur_hidup_error").css('display','none');
-                  // jumlah_setor_modal
-                  $(".jumlah_setor_modal_error").css('display','none');
-                  // kualifikasi_usaha
-                  $(".kualifikasi_usaha_error").css('display','none');
-                  get_row_vendor();
-                  $('#on_save').attr("disabled", false);
-                  $('#button_edit_modal').attr("disabled", false);
-                }
-              }).then((result) => {
-                /* Read more about handling dismissals below */
-                if (result.dismiss === Swal.DismissReason.timer) {
-                  
-                }
-              })
-            }
+    e.preventDefault();
+    $.ajax({
+        url: url_post,
+        method: "POST",
+        data: new FormData(this),
+        contentType: false,
+        cache : false,
+        processData: false,
+        beforeSend: function() {
+          $('#on_save').attr("disabled", true);
+      },
+        success: function(response) {
+          if (response['error']) {
+            // nomor_surat
+            $(".nomor_surat_error").html(response['error']['nomor_surat']);
+            // sts_seumur_hidup
+            $(".sts_seumur_hidup_error").html(response['error']['sts_seumur_hidup']);
+            // jumlah_setor_modal
+            $(".jumlah_setor_modal_error").html(response['error']['jumlah_setor_modal']);
+            // kualifikasi_usaha
+            $(".kualifikasi_usaha_error").html(response['error']['kualifikasi_usaha']);
+            $('#on_save').attr("disabled", false);
+            $('#button_edit_modal').attr("disabled", false);
+          } else {
+            let timerInterval
+            Swal.fire({
+              title: 'Sedang Proses Menyimpan Data!',
+              html: 'Membuat Data <b></b>',
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                  // b.textContent = Swal.getTimerRight()
+                }, 100)
+              },
+              willClose: () => {
+                clearInterval(timerInterval)
+                Swal.fire('Data Berhasil Di Simpan!', '', 'success')
+                $(".nomor_surat_error").css('display','none');
+                // sts_seumur_hidup
+                $(".sts_seumur_hidup_error").css('display','none');
+                // jumlah_setor_modal
+                $(".jumlah_setor_modal_error").css('display','none');
+                // kualifikasi_usaha
+                $(".kualifikasi_usaha_error").css('display','none');
+                get_row_vendor();
+                $('#on_save').attr("disabled", false);
+                $('#button_edit_modal').attr("disabled", false);
+              }
+            }).then((result) => {
+              /* Read more about handling dismissals below */
+              if (result.dismiss === Swal.DismissReason.timer) {
+                
+              }
+            })
           }
-      })
-    }
+        }
+    })
 })
 
 function DekripEnkrip(id_url, type){
