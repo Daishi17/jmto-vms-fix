@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/fontawesome-free/css/all.min.css">
-    <!-- <link href="<?php echo base_url(); ?>/assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="<?php echo base_url(); ?>/assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Select2 -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/plugins-lte/select2/css/select2.min.css">
 
@@ -172,8 +172,6 @@
         </div>
         <div class="container-fluid shadow-lg">
             <a class="navbar-brand">
-                <img src="<?php echo base_url(); ?>/assets/brand/bootstrap-logo.svg" alt="" width="29" height="24" class="d-inline-block align-text-top">
-                <small>E-Registrasi Rekanan JMTO</small>
             </a>
             <div class="text-end">
                 <div class="d-flex align-items-center">

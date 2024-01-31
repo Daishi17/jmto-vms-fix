@@ -225,7 +225,7 @@
                                         </tr>
 
                                     </table>
-                                    <span class="btn btn-success"><i class="fa fa-check"></i> <?= $row_vendor['nama_usaha'] ?> Sudah Menyetujui Pakta Integritas Yang Berlaku Dalam Pengadaan Sejak Dari Daftar Rekanan Tervalidasi Tetap Pada PT. Jasamarga Tollroad Operator</span>
+                                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal_pakta_integritas"><i class="fa fa-check"></i> <?= $row_vendor['nama_usaha'] ?> Sudah Menyetujui Pakta Integritas Yang Berlaku Dalam Pengadaan Sejak Dari Daftar Rekanan Tervalidasi Tetap Pada PT. Jasamarga Tollroad Operator</button>
                                 </div>
                             </div>
                         </div>
@@ -1013,6 +1013,40 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal_pakta_integritas" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Pakta Integritas Rekanan</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img class="pull-right" alt="LOGO" src="<?= base_url() ?>assets/logo_ba/logo_ba.png" width="25%" style="opacity: 0.5;" />
+                <center>
+                    <b>
+                        <h4>PAKTA INTEGRITAS</h4>
+                    </b>
+                </center>
+                <br>
+                <p>Dalam rangka mengikuti <b>Proses Tender/Pengadaan dan Daftar Rekanan Tervalidasi (DRT) PT Jasamarga Tollroad Operator</b>, dengan ini menyatakan dengan sebenarnya bahwa kami : </p>
+                <ol>
+                    <li>Tidak akan melakukan praktek Kolusi, Korupsi, dan Nepotisme (KKN);</li>
+                    <li>Akan melaporkan kepada pihak yang berwajib/berwenang apabila mengetahui adanya indikasi KKN di dalam proses Pengadaan ini;</li>
+                    <li>Dalam proses Pengadaan ini, berjanji akan melaksanakan tugas dan kewajiban secara bersih, transparan, dan profesional dalam arti akan mengerahkan segala kemampuan dan sumber daya secara maksimal untuk memberikan hasil kerja terbaik mulai dari persiapan, pelaksanaan, dan penyelesaian pekerjaan/kegiatan ini;</li>
+                    <li>Tidak akan melakukan pengaturan-pengaturan yang bertentangan dengan ketentuan/peraturan yang berlaku dan atau dengan prinsip-prinsip Pengadaan Barang/Jasa yang efisien, efektif, kompetitif, transparan, adil dan wajar, akuntabel;</li>
+                    <li>Saya bersedia dikenakan sanksi moral, sanksi administrasi, dan sanksi hukum sesuai dengan ketentuan peraturan perundang-undangan yang berlaku, apabila saya melanggar hal-hal yang telah saya nyatakan dalam PAKTA INTEGRITAS ini;</li>
+                </ol>
+                <p>Demikian pernyataan ini kami sampaikan dengan sebenar - benarnya, tanpa menyembunyikan fakta dan hal material apapun, dan dengan demikian kami akan bertanggung jawab sepenuhnya atas kebenaran dari hal - hal yang kami nyatakan di sini, demikian pula akan bersedia bertanggung jawab baik secara perdata maupun pidana, apabila laporan dan pernyataan ini tidak sesuai dengan keadaan sebenarnya.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                <button type="button" class="btn btn-success" disabled>Sudah Menyetujui</button>
             </div>
         </div>
     </div>
