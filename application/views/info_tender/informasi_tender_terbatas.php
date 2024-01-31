@@ -143,6 +143,10 @@
                             <th><small>Rp. <?= number_format($rup['total_hps_rup'], 2, ",", "."); ?> </small></th>
                         </tr>
                         <tr>
+                            <th><small>Jangka Waktu Pelaksanaan Pekerjaan</small></th>
+                            <th><?= $rup['jangka_waktu_hari_pelaksanaan'] ?> Hari</th>
+                        </tr>
+                        <tr>
                             <th>Jadwal Pengadaan</th>
                             <th><a href="javascript:;" onclick="lihat_detail_jadwal('<?= $rup['id_url_rup'] ?>')" class="btn btn-sm btn-primary"><i class="fa-solid fa-calendar-days px-1"></i> Detail Jadwal Pengadaan</a></th>
                         </tr>

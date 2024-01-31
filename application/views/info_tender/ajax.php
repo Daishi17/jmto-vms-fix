@@ -721,7 +721,7 @@
                 }
 
                 if (response['row_negosiasi'].link_negosiasi) {
-                    var link_negosiasi = response['row_negosiasi'].link_negosiasi
+                    var link_negosiasi = '<a href="'+response['row_negosiasi'].link_negosiasi+'" target="_blank">'+response['row_negosiasi'].link_negosiasi+'</a>'
                 } else {
                     var link_negosiasi = '<span class="badge bg-secondary">Belum Ada Link Meet Negosiasi</span>'
                 }

@@ -15,7 +15,7 @@
 <main class="container">
     <div class="row">
         <div class="col">
-            <div class="card border-dark mt-3" style="position: fixed; top:100px;z-index:999;width:95%;">
+            <div class="card border-dark mt-3" style="position: fixed; top:100px;z-index:999;width:67%;">
                 <div class="card-header border-dark bg-white text-black">
                     <ul class="nav nav-tabs">
                         <!-- <li class="nav-item">
@@ -135,6 +135,10 @@
                         <tr>
                             <th><small>Nilai HPS</small></th>
                             <th><small>Rp. <?= number_format($rup['total_hps_rup'], 2, ",", "."); ?> </small></th>
+                        </tr>
+                        <tr>
+                            <th><small>Jangka Waktu Pelaksanaan Pekerjaan</small></th>
+                            <th><?= $rup['jangka_waktu_hari_pelaksanaan'] ?> Hari</th>
                         </tr>
                         <tr>
                             <th>Jadwal Pengadaan</th>

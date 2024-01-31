@@ -4,7 +4,7 @@
 <main class="container">
     <div class="row">
         <div class="col">
-            <div class="card border-dark mt-3">
+            <div class="card border-dark mt-3" style="position: fixed; top:100px;z-index:999;width:67%;">
                 <div class="card-header border-dark bg-white text-black">
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
