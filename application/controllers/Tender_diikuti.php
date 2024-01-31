@@ -2109,4 +2109,57 @@ class Tender_diikuti extends CI_Controller
         $this->M_tender->update_dok_pengadaan_file_II($data, $where);
         $this->output->set_content_type('application/json')->set_output(json_encode('success'));
     }
+
+    public function update_status_persuratan()
+    {
+
+        $id_rup = $this->input->post('id_rup');
+        $post = $this->input->post('post');
+        $session = $this->session->userdata('id_vendor');
+
+        $where = [
+            'id_rup' => $this->input->post('id_rup'),
+            'id_vendor' => $session
+        ];
+
+        $data = [
+            $post => 1,
+        ];
+
+        $this->M_tender->update_mengikuti($data, $where);
+        $this->output->set_content_type('application/json')->set_output(json_encode('success'));
+    }
+
+
+    public function pakta_integritas($id_url_rup)
+    {
+        $data['rup'] = $this->M_tender->get_row_rup($id_url_rup);
+        $data['nama_usaha'] = $this->session->userdata('nama_usaha');
+        $data['vendor'] = $this->M_tender->get_mengikuti($data['rup']['id_rup']);
+        $this->load->view('info_tender/surat_pernyataan/pakta_integritas', $data);
+    }
+
+    public function surat_pernyataan_minat($id_url_rup)
+    {
+        $data['rup'] = $this->M_tender->get_row_rup($id_url_rup);
+        $data['nama_usaha'] = $this->session->userdata('nama_usaha');
+        $data['vendor'] = $this->M_tender->get_mengikuti($data['rup']['id_rup']);
+        $this->load->view('info_tender/surat_pernyataan/surat_pernyataan_minat', $data);
+    }
+
+    public function surat_kebenaran_data($id_url_rup)
+    {
+        $data['rup'] = $this->M_tender->get_row_rup($id_url_rup);
+        $data['nama_usaha'] = $this->session->userdata('nama_usaha');
+        $data['vendor'] = $this->M_tender->get_mengikuti($data['rup']['id_rup']);
+        $this->load->view('info_tender/surat_pernyataan/surat_kebenaran_data', $data);
+    }
+
+    public function surat_pernyataan($id_url_rup)
+    {
+        $data['rup'] = $this->M_tender->get_row_rup($id_url_rup);
+        $data['nama_usaha'] = $this->session->userdata('nama_usaha');
+        $data['vendor'] = $this->M_tender->get_mengikuti($data['rup']['id_rup']);
+        $this->load->view('info_tender/surat_pernyataan/surat_pernyataan', $data);
+    }
 }

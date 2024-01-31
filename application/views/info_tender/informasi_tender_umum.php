@@ -15,12 +15,9 @@
 <main class="container">
     <div class="row">
         <div class="col">
-            <div class="card border-dark mt-3" style="position: fixed; top:100px;z-index:999;width:95%;">
+            <div class="card border-dark mt-3" style="position: fixed; top:100px;z-index:999;width:67%;">
                 <div class="card-header border-dark bg-white text-black">
                     <ul class="nav nav-tabs">
-                        <!-- <li class="nav-item">
-                            <a class="nav-link " aria-current="page"><i class="fa fa-list-alt" aria-hidden="true"> </i> Menu Tender</a>
-                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link active" style="margin-left: 5px;" href="#"><i class="fa fa-columns" aria-hidden="true"></i> Informasi Pengadaan</a>
                         </li>
@@ -34,88 +31,12 @@
                         <li class="nav-item">
                             <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
                         </li>
-                        <!-- <?php if ($get_row_mengikuti['ev_teknis'] > 60 && $get_row_mengikuti['ev_keuangan']) { ?>
-                                                                                    <li class="nav-item">
-                                                                                        <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/aanwijzing_penawaran/' . $rup['id_url_rup']) ?>"><i class="fa fa-comments" aria-hidden="true"></i> Aanwijzing (Penawaran)</a>
-                                                                                    </li>
-                        <?php } else { ?>
-                        <?php  } ?> -->
                         <li class="nav-item">
                             <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/negosiasi/' . $rup['id_url_rup']) ?>"><i class="fa fa-tags" aria-hidden="true"></i> Negosiasi</a>
                         </li>
-                        <!-- <?php if ($sts_nego == 'buka_negosiasi') { ?>
-                                                                                    <?php if (date('Y-m-d H:i', strtotime($jadwal_penetapan_pemenang['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_penetapan_pemenang['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                                                                                                                                <?php $date2 = $jadwal_penetapan_pemenang['waktu_selesai'];
-                                                                                                                                                if (date('Y-m-d H:i', strtotime($jadwal_penetapan_pemenang['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
-                                                                                                                                                <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_penetapan_pemenang['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_penetapan_pemenang['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                                                                                                                                                                                            <li class="nav-item">
-                                                                                                                                                                                                                <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/negosiasi/' . $rup['id_url_rup']) ?>"><i class="fa fa-tags" aria-hidden="true"></i> Negosiasi</a>
-                                                                                                                                                                                                            </li>
-                                                                                                                                                <?php    } else { ?>
-                                                                                                                                                <?php    } ?>
-                                                                                    <?php } else { ?>
-                                                                                                                                                <?php
-                                                                                                                                                if (date('Y-m-d H:i', strtotime($jadwal_penetapan_pemenang['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
-
-                                                                                                                                                <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_penetapan_pemenang['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_penetapan_pemenang['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                                                                                                                                                                                            <li class="nav-item">
-                                                                                                                                                                                                                <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/negosiasi/' . $rup['id_url_rup']) ?>"><i class="fa fa-tags" aria-hidden="true"></i> Negosiasi</a>
-                                                                                                                                                                                                            </li>
-                                                                                                                                                <?php    } else { ?>
-
-                                                                                                                                                <?php    } ?>
-                                                                                    <?php } ?>
-                        <?php } else { ?>
-
-                        <?php   } ?> -->
-
-
-                        <!-- <?php if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                                                                    <?php $date2 = $jadwal_masa_sanggah_kualifikasi['waktu_selesai'];
-                                                                                    if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
-                                                                                    <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                                                                                                                                <li class="nav-item">
-                                                                                                                                                    <a class="nav-link bg-primary text-white " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_prakualifikasi/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Kualifikasi</a>
-                                                                                                                                                </li>
-                                                                                    <?php    } else { ?>
-                                                                                    <?php    } ?>
-                        <?php } else { ?>
-                                                                                    <?php
-                                                                                    if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
-
-                                                                                    <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                                                                                                                                <li class="nav-item">
-                                                                                                                                                    <a class="nav-link bg-primary text-white " style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_prakualifikasi/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Kualifikasi</a>
-                                                                                                                                                </li>
-                                                                                    <?php    } else { ?>
-                                                                                    <?php    } ?>
-                        <?php } ?> -->
                         <li class="nav-item">
                             <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_akhir/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Pemenang </a>
                         </li>
-                        <!-- <?php if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                                                                    <?php $date2 = $jadwal_masa_sanggah_akhir['waktu_selesai'];
-                                                                                    if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
-                                                                                    <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                                                                                                                                <li class="nav-item">
-                                                                                                                                                    <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_akhir/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Pemenang </a>
-                                                                                                                                                </li>
-                                                                                    <?php    } else { ?>
-                                                                                    <?php    } ?>
-                        <?php } else { ?>
-                                                                                    <?php
-                                                                                    if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
-
-                                                                                    <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                                                                                                                                <li class="nav-item">
-                                                                                                                                                    <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="<?= base_url('tender_diikuti/sanggahan_akhir/'  . $rup['id_url_rup']) ?>"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Sanggahan Pemenang </a>
-                                                                                                                                                </li>
-                                                                                    <?php    } else { ?>
-                                                                                    <?php    } ?>
-                        <?php } ?> -->
-                        <!-- <li class="nav-item">
-                            <a class="nav-link bg-primary text-white" style="margin-left: 5px;" href="#"><i class="fa fa-suitcase" aria-hidden="true"></i> Berita Acara</a>
-                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -236,6 +157,129 @@
                             <th>Persyaratan Tambahan</th>
                             <th>
                                 <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+                                            <div class="card-header bg-primary text-white">
+                                                Surat Pernyataan
+                                            </div>
+                                            <div class="card-body">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>No</th>
+                                                            <th>Surat Pernyataan</th>
+                                                            <th>Status Persetujuan</th>
+                                                            <th>Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td><small><a href="<?= base_url('tender_diikuti/pakta_integritas/' . $rup['id_url_rup']) ?>" target="_blank" class="btn btn-danger"><i class="fa fa-file"></i> PAKTA INTEGRITAS</a></small></td>
+                                                            <td>
+                                                                <?php if ($get_row_mengikuti['sts_suratpernyataan_1'] == 1) { ?>
+                                                                    <span class="badge bg-success">Sudah Menyetujui</span>
+                                                                <?php } else { ?>
+                                                                    <span class="badge bg-danger">Belum Menyetujui</span>
+                                                                <?php } ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                                                                <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                                                    <?php if ($get_row_mengikuti['sts_suratpernyataan_1'] == 1) { ?>
+                                                                        <span class="badge bg-success">Sudah Menyetujui</span>
+                                                                    <?php } else { ?>
+                                                                        <a href="javascript:;" onclick="setujui_surat('<?= $rup['id_rup'] ?>','sts_suratpernyataan_1')" class="btn btn-sm btn-success">Setujui</a>
+                                                                    <?php } ?>
+                                                                <?php  } else { ?>
+
+                                                                    <label for="" class="badge bg-secondary">Tahap Sudah Selesai</label>
+
+                                                                <?php } ?>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td><small><a href="<?= base_url('tender_diikuti/surat_pernyataan_minat/' . $rup['id_url_rup']) ?>" target="_blank" class="btn btn-danger"><i class="fa fa-file"></i> SURAT PERNYATAAN MINAT </a></small></td>
+                                                            <td>
+                                                                <?php if ($get_row_mengikuti['sts_suratpernyataan_2'] == 1) { ?>
+                                                                    <span class="badge bg-success">Sudah Menyetujui</span>
+                                                                <?php } else { ?>
+                                                                    <span class="badge bg-danger">Belum Menyetujui</span>
+                                                                <?php } ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                                                                <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                                                    <?php if ($get_row_mengikuti['sts_suratpernyataan_2'] == 1) { ?>
+                                                                        <span class="badge bg-success">Sudah Menyetujui</span>
+                                                                    <?php } else { ?>
+                                                                        <a href="javascript:;" onclick="setujui_surat('<?= $rup['id_rup'] ?>','sts_suratpernyataan_2')" class="btn btn-sm btn-success">Setujui</a>
+                                                                    <?php } ?>
+                                                                <?php  } else { ?>
+
+                                                                    <label for="" class="badge bg-secondary">Tahap Sudah Selesai</label>
+
+                                                                <?php } ?>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td><small><a href="<?= base_url('tender_diikuti/surat_kebenaran_data/' . $rup['id_url_rup']) ?>" target="_blank" class="btn btn-danger"><i class="fa fa-file"></i> SURAT PERNYATAAN KEBENARAN DATA <br> DALAM FORMULIR ISIAN KUALIFIKASI</a></small>
+                                                            </td>
+                                                            <td>
+                                                                <?php if ($get_row_mengikuti['sts_suratpernyataan_3'] == 1) { ?>
+                                                                    <span class="badge bg-success">Sudah Menyetujui</span>
+                                                                <?php } else { ?>
+                                                                    <span class="badge bg-danger">Belum Menyetujui</span>
+                                                                <?php } ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                                                                <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                                                    <?php if ($get_row_mengikuti['sts_suratpernyataan_3'] == 1) { ?>
+                                                                        <span class="badge bg-success">Sudah Menyetujui</span>
+                                                                    <?php } else { ?>
+                                                                        <a href="javascript:;" onclick="setujui_surat('<?= $rup['id_rup'] ?>','sts_suratpernyataan_3')" class="btn btn-sm btn-success">Setujui</a>
+                                                                    <?php } ?>
+                                                                <?php  } else { ?>
+
+                                                                    <label for="" class="badge bg-secondary">Tahap Sudah Selesai</label>
+
+                                                                <?php } ?>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>4</td>
+                                                            <td><small><a href="<?= base_url('tender_diikuti/surat_pernyataan/' . $rup['id_url_rup']) ?>" target="_blank" class="btn btn-danger"><i class="fa fa-file"></i> SURAT PERNYATAAN </a></small>
+                                                            </td>
+                                                            <td>
+                                                                <?php if ($get_row_mengikuti['sts_suratpernyataan_4'] == 1) { ?>
+                                                                    <span class="badge bg-success">Sudah Menyetujui</span>
+                                                                <?php } else { ?>
+                                                                    <span class="badge bg-danger">Belum Menyetujui</span>
+                                                                <?php } ?>
+                                                            </td>
+                                                            <td>
+                                                                <?php if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                                                                <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                                                    <?php if ($get_row_mengikuti['sts_suratpernyataan_4'] == 1) { ?>
+                                                                        <span class="badge bg-success">Sudah Menyetujui</span>
+                                                                    <?php } else { ?>
+                                                                        <a href="javascript:;" onclick="setujui_surat('<?= $rup['id_rup'] ?>','sts_suratpernyataan_4')" class="btn btn-sm btn-success">Setujui</a>
+                                                                    <?php } ?>
+                                                                <?php  } else { ?>
+
+                                                                    <label for="" class="badge bg-secondary">Tahap Sudah Selesai</label>
+
+                                                                <?php } ?>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-header bg-primary text-white">

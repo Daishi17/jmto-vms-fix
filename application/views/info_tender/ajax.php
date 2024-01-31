@@ -952,4 +952,38 @@
             }
         })
     })
+
+    function setujui_surat(id_rup, type)
+    {
+        Swal.fire({
+            title: "Anda Yakin Ingin Menyetujui?",
+            text: "Data Yang Sudah Disetujui Tidak Bisa Dibatal!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, Kirim!"
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "POST",
+                    url: '<?= base_url('tender_diikuti/update_status_persuratan') ?>',
+                    dataType: "JSON",
+                    data: {
+                        post: type,
+                        id_rup: id_rup
+                    },
+                    success: function(response) {
+                        Swal.fire('Surat Pernyataan Berhasil Disetujui!', '', 'success')
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1500);
+                    }
+                })
+            }
+        });
+
+       
+    }
 </script>
