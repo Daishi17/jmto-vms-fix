@@ -59,7 +59,7 @@
                                                 <small>Status Dokumen</small>
                                             </th>
                                             <?php
-                                            if ($count_validate == 15) { ?>
+                                            if ($count_validate == 13) { ?>
                                                 <?php if ($count_tdk_validate > 0) { ?>
                                                     <td class="text-end">
                                                         <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#rincian_dokumen"><small><span class="badge bg-danger">Belum Lengkap</span></small></a>
