@@ -910,11 +910,12 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                 <!-- siup -->
                 <div id="siup_warning">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_siup"></label>
                         </div>
-                        <div class="col-md-10">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_siup"></label>
+                        <div class="col-md-9">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_siup"></label> <br>
+                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_siup_juni"></label>
                         </div>
                     </div>
                 </div>
@@ -922,11 +923,12 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                 <!-- nib -->
                 <div id="nib_warning">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_nib"></label>
                         </div>
-                        <div class="col-md-10">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_nib"></label>
+                        <div class="col-md-9">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_nib"></label> <br>
+                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_nib_juni"></label>
                         </div>
                     </div>
                 </div>
@@ -934,11 +936,12 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                 <!-- sbu -->
                 <div id="sbu_warning">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sbu"></label>
                         </div>
-                        <div class="col-md-10">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_sbu"></label>
+                        <div class="col-md-9">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_sbu"></label> <br>
+                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_sbu_juni"></label>
                         </div>
                     </div>
                 </div>
@@ -946,11 +949,13 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                 <!-- akta_pendirian -->
                 <div id="akta_pendirian_warning">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_akta_pendirian"></label>
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-md-9">
                             : <label style="font-weight: bold;font-size:18px;" for="" id="warning_akta_pendirian"></label>
+                            <br>
+                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_akta_pendirian_juni"></label>
                         </div>
                     </div>
                 </div>
@@ -958,23 +963,26 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                 <!-- sppkp -->
                 <div id="sppkp_warning">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sppkp"></label>
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-md-9">
                             : <label style="font-weight: bold;font-size:18px;" for="" id="warning_sppkp"></label>
+                            <br>
+                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_sppkp_juni"></label>
                         </div>
                     </div>
                 </div>
-
                 <!-- npwp -->
                 <div id="npwp_warning">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_npwp"></label>
                         </div>
-                        <div class="col-md-10">
+                        <div class="col-md-9">
                             : <label style="font-weight: bold;font-size:18px;" for="" id="warning_npwp"></label>
+                            <br>
+                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_npwp_juni"></label>
                         </div>
                     </div>
                 </div>
