@@ -25,6 +25,7 @@
     <script src="https://eproc.jmtm.co.id/assets/js/sweetalert.min.js" media="all"></script>
 
     <script type="text/javascript" src="https://eproc.jmtm.co.id/assets/boostrapnew/dist/js/jquery.min.js" media="all"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -139,7 +140,20 @@ function terbilang($nilai)
             <?php if ($vendor['sts_suratpernyataan_2'] == 1) { ?>
                 <span class="btn btn-success">Sudah Menyetujui</span>
             <?php } else { ?>
-                <span class="btn btn-danger">Belum Menyetujui</span>
+                <?php if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+                <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_prakualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                    <?php if ($get_row_mengikuti['sts_suratpernyataan_2'] == 1) { ?>
+                        <span class="badge bg-success">Sudah Menyetujui</span>
+                    <?php } else { ?>
+                        <center>
+                            <a href="javascript:;" onclick="setujui_surat('<?= $rup['id_rup'] ?>','sts_suratpernyataan_2')" class="btn btn-sm btn-success">Setujui</a>
+                        </center>
+                    <?php } ?>
+                <?php  } else { ?>
+
+                    <label for="" class="badge bg-secondary">Tahap Sudah Selesai</label>
+
+                <?php } ?>
             <?php } ?>
         </div>
     </div>
@@ -166,4 +180,35 @@ function terbilang($nilai)
 </html>
 <script>
     window.print();
+
+    function setujui_surat(id_rup, type) {
+        Swal.fire({
+            title: "Anda Yakin Ingin Menyetujui?",
+            text: "Data Yang Sudah Disetujui Tidak Bisa Dibatal!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Ya, Kirim!"
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "POST",
+                    url: '<?= base_url('tender_diikuti/update_status_persuratan') ?>',
+                    dataType: "JSON",
+                    data: {
+                        post: type,
+                        id_rup: id_rup
+                    },
+                    success: function(response) {
+                        Swal.fire('Surat Pernyataan Berhasil Disetujui!', '', 'success')
+                        setTimeout(() => {
+                            location.reload();
+                        }, 1500);
+                    }
+                })
+            }
+        });
+    }
 </script>
