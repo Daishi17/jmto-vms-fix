@@ -276,10 +276,15 @@ function terbilang($nilai)
                                         <td><?= $value['nama_usaha'] ?></td>
                                         <td>
                                             <?php if ($cek_valid_vendor >= $hitung_syarat) {
-                                                $sts_administrasi =  '<span class="badge bg-success">Lulus</span>';
+                                                if ($value['sts_suratpernyataan_1'] == 1 && $value['sts_suratpernyataan_2'] == 1 && $value['sts_suratpernyataan_3'] && $value['sts_suratpernyataan_4'] == 1) {
+                                                    $sts_administrasi = '<span class="badge bg-success">Lulus</span>';
+                                                } else {
+                                                    $sts_administrasi = '<span class="badge bg-danger">Gugur</span>';
+                                                }
                                             } else {
                                                 $sts_administrasi =  '<span class="badge bg-danger">Gugur</span>';
                                             } ?>
+
                                             <label for=""><?= $sts_administrasi ?></label>
                                         </td>
                                         <td>
