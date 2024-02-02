@@ -908,7 +908,7 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
             </div>
             <div class="modal-body">
                 <!-- siup -->
-                <div id="siup_warning">
+                <div id="siup_warning" style="display: none;">
                     <div class="row">
                         <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_siup"></label>
@@ -921,7 +921,7 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                 </div>
 
                 <!-- nib -->
-                <div id="nib_warning">
+                <div id="nib_warning" style="display: none;">
                     <div class="row">
                         <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_nib"></label>
@@ -934,7 +934,7 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                 </div>
 
                 <!-- sbu -->
-                <div id="sbu_warning">
+                <div id="sbu_warning" style="display: none;">
                     <div class="row">
                         <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sbu"></label>
@@ -947,7 +947,7 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                 </div>
 
                 <!-- akta_pendirian -->
-                <div id="akta_pendirian_warning">
+                <div id="akta_pendirian_warning" style="display: none;">
                     <div class="row">
                         <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_akta_pendirian"></label>
@@ -961,7 +961,7 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                 </div>
 
                 <!-- sppkp -->
-                <div id="sppkp_warning">
+                <div id="sppkp_warning" style="display: none;">
                     <div class="row">
                         <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sppkp"></label>
@@ -974,7 +974,7 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                     </div>
                 </div>
                 <!-- npwp -->
-                <div id="npwp_warning">
+                <div id="npwp_warning" style="display: none;">
                     <div class="row">
                         <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_npwp"></label>
@@ -986,9 +986,6 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
