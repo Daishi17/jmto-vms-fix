@@ -896,13 +896,34 @@ class M_Dashboard extends CI_Model
         return $query->row_array();
     }
 
-     // npwp
-     function cek_vendor_npwp_dokumen($id_vendor)
-     {
-         $this->db->select('*');
-         $this->db->from('tbl_vendor_npwp');
-         $this->db->where('id_vendor', $id_vendor);
-         $query = $this->db->get();
-         return $query->row_array();
-     }
+    // npwp
+    function cek_vendor_npwp_dokumen($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_npwp');
+        $this->db->where('id_vendor', $id_vendor);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+    //  siujk
+    function cek_vendor_siujk_dokumen($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_siujk');
+        $this->db->where('id_vendor', $id_vendor);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+    //  skdp
+    function cek_vendor_skdp_dokumen($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_skdp');
+        $this->db->where('id_vendor', $id_vendor);
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+    
 }

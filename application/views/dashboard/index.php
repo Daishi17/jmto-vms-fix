@@ -900,7 +900,7 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
 <!-- Modal -->
 
 <div class="modal fade" id="modal_warning_dokumen" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header bg-danger text-white">
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">PERINGATAN MASA BERLAKU DOKUMEN</h1>
@@ -946,46 +946,96 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                     </div>
                 </div>
 
-                <!-- akta_pendirian -->
-                <div id="akta_pendirian_warning" style="display: none;">
+                <!-- siujk -->
+                <div id="siujk_warning" style="display: none;">
                     <div class="row">
                         <div class="col-md-3">
-                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_akta_pendirian"></label>
+                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_siujk"></label>
                         </div>
                         <div class="col-md-9">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_akta_pendirian"></label>
-                            <br>
-                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_akta_pendirian_juni"></label>
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_siujk"></label> <br>
+                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_siujk_juni"></label>
                         </div>
                     </div>
                 </div>
 
-                <!-- sppkp -->
-                <div id="sppkp_warning" style="display: none;">
+                <!-- skdp -->
+                <div id="skdp_warning" style="display: none;">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_skdp"></label>
+                        </div>
+                        <div class="col-md-9">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_skdp"></label> <br>
+                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_skdp_juni"></label>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- sppkp -->
+                 <div id="sppkp_warning" style="display: none;">
                     <div class="row">
                         <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sppkp"></label>
                         </div>
                         <div class="col-md-9">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_sppkp"></label>
-                            <br>
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_sppkp"></label> <br>
                             <label style="font-weight: bold;font-size:18px;" for="" id="warning_sppkp_juni"></label>
                         </div>
                     </div>
                 </div>
-                <!-- npwp -->
-                <div id="npwp_warning" style="display: none;">
+
+                 <!-- npwp -->
+                 <div id="npwp_warning" style="display: none;">
                     <div class="row">
                         <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_npwp"></label>
                         </div>
                         <div class="col-md-9">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_npwp"></label>
-                            <br>
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_npwp"></label> <br>
                             <label style="font-weight: bold;font-size:18px;" for="" id="warning_npwp_juni"></label>
                         </div>
                     </div>
                 </div>
+
+
+                  <!-- spt -->
+                  <div id="spt_warning" style="display: none;">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_spt"></label>
+                        </div>
+                        <div class="col-md-9">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_spt_juni"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- keuangan -->
+                <div id="keuangan_warning" style="display: none;">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_keuangan"></label>
+                        </div>
+                        <div class="col-md-9">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_keuangan_juni"></label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- neraca -->
+                <div id="neraca_warning" style="display: none;">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_neraca"></label>
+                        </div>
+                        <div class="col-md-9">
+                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_neraca_juni"></label>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

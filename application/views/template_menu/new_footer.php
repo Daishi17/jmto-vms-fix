@@ -332,11 +332,11 @@
                             jam_siup = `${jam_siup}` + ' Jam';
                         }
                         var data_siup_validasi = ` ${tahun_siup} ${bulan_siup} ${hari_siup} ${jam_siup}`;
-                        var data_siup_validasi_juni = ` Peringatan: Setiap Bulan Juni Harap Update Segera Dokumen Tahun ${di_suruh_update_siup} Anda !!`;
+                        var data_siup_validasi_juni = ` Setiap Bulan Juni Harap Update Segera Dokumen Tahun ${di_suruh_update_siup} Anda !!`;
                         if (tanggal_sekarang_siup.getMonth() === 5) { // Peringatan Update Setiap Bulan Juni
                             modal_warning_dokumen.modal('show');
                             $('#siup_warning').css('display', 'block');
-                            $('#nama_dokumen_siup').html(response['nama_dokumen_siup']);
+                            $('#nama_dokumen_siup').html('SIUP');
                             $('#warning_siup').html(data_siup_validasi);
                             $('#warning_siup_juni').html(data_siup_validasi_juni);
                         } else {
@@ -344,25 +344,25 @@
                             if (selisih_waktu_siup < (3 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#siup_warning').css('display', 'block');
-                                $('#nama_dokumen_siup').html(response['nama_dokumen_siup']);
+                                $('#nama_dokumen_siup').html('SIUP');
                                 $('#warning_siup').html(`Masa berlaku akan habis kurang dari ${bulan_siup} ${hari_siup} ${jam_siup}`);
                             }
                             if (selisih_waktu_siup < (2 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#siup_warning').css('display', 'block');
-                                $('#nama_dokumen_siup').html(response['nama_dokumen_siup']);
+                                $('#nama_dokumen_siup').html('SIUP');
                                 $('#warning_siup').html(`Masa berlaku akan habis kurang dari ${bulan_siup} ${hari_siup} ${jam_siup}`);
                             }
                             if (selisih_waktu_siup < (1 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#siup_warning').css('display', 'block');
-                                $('#nama_dokumen_siup').html(response['nama_dokumen_siup']);
+                                $('#nama_dokumen_siup').html('SIUP');
                                 $('#warning_siup').html(`Masa berlaku akan habis kurang dari ${bulan_siup} ${hari_siup} ${jam_siup}`);
                             }
                             if (selisih_waktu_siup < (7 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#siup_warning').css('display', 'block');
-                                $('#nama_dokumen_siup').html(response['nama_dokumen_siup']);
+                                $('#nama_dokumen_siup').html('SIUP');
                                 $('#warning_siup').html(`Masa berlaku akan habis kurang dari ${hari_siup} ${jam_siup}`);
                             }
                         }
@@ -370,12 +370,10 @@
                         modal_warning_dokumen.modal('show');
                         $('#siup_warning').css('display', 'block');
                         $('#warning_siup').html('Masa berlaku telah kadaluarsa');
-                        $('#nama_dokumen_siup').html(response['nama_dokumen_siup']);
+                        $('#nama_dokumen_siup').html('SIUP');
                     }
                 }
-
-
-                // nib
+                // NIB
                 var tanggal_berlaku_nib = new Date(response['row_nib'].tgl_berlaku);
                 var tanggal_sekarang_nib = new Date();
                 var di_suruh_update_nib = new Date().getFullYear() - 3;
@@ -411,11 +409,11 @@
                             jam_nib = `${jam_nib}` + ' Jam';
                         }
                         var data_nib_validasi = ` ${tahun_nib} ${bulan_nib} ${hari_nib} ${jam_nib}`;
-                        var data_nib_validasi_juni = ` Peringatan: Setiap Bulan Juni Harap Update Segera Dokumen Tahun ${di_suruh_update_nib} Anda !!`;
+                        var data_nib_validasi_juni = ` Setiap Bulan Juni Harap Update Segera Dokumen Tahun ${di_suruh_update_nib} Anda !!`;
                         if (tanggal_sekarang_nib.getMonth() === 5) { // Peringatan Update Setiap Bulan Juni
                             modal_warning_dokumen.modal('show');
                             $('#nib_warning').css('display', 'block');
-                            $('#nama_dokumen_nib').html(response['nama_dokumen_nib']);
+                            $('#nama_dokumen_nib').html('NIB');
                             $('#warning_nib').html(data_nib_validasi);
                             $('#warning_nib_juni').html(data_nib_validasi_juni);
                         } else {
@@ -423,25 +421,25 @@
                             if (selisih_waktu_nib < (3 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#nib_warning').css('display', 'block');
-                                $('#nama_dokumen_nib').html(response['nama_dokumen_nib']);
+                                $('#nama_dokumen_nib').html('NIB');
                                 $('#warning_nib').html(`Masa berlaku akan habis kurang dari ${bulan_nib} ${hari_nib} ${jam_nib}`);
                             }
                             if (selisih_waktu_nib < (2 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#nib_warning').css('display', 'block');
-                                $('#nama_dokumen_nib').html(response['nama_dokumen_nib']);
+                                $('#nama_dokumen_nib').html('NIB');
                                 $('#warning_nib').html(`Masa berlaku akan habis kurang dari ${bulan_nib} ${hari_nib} ${jam_nib}`);
                             }
                             if (selisih_waktu_nib < (1 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#nib_warning').css('display', 'block');
-                                $('#nama_dokumen_nib').html(response['nama_dokumen_nib']);
+                                $('#nama_dokumen_nib').html('NIB');
                                 $('#warning_nib').html(`Masa berlaku akan habis kurang dari ${bulan_nib} ${hari_nib} ${jam_nib}`);
                             }
                             if (selisih_waktu_nib < (7 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#nib_warning').css('display', 'block');
-                                $('#nama_dokumen_nib').html(response['nama_dokumen_nib']);
+                                $('#nama_dokumen_nib').html('NIB');
                                 $('#warning_nib').html(`Masa berlaku akan habis kurang dari ${hari_nib} ${jam_nib}`);
                             }
                         }
@@ -449,11 +447,9 @@
                         modal_warning_dokumen.modal('show');
                         $('#nib_warning').css('display', 'block');
                         $('#warning_nib').html('Masa berlaku telah kadaluarsa');
-                        $('#nama_dokumen_nib').html(response['nama_dokumen_nib']);
+                        $('#nama_dokumen_nib').html('NIB');
                     }
                 }
-
-
 
                 // sbu
                 var tanggal_berlaku_sbu = new Date(response['row_sbu'].tgl_berlaku);
@@ -491,11 +487,11 @@
                             jam_sbu = `${jam_sbu}` + ' Jam';
                         }
                         var data_sbu_validasi = ` ${tahun_sbu} ${bulan_sbu} ${hari_sbu} ${jam_sbu}`;
-                        var data_sbu_validasi_juni = ` Peringatan: Setiap Bulan Juni Harap Update Segera Dokumen Tahun ${di_suruh_update_sbu} Anda !!`;
+                        var data_sbu_validasi_juni = ` Setiap Bulan Juni Harap Update Segera Dokumen Tahun ${di_suruh_update_sbu} Anda !!`;
                         if (tanggal_sekarang_sbu.getMonth() === 5) { // Peringatan Update Setiap Bulan Juni
                             modal_warning_dokumen.modal('show');
                             $('#sbu_warning').css('display', 'block');
-                            $('#nama_dokumen_sbu').html(response['nama_dokumen_sbu']);
+                            $('#nama_dokumen_sbu').html('SBU');
                             $('#warning_sbu').html(data_sbu_validasi);
                             $('#warning_sbu_juni').html(data_sbu_validasi_juni);
                         } else {
@@ -503,25 +499,25 @@
                             if (selisih_waktu_sbu < (3 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#sbu_warning').css('display', 'block');
-                                $('#nama_dokumen_sbu').html(response['nama_dokumen_sbu']);
+                                $('#nama_dokumen_sbu').html('SBU');
                                 $('#warning_sbu').html(`Masa berlaku akan habis kurang dari ${bulan_sbu} ${hari_sbu} ${jam_sbu}`);
                             }
                             if (selisih_waktu_sbu < (2 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#sbu_warning').css('display', 'block');
-                                $('#nama_dokumen_sbu').html(response['nama_dokumen_sbu']);
+                                $('#nama_dokumen_sbu').html('SBU');
                                 $('#warning_sbu').html(`Masa berlaku akan habis kurang dari ${bulan_sbu} ${hari_sbu} ${jam_sbu}`);
                             }
                             if (selisih_waktu_sbu < (1 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#sbu_warning').css('display', 'block');
-                                $('#nama_dokumen_sbu').html(response['nama_dokumen_sbu']);
+                                $('#nama_dokumen_sbu').html('SBU');
                                 $('#warning_sbu').html(`Masa berlaku akan habis kurang dari ${bulan_sbu} ${hari_sbu} ${jam_sbu}`);
                             }
                             if (selisih_waktu_sbu < (7 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#sbu_warning').css('display', 'block');
-                                $('#nama_dokumen_sbu').html(response['nama_dokumen_sbu']);
+                                $('#nama_dokumen_sbu').html('SBU');
                                 $('#warning_sbu').html(`Masa berlaku akan habis kurang dari ${hari_sbu} ${jam_sbu}`);
                             }
                         }
@@ -529,97 +525,173 @@
                         modal_warning_dokumen.modal('show');
                         $('#sbu_warning').css('display', 'block');
                         $('#warning_sbu').html('Masa berlaku telah kadaluarsa');
-                        $('#nama_dokumen_sbu').html(response['nama_dokumen_sbu']);
+                        $('#nama_dokumen_sbu').html('SBU');
                     }
-
                 }
 
-                // akta_pendirian
-                var tanggal_berlaku_akta_pendirian = new Date(response['row_akta_pendirian'].tgl_berlaku_akta);
-                var tanggal_sekarang_akta_pendirian = new Date();
-                var di_suruh_update_akta_pendirian = new Date().getFullYear() - 3;
-                var selisih_waktu_akta_pendirian = tanggal_berlaku_akta_pendirian - tanggal_sekarang_akta_pendirian;
-
-                if (response['row_akta_pendirian'].sts_seumur_hidup == 2) {
-                    $('#akta_pendirian_warning').css('display', 'none');
+                // siujk
+                var tanggal_berlaku_siujk = new Date(response['row_siujk'].tgl_berlaku);
+                var tanggal_sekarang_siujk = new Date();
+                var di_suruh_update_siujk = new Date().getFullYear() - 3;
+                var selisih_waktu_siujk = tanggal_berlaku_siujk - tanggal_sekarang_siujk;
+                if (response['row_siujk'].sts_seumur_hidup == 2) {
+                    $('#siujk_warning').css('display', 'none');
                 } else {
+                    if (selisih_waktu_siujk > 0) {
+                        var tahun_siujk = Math.floor(selisih_waktu_siujk / (1000 * 60 * 60 * 24 * 365.25));
+                        var bulan_siujk = Math.floor((selisih_waktu_siujk % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+                        var hari_siujk = Math.floor((selisih_waktu_siujk % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+                        var jam_siujk = Math.floor((selisih_waktu_siujk % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-                    if (selisih_waktu_akta_pendirian > 0) {
-                        var tahun_akta_pendirian = Math.floor(selisih_waktu_akta_pendirian / (1000 * 60 * 60 * 24 * 365.25));
-                        var bulan_akta_pendirian = Math.floor((selisih_waktu_akta_pendirian % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
-                        var hari_akta_pendirian = Math.floor((selisih_waktu_akta_pendirian % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
-                        var jam_akta_pendirian = Math.floor((selisih_waktu_akta_pendirian % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-
-                        if (tahun_akta_pendirian == '') {
-                            tahun_akta_pendirian = ''
+                        if (tahun_siujk == '') {
+                            tahun_siujk = ''
                         } else {
-                            tahun_akta_pendirian = `${tahun_akta_pendirian}` + ' Tahun';
+                            tahun_siujk = `${tahun_siujk}` + ' Tahun';
                         }
-                        if (bulan_akta_pendirian == '') {
-                            bulan_akta_pendirian = ''
+                        if (bulan_siujk == '') {
+                            bulan_siujk = ''
                         } else {
-                            bulan_akta_pendirian = `${bulan_akta_pendirian}` + ' Bulan';
+                            bulan_siujk = `${bulan_siujk}` + ' Bulan';
                         }
-                        if (hari_akta_pendirian == '') {
-                            hari_akta_pendirian = ''
+                        if (hari_siujk == '') {
+                            hari_siujk = ''
                         } else {
-                            hari_akta_pendirian = `${hari_akta_pendirian}` + ' Hari';
+                            hari_siujk = `${hari_siujk}` + ' Hari';
                         }
 
-                        if (jam_akta_pendirian == '') {
-                            jam_akta_pendirian = ''
+                        if (jam_siujk == '') {
+                            jam_siujk = ''
                         } else {
-                            jam_akta_pendirian = `${jam_akta_pendirian}` + ' Jam';
+                            jam_siujk = `${jam_siujk}` + ' Jam';
                         }
-                        var data_akta_pendirian_validasi = ` ${tahun_akta_pendirian} ${bulan_akta_pendirian} ${hari_akta_pendirian} ${jam_akta_pendirian}`;
-                        var data_akta_pendirian_validasi_juni = ` Peringatan: Setiap Bulan Juni Harap Update Segera Dokumen Tahun ${di_suruh_update_akta_pendirian} Anda !!`;
-                        if (tanggal_sekarang_akta_pendirian.getMonth() === 5) { // Peringatan Update Setiap Bulan Juni
+                        var data_siujk_validasi = ` ${tahun_siujk} ${bulan_siujk} ${hari_siujk} ${jam_siujk}`;
+                        var data_siujk_validasi_juni = ` Setiap Bulan Juni Harap Update Segera Dokumen Tahun ${di_suruh_update_siujk} Anda !!`;
+                        if (tanggal_sekarang_siujk.getMonth() === 5) { // Peringatan Update Setiap Bulan Juni
                             modal_warning_dokumen.modal('show');
-                            $('#akta_pendirian_warning').css('display', 'block');
-                            $('#nama_dokumen_akta_pendirian').html(response['nama_dokumen_akta_pendirian']);
-                            $('#warning_akta_pendirian').html(data_akta_pendirian_validasi);
-                            $('#warning_akta_pendirian_juni').html(data_akta_pendirian_validasi_juni);
+                            $('#siujk_warning').css('display', 'block');
+                            $('#nama_dokumen_siujk').html('SIUJK');
+                            $('#warning_siujk').html(data_siujk_validasi);
+                            $('#warning_siujk_juni').html(data_siujk_validasi_juni);
                         } else {
-                            $('#akta_pendirian_warning').css('display', 'none');
-                            if (selisih_waktu_akta_pendirian < (3 * 30 * 24 * 60 * 60 * 1000)) {
+                            $('#siujk_warning').css('display', 'none');
+                            if (selisih_waktu_siujk < (3 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
-                                $('#akta_pendirian_warning').css('display', 'block');
-                                $('#nama_dokumen_akta_pendirian').html(response['nama_dokumen_akta_pendirian']);
-                                $('#warning_akta_pendirian').html(`Masa berlaku akan habis kurang dari ${bulan_akta_pendirian} ${hari_akta_pendirian} ${jam_akta_pendirian}`);
+                                $('#siujk_warning').css('display', 'block');
+                                $('#nama_dokumen_siujk').html('SIUJK');
+                                $('#warning_siujk').html(`Masa berlaku akan habis kurang dari ${bulan_siujk} ${hari_siujk} ${jam_siujk}`);
                             }
-                            if (selisih_waktu_akta_pendirian < (2 * 30 * 24 * 60 * 60 * 1000)) {
+                            if (selisih_waktu_siujk < (2 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
-                                $('#akta_pendirian_warning').css('display', 'block');
-                                $('#nama_dokumen_akta_pendirian').html(response['nama_dokumen_akta_pendirian']);
-                                $('#warning_akta_pendirian').html(`Masa berlaku akan habis kurang dari ${bulan_akta_pendirian} ${hari_akta_pendirian} ${jam_akta_pendirian}`);
+                                $('#siujk_warning').css('display', 'block');
+                                $('#nama_dokumen_siujk').html('SIUJK');
+                                $('#warning_siujk').html(`Masa berlaku akan habis kurang dari ${bulan_siujk} ${hari_siujk} ${jam_siujk}`);
                             }
-                            if (selisih_waktu_akta_pendirian < (1 * 30 * 24 * 60 * 60 * 1000)) {
+                            if (selisih_waktu_siujk < (1 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
-                                $('#akta_pendirian_warning').css('display', 'block');
-                                $('#nama_dokumen_akta_pendirian').html(response['nama_dokumen_akta_pendirian']);
-                                $('#warning_akta_pendirian').html(`Masa berlaku akan habis kurang dari ${bulan_akta_pendirian} ${hari_akta_pendirian} ${jam_akta_pendirian}`);
+                                $('#siujk_warning').css('display', 'block');
+                                $('#nama_dokumen_siujk').html('SIUJK');
+                                $('#warning_siujk').html(`Masa berlaku akan habis kurang dari ${bulan_siujk} ${hari_siujk} ${jam_siujk}`);
                             }
-                            if (selisih_waktu_akta_pendirian < (7 * 24 * 60 * 60 * 1000)) {
+                            if (selisih_waktu_siujk < (7 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
-                                $('#akta_pendirian_warning').css('display', 'block');
-                                $('#nama_dokumen_akta_pendirian').html(response['nama_dokumen_akta_pendirian']);
-                                $('#warning_akta_pendirian').html(`Masa berlaku akan habis kurang dari ${hari_akta_pendirian} ${jam_akta_pendirian}`);
+                                $('#siujk_warning').css('display', 'block');
+                                $('#nama_dokumen_siujk').html('SIUJK');
+                                $('#warning_siujk').html(`Masa berlaku akan habis kurang dari ${hari_siujk} ${jam_siujk}`);
                             }
                         }
                     } else {
                         modal_warning_dokumen.modal('show');
-                        $('#akta_pendirian_warning').css('display', 'block');
-                        $('#warning_akta_pendirian').html('Masa berlaku telah kadaluarsa');
-                        $('#nama_dokumen_akta_pendirian').html(response['nama_dokumen_akta_pendirian']);
+                        $('#siujk_warning').css('display', 'block');
+                        $('#warning_siujk').html('Masa berlaku telah kadaluarsa');
+                        $('#nama_dokumen_siujk').html('SIUJK');
                     }
                 }
+
+
+                // skdp
+                var tanggal_berlaku_skdp = new Date(response['row_skdp'].tgl_berlaku);
+                var tanggal_sekarang_skdp = new Date();
+                var di_suruh_update_skdp = new Date().getFullYear() - 3;
+                var selisih_waktu_skdp = tanggal_berlaku_skdp - tanggal_sekarang_skdp;
+                if (response['row_skdp'].sts_seumur_hidup == 2) {
+                    $('#skdp_warning').css('display', 'none');
+                } else {
+                    if (selisih_waktu_skdp > 0) {
+                        var tahun_skdp = Math.floor(selisih_waktu_skdp / (1000 * 60 * 60 * 24 * 365.25));
+                        var bulan_skdp = Math.floor((selisih_waktu_skdp % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+                        var hari_skdp = Math.floor((selisih_waktu_skdp % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+                        var jam_skdp = Math.floor((selisih_waktu_skdp % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+                        if (tahun_skdp == '') {
+                            tahun_skdp = ''
+                        } else {
+                            tahun_skdp = `${tahun_skdp}` + ' Tahun';
+                        }
+                        if (bulan_skdp == '') {
+                            bulan_skdp = ''
+                        } else {
+                            bulan_skdp = `${bulan_skdp}` + ' Bulan';
+                        }
+                        if (hari_skdp == '') {
+                            hari_skdp = ''
+                        } else {
+                            hari_skdp = `${hari_skdp}` + ' Hari';
+                        }
+
+                        if (jam_skdp == '') {
+                            jam_skdp = ''
+                        } else {
+                            jam_skdp = `${jam_skdp}` + ' Jam';
+                        }
+                        var data_skdp_validasi = ` ${tahun_skdp} ${bulan_skdp} ${hari_skdp} ${jam_skdp}`;
+                        var data_skdp_validasi_juni = ` Setiap Bulan Juni Harap Update Segera Dokumen Tahun ${di_suruh_update_skdp} Anda !!`;
+                        if (tanggal_sekarang_skdp.getMonth() === 5) { // Peringatan Update Setiap Bulan Juni
+                            modal_warning_dokumen.modal('show');
+                            $('#skdp_warning').css('display', 'block');
+                            $('#nama_dokumen_skdp').html('SKDP');
+                            $('#warning_skdp').html(data_skdp_validasi);
+                            $('#warning_skdp_juni').html(data_skdp_validasi_juni);
+                        } else {
+                            $('#skdp_warning').css('display', 'none');
+                            if (selisih_waktu_skdp < (3 * 30 * 24 * 60 * 60 * 1000)) {
+                                modal_warning_dokumen.modal('show');
+                                $('#skdp_warning').css('display', 'block');
+                                $('#nama_dokumen_skdp').html('SKDP');
+                                $('#warning_skdp').html(`Masa berlaku akan habis kurang dari ${bulan_skdp} ${hari_skdp} ${jam_skdp}`);
+                            }
+                            if (selisih_waktu_skdp < (2 * 30 * 24 * 60 * 60 * 1000)) {
+                                modal_warning_dokumen.modal('show');
+                                $('#skdp_warning').css('display', 'block');
+                                $('#nama_dokumen_skdp').html('SKDP');
+                                $('#warning_skdp').html(`Masa berlaku akan habis kurang dari ${bulan_skdp} ${hari_skdp} ${jam_skdp}`);
+                            }
+                            if (selisih_waktu_skdp < (1 * 30 * 24 * 60 * 60 * 1000)) {
+                                modal_warning_dokumen.modal('show');
+                                $('#skdp_warning').css('display', 'block');
+                                $('#nama_dokumen_skdp').html('SKDP');
+                                $('#warning_skdp').html(`Masa berlaku akan habis kurang dari ${bulan_skdp} ${hari_skdp} ${jam_skdp}`);
+                            }
+                            if (selisih_waktu_skdp < (7 * 24 * 60 * 60 * 1000)) {
+                                modal_warning_dokumen.modal('show');
+                                $('#skdp_warning').css('display', 'block');
+                                $('#nama_dokumen_skdp').html('SKDP');
+                                $('#warning_skdp').html(`Masa berlaku akan habis kurang dari ${hari_skdp} ${jam_skdp}`);
+                            }
+                        }
+                    } else {
+                        modal_warning_dokumen.modal('show');
+                        $('#skdp_warning').css('display', 'block');
+                        $('#warning_skdp').html('Masa berlaku telah kadaluarsa');
+                        $('#nama_dokumen_skdp').html('SKDP');
+                    }
+                }
+
 
                 // sppkp
                 var tanggal_berlaku_sppkp = new Date(response['row_sppkp'].tgl_berlaku);
                 var tanggal_sekarang_sppkp = new Date();
                 var di_suruh_update_sppkp = new Date().getFullYear() - 3;
                 var selisih_waktu_sppkp = tanggal_berlaku_sppkp - tanggal_sekarang_sppkp;
-
                 if (response['row_sppkp'].sts_seumur_hidup == 2) {
                     $('#sppkp_warning').css('display', 'none');
                 } else {
@@ -651,11 +723,11 @@
                             jam_sppkp = `${jam_sppkp}` + ' Jam';
                         }
                         var data_sppkp_validasi = ` ${tahun_sppkp} ${bulan_sppkp} ${hari_sppkp} ${jam_sppkp}`;
-                        var data_sppkp_validasi_juni = ` Peringatan: Setiap Bulan Juni Harap Update Segera Dokumen Tahun ${di_suruh_update_sppkp} Anda !!`;
+                        var data_sppkp_validasi_juni = ` Setiap Bulan Juni Harap Update Segera Dokumen Tahun ${di_suruh_update_sppkp} Anda !!`;
                         if (tanggal_sekarang_sppkp.getMonth() === 5) { // Peringatan Update Setiap Bulan Juni
                             modal_warning_dokumen.modal('show');
                             $('#sppkp_warning').css('display', 'block');
-                            $('#nama_dokumen_sppkp').html(response['nama_dokumen_sppkp']);
+                            $('#nama_dokumen_sppkp').html('SPPKP');
                             $('#warning_sppkp').html(data_sppkp_validasi);
                             $('#warning_sppkp_juni').html(data_sppkp_validasi_juni);
                         } else {
@@ -663,25 +735,25 @@
                             if (selisih_waktu_sppkp < (3 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#sppkp_warning').css('display', 'block');
-                                $('#nama_dokumen_sppkp').html(response['nama_dokumen_sppkp']);
+                                $('#nama_dokumen_sppkp').html('SPPKP');
                                 $('#warning_sppkp').html(`Masa berlaku akan habis kurang dari ${bulan_sppkp} ${hari_sppkp} ${jam_sppkp}`);
                             }
                             if (selisih_waktu_sppkp < (2 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#sppkp_warning').css('display', 'block');
-                                $('#nama_dokumen_sppkp').html(response['nama_dokumen_sppkp']);
+                                $('#nama_dokumen_sppkp').html('SPPKP');
                                 $('#warning_sppkp').html(`Masa berlaku akan habis kurang dari ${bulan_sppkp} ${hari_sppkp} ${jam_sppkp}`);
                             }
                             if (selisih_waktu_sppkp < (1 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#sppkp_warning').css('display', 'block');
-                                $('#nama_dokumen_sppkp').html(response['nama_dokumen_sppkp']);
+                                $('#nama_dokumen_sppkp').html('SPPKP');
                                 $('#warning_sppkp').html(`Masa berlaku akan habis kurang dari ${bulan_sppkp} ${hari_sppkp} ${jam_sppkp}`);
                             }
                             if (selisih_waktu_sppkp < (7 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#sppkp_warning').css('display', 'block');
-                                $('#nama_dokumen_sppkp').html(response['nama_dokumen_sppkp']);
+                                $('#nama_dokumen_sppkp').html('SPPKP');
                                 $('#warning_sppkp').html(`Masa berlaku akan habis kurang dari ${hari_sppkp} ${jam_sppkp}`);
                             }
                         }
@@ -689,10 +761,9 @@
                         modal_warning_dokumen.modal('show');
                         $('#sppkp_warning').css('display', 'block');
                         $('#warning_sppkp').html('Masa berlaku telah kadaluarsa');
-                        $('#nama_dokumen_sppkp').html(response['nama_dokumen_sppkp']);
+                        $('#nama_dokumen_sppkp').html('SPPKP');
                     }
                 }
-
 
 
                 // npwp
@@ -731,12 +802,11 @@
                             jam_npwp = `${jam_npwp}` + ' Jam';
                         }
                         var data_npwp_validasi = ` ${tahun_npwp} ${bulan_npwp} ${hari_npwp} ${jam_npwp}`;
-                        var data_npwp_validasi_juni = ` Peringatan: Setiap Bulan Juni Harap Update Segera Dokumen Tahun ${di_suruh_update_npwp} Anda !!`;
-
+                        var data_npwp_validasi_juni = ` Setiap Bulan Juni Harap Update Segera Dokumen Tahun ${di_suruh_update_npwp} Anda !!`;
                         if (tanggal_sekarang_npwp.getMonth() === 5) { // Peringatan Update Setiap Bulan Juni
                             modal_warning_dokumen.modal('show');
                             $('#npwp_warning').css('display', 'block');
-                            $('#nama_dokumen_npwp').html(response['nama_dokumen_npwp']);
+                            $('#nama_dokumen_npwp').html('NPWP');
                             $('#warning_npwp').html(data_npwp_validasi);
                             $('#warning_npwp_juni').html(data_npwp_validasi_juni);
                         } else {
@@ -744,25 +814,25 @@
                             if (selisih_waktu_npwp < (3 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#npwp_warning').css('display', 'block');
-                                $('#nama_dokumen_npwp').html(response['nama_dokumen_npwp']);
+                                $('#nama_dokumen_npwp').html('NPWP');
                                 $('#warning_npwp').html(`Masa berlaku akan habis kurang dari ${bulan_npwp} ${hari_npwp} ${jam_npwp}`);
                             }
                             if (selisih_waktu_npwp < (2 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#npwp_warning').css('display', 'block');
-                                $('#nama_dokumen_npwp').html(response['nama_dokumen_npwp']);
+                                $('#nama_dokumen_npwp').html('NPWP');
                                 $('#warning_npwp').html(`Masa berlaku akan habis kurang dari ${bulan_npwp} ${hari_npwp} ${jam_npwp}`);
                             }
                             if (selisih_waktu_npwp < (1 * 30 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#npwp_warning').css('display', 'block');
-                                $('#nama_dokumen_npwp').html(response['nama_dokumen_npwp']);
+                                $('#nama_dokumen_npwp').html('NPWP');
                                 $('#warning_npwp').html(`Masa berlaku akan habis kurang dari ${bulan_npwp} ${hari_npwp} ${jam_npwp}`);
                             }
                             if (selisih_waktu_npwp < (7 * 24 * 60 * 60 * 1000)) {
                                 modal_warning_dokumen.modal('show');
                                 $('#npwp_warning').css('display', 'block');
-                                $('#nama_dokumen_npwp').html(response['nama_dokumen_npwp']);
+                                $('#nama_dokumen_npwp').html('NPWP');
                                 $('#warning_npwp').html(`Masa berlaku akan habis kurang dari ${hari_npwp} ${jam_npwp}`);
                             }
                         }
@@ -770,8 +840,48 @@
                         modal_warning_dokumen.modal('show');
                         $('#npwp_warning').css('display', 'block');
                         $('#warning_npwp').html('Masa berlaku telah kadaluarsa');
-                        $('#nama_dokumen_npwp').html(response['nama_dokumen_npwp']);
+                        $('#nama_dokumen_npwp').html('NPWP');
                     }
+                }
+
+
+                // ini untuk cek lap keuangan
+                var tanggal_sekarang_keuangan = new Date();
+                var di_suruh_update_keuangan = new Date().getFullYear() - 3;
+                var data_keuangan_validasi_juni = ` Bulan Juni Harap Update Segera Dokumen Tahun Laporan Keuangan ${di_suruh_update_keuangan} Anda !!`;
+                if (tanggal_sekarang_keuangan.getMonth() === 5) {
+                    modal_warning_dokumen.modal('show');
+                    $('#keuangan_warning').css('display', 'block');
+                    $('#nama_dokumen_keuangan').html('Laporan Keuangan');
+                    $('#warning_keuangan_juni').html(data_keuangan_validasi_juni);
+                } else {
+                    $('#keuangan_warning').css('display', 'none');
+                }
+
+                // ini untuk cek lap neraca
+                var tanggal_sekarang_neraca = new Date();
+                var di_suruh_update_neraca = new Date().getFullYear() - 3;
+                var data_neraca_validasi_juni = ` Bulan Juni Harap Update Segera Dokumen Tahun Laporan Neraca neraca ${di_suruh_update_neraca} Anda !!`;
+                if (tanggal_sekarang_neraca.getMonth() === 5) {
+                    modal_warning_dokumen.modal('show');
+                    $('#neraca_warning').css('display', 'block');
+                    $('#nama_dokumen_neraca').html('Neraca neraca');
+                    $('#warning_neraca_juni').html(data_neraca_validasi_juni);
+                } else {
+                    $('#neraca_warning').css('display', 'none');
+                }
+
+                // ini untuk cek lap spt
+                var tanggal_sekarang_spt = new Date();
+                var di_suruh_update_spt = new Date().getFullYear() - 3;
+                var data_spt_validasi_juni = ` Bulan Juni Harap Update Segera Dokumen Tahun Laporan spt spt ${di_suruh_update_spt} Anda !!`;
+                if (tanggal_sekarang_spt.getMonth() === 5) {
+                    modal_warning_dokumen.modal('show');
+                    $('#spt_warning').css('display', 'block');
+                    $('#nama_dokumen_spt').html('spt spt');
+                    $('#warning_spt_juni').html(data_spt_validasi_juni);
+                } else {
+                    $('#spt_warning').css('display', 'none');
                 }
             }
         })
