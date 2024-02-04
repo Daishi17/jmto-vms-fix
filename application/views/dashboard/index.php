@@ -920,7 +920,7 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                     </div>
                 </div>
 
-                <!-- nib -->
+                <!-- nib  asd-->
                 <div id="nib_warning" style="display: none;">
                     <div class="row">
                         <div class="col-md-3">
