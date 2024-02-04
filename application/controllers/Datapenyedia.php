@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set("Asia/Jakarta");
-// error_reporting(0);
+error_reporting(0);
 require_once APPPATH . 'third_party/Spout/Autoloader/autoload.php';
 require 'vendor/autoload.php'; // Include the PhpSpreadsheet autoloader
 

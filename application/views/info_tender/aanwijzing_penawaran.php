@@ -635,7 +635,7 @@
             </div>
             <div class="modal-body">
                 <div class="card p-2 bg-primary">
-                    <b><span class="text-white">Evaluasi PT. Kintek</span></b>
+                    <b><span class="text-white">Evaluasi</span></b>
                 </div>
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">

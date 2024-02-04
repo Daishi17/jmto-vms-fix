@@ -2,7 +2,7 @@
 <input type="hidden" name="url_hapus_sanggahan_akhir" value="<?= base_url('tender_diikuti/hapus_sanggahan_akhir/') ?>">
 <input type="hidden" name="url_get_sanggahan_akhir" value="<?= base_url('tender_diikuti/get_sanggahan_akhir/') ?>">
 <input type="hidden" name="url_open_sanggahan_akhir" value="<?= base_url('file_paket/' . $rup['nama_rup'] . '/' . $this->session->userdata('nama_usaha') . '/SANGGAHAN_AKHIR' . '/') ?>">
-<input type="hidden" name="url_open_sanggahan_akhir_panitia" value="http://localhost/jmto-eproc/file_paket/<?= $rup['nama_rup'] ?>/">
+<input type="hidden" name="url_open_sanggahan_akhir_panitia" value="https://eprocurement.jmto.co.id/file_paket/<?= $rup['nama_rup'] ?>/">
 <input type="hidden" name="id_rup" value="<?= $rup['id_rup'] ?>">
 <input type="hidden" name="id_vendor" value="<?= $this->session->userdata('id_vendor') ?>">
 
