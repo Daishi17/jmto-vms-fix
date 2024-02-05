@@ -1187,6 +1187,7 @@
                     <i class="fa-solid fa-rectangle-xmark"></i>
                     Keluar
                 </button>
+                <a class="btn btn-success" href="<?= base_url('tender_diikuti/' . 'cetak_jadwal/' . $rup['id_url_rup']) ?>" target="_blank">Cetak Jadwal</a>
             </div>
         </div>
     </div>

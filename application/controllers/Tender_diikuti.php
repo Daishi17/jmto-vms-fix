@@ -2241,4 +2241,11 @@ class Tender_diikuti extends CI_Controller
         $data['vendor'] = $this->M_tender->get_mengikuti($data['rup']['id_rup']);
         $this->load->view('info_tender/surat_pernyataan/surat_pernyataan', $data);
     }
+
+    public function cetak_jadwal($id_url_rup)
+    {
+        $data['row_rup'] = $this->M_tender->get_row_rup($id_url_rup);
+        $this->load->view('info_tender/cetak_jadwal', $data);
+        $this->load->view('info_tender/ajax_jadwal', $data);
+    }
 }

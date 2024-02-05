@@ -26,27 +26,26 @@ class Email_send
             $base_url = base_url('auth/buat_password/' . $token_lupa_password);
         } else { }
         $this->ci->load->library('email');
+        // $config = array(
+        //     'protocol' => 'smtp',
+        //     'smtp_host' => 'smtp.jasamarga.co.id',
+        //     'smtp_port' => 587,
+        //     'smtp_user' => 'e-procurement@jmto.co.id',
+        //     'smtp_pass' => 'tehgelas123!',
+        //     'mailtype'  => 'html',
+        //     'smtp_crypto'  => 'tls'
+        // );
+
         $config = array(
             'protocol' => 'smtp',
             'smtp_host' => 'mail.jmto.co.id',
-            'smtp_port' => 465,
+            'smtp_port' => 26,
             'smtp_user' => 'e-procurement@jmto.co.id',
             'smtp_pass' => 'jmt02023!#',
             'mailtype'  => 'html',
-            'smtp_crypto'  => 'ssl',
+            'smtp_crypto'  => 'tls',
             'charset'   => 'utf-8'
         );
-
-        // $config = array(
-        //     'protocol' => 'smtp',
-        //     'smtp_host' => 'mail.jmto.co.id',
-        //     'smtp_port' => 26,
-        //     'smtp_user' => 'e-procurement@jmto.co.id',
-        //     'smtp_pass' => 'jmt02023!#',
-        //     'mailtype'  => 'html',
-        //     'smtp_crypto'  => 'tls',
-        //     'charset'   => 'utf-8'
-        // );
         $this->ci->email->initialize($config);
         $this->ci->email->set_newline("\r\n");
         // Email dan nama pengirim
