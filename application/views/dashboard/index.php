@@ -985,18 +985,6 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                     </div>
                 </div>
 
-                 <!-- npwp -->
-                 <div id="npwp_warning" style="display: none;">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_npwp"></label>
-                        </div>
-                        <div class="col-md-9">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_npwp"></label> <br>
-                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_npwp_juni"></label>
-                        </div>
-                    </div>
-                </div>
 
 
                   <!-- spt -->
@@ -1045,33 +1033,6 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
 </div>
 
 
-
-<div class="modal fade" id="modal_warning_lap_keuangan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header bg-danger text-white">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">PERINGATAN MASA LAPORAN KEUANGAN DAN SPT</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- spt -->
-                <div id="spt_warning">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_spt"></label>
-                        </div>
-                        <div class="col-md-10">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_spt"></label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Modal -->
 <div class="modal fade" id="modal_pakta_integritas" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

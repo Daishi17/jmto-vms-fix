@@ -36,6 +36,7 @@ class Registrasi extends CI_Controller
 					$data['script'] = $this->recaptcha->getScriptTag();
 					$email = $this->input->post('email');
 					$npwp = $this->input->post('npwp');
+					$nomor_wa = $this->input->post('nomor_wa');
 					$cek_npwp = json_decode(file_get_contents("https://bts.kintekindo.net/main.php/" . $npwp));
 					$result_ceking = json_decode(json_encode($cek_npwp), true);
 					if ($result_ceking['message'] == 'The NPWP number is valid') {
@@ -49,10 +50,15 @@ class Registrasi extends CI_Controller
 						$this->session->set_userdata('token_regis', $randomString);
 						$this->session->set_userdata('email', $email);
 						$this->session->set_userdata('npwp', $npwp);
+						$nomor_wa = $this->input->post('nomor_wa');
 						$this->session->set_flashdata('success', 'Email : ' . $email . ' Terdaftar Silakan Check Email Anda Untuk Mengetahui Link Untuk Mengisi Identitas Vendor Dan Pastikan Masih 1 Perangkat (Terkadang Email Masuk Ke Spam!!)');
 						// START EMAIL SEND TYPE
 						// api get content
 						// json_decode(file_get_contents("https://jmto-vms.kintekindo.net/send_email_jmto/kirim_email_registrasi/" . $email . '/' . $randomString));
+						$data_send_wa = [
+							'token_regis' => $randomString
+						];
+						$this->kirim_wa->kirim_wa_vendor_terdaftar_regis($nomor_wa, $data_send_wa);
 						$type_send_email = 'registrasi';
 						$data_send_email = [
 							'email' => $email,

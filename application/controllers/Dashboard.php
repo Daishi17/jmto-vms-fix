@@ -123,7 +123,7 @@ class Dashboard extends CI_Controller
         // skdp
         $row_skdp = $this->M_dashboard->cek_vendor_skdp_dokumen($id_vendor);
 
-        
+
         $response = [
             // siup
             'row_siup' => $row_siup,
@@ -137,6 +137,10 @@ class Dashboard extends CI_Controller
             'row_sppkp' => $row_sppkp,
             // npwp
             'row_npwp' => $row_npwp,
+            // npwp
+            'row_siujk' => $row_siujk,
+            // npwp
+            'row_skdp' => $row_skdp,
         ];
         $this->output->set_content_type('application/json')->set_output(json_encode($response));
     }

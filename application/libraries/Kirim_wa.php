@@ -61,4 +61,35 @@ class Kirim_wa
         $response = curl_exec($curl);
         curl_close($curl);
     }
+
+    public function kirim_wa_vendor_terdaftar_regis($nomor_telpon, $data_wa)
+    {
+        $token_regis = $data_wa['token_regis'];
+        $base_url = 'drtproc.jmto.co.id/registrasi/identitas/' . $token_regis;
+        $token = '3HGKVEwLaF7rIt@ZhVcV';
+        $target = $nomor_telpon;
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.fonnte.com/send',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => array(
+                'target' => $target,
+                'message' => "Silakan Klik Link Ini $base_url Untuk Melakukan Prosess Pendaftaran Selanjutnya Link Ini Di Copy Paste Pada Perangkat Yang Sama Sa'at Melakukan Registarsi",
+                'delay'=>'120-300',
+            ),
+            CURLOPT_HTTPHEADER => array(
+                "Authorization: $token"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        curl_close($curl);
+    }
+   
 }
