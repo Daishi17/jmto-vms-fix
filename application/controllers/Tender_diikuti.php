@@ -1218,6 +1218,7 @@ class Tender_diikuti extends CI_Controller
             $data['sts_nego'] = 'tutup_negosiasi';
         }
         $data['data2'] = $this->M_tender->getDataById($data['rup']['id_rup']);
+        $data['get_row_mengikuti'] = $this->M_tender->cek_mengikuti($data['rup']['id_rup']);
         $this->load->view('template_menu/header_menu', $data);
         if ($data['rup']['id_jadwal_tender'] == 5) {
             $data['jadwal_pengumuman_pengadaan'] =  $this->M_jadwal->jadwal_pra_umum_1($data['rup']['id_rup']);

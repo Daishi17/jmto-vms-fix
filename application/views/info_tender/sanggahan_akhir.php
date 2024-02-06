@@ -77,7 +77,7 @@
                 <div class="card-header border-dark bg-primary d-flex justify-content-between align-items-center">
                     <div class="flex-grow-1 bd-highlight">
                         <span class="text-dark">
-                            <small class="text-white"><strong><i class="fa-solid fa-table px-1"></i> Data Tabel - Sanggahan Prakualifikasi</strong></small>
+                            <small class="text-white"><strong><i class="fa-solid fa-table px-1"></i> Data Tabel - Sanggahan Pemenang</strong></small>
                         </span>
                     </div>
                 </div>
@@ -124,6 +124,49 @@
                         </table>
                     </div>
                 <?php   } else {  ?>
+                    <?php if ($get_row_mengikuti['ev_teknis'] >= 60 || $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
+                        <div class="card-body">
+                            <?php if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                <?php $date2 = $jadwal_masa_sanggah_akhir['waktu_selesai'];
+                                if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
+                                <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
+                                    <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal_sanggahan_akhir" class="btn btn-sm btn-primary mb-2"><i class="fa fa-upload"></i> Kirim Sanggahan </a>
+
+                                <?php    } else { ?>
+                                    <a href="javascript:;" class="btn btn-sm btn-primary mb-2"> Waktu Sudah Berakhir </a>
+                                <?php    } ?>
+                            <?php } else { ?>
+                                <?php
+                                if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
+
+                                <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_masa_sanggah_akhir['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                    <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#modal_sanggahan_akhir" class="btn btn-sm btn-primary mb-2"><i class="fa fa-upload"></i> Kirim Sanggahan </a>
+
+                                <?php    } else { ?>
+                                    <a href="javascript:;" class="btn btn-sm btn-primary mb-2"> Waktu Sudah Berakhir </a>
+                                <?php    } ?>
+                            <?php } ?>
+
+                            <table class="table table-bordered">
+                                <thead class="bg-primary text-white">
+                                    <tr>
+                                        <!-- <th>No</th> -->
+                                        <th width="200px">Nama Peserta</th>
+                                        <th>Keterangan Penyedia</th>
+                                        <th>Download Sanggahan Penyedia</th>
+                                        <th>Keterangan Panitia</th>
+                                        <th>File Balasan</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbl_sanggah_akhir">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    <?php } else { ?>
+
+                    <?php }   ?>
 
                 <?php  }  ?>
 
@@ -136,14 +179,14 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary text-white">
-                <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-bullhorn" aria-hidden="true"></i> Upload Sanggahan Prakualifikasi</h5>
+                <h5 class="modal-title" id="exampleModalLabel"> <i class="fa fa-bullhorn" aria-hidden="true"></i> Upload Sanggahan Pemenang</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="javascript:;" id="form_sanggahan_akhir">
                 <div class="modal-body">
                     <div class="alert alert-primary d-flex align-items-center" role="alert">
                         <div>
-                            <i class="fa fa-info-circle" aria-hidden="true"> </i> Silahkan Masukkan File Sanggahan Prakualifikasi !!! <br>
+                            <i class="fa fa-info-circle" aria-hidden="true"> </i> Silahkan Masukkan File Sanggahan Pemenang !!! <br>
                         </div>
                     </div>
                     <div class="form-group">
