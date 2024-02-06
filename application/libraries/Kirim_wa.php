@@ -62,7 +62,7 @@ class Kirim_wa
         curl_close($curl);
     }
 
-    public function kirim_wa_vendor_terdaftar_regis($nomor_telpon, $data_wa)
+    public function kirim_wa_vendor_terdaftar_regis2($nomor_telpon, $data_wa)
     {
         $token_regis = $data_wa['token_regis'];
         $base_url = 'drtproc.jmto.co.id/registrasi/identitas/' . $token_regis;
