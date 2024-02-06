@@ -19,7 +19,8 @@ class Email_send
         } else if ($type == 'registrasi') {
             $email = $data['email'];
             $token_regis = $data['token_regis'];
-            $base_url = base_url('registrasi/identitas/' . $token_regis);
+            // $base_url = base_url('registrasi/identitas/' . $token_regis);
+            $base_url = 'drtproc.jmto.co.id/registrasi/identitas/' . $token_regis;
         } else if ($type == 'lupa_password') {
             $email = $data['email'];
             $token_lupa_password = $data['token_lupa_password'];
@@ -44,7 +45,7 @@ class Email_send
             'smtp_pass' => 'jmt02023!#',
             'mailtype'  => 'html',
             'smtp_crypto'  => 'tls',
-            'charset'   => 'utf-8'
+            // 'charset'   => 'utf-8'
         );
         $this->ci->email->initialize($config);
         $this->ci->email->set_newline("\r\n");
@@ -74,7 +75,7 @@ class Email_send
             $this->ci->email->subject('E-PROCUREMENT JMTO :  REGISTRASI');
 
             // Isi email
-            $this->ci->email->message("Silakan Klik Link Ini $base_url Untuk Melakukan Prosess Pendaftaran Selanjutnya ");
+            $this->ci->email->message("Silakan Klik Link Ini $base_url Untuk Melakukan Prosess Pendaftaran Selanjutnya");
 
             $this->ci->email->send();
         }

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 error_reporting(0);
-class Send_email extends CI_Controller
+class Send_email_jmto extends CI_Controller
 {
 
     public function kirim_email_registrasi()
