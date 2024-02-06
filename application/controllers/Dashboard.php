@@ -123,7 +123,7 @@ class Dashboard extends CI_Controller
         // skdp
         $row_skdp = $this->M_dashboard->cek_vendor_skdp_dokumen($id_vendor);
 
-        
+
         $response = [
             // siup
             'row_siup' => $row_siup,
