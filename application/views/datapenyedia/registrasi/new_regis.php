@@ -98,8 +98,11 @@
                                         <input required type="email" name="email" class="form-control" placeholder="Masukan Email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                                     </div>
                                     <div class="input-group mb-2">
-                                        <span class="input-group-text"><i class="fa-solid fa-address-card"></i></span>
+                                        <span class="input-group-text"><i class="fas fa fa-phone"></i></span>
                                         <input required type="text" name="nomor_wa" class="form-control" placeholder="Masukan No WhatsApp">
+                                    </div>
+                                    <div class="input-group mb-2">
+                                        <span class="input-group-text"><i class="fa-solid fa-address-card"></i></span>
                                         <input required type="text" name="npwp" class="form-control" placeholder="Masukan NPWP" onkeyup="npwp_check()">
                                         <input required type="text" name="npwp_checker" class="form-control" placeholder="Masukan NPWP" data-inputmask='"mask": "99.999.999.9-999.999"' readonly data-mask>
                                     </div>

@@ -293,6 +293,11 @@ class Dashboard extends CI_Controller
                 $global_update_dokumen = 'update_' . $jenis_dokumen_perubahan . '';
                 $this->M_datapenyedia->$global_update_dokumen($data_update, $where);
             }
+            $data_send_wa = [
+                'jenis_dokumen_perubahan' => $jenis_dokumen_perubahan,
+                'waktu_pengajuan' => date('d M Y H:i')
+            ];
+            // $this->kirim_wa->kirim_wa_vendor_terdaftar_($nomor_wa, $data_send_wa);
         }
         $this->output->set_content_type('application/json')->set_output(json_encode($response));
     }

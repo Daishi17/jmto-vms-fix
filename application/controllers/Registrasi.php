@@ -51,7 +51,7 @@ class Registrasi extends CI_Controller
 						$this->session->set_userdata('email', $email);
 						$this->session->set_userdata('npwp', $npwp);
 						$nomor_wa = $this->input->post('nomor_wa');
-						$this->session->set_flashdata('success', 'Email : ' . $email . ' Terdaftar Silakan Check Email Anda Untuk Mengetahui Link Untuk Mengisi Identitas Vendor Dan Pastikan Masih 1 Perangkat (Terkadang Email Masuk Ke Spam!!)');
+						$this->session->set_flashdata('success', 'Email : ' . $email . ' Terdaftar Silakan Check Email Dan WhatsApp Anda Untuk Mengetahui Link Untuk Mengisi Identitas Vendor Dan Pastikan Masih 1 Perangkat (Terkadang Email Masuk Ke Spam!!)');
 						// START EMAIL SEND TYPE
 						// api get content
 						// json_decode(file_get_contents("https://jmto-vms.kintekindo.net/send_email_jmto/kirim_email_registrasi/" . $email . '/' . $randomString));
