@@ -150,6 +150,7 @@ class Registrasi extends CI_Controller
 					$kelurahan = $this->input->post('kelurahan');
 					$kode_pos = $this->input->post('kode_pos');
 					$no_telpon = $this->input->post('no_telpon');
+					$no_telpon_kantor = $this->input->post('no_telpon_kantor');
 					$sts_kantor_cabang = $this->input->post('sts_kantor_cabang');
 					$alamat_kantor_cabang = $this->input->post('alamat_kantor_cabang');
 					$password = $this->input->post('password');
@@ -171,6 +172,7 @@ class Registrasi extends CI_Controller
 						'kelurahan' => $kelurahan,
 						'kode_pos' => $kode_pos,
 						'no_telpon' => $no_telpon,
+						'no_telpon_kantor' => $no_telpon_kantor,
 						'sts_kantor_cabang' => $sts_kantor_cabang,
 						'alamat_kantor_cabang' => $alamat_kantor_cabang,
 						'password' =>  password_hash($password, PASSWORD_DEFAULT),

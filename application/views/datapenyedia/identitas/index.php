@@ -212,7 +212,8 @@
                                             </div>
                                         </td>
                                         <td class="col-sm-2 bg-light">
-                                            <label class="form-label col-form-label-sm"><b>Nomor Kontak</b></label>
+                                            <label class="form-label col-form-label-sm"><b>Nomor Kontak WA</b></label><br>
+                                            <label class="form-label col-form-label-sm"><b>Nomor Kontak Kantor</b></label>
                                         </td>
                                         <td class="col-sm-4">
                                             <div class="col-sm-5">
@@ -220,8 +221,13 @@
                                                     <span class="input-group-text"><i class="fa-solid fa-phone-volume"></i></span>
                                                     <input name="no_telpon" type="number" class="form-control" value="<?= $row_vendor['no_telpon'] ?>">
                                                 </div>
+                                                <div class="input-group mb-2">
+                                                    <span class="input-group-text"><i class="fa-solid fa-phone-volume"></i></span>
+                                                    <input name="no_telpon" type="number" class="form-control" value="<?= $row_vendor['no_telpon_kantor'] ?>">
+                                                </div>
                                             </div>
                                         </td>
+
                                     </tr>
                                     <tr>
                                         <td class="col-sm-1 bg-light">

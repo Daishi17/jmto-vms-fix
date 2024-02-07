@@ -132,7 +132,7 @@
                                 <div class="col-sm-6">
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
-                                        <input type="text" required maxlength="13" name="no_telpon" class="form-control" onkeypress="return hanyaAngka(event)" placeholder="No. Kontak">
+                                        <input type="text" required maxlength="13" name="no_telpon" class="form-control" onkeypress="return hanyaAngka(event)" placeholder="No. Kontak WhatsApp">
                                     </div>
                                 </div>
                             </div>
@@ -145,6 +145,13 @@
                                             <option value="1">Ya</option>
                                             <option value="2">Tidak</option>
                                         </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                                        <input type="text" required maxlength="13" name="no_telpon_kantor" class="form-control" onkeypress="return hanyaAngka(event)" placeholder="No. Kontak Kantor">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
