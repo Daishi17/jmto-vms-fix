@@ -467,7 +467,7 @@
                                     <?php if ($get_row_mengikuti['ev_kualifikasi_akhir'] >= 60) { ?>
                                         <a target="_blank" href="<?= $rup['aanwijzing_pw_link'] ?>"><?= $rup['aanwijzing_pw_link'] ?></a>
                                     <?php } else { ?>
-                                        <span class="badge bg-danger">Anda Telah Gugur Dalam Pengadaan Ini</span>
+                                        <span></span>
                                     <?php } ?>
 
                                 </td>

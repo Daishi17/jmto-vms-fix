@@ -438,7 +438,7 @@
                 }
 
                 var html = '';
-                if (response['rup']['id_jadwal_tender'] == 1) {
+                if (response['rup']['id_jadwal_tender'] == 1 || response['rup']['id_jadwal_tender'] == 9) {
                     if (response['row']['file2_penawaran']) {
                         var file2_penawaran = `<a href="<?= base_url('tender_diikuti/download_dokumen_penawaran_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file2_penawaran" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
                         var btn_file2_penawaran = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_penawaran')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`

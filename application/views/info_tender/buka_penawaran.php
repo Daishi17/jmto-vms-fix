@@ -56,10 +56,10 @@
 
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
 
-                                <?php if ($rup['id_jadwal_tender'] == 1) { ?>
+                                <?php if ($rup['id_jadwal_tender'] == 1 || $rup['id_jadwal_tender'] == 9) { ?>
                                     <!-- <li class="nav-item" role="presentation">
-                                                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-file1" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Dokumen Penawaran</button>
-                                                </li> -->
+                                                                                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-file1" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Dokumen Penawaran</button>
+                                                                                    </li> -->
                                 <?php } else { ?>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-file1" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Dokumen Penawaran File I</button>
@@ -107,7 +107,7 @@
                         <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_upload_dokumen_penawaran['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                             <div class="tab-content" id="pills-tabContent">
 
-                                <?php if ($rup['id_jadwal_tender'] == 1) { ?>
+                                <?php if ($rup['id_jadwal_tender'] == 1 || $rup['id_jadwal_tender'] == 9) { ?>
                                     <div class="tab-pane fade show active" id="pills-file1" role="tabpanel" aria-labelledby="pills-home-tab">
                                         <div class="card">
                                             <div class="card-header bg-primary text-white">
