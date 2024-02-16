@@ -152,10 +152,10 @@
                     $('#bobot_nilai').text('Kombinasi')
                     $('#Bobot').text(response['row_rup'].bobot_teknis + '% ' + '& ' + response['row_rup'].bobot_biaya + '% ')
                 } else if (response['row_rup'].bobot_nilai == 2) {
-                    $('#bobot_nilai').text('Bobot Teknis')
+                    $('#bobot_nilai').text('Biaya Terendah')
                     $('#Bobot').text(response['row_rup'].bobot_teknis + '% ' + '& ' + response['row_rup'].bobot_biaya + '% ')
                 } else if (response['row_rup'].bobot_nilai == 3) {
-                    $('#bobot_nilai').text('Bobot Biaya')
+                    $('#bobot_nilai').text('Biaya Terendah')
                     $('#Bobot').text(response['row_rup'].bobot_teknis + '% ' + '& ' + response['row_rup'].bobot_biaya + '% ')
                 }
                 if (response['row_rup'].jenis_kontrak == 1) {

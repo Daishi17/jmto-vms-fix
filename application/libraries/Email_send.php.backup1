@@ -33,7 +33,7 @@ class Email_send
             'smtp_user' => 'admin@kintekindo.net',
             'smtp_pass' => 'Kintekindo0902#',
             'mailtype'  => 'html',
-            'charset'   => 'iso-8859-1'
+            'smtp_crypto'  => 'tls',
         );
         $this->ci->load->library('email', $config);
         $this->ci->email->set_newline("\r\n");

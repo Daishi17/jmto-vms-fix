@@ -173,10 +173,10 @@
                     $('#bobot_nilai').text('Kombinasi')
                     $('#Bobot').text(response['row_rup'].bobot_teknis + '% ' + '& ' + response['row_rup'].bobot_biaya + '% ')
                 } else if (response['row_rup'].bobot_nilai == 2) {
-                    $('#bobot_nilai').text('Bobot Teknis')
+                    $('#bobot_nilai').text('Biaya Terendah')
                     $('#Bobot').text(response['row_rup'].bobot_teknis + '% ' + '& ' + response['row_rup'].bobot_biaya + '% ')
                 } else if (response['row_rup'].bobot_nilai == 3) {
-                    $('#bobot_nilai').text('Bobot Biaya')
+                    $('#bobot_nilai').text('Biaya Terendah')
                 }
                 $('#jenis_kontrak').text(jenis_kontrak(response['row_rup'].jenis_kontrak))
 
@@ -356,6 +356,7 @@
             return i;
         }
     }
+
     function lihat_detail_jadwal(id_url_rup) {
         var url_detail_paket = $('[name="url_detail_paket"]').val();
         var modal_detail_jadwal = $('#modal_detail_jadwal')
@@ -395,8 +396,8 @@
                     } else {
                         var alasan = ''
                     }
-                    
-                     html += '<tr>' +
+
+                    html += '<tr>' +
                         '<td><small>' + no++ + '</small></td>' +
                         '<td><small>' + response['jadwal'][i].nama_jadwal_rup + ' ' + check + '</small></td>' +
                         `<td><small>${waktu_mulai.getDate()}-${months[waktu_mulai.getMonth()]}-${waktu_mulai.getFullYear()} ${zeros(waktu_mulai.getHours())}:${zeros(waktu_mulai.getMinutes())}</small></td>` +

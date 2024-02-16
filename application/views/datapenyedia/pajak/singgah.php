@@ -57,6 +57,8 @@
                         <small>3. Dokumen <b>Neraca Keuangan</b> wajib di upload dengan format file excel, yang dapat pada tombol export excel. isi file excel tersebut sesuai dengan format. lalu upload file dengan tombol import excel. </small><br>
                         <small>4. Jika salah upload atau status dokumen file <span class="text-danger"><b>tidak valid</b></span>, klik tombol <b>View</b> lalu <b>Edit Changes</b> untuk melakukan upload file dokumen yang terbaru atau file dokumen revisi.</small><br>
                         <small>5. Jika dokumen file sudah terenkripsi, untuk mendownload dan membuka dokumen file, mengklik tombol <b>dekripsi</b> dan masukan <b>token</b> yang keluar dalam form pop up dekripsi dokumen file.</small><br>
+                        <small>6. Untuk SPT silahkan upload SPT Badan Tahun terakhir beserta Formulirnya</small><br>
+                        <small>7. Untuk Laporan keuangan dan neraca keuangan silahkan Upload laporan 2 (dua) Tahun terakhir</small><br>
                     </div>
                     <div class="card border-dark shadow-lg">
                         <div class="card-header bg-dark d-flex bd-highlight">
