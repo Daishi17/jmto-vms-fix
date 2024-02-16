@@ -54,7 +54,7 @@ class Registrasi extends CI_Controller
 						$this->session->set_flashdata('success', 'Email : ' . $email . ' Terdaftar Silakan Check Email Dan WhatsApp Anda Untuk Mengetahui Link Untuk Mengisi Identitas Vendor Dan Pastikan Masih 1 Perangkat (Terkadang Email Masuk Ke Spam!!)');
 						// START EMAIL SEND TYPE
 						// api get content
-						// json_decode(file_get_contents("https://jmto-vms.kintekindo.net/send_email_jmto/kirim_email_registrasi/" . $email . '/' . $randomString));
+						json_decode(file_get_contents("https://jmto-vms.kintekindo.net/send_email_jmto/kirim_email_registrasi/" . $email . '/' . $randomString));
 						$data_send_wa = [
 							'token_regis' => $randomString
 						];
@@ -85,6 +85,25 @@ class Registrasi extends CI_Controller
 		$this->load->view('datapenyedia/registrasi/new_regis', $data);
 		$this->load->view('template_menu_regis/footer_menu');
 		$this->load->view('template_menu_regis/js_registrasi');
+	}
+
+	function send_mail()
+	{
+		$email = $this->input->post('email');
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i < 5; $i++) {
+			$randomString .= $characters[random_int(0, $charactersLength - 1)];
+		}
+		$randomString;
+		$type_send_email = 'registrasi';
+		$data_send_email = [
+			'email' => $email,
+			'token_regis' => $randomString
+		];
+		$this->email_send->sen_row_email_api($type_send_email, $data_send_email);
+		$this->output->set_content_type('application/json')->set_output(json_encode('berhasil_terkirim'));
 	}
 
 	public function dataKabupaten($id_provinsi) //klpd
