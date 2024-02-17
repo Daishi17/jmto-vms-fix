@@ -254,7 +254,7 @@ class M_jadwal extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_jadwal_rup');
         $this->db->where('id_rup', $id_rup);
-        $this->db->where('nama_jadwal_rup', 'Pengumuman Tender Terbatas');
+        $this->db->like('nama_jadwal_rup', 'Pengumuman, Pendaftaran dan Download Dokumen Tender Terbatas');
         $query = $this->db->get();
         return $query->row_array();
     }
@@ -264,7 +264,7 @@ class M_jadwal extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_jadwal_rup');
         $this->db->where('id_rup', $id_rup);
-        $this->db->like('nama_jadwal_rup', 'Pendaftaran (Pengambilan Dokumen PQ)/Download Dokumen Kualifikasi');
+        $this->db->like('nama_jadwal_rup', 'Anwijzing (Tanya Jawab PQ)');
         $query = $this->db->get();
         return $query->row_array();
     }
