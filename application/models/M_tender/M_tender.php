@@ -1675,4 +1675,12 @@ class M_tender extends CI_Model
         $query = $this->db->get();
         return $query->row_array();
     }
+
+    public function get_berita()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_berita_tender');
+        $data = $this->db->get();
+        return $data->result_array();
+    }
 }

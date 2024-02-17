@@ -259,7 +259,7 @@
                             <hr class="dropdown-divider">
                         </li>
                         <li>
-                            <a class="dropdown-item" href="<?= base_url() ?>page_kosong/page_konstruksi">
+                            <a class="dropdown-item" href="<?= base_url() ?>berita">
                                 <i class="fa-solid fa-newspaper px-1"></i>
                                 <small>Berita Terkini</small>
                             </a>
@@ -273,7 +273,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>
-                            <a class="dropdown-item" href="<?= base_url() ?>page_kosong/page_konstruksi">
+                            <a class="dropdown-item" href="#">
                                 <i class="fa-solid fa-marker px-1"></i>
                                 <small>Hasil Tender</small>
                             </a>
@@ -288,7 +288,7 @@
                             </a>
                         </li> -->
                         <li>
-                            <a class="dropdown-item" href="<?= base_url() ?>page_kosong/page_konstruksi">
+                            <a class="dropdown-item" href="#">
                                 <i class="fa-solid fa-certificate px-1"></i>
                                 <small>Penilaian Kinerja</small>
                             </a>
