@@ -118,7 +118,7 @@
                                                                         <td scope="row"><?= $i++ ?></td>
                                                                         <td><?= $value['nama_dok_prakualifikasi'] ?></td>
                                                                         <td>
-                                                                            <a href="<?= $url_dok_prakualifikasi . $value['id_dokumen_prakualifikasi'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
+                                                                            <a href="<?= $url_dok_prakualifikasi . $value['file_dok_prakualifikasi'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
                                                                             <?php if ($value['sts_dokumen_tambahan'] == 1) { ?>
                                                                                 <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
                                                                             <?php } else { ?>
@@ -312,7 +312,7 @@
                                                                             if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
                                                                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
                                                                                 <?php if ($value['file_syarat_tambahan']) { ?>
-                                                                                    <a href="<?= $url_dok_syarat_tambahan . $value['id_syarat_tambahan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
+                                                                                    <a href="<?= $url_dok_syarat_tambahan . $value['file_syarat_tambahan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
                                                                                 <?php } else { ?>
                                                                                     <span href="#" class="badge bg-danger "> Tidak Ada Lampiran</span>
                                                                                 <?php  } ?>
@@ -326,7 +326,7 @@
 
                                                                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                                                                                 <?php if ($value['file_syarat_tambahan']) { ?>
-                                                                                    <a href="<?= $url_dok_syarat_tambahan . $value['id_syarat_tambahan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
+                                                                                    <a href="<?= $url_dok_syarat_tambahan . $value['file_syarat_tambahan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
                                                                                 <?php } else { ?>
                                                                                     <span href="#" class="badge bg-danger"> Tidak Ada Lampiran</span>
                                                                                 <?php  } ?>
@@ -556,7 +556,7 @@
                                                                         <td scope="row"><?= $i++ ?></td>
                                                                         <td><?= $value['nama_dok_pengadaan'] ?></td>
                                                                         <td>
-                                                                            <a href="<?= $url_dok_pengadaan . $value['id_dokumen_pengadaan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
+                                                                            <a href="<?= $url_dok_pengadaan . $value['file_dok_pengadaan'] ?>" class="btn btn-sm btn-danger"><i class="fas fa fa-file"></i> Download</a>
                                                                             <?php if ($value['keterangan_dokumen']) { ?>
                                                                                 <a href="javascript:;" onclick="modal_lihat_keterangan_dokumen_perubahan('<?= $value['keterangan_dokumen'] ?>')" class="btn btn-sm btn-warning"><i class="fas fa fa-file"></i> Keterangan Perubahan Dokumen</a>
                                                                             <?php } else { ?>

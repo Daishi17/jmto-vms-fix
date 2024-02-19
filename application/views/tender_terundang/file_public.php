@@ -63,7 +63,6 @@
                         var sekarang = new Date();
                         var waktu_mulai = new Date(response['row_rup'].awal_pendaftaran_tender);
                         var waktu_selesai = new Date(response['row_rup'].batas_pendaftaran_tender);
-
                         if (sekarang < waktu_mulai) {
                             $('#tombol_mengikuti').html('<button disabled class="btn btn-default btn-danger"><i class="fa-solid fa-circle-up px-1"></i> Belum Bisa Mendaftar</button>')
                         } else if (sekarang >= waktu_mulai && sekarang <= waktu_selesai) {
@@ -84,8 +83,8 @@
                     var html_status_paket = '<small><span class="badge bg-danger text-white">Tender Sudah Selesai</span></small>';
                 }
                 $('.load_status_paket').html(html_status_paket);
-
                 $('#modal-xl-detail').modal('show')
+                $('#batas_pendaftaran').text(response['row_rup'].batas_pendaftaran_tender)
                 $('#kode_rup').text(response['row_rup'].kode_rup)
                 $('#tahun_rup').text(response['row_rup'].tahun_rup)
                 $('#nama_rup').text(response['row_rup'].nama_rup)
@@ -96,7 +95,6 @@
                 $('#nama_metode_pengadaan').text(response['row_rup'].nama_metode_pengadaan)
                 $('#nama_metode_pemilihan').text(response['row_rup'].metode_kualifikasi)
                 $('#dokumen_pemilihan').text(response['row_rup'].metode_dokumen)
-                $('#batas_pendaftaran').text(response['row_rup'].batas_pendaftaran_tender)
                 $('#jangka_waktu_hari_pelaksanaan').text(response['row_rup'].jangka_waktu_hari_pelaksanaan)
                 $('#status_pencatatan').text(response['row_rup'].status_pencatatan)
                 $('#persen_pencatatan').text(response['row_rup'].persen_pencatatan)

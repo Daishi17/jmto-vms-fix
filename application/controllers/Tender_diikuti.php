@@ -4,7 +4,7 @@ date_default_timezone_set("Asia/Jakarta");
 error_reporting(0);
 class Tender_diikuti extends CI_Controller
 {
-    var $link_dok = 'https://drtproc.jmto.co.id/';
+    var $link_dok = 'https://eprocurement.jmto.co.id/file_paket/';
     public function __construct()
     {
         parent::__construct();
