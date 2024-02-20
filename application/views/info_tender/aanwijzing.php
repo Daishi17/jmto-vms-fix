@@ -500,7 +500,7 @@
                                 <a href="javascript:;" class="float-right" onclick="hapus_data_file()">X</a>
                             </div>
                         </div>
-                        <?php if ($rup['id_jadwal_tender'] == 1) { ?>
+                        <?php if ($rup['id_jadwal_tender'] == 1 ) { ?>
                             <div class="input-group">
                                 <input type="hidden" name="id_pengirim" id="id_pengirim" value="<?= $this->session->userdata('id_vendor'); ?>">
                                 <input type="hidden" name="id_rup" value="<?= $rup['id_rup'] ?>">

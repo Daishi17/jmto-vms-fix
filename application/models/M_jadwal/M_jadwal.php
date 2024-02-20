@@ -482,8 +482,6 @@ class M_jadwal extends CI_Model
         return $query->row_array();
     }
 
-
-
     public function jadwal_juksung_5($id_rup)
     {
         $this->db->select('*');

@@ -335,7 +335,7 @@ class Tender_diikuti extends CI_Controller
         } else if ($data['rup']['id_jadwal_tender'] == 9) {
             $data['jadwal_pengumuman_pengadaan'] =  $this->M_jadwal->jadwal_juksung_1($data['rup']['id_rup']);
             $data['jadwal_dokumen_kualifikasi'] =  $this->M_jadwal->jadwal_juksung_2($data['rup']['id_rup']);
-            $data['jadwal_aanwijzing_pq'] =  $this->M_jadwal->jadwal_pra1file_umum_3($data['rup']['id_rup']);
+            $data['jadwal_aanwijzing_pq'] =  $this->M_jadwal->jadwal_pra1file_umum_2($data['rup']['id_rup']);
             $data['jadwal_upload_dokumen_prakualifikasi'] =  $this->M_jadwal->jadwal_pra1file_umum_3($data['rup']['id_rup']);
             $data['jadwal_pembuktian_kualifikasi'] =  $this->M_jadwal->jadwal_juksung_5($data['rup']['id_rup']);
             $data['jadwal_evaluasi_dokumen_kualifikasi'] =  $this->M_jadwal->jadwal_pra1file_umum_6($data['rup']['id_rup']);
