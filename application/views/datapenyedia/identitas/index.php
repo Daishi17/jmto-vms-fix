@@ -223,7 +223,7 @@
                                                 </div>
                                                 <div class="input-group mb-2">
                                                     <span class="input-group-text"><i class="fa-solid fa-phone-volume"></i></span>
-                                                    <input name="no_telpon" type="number" class="form-control" value="<?= $row_vendor['no_telpon_kantor'] ?>">
+                                                    <input name="no_telpon_kantor" type="number" class="form-control" value="<?= $row_vendor['no_telpon_kantor'] ?>">
                                                 </div>
                                             </div>
                                         </td>
