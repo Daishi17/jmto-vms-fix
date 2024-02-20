@@ -519,7 +519,7 @@ class M_jadwal extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_jadwal_rup');
         $this->db->where('id_rup', $id_rup);
-        $this->db->where('nama_jadwal_rup', 'Pendaftaran (Pengambilan Dokumen PQ)/Download Dokumen Kulaifikasi');
+        $this->db->where('nama_jadwal_rup', 'Aanwijzing (Tanya Jawab Dokumen PQ)');
         $query = $this->db->get();
         return $query->row_array();
     }
