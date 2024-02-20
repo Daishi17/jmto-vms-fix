@@ -44,7 +44,7 @@
                 if (response['cek_ikut']) {
                     $('#tombol_mengikuti').html('<button disabled type="button" class="btn btn-default btn-primary"><i class="fa fa-spinner" aria-hidden="true"></i> Anda Sudah Mengikuti Pengadaan ini</button>')
                 } else {
-                    if (response['row_rup'].id_metode_pengadaan == 4) {
+                    if (response['row_rup'].id_jadwal_tender == 1 || response['row_rup'].id_jadwal_tender == 2 || response['row_rup'].id_jadwal_tender == 3 || response['row_rup'].id_jadwal_tender == 6 || response['row_rup'].id_jadwal_tender == 9 || response['row_rup'].id_jadwal_tender == 10) {
                         var sekarang = new Date();
                         var waktu_mulai = new Date(response['row_rup'].awal_pendaftaran_tender);
                         var waktu_selesai = new Date(response['row_rup'].batas_pendaftaran_tender);
@@ -52,7 +52,7 @@
                         if (sekarang < waktu_mulai) {
                             $('#tombol_mengikuti').html('<button disabled class="btn btn-default btn-danger"><i class="fa-solid fa-circle-up px-1"></i> Belum Bisa Mendaftar</button>')
                         } else if (sekarang >= waktu_mulai && sekarang <= waktu_selesai) {
-                            $('#tombol_mengikuti').html('<a type="javascript:;" onclick="pakta_integritas_question(\'' + response['row_rup'].id_rup + '\'' + ',' + '\'' + response['row_rup'].nama_rup + '\')" class="btn btn-default btn-warning"><i class="fa-solid fa-circle-up px-1"></i> Ikuti Pengadaan</a>')
+                            $('#tombol_mengikuti').html('<a type="javascript:;" onclick="pakta_integritas_question_terbatas(\'' + response['row_rup'].id_rup + '\'' + ',' + '\'' + response['row_rup'].nama_rup + '\')" class="btn btn-default btn-warning"><i class="fa-solid fa-circle-up px-1"></i> Ikuti Pengadaan</a>')
                         } else if (sekarang > waktu_selesai && sekarang <= waktu_selesai) {
                             $('#tombol_mengikuti').html('<button disabled class="btn btn-default btn-danger"><i class="fa-solid fa-circle-up px-1"></i> Sudah Tidak Bisa Mendaftar</button>')
                         } else {
