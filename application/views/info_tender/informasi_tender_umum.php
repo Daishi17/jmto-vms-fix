@@ -395,52 +395,13 @@
                             </th>
                         </tr>
 
-                        <?php if (date('Y-m-d H:i', strtotime($jadwal_pembuktian_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pembuktian_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                            <?php $date2 = $jadwal_pembuktian_kualifikasi['waktu_selesai'];
-                            if (date('Y-m-d H:i', strtotime($jadwal_pembuktian_kualifikasi['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
-                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_pembuktian_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pembuktian_kualifikasi['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
-                                <?php if ($rup['sts_undangan_pembuktian'] == 1) { ?>
-                                    <tr>
-                                        <th>Undangan Pembuktian</th>
-                                        <th><a href="<?= base_url('tender_diikuti/lihat_undangan_pembuktian/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-danger" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Pembuktian</a></th>
-                                    </tr>
-                                <?php } else { ?>
-
-                                <?php } ?>
-
-                            <?php    } else { ?>
-                                <?php if ($rup['sts_undangan_pembuktian'] == 1) { ?>
-                                    <tr>
-                                        <th>Undangan Pembuktian</th>
-                                        <th><a href="<?= base_url('tender_diikuti/lihat_undangan_pembuktian/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-danger" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Pembuktian</a></th>
-                                    </tr>
-                                <?php } else { ?>
-
-                                <?php } ?>
-                            <?php    } ?>
+                        <?php if ($rup['sts_undangan_pembuktian'] == 1) { ?>
+                            <tr>
+                                <th>Undangan Pembuktian</th>
+                                <th><a href="<?= base_url('tender_diikuti/lihat_undangan_pembuktian/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-danger" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Pembuktian</a></th>
+                            </tr>
                         <?php } else { ?>
-                            <?php
-                            if (date('Y-m-d H:i', strtotime($jadwal_pembuktian_kualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
-                            <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_pembuktian_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pembuktian_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                <?php if ($rup['sts_undangan_pembuktian'] == 1) { ?>
-                                    <tr>
-                                        <th>Undangan Pembuktian</th>
-                                        <th><a href="<?= base_url('tender_diikuti/lihat_undangan_pembuktian/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-danger" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Pembuktian</a></th>
-                                    </tr>
-                                <?php } else { ?>
-
-                                <?php } ?>
-                            <?php    } else { ?>
-                                <?php if ($rup['sts_undangan_pembuktian'] == 1) { ?>
-                                    <tr>
-                                        <th>Undangan Pembuktian</th>
-                                        <th><a href="<?= base_url('tender_diikuti/lihat_undangan_pembuktian/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-danger" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Undangan Pembuktian</a></th>
-                                    </tr>
-                                <?php } else { ?>
-
-                                <?php } ?>
-                            <?php    } ?>
                         <?php } ?>
 
                         <?php if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_hasil_kualifikasi['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>

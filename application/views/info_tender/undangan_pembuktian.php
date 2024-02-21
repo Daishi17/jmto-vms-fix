@@ -125,28 +125,35 @@ function terbilang($nilai)
     <div class="container">
         <img class="pull-right" alt="LOGO" src="<?= base_url() ?>assets/logo_ba/logo_ba.png" width="50%" style="opacity: 0.5;" />
         <div class="container-fluid">
-            <table>
-                <tr>
-                    <td width="100px">Nomor</td>
-                    <th>&ensp;&ensp;:&ensp;&ensp;</th>
-                    <td><?= $rup['no_undangan'] ?></td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <td width="100px">Hal</td>
-                    <th>&ensp;&ensp;:&ensp;&ensp;</th>
-                    <td>Undangan Pembuktian Kualifikasi (Syarat Tambahan)</td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <td width="100px">Lampiran</td>
-                    <th>&ensp;&ensp;:&ensp;&ensp;</th>
-                    <td>1 (satu) Lembar</td>
-                </tr>
-            </table>
-
+            <div class="float-left">
+                <table>
+                    <tr>
+                        <td width="100px">Nomor</td>
+                        <th>&ensp;&ensp;:&ensp;&ensp;</th>
+                        <td><?= $rup['no_undangan'] ?></td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td width="100px">Hal</td>
+                        <th>&ensp;&ensp;:&ensp;&ensp;</th>
+                        <td>Undangan Pembuktian Kualifikasi (Syarat Tambahan)</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td width="100px">Lampiran</td>
+                        <th>&ensp;&ensp;:&ensp;&ensp;</th>
+                        <td>1 (satu) Lembar </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="float-right">
+                Jakarta, <?= tgl_indo($rup['tgl_surat_undangan']) ?>
+            </div>
+            <br>
+            <br>
+            <br>
             <div class="row mt-5">
                 <div class="col-md-8">
                     <b>Kepada Yth.</b>
