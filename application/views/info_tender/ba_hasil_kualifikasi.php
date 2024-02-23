@@ -200,11 +200,15 @@ function terbilang($nilai)
                             <?= date('d-M-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) ?>
                         </td>
                     </tr>
-
                     <tr>
                         <td>2. </td>
-                        <td>Rapat Penjelasan dan Download Dokumen Pengadaan</td>
+                        <td>Download Dokumen Pengadaan</td>
                         <td><?= date('d-M-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) ?> &ensp;S/D&ensp;<?= date('d-M-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) ?></td>
+                    </tr>
+                    <tr>
+                        <td>3. </td>
+                        <td>Rapat Penjelasan</td>
+                        <td><?= date('d-M-Y H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) ?> &ensp;S/D&ensp;<?= date('d-M-Y H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) ?></td>
                     </tr>
 
                 </tbody>
@@ -224,8 +228,8 @@ function terbilang($nilai)
             <br>
             <br>
             Catatan : <br>
-            • Apabila ada perubahan waktu akan diberitahukan kemudian <br>
-            • Jika ada hal yang kurang jelas dapat menghubungi (021) 22984722.
+            - Apabila ada perubahan waktu akan diberitahukan kemudian <br>
+            - Jika ada hal yang kurang jelas dapat menghubungi (021) 22984722.
             <br>
             <br>
             <br> <br>

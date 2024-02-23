@@ -164,9 +164,9 @@
                 }
 
                 if (response['row_rup'].beban_tahun_anggaran == 1) {
-                    $('#beban_tahun_anggaran').text('Tahun Tunggal')
+                    $('#beban_tahun_anggaran').text(response['row_rup'].beban_tahun_anggaran)
                 } else {
-                    $('#beban_tahun_anggaran').text('Tahun Jamak')
+                    $('#beban_tahun_anggaran').text(response['row_rup'].beban_tahun_anggaran)
                 }
 
                 if (response['row_rup'].bobot_nilai == 1) {
