@@ -278,7 +278,7 @@ function terbilang($nilai)
                                     <tr>
                                         <td><?= $i++ ?></td>
                                         <td><?= $value['nama_usaha'] ?></td>
-                                        <td>
+                                        <td class="text-center">
                                             <?php if ($cek_valid_vendor >= $hitung_syarat) {
                                                 if ($value['sts_suratpernyataan_1'] == 1 && $value['sts_suratpernyataan_2'] == 1 && $value['sts_suratpernyataan_3'] && $value['sts_suratpernyataan_4'] == 1) {
                                                     $sts_administrasi = '<span class="badge bg-success">Lulus</span>';
@@ -291,7 +291,7 @@ function terbilang($nilai)
 
                                             <label for=""><?= $sts_administrasi ?></label>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <?php  // nilai keuangan
                                             if ($cek_valid_vendor >= $hitung_syarat) {
                                                 if ($value['ev_keuangan'] == NULL) {
@@ -322,7 +322,7 @@ function terbilang($nilai)
                                             } ?>
                                             <label for=""><?= $nilai_keuangan ?></label>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <?php
                                             if ($cek_valid_vendor >= $hitung_syarat) {
                                                 if ($value['ev_teknis'] == NULL) {
@@ -353,7 +353,7 @@ function terbilang($nilai)
                                             } ?>
                                             <label for=""><?= $nilai_teknis ?></label>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <?php if ($cek_valid_vendor >= $hitung_syarat) {
                                                 if ($value['ev_kualifikasi_akhir'] == NULL) {
                                                     $nilai_akhir = '00.00';
