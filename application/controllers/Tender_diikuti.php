@@ -1773,6 +1773,10 @@ class Tender_diikuti extends CI_Controller
                 $upload = [
                     'file2_dkh' => $fileData['file_name']
                 ];
+            } else if ($type_post == 'file2_tkdn') {
+                $upload = [
+                    'file2_tkdn' => $fileData['file_name']
+                ];
             }
 
             $this->M_tender->update_dok_pengadaan_file_II($upload, $where);

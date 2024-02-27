@@ -455,6 +455,15 @@
                         var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2_dkh(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                     }
 
+
+                    if (response['row']['file2_tkdn']) {
+                        var file2_tkdn = `<a  href="<?= base_url('tender_diikuti/download_dokumen_penawaran_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file2_tkdn" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
+                        var btn_file2_tkdn = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_tkdn')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                    } else {
+                        var file2_tkdn = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
+                        var btn_file2_tkdn = `<a href="javascript:;" onclick="upload_file2_dkh(${response['row']['id_vendor_mengikuti_paket']},'file2_tkdn')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                    }
+
                     html += `<tr>
                             <td>1.&ensp;Dokumen Penawaran Administrasi</td>
                             <td>${file1_administrasi}</td>
@@ -474,7 +483,13 @@
                             <td>4.&ensp;Dokumen DKH (Wajib Format Excel)</td>
                             <td>${file2_dkh}</td>
                             <td>${btn_file2_dkh}</td>
-                        </tr>`
+                        </tr>
+                        <tr>
+                            <td>5.&ensp;File Lampiran TKDN (Wajib Format Excel)</td>
+                            <td>${file2_tkdn}</td>
+                            <td>${btn_file2_tkdn}</td>
+                        </tr>
+                        `
                     $('#load_dok_file1_statis').html(html)
                 } else {
                     html += `<tr>
@@ -563,6 +578,14 @@
                     var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2_dkh(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
                 }
 
+                if (response['row']['file2_tkdn']) {
+                    var file2_tkdn = `<a  href="<?= base_url('tender_diikuti/download_dokumen_penawaran_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file2_tkdn" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
+                    var btn_file2_tkdn = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_tkdn')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                } else {
+                    var file2_tkdn = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
+                    var btn_file2_tkdn = `<a href="javascript:;" onclick="upload_file2_dkh(${response['row']['id_vendor_mengikuti_paket']},'file2_tkdn')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
+                }
+
                 var html2 = '';
                 html2 += `<tr>
                             <td>1. Dokumen Penawaran Harga</td>
@@ -573,6 +596,11 @@
                             <td>2. Dokumen DKH (Wajib Format Excel)</td>
                             <td>${file2_dkh}</td>
                             <td>${btn_file2_dkh}</td>
+                        </tr>
+                        <tr>
+                            <td>3.&ensp;File Lampiran TKDN (Wajib Format Excel)</td>
+                            <td>${file2_tkdn}</td>
+                            <td>${btn_file2_tkdn}</td>
                         </tr>`
                 $('#load_dok_file2_statis').html(html2)
             }
@@ -614,6 +642,8 @@
             $('[name="nama_dokumen"]').val('Dokumen Penawaran Harga')
         } else if (type == 'file2_dkh') {
             $('[name="nama_dokumen"]').val('File DKH')
+        } else if (type == 'file2_tkdn') {
+            $('[name="nama_dokumen"]').val('File TKDN')
         }
         $('#upload_dok_file_2').modal('show')
     }
@@ -626,6 +656,8 @@
             $('[name="nama_dokumen"]').val('Dokumen Penawaran Harga')
         } else if (type == 'file2_dkh') {
             $('[name="nama_dokumen"]').val('File DKH')
+        } else if (type == 'file2_tkdn') {
+            $('[name="nama_dokumen"]').val('File TKDN')
         }
         $('#upload_dok_file_2_dkh').modal('show')
     }
