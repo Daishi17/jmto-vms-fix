@@ -48,7 +48,7 @@
                     <th><small>Waktu Selesai</small></th>
                     <th><small>Status Tahap</small></th>
                     <th><small>Dibuat Oleh</small></th>
-                    <th><small>Alasan Perubahan</small></th>
+                    <!-- <th><small>Alasan Perubahan</small></th> -->
                 </tr>
             </thead>
             <tbody id="load_jadwal">

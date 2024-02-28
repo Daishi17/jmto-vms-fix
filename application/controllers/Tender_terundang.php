@@ -162,6 +162,7 @@ class Tender_terundang extends CI_Controller
         $this->output->set_content_type('application/json')->set_output(json_encode($output));
     }
 
+    
     public function detail_paket($id_rup)
     {
         $data_rup = $this->M_tender->get_row_rup_byid($id_rup);
@@ -174,7 +175,7 @@ class Tender_terundang extends CI_Controller
 
         $get_kbli = $this->M_tender->get_persyaratan_kbli($data_rup['id_rup']);
         $get_sbu =  $this->M_tender->get_persyaratan_sbu($data_rup['id_rup']);
-
+        $get_ruas =  $this->M_tender->get_ruas($data_rup['id_rup']);
 
         $get_penandatangan_kontrak =  $this->M_tender->get_jadwal_akhir($data_rup['id_rup'], $data_rup['id_jadwal_tender']);
 
@@ -187,6 +188,7 @@ class Tender_terundang extends CI_Controller
             'cek_ikut' => $cek_ikut,
             'result_kbli' => $get_kbli,
             'result_sbu' => $get_sbu,
+            'result_ruas' => $get_ruas,
             'get_jadwal_akhir' => $get_penandatangan_kontrak
         ];
         $this->output->set_content_type('application/json')->set_output(json_encode($response));

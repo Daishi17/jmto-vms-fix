@@ -74,7 +74,7 @@
                         '<td><small>' + data_selesaiku + '</small></td>' +
                         '<td>' + status_waktu + '</td>' +
                         '<td>Panitia</td>' +
-                        '<td>' + alasan + '</td>' +
+                        // '<td>' + alasan + '</td>' +
                         '</tr>';
                 }
                 $('#load_jadwal').html(html);

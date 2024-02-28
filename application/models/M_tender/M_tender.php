@@ -1655,15 +1655,6 @@ class M_tender extends CI_Model
         return $data->row_array();
     }
 
-    // public function get_mengikuti($id_rup)
-    // {
-    //     $this->db->select('*');
-    //     $this->db->from('tbl_vendor_mengikuti_paket');
-    //     $this->db->where('id_rup', $id_rup);
-    //     $data = $this->db->get();
-    //     return $data->row_array();
-    // }
-
     public function get_mengikuti($id_rup)
     {
         $id_vendor = $this->session->userdata('id_vendor');
@@ -1682,5 +1673,15 @@ class M_tender extends CI_Model
         $this->db->from('tbl_berita_tender');
         $data = $this->db->get();
         return $data->result_array();
+    }
+
+    public function get_ruas($id_rup)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_ruas_rup');
+        $this->db->join('mst_ruas', 'tbl_ruas_rup.id_ruas = mst_ruas.id_ruas', 'left');
+        $this->db->where('tbl_ruas_rup.id_rup', $id_rup);
+        $query = $this->db->get();
+        return $query->result_array();
     }
 }

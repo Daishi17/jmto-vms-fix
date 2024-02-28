@@ -266,3 +266,9 @@
         return e;
     }
 </script>
+
+<script>
+    setTimeout(function() {
+        location.reload(true); // Memuat ulang halaman setelah 5 menit (300000 milidetik)
+    }, 300000);
+</script>

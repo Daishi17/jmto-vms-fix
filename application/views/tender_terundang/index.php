@@ -259,7 +259,7 @@
                                 <td class="col-10 vertical-align: middle;" colspan="3">
                                     <small>
                                         <i class="fa-solid fa-road px-1"></i>
-                                        Jagorawi - Japek
+                                        <div id="load_ruas"></div>
                                     </small>
                                 </td>
                             </tr>

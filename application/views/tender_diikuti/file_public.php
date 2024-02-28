@@ -286,6 +286,19 @@
 
                 }
 
+                // INI UNUTK RUAS
+                if (response['result_ruas']) {
+                    var res_ruas = ''
+                    var i_ruas = 0;
+                    for (i_ruas = 0; i_ruas < response['result_ruas'].length; i_ruas++) {
+
+                        res_ruas += '<label>' + response['result_ruas'][i_ruas].nama_ruas +'</label> <br>'
+                    }
+                    $('#load_ruas').html(res_ruas)
+                } else {
+
+                }
+
             }
         })
     }

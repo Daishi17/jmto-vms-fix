@@ -183,6 +183,7 @@ class Tender_diikuti extends CI_Controller
         $row_syarat_teknis_rup = $this->M_tender->get_syarat_izin_teknis_tender($data_rup['id_rup']);
         $get_kbli = $this->M_tender->get_persyaratan_kbli($data_rup['id_rup']);
         $get_sbu =  $this->M_tender->get_persyaratan_sbu($data_rup['id_rup']);
+        $get_ruas =  $this->M_tender->get_ruas($data_rup['id_rup']);
         $response = [
             'root_jadwal' => $root_jadwal,
             'row_rup' => $data_rup,
@@ -192,7 +193,8 @@ class Tender_diikuti extends CI_Controller
             'syarat_tambahan' => $syarat_tambahan,
             'cek_ikut' => $cek_ikut,
             'result_kbli' => $get_kbli,
-            'result_sbu' => $get_sbu
+            'result_sbu' => $get_sbu,
+            'result_ruas' => $get_ruas,
         ];
         $this->output->set_content_type('application/json')->set_output(json_encode($response));
     }
