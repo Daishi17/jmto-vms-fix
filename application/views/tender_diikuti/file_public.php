@@ -129,7 +129,7 @@
                 $('#nama_metode_pemilihan').text(response['row_rup'].metode_kualifikasi)
                 $('#dokumen_pemilihan').text(response['row_rup'].metode_dokumen)
                 $('#batas_pendaftaran').text(response['row_rup'].batas_pendaftaran_tender)
-                $('#jangka_waktu_hari_pelaksanaan').text(response['row_rup'].jangka_waktu_hari_pelaksanaan)
+                $('#jangka_waktu_hari_pelaksanaan').text(response['row_rup'].jangka_waktu_hari_pelaksanaan + ' Hari Kalender')
                 $('#status_pencatatan').text(response['row_rup'].status_pencatatan)
                 $('#persen_pencatatan').text(response['row_rup'].persen_pencatatan)
                 $('#total_hps_rup').text(currency(response['row_rup'].total_hps_rup))
@@ -292,7 +292,7 @@
                     var i_ruas = 0;
                     for (i_ruas = 0; i_ruas < response['result_ruas'].length; i_ruas++) {
 
-                        res_ruas += '<label>' + response['result_ruas'][i_ruas].nama_ruas +'</label> <br>'
+                        res_ruas += '<label>' + response['result_ruas'][i_ruas].nama_ruas + '</label> <br>'
                     }
                     $('#load_ruas').html(res_ruas)
                 } else {

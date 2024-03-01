@@ -12,8 +12,8 @@ class Dashboard extends CI_Controller
         $this->load->model('M_dashboard/M_dashboard');
         $this->load->model('M_tender/M_count');
         $this->load->model('M_tender/M_tender');
-        if (!$id_vendor) {
-            redirect('auth');
+        if (!$this->session->userdata('id_vendor')) {
+            redirect('auth/logout');
         }
     }
 

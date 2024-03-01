@@ -78,7 +78,7 @@
                         </tr>
                         <tr>
                             <th><small>Jangka Waktu Pelaksanaan Pekerjaan</small></th>
-                            <th><?= $rup['jangka_waktu_hari_pelaksanaan'] ?> Hari</th>
+                            <th><?= $rup['jangka_waktu_hari_pelaksanaan'] ?> Hari Kalender</th>
                         </tr>
                         <tr>
                             <th>Jadwal Pengadaan</th>

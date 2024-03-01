@@ -319,7 +319,7 @@
                                         <label for="" id="batas_pendaftaran"></label>
                                     </small>
                                 </td>
-                                <th class="col-2 vertical-align: middle; bg-light"><small>Waktu Pelaksana (hari)</small></th>
+                                <th class="col-2 vertical-align: middle; bg-light"><small>Waktu Pelaksanaan (hari)</small></th>
                                 <td class="col-4 vertical-align: middle;">
                                     <small>
                                         <i class="fa-solid fa-clock px-1"></i>
