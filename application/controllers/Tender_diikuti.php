@@ -7,6 +7,8 @@ class Tender_diikuti extends CI_Controller
     var $link_dok = 'https://eprocurement.jmto.co.id/file_paket/';
     public function __construct()
     {
+
+
         parent::__construct();
         $nama_jabatan_ba_nego = $this->session->userdata('id_vendor');
         $this->load->model('M_dashboard/M_dashboard');
@@ -22,6 +24,9 @@ class Tender_diikuti extends CI_Controller
         //     redirect('auth');
         // }
         // redirect('page_kosong/page_konstruksi');
+        if (!$this->session->userdata('id_vendor')) {
+            redirect('auth/logout');
+        }
     }
 
 

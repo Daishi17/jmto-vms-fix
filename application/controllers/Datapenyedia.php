@@ -22,6 +22,9 @@ class Datapenyedia extends CI_Controller
 		$this->load->model('M_tender/M_count');
 		$this->load->model('M_tender/M_tender');
 		$this->load->helper('download');
+		if (!$this->session->userdata('id_vendor')) {
+			redirect('auth/logout');
+		}
 	}
 
 	public function index()
@@ -297,7 +300,7 @@ class Datapenyedia extends CI_Controller
 		$nomor_surat = $this->input->post('nomor_surat_nib');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_nib');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050-12-01;
+			$tgl_berlaku = 2050 - 12 - 01;
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_nib');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -731,7 +734,7 @@ class Datapenyedia extends CI_Controller
 		$nomor_surat = $this->input->post('nomor_surat_siup');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_siup');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050-12-01;
+			$tgl_berlaku = 2050 - 12 - 01;
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_siup');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -1163,7 +1166,7 @@ class Datapenyedia extends CI_Controller
 		$kualifikasi_izin = $this->input->post('kualifikasi_izin_siujk');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_siujk');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050-12-01;
+			$tgl_berlaku = 2050 - 12 - 01;
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_siujk');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -1590,7 +1593,7 @@ class Datapenyedia extends CI_Controller
 		$kualifikasi_izin = $this->input->post('kualifikasi_izin_sbu');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_sbu');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050-12-01;
+			$tgl_berlaku = 2050 - 12 - 01;
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_sbu');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -4434,7 +4437,7 @@ class Datapenyedia extends CI_Controller
 		$no_surat = $this->input->post('no_surat_sppkp');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_sppkp');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050-12-01;
+			$tgl_berlaku = 2050 - 12 - 01;
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_sppkp');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -4663,7 +4666,7 @@ class Datapenyedia extends CI_Controller
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_npwp');
 		$tgl_berlaku = $this->input->post('tgl_berlaku_npwp');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050-12-01;
+			$tgl_berlaku = 2050 - 12 - 01;
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_npwp');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -5619,7 +5622,7 @@ class Datapenyedia extends CI_Controller
 		$nomor_surat = $this->input->post('nomor_surat_skdp');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_skdp');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050-12-01;
+			$tgl_berlaku = 2050 - 12 - 01;
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_skdp');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -6034,7 +6037,7 @@ class Datapenyedia extends CI_Controller
 		$nama_surat = $this->input->post('nama_surat');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_lainnya');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050-12-01;
+			$tgl_berlaku = 2050 - 12 - 01;
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_lainnya');
 			if ($tgl_berlaku_kondisi == NULL) {

@@ -777,7 +777,7 @@ function input_nib_edit() {
     $('.file_dokumen_nib').attr("readonly", true);
     $('.kbli_nib').attr("readonly", true);
     $('.file_dokumen_nib').attr("disabled", true);
-    $('#on_save_nib').attr("disabled", true);
+    // $('#on_save_nib').attr("disabled", true);
     $('#button_save_kbli_nib').removeClass("disabled");
     $('#button_edit_kbli_nib').removeClass("disabled");
 }
@@ -1239,7 +1239,7 @@ function input_siup_edit() {
     $('.file_dokumen_siup').attr("readonly", true);
     $('.kbli_siup').attr("readonly", true);
     $('.file_dokumen_siup').attr("disabled", true);
-    $('#on_save_siup').attr("disabled", true);
+    // $('#on_save_siup').attr("disabled", true);
     $('#button_save_kbli_siup').removeClass("disabled");
     $('#button_edit_kbli_siup').removeClass("disabled");
 }
@@ -1698,7 +1698,7 @@ function input_sbu_edit() {
     $('.file_dokumen_sbu').attr("readonly", true);
     $('.kbli_sbu').attr("readonly", true);
     $('.file_dokumen_sbu').attr("disabled", true);
-    $('#on_save_sbu').attr("disabled", true);
+    // $('#on_save_sbu').attr("disabled", true);
     $('#button_save_kbli_sbu').removeClass("disabled");
     $('#button_edit_kbli_sbu').removeClass("disabled");
 }
@@ -2155,7 +2155,7 @@ function input_siujk_edit() {
     $('.file_dokumen_siujk').attr("readonly", true);
     $('.kbli_siujk').attr("readonly", true);
     $('.file_dokumen_siujk').attr("disabled", true);
-    $('#on_save_siujk').attr("disabled", true);
+    // $('#on_save_siujk').attr("disabled", true);
     $('#button_save_kbli_siujk').removeClass("disabled");
     $('#button_edit_kbli_siujk').removeClass("disabled");
 }
@@ -2508,7 +2508,7 @@ function input_skdp_edit() {
     $('.file_dokumen_skdp').attr("readonly", true);
     $('.kbli_skdp').attr("readonly", true);
     $('.file_dokumen_skdp').attr("disabled", true);
-    $('#on_save_skdp').attr("disabled", true);
+    // $('#on_save_skdp').attr("disabled", true);
     $('#button_save_kbli_skdp').removeClass("disabled");
     $('#button_edit_kbli_skdp').removeClass("disabled");
 }

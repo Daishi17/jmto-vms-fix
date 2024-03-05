@@ -12,8 +12,8 @@ class Dashboard extends CI_Controller
         $this->load->model('M_dashboard/M_dashboard');
         $this->load->model('M_tender/M_count');
         $this->load->model('M_tender/M_tender');
-        if (!$id_vendor) {
-            redirect('auth');
+        if (!$this->session->userdata('id_vendor')) {
+            redirect('auth/logout');
         }
     }
 
@@ -36,6 +36,8 @@ class Dashboard extends CI_Controller
         $cek_kbli_sbu = $this->M_dashboard->cek_vendor_tervalidasi_kbli_sbu($id_vendor);
         $cek_siujk = $this->M_dashboard->cek_vendor_tervalidasi_siujk($id_vendor);
         $cek_kbli_siujk = $this->M_dashboard->cek_vendor_tervalidasi_kbli_siujk($id_vendor);
+
+        $cek_skdp = $this->M_dashboard->cek_vendor_tervalidasi_skdp($id_vendor);
 
         // akta
         $cek_akta_pendirian = $this->M_dashboard->cek_vendor_tervalidasi_akta_pendirian($id_vendor);
@@ -70,6 +72,7 @@ class Dashboard extends CI_Controller
         $cek_tdk_valid_siujk = $this->M_dashboard->cek_vendor_tdk_valid_siujk($id_vendor);
         $cek_tdk_valid_kbli_siujk = $this->M_dashboard->cek_vendor_tdk_valid_kbli_siujk($id_vendor);
 
+        $cek_tdk_valid_skdp = $this->M_dashboard->cek_vendor_tdk_valid_skdp($id_vendor);
         // akta
         $cek_tdk_valid_akta_pendirian = $this->M_dashboard->cek_vendor_tdk_valid_akta_pendirian($id_vendor);
         $cek_tdk_valid_akta_perubahan = $this->M_dashboard->cek_vendor_tdk_valid_akta_perubahan($id_vendor);
@@ -93,9 +96,9 @@ class Dashboard extends CI_Controller
         // end pajak
         // end tidak valid
         $data['notifikasi'] = $this->M_dashboard->count_notifikasi($id_vendor);
-        $data['count_tdk_validate'] =  $cek_tdk_valid_siup + $cek_tdk_valid_kbli_siup + $cek_tdk_valid_nib + $cek_tdk_valid_kbli_nib  + $cek_tdk_valid_akta_pendirian + $cek_tdk_valid_pemilik + $cek_tdk_valid_pengurus + $cek_tdk_valid_pengalaman + $cek_tdk_valid_sppkp + $cek_tdk_valid_npwp + $cek_tdk_valid_spt + $cek_tdk_valid_neraca_keuangan + $cek_tdk_valid_keuangan;
+        $data['count_tdk_validate'] =  $cek_tdk_valid_siup + $cek_tdk_valid_kbli_siup + $cek_tdk_valid_nib + $cek_tdk_valid_kbli_nib  + $cek_tdk_valid_akta_pendirian + $cek_tdk_valid_pemilik + $cek_tdk_valid_pengurus + $cek_tdk_valid_pengalaman + $cek_tdk_valid_sppkp + $cek_tdk_valid_npwp + $cek_tdk_valid_spt + $cek_tdk_valid_neraca_keuangan + $cek_tdk_valid_keuangan + $cek_tdk_valid_skdp;
 
-        $data['count_validate'] = $cek_siup + $cek_kbli_siup + $cek_nib + $cek_kbli_nib + $cek_akta_pendirian + $cek_pemilik + $cek_pengurus + $cek_pengalaman + $cek_sppkp + $cek_npwp + $cek_spt + $cek_neraca_keuangan + $cek_keuangan;
+        $data['count_validate'] = $cek_siup + $cek_kbli_siup + $cek_nib + $cek_kbli_nib + $cek_akta_pendirian + $cek_pemilik + $cek_pengurus + $cek_pengalaman + $cek_sppkp + $cek_npwp + $cek_spt + $cek_neraca_keuangan + $cek_keuangan + $cek_skdp;
 
         $this->load->view('template_menu/header_menu', $data);
         $this->load->view('dashboard/index', $data);

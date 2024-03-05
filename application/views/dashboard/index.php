@@ -59,7 +59,7 @@
                                                 <small>Status Dokumen</small>
                                             </th>
                                             <?php
-                                            if ($count_validate == 13) { ?>
+                                            if ($count_validate == 14) { ?>
                                                 <?php if ($count_tdk_validate > 0) { ?>
                                                     <td class="text-end">
                                                         <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#rincian_dokumen"><small><span class="badge bg-danger">Belum Lengkap</span></small></a>
@@ -241,7 +241,7 @@
                                     <div class="col-lg-3 col-6">
                                         <div class="card shadow-lg" style="width: 18rem;">
 
-                                            <?php if ($count_validate >= 13) { ?>
+                                            <?php if ($count_validate >= 14) { ?>
                                                 <?php if ($count_tdk_validate > 0) { ?>
                                                     <div class="card-body bg-danger">
                                                         <div class="text-start">
@@ -250,7 +250,7 @@
                                                         <div class="text-end">
                                                             <h5>
                                                                 <input type="hidden" name="count_validate" value="<?= base_url('dashboard/count_validate') ?>">
-                                                                <small class="text-white"><b id="count_validate"><?= $count_validate - $count_tdk_validate ?>/13</b></small>
+                                                                <small class="text-white"><b id="count_validate"><?= $count_validate - $count_tdk_validate ?>/14</b></small>
                                                             </h5>
                                                             <small class="text-white"><b>Dokumen Yang Tervalidasi</b></small>
                                                         </div>
@@ -263,7 +263,7 @@
                                                         <div class="text-end">
                                                             <h5>
                                                                 <input type="hidden" name="count_validate" value="<?= base_url('dashboard/count_validate') ?>">
-                                                                <small class="text-white"><b id="count_validate"><?= $count_validate ?>/13</b></small>
+                                                                <small class="text-white"><b id="count_validate"><?= $count_validate ?>/14</b></small>
                                                             </h5>
                                                             <small class="text-white"><b>Dokumen Yang Tervalidasi</b></small>
                                                         </div>
@@ -278,7 +278,7 @@
                                                     <div class="text-end">
                                                         <h5>
                                                             <input type="hidden" name="count_validate" value="<?= base_url('dashboard/count_validate') ?>">
-                                                            <small class="text-white"><b id="count_validate"><?= $count_validate ?>/13</b></small>
+                                                            <small class="text-white"><b id="count_validate"><?= $count_validate ?>/14</b></small>
                                                         </h5>
                                                         <small class="text-white"><b>Dokumen Yang Tervalidasi</b></small>
                                                     </div>
@@ -543,6 +543,50 @@
                                 </tr>
                             </thead>
                             <tbody id="rincian_kbli_siujk">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-primary">
+                        <center>
+                            <h4 class="text-white">SKDP</h4>
+                        </center>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>No Surat</th>
+                                    <th>Status Validasi</th>
+                                    <th>Tanggal Periksa</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rincian_skdp">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-primary">
+                        <center>
+                            <h4 class="text-white">KBLI SKDP</h4>
+                        </center>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Kode KBLI/Jenis</th>
+                                    <th>Status Validasi</th>
+                                    <th>Tanggal Periksa</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rincian_kbli_skdp">
 
                             </tbody>
                         </table>
@@ -972,8 +1016,8 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
                     </div>
                 </div>
 
-                 <!-- sppkp -->
-                 <div id="sppkp_warning" style="display: none;">
+                <!-- sppkp -->
+                <div id="sppkp_warning" style="display: none;">
                     <div class="row">
                         <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sppkp"></label>
@@ -987,8 +1031,8 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
 
 
 
-                  <!-- spt -->
-                  <div id="spt_warning" style="display: none;">
+                <!-- spt -->
+                <div id="spt_warning" style="display: none;">
                     <div class="row">
                         <div class="col-md-3">
                             <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_spt"></label>

@@ -95,7 +95,7 @@
                 $('#nama_metode_pengadaan').text(response['row_rup'].nama_metode_pengadaan)
                 $('#nama_metode_pemilihan').text(response['row_rup'].metode_kualifikasi)
                 $('#dokumen_pemilihan').text(response['row_rup'].metode_dokumen)
-                $('#jangka_waktu_hari_pelaksanaan').text(response['row_rup'].jangka_waktu_hari_pelaksanaan)
+                $('#jangka_waktu_hari_pelaksanaan').text(response['row_rup'].jangka_waktu_hari_pelaksanaan + ' Hari Kalender')
                 $('#status_pencatatan').text(response['row_rup'].status_pencatatan)
                 $('#persen_pencatatan').text(response['row_rup'].persen_pencatatan)
                 if (response['row_rup'].jenis_kontrak == 1) {
@@ -285,13 +285,13 @@
 
                 }
 
-                
+
                 // INI UNUTK RUAS
                 if (response['result_ruas']) {
                     var res_ruas = ''
                     var i_ruas = 0;
                     for (i_ruas = 0; i_ruas < response['result_ruas'].length; i_ruas++) {
-                        res_ruas += '<label>' + response['result_ruas'][i_ruas].nama_ruas +'</label> <br>'
+                        res_ruas += '<label>' + response['result_ruas'][i_ruas].nama_ruas + '</label> <br>'
                     }
                     $('#load_ruas').html(res_ruas)
                 } else {

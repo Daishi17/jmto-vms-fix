@@ -16,8 +16,8 @@ class Berita extends CI_Controller
         $this->load->model('M_tender/M_tender');
         $this->load->helper('download');
         $id_vendor = $this->session->userdata('id_vendor');
-        if (!$id_vendor) {
-            redirect('auth');
+        if ($this->session->userdata('id_vendor')) {
+            redirect('auth/logout');
         }
     }
 

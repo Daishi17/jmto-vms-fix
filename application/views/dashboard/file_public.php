@@ -283,6 +283,69 @@
 
                 // end siujk
 
+                if (!response['row_skdp']) {
+
+                } else {
+                    if (response['row_skdp'].sts_validasi == null || response['row_skdp'].sts_validasi == 0) {
+                        var tombol_validasi = '<a href="javascript:;" onclick="Valid_skdp(\'' + response['row_skdp'].id_url + '\')" class="btn btn-success btn-sm shadow-lg"><i class="fa-solid fa-square-check px-1"></i><small>Valid</small></a> ' +
+                            '<a href="javascript:;" onclick="NonValid_skdp(\'' + response['row_skdp'].id_url + '\')" class="btn btn-danger btn-sm shadow-lg"><i class="fa-solid fa-rectangle-xmark px-1"></i><small>Tidak Valid</small></a>';
+                        var sts_validasi = '<span class="badge bg-secondary">Belum Di Periksa</span>'
+                    } else if (response['row_skdp'].sts_validasi == 1) {
+                        var tombol_validasi = '<button href="javascript:;" class="btn btn-success btn-sm shadow-lg" disabled><i class="fa-solid fa-square-check px-1"></i><small>Valid</small></button> ' +
+                            '<a href="javascript:;" onclick="NonValid_skdp(\'' + response['row_skdp'].id_url + '\')" class="btn btn-danger btn-sm shadow-lg"><i class="fa-solid fa-rectangle-xmark px-1"></i><small>Tidak Valid</small></a>';
+                        var sts_validasi = '<span class="badge bg-success">Sudah Valid</span>'
+                    } else if (response['row_skdp'].sts_validasi == 2) {
+                        var tombol_validasi = '<a href="javascript:;" onclick="Valid_skdp(\'' + response['row_skdp'].id_url + '\')" class="btn btn-success btn-sm shadow-lg"><i class="fa-solid fa-square-check px-1"></i><small>Valid</small></a> ' +
+                            '<a href="javascript:;" onclick="NonValid_skdp(\'' + response['row_skdp'].id_url + '\')" class="btn btn-danger btn-sm shadow-lg"><i class="fa-solid fa-rectangle-xmark px-1"></i><small>Tidak Valid</small></a>';
+                        var sts_validasi = '<span class="badge bg-danger">Tidak Valid</span>'
+                    } else if (response['row_skdp'].sts_validasi == 3) {
+                        var tombol_validasi = '<a href="javascript:;" onclick="Valid_skdp(\'' + response['row_skdp'].id_url + '\')" class="btn btn-success btn-sm shadow-lg"><i class="fa-solid fa-square-check px-1"></i><small>Valid</small></a> ' +
+                            '<a href="javascript:;" onclick="NonValid_skdp(\'' + response['row_skdp'].id_url + '\')" class="btn btn-danger btn-sm shadow-lg"><i class="fa-solid fa-rectangle-xmark px-1"></i><small>Tidak Valid</small></a>';
+                        var sts_validasi = '<span class="badge bg-warning">Revisi</span>'
+                    }
+                    if (response['row_skdp'].tgl_periksa) {
+                        var tgl_periksa = response['row_skdp'].tgl_periksa
+                    } else {
+                        var tgl_periksa = '-'
+                    }
+
+                    var html_skdp_rincian = ''
+                    html_skdp_rincian += '<tr>' +
+                        '<td>' + response['row_skdp'].nomor_surat + '</td>' +
+                        '<td>' + sts_validasi + '</td>' +
+                        '<td>' + tgl_periksa + '</td>' +
+                        '</tr>';
+                    $('#rincian_skdp').html(html_skdp_rincian);
+
+                }
+
+                if (!response['kbli_skdp']) {
+
+                } else {
+                    var html_kbli_skdp = ''
+                    for (i = 0; i < response['kbli_skdp'].length; i++) {
+                        if (response['kbli_skdp'][i].sts_kbli_skdp == null || response['kbli_skdp'][i].sts_kbli_skdp == 0) {
+                            var sts_validasi = '<span class="badge bg-secondary">Belum Di Periksa</span>'
+                        } else if (response['kbli_skdp'][i].sts_kbli_skdp == 1) {
+                            var sts_validasi = '<span class="badge bg-success">Sudah Valid</span>'
+                        } else if (response['kbli_skdp'][i].sts_kbli_skdp == 2) {
+                            var sts_validasi = '<span class="badge bg-danger">Tidak Valid</span>'
+                        } else if (response['kbli_skdp'][i].sts_kbli_skdp == 3) {
+                            var sts_validasi = '<span class="badge bg-warning">Revisi</span>'
+                        }
+                        if (response['kbli_skdp'][i].tgl_periksa) {
+                            var tgl_periksa_kbli_skdp = response['kbli_skdp'][i].tgl_periksa
+                        } else {
+                            var tgl_periksa_kbli_skdp = '-'
+                        }
+                        html_kbli_skdp += '<tr>' + '<td>' + response['kbli_skdp'][i].kode_kbli + '|' + response['kbli_skdp'][i].nama_kbli + '</td>' + '<td>' + sts_validasi + '</td>' + '<td>' + tgl_periksa_kbli_skdp + '</td>' + '</tr>';
+                    }
+                    $('#rincian_kbli_skdp').html(html_kbli_skdp);
+                }
+                // skdp
+
+                // end skdp
+
                 // akta
                 if (!response['row_akta_pendirian']) {
 

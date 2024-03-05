@@ -16,9 +16,8 @@ class Tender_terundang extends CI_Controller
         $this->load->model('M_tender/M_count');
         $this->load->model('M_jadwal/M_jadwal');
         $this->load->helper('download');
-        $id_vendor = $this->session->userdata('id_vendor');
-        if (!$id_vendor) {
-            redirect('auth');
+        if (!$this->session->userdata('id_vendor')) {
+            redirect('auth/logout');
         }
         // redirect('page_kosong/page_konstruksi');
     }
@@ -162,7 +161,7 @@ class Tender_terundang extends CI_Controller
         $this->output->set_content_type('application/json')->set_output(json_encode($output));
     }
 
-    
+
     public function detail_paket($id_rup)
     {
         $data_rup = $this->M_tender->get_row_rup_byid($id_rup);
