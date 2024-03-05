@@ -165,7 +165,7 @@
                             </th>
                         </tr>
                         <tr>
-                            <th>Surat Pernyataan dan Pernyataan Tambahan</th>
+                            <th>Surat Pernyataan dan Persyaratan Tambahan</th>
                             <th>
                                 <div class="row">
                                     <div class="col-md-12">
