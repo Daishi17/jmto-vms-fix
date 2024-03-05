@@ -475,7 +475,7 @@
                             <td>${btn_file1_teknis}</td>
                         </tr>
                         <tr>
-                            <td>3.&ensp;Dokumen Penawaran Harga</td>
+                            <td>3.&ensp;Dokumen Penawaran Harga, Lampiran DKH dan Lampiran TKDN</td>
                             <td>${file2_penawaran}</td>
                             <td>${btn_file2_penawaran}</td>
                          </tr>
