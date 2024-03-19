@@ -299,8 +299,9 @@ class Datapenyedia extends CI_Controller
 		// post
 		$nomor_surat = $this->input->post('nomor_surat_nib');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_nib');
+
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050 - 12 - 01;
+			$tgl_berlaku = '2050-12-01';
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_nib');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -399,8 +400,7 @@ class Datapenyedia extends CI_Controller
 				$response = [
 					'row_nib' => $this->M_datapenyedia->get_row_nib($id_vendor),
 				];
-				if ($row_nib['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_nib['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_nib['id_dokumen_perubahan']
 					];
@@ -443,8 +443,7 @@ class Datapenyedia extends CI_Controller
 				];
 				// INI UNTUK UPDATE DOKUMEN PENGAJUAN PERUBAHAN
 				// nib
-				if ($row_nib['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_nib['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_nib['id_dokumen_perubahan']
 					];
@@ -722,7 +721,6 @@ class Datapenyedia extends CI_Controller
 	// siup crud
 
 	// BATAS siup
-
 	public function add_siup()
 	{
 		$id_vendor = $this->session->userdata('id_vendor');
@@ -736,7 +734,7 @@ class Datapenyedia extends CI_Controller
 		$nomor_surat = $this->input->post('nomor_surat_siup');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_siup');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050 - 12 - 01;
+			$tgl_berlaku = '2050-12-01';
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_siup');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -838,8 +836,7 @@ class Datapenyedia extends CI_Controller
 					'row_siup' => $this->M_datapenyedia->get_row_siup($id_vendor),
 				];
 
-				if ($row_siup['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_siup['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_siup['id_dokumen_perubahan']
 					];
@@ -881,8 +878,7 @@ class Datapenyedia extends CI_Controller
 				$response = [
 					'row_siup' => $this->M_datapenyedia->get_row_siup($id_vendor),
 				];
-				if ($row_siup['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_siup['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_siup['id_dokumen_perubahan']
 					];
@@ -1170,7 +1166,7 @@ class Datapenyedia extends CI_Controller
 		$kualifikasi_izin = $this->input->post('kualifikasi_izin_siujk');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_siujk');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050 - 12 - 01;
+			$tgl_berlaku = '2050-12-01';
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_siujk');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -1264,8 +1260,7 @@ class Datapenyedia extends CI_Controller
 					'row_siujk' => $this->M_datapenyedia->get_row_siujk($id_vendor),
 				];
 				// siujk
-				if ($row_siujk['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_siujk['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_siujk['id_dokumen_perubahan']
 					];
@@ -1311,8 +1306,7 @@ class Datapenyedia extends CI_Controller
 				];
 
 				// siujk
-				if ($row_siujk['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_siujk['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_siujk['id_dokumen_perubahan']
 					];
@@ -1599,7 +1593,7 @@ class Datapenyedia extends CI_Controller
 		$kualifikasi_izin = $this->input->post('kualifikasi_izin_sbu');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_sbu');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050 - 12 - 01;
+			$tgl_berlaku = '2050-12-01';
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_sbu');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -1693,8 +1687,7 @@ class Datapenyedia extends CI_Controller
 					'row_sbu' => $this->M_datapenyedia->get_row_sbu($id_vendor),
 				];
 				// sbu
-				if ($row_sbu['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_sbu['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_sbu['id_dokumen_perubahan']
 					];
@@ -1740,8 +1733,7 @@ class Datapenyedia extends CI_Controller
 				];
 
 				// sbu
-				if ($row_sbu['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_sbu['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_sbu['id_dokumen_perubahan']
 					];
@@ -2153,8 +2145,7 @@ class Datapenyedia extends CI_Controller
 			$response = [
 				'row_akta' => $this->M_datapenyedia->get_row_akta_pendirian($id_vendor),
 			];
-			if ($row_akta_pendirian['id_dokumen_perubahan'] == NULL) {
-			} else {
+			if ($row_akta_pendirian['id_dokumen_perubahan'] == NULL) { } else {
 				$where_pengajuan = [
 					'id_dokumen_perubahan' => $row_akta_pendirian['id_dokumen_perubahan']
 				];
@@ -2414,8 +2405,7 @@ class Datapenyedia extends CI_Controller
 				'row_akta' => $this->M_datapenyedia->get_row_akta_perubahan($id_vendor),
 			];
 
-			if ($row_akta_perubahan['id_dokumen_perubahan'] == NULL) {
-			} else {
+			if ($row_akta_perubahan['id_dokumen_perubahan'] == NULL) { } else {
 				$where_pengajuan = [
 					'id_dokumen_perubahan' => $row_akta_perubahan['id_dokumen_perubahan']
 				];
@@ -4447,7 +4437,7 @@ class Datapenyedia extends CI_Controller
 		$no_surat = $this->input->post('no_surat_sppkp');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_sppkp');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050 - 12 - 01;
+			$tgl_berlaku = '2050-12-01';
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_sppkp');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -4533,8 +4523,7 @@ class Datapenyedia extends CI_Controller
 				$response = [
 					'row_sppkp' => $this->M_datapenyedia->get_row_sppkp($id_vendor),
 				];
-				if ($row_sppkp['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_sppkp['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_sppkp['id_dokumen_perubahan']
 					];
@@ -4574,8 +4563,7 @@ class Datapenyedia extends CI_Controller
 					'row_sppkp' => $this->M_datapenyedia->get_row_sppkp($id_vendor),
 				];
 
-				if ($row_sppkp['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_sppkp['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_sppkp['id_dokumen_perubahan']
 					];
@@ -4678,7 +4666,7 @@ class Datapenyedia extends CI_Controller
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_npwp');
 		$tgl_berlaku = $this->input->post('tgl_berlaku_npwp');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050 - 12 - 01;
+			$tgl_berlaku = '2050-12-01';
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_npwp');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -4774,8 +4762,7 @@ class Datapenyedia extends CI_Controller
 				$response = [
 					'row_npwp' => $this->M_datapenyedia->get_row_npwp($id_vendor),
 				];
-				if ($row_npwp['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_npwp['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_npwp['id_dokumen_perubahan']
 					];
@@ -4821,8 +4808,7 @@ class Datapenyedia extends CI_Controller
 					'row_npwp' => $this->M_datapenyedia->get_row_npwp($id_vendor),
 				];
 
-				if ($row_npwp['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_npwp['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_npwp['id_dokumen_perubahan']
 					];
@@ -5636,7 +5622,7 @@ class Datapenyedia extends CI_Controller
 		$nomor_surat = $this->input->post('nomor_surat_skdp');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_skdp');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050 - 12 - 01;
+			$tgl_berlaku = '2050-12-01';
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_skdp');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -5734,8 +5720,7 @@ class Datapenyedia extends CI_Controller
 				];
 
 				// skdp
-				if ($row_skdp['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_skdp['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_skdp['id_dokumen_perubahan']
 					];
@@ -5768,8 +5753,7 @@ class Datapenyedia extends CI_Controller
 				];
 
 				// skdp
-				if ($row_skdp['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_skdp['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_skdp['id_dokumen_perubahan']
 					];
@@ -6053,7 +6037,7 @@ class Datapenyedia extends CI_Controller
 		$nama_surat = $this->input->post('nama_surat');
 		$sts_seumur_hidup = $this->input->post('sts_seumur_hidup_lainnya');
 		if ($sts_seumur_hidup == 2) {
-			$tgl_berlaku = 2050 - 12 - 01;
+			$tgl_berlaku = '2050-12-01';
 		} else {
 			$tgl_berlaku_kondisi = $this->input->post('tgl_berlaku_lainnya');
 			if ($tgl_berlaku_kondisi == NULL) {
@@ -6153,8 +6137,7 @@ class Datapenyedia extends CI_Controller
 					'row_lainnya' => $this->M_datapenyedia->get_row_lainnya($id_vendor),
 				];
 				// lainnya
-				if ($row_lainnya['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_lainnya['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_lainnya['id_dokumen_perubahan']
 					];
@@ -6187,8 +6170,7 @@ class Datapenyedia extends CI_Controller
 				];
 
 				// lainnya
-				if ($row_lainnya['id_dokumen_perubahan'] == NULL) {
-				} else {
+				if ($row_lainnya['id_dokumen_perubahan'] == NULL) { } else {
 					$where_pengajuan = [
 						'id_dokumen_perubahan' => $row_lainnya['id_dokumen_perubahan']
 					];
