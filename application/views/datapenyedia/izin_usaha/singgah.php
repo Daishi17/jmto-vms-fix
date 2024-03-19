@@ -626,7 +626,7 @@
                                                                     <div class="col-sm-12">
                                                                         <div class="input-group mb-2">
                                                                             <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
-                                                                            <select name="sts_seumur_hidup_siujk" class="form-select single-select-field text-sm sts_seumur_hidup_siujk" aria-label="Default select example" onchange="sts_berlaku_siujk()">
+                                                                            <select name="sts_seumur_hidup_siujk" class="form-select  text-sm sts_seumur_hidup_siujk" aria-label="Default select example" onchange="sts_berlaku_siujk()">
                                                                                 <option value="1">Tanggal</option>
                                                                                 <option value="2">Seumur Hidup</option>
                                                                             </select>

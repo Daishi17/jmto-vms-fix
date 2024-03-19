@@ -18,11 +18,17 @@ function get_row_vendor_siujk() {
                 $('[name="jenis_izin"]').val(response['row_siujk']['jenis_izin']);
                 $('[name="no_urut_siujk"]').val(response['row_siujk']['no_urut_siujk']);
                 $('[name="nomor_surat_siujk"]').val(response['row_siujk']['nomor_surat']);
-                $('[name="sts_seumur_hidup_siujk"]').val(response['row_sbu']['sts_seumur_hidup']);
+                $('[name="sts_seumur_hidup_siujk"]').val(response['row_siujk']['sts_seumur_hidup']);
                 $('[name="kualifikasi_izin_siujk"]').val(response['row_siujk']['kualifikasi_izin']);
                 $('[name="tgl_berlaku_siujk"]').val(response['row_siujk']['tgl_berlaku']);
     
                 // $('.file').text(response['row_siujk']['file_dokumen'])
+
+                if (response['row_siujk']['sts_seumur_hidup'] == 1) {
+                  $('[name="tgl_berlaku_siujk"]').val(response['row_siujk']['tgl_berlaku']);
+                } else {
+                    $('[name="tgl_berlaku_siujk"]').val('');
+                }
                 if (response['row_siujk']['sts_token_dokumen'] == 1) {
                     $('.button_enkrip_siujk').html('<a href="javascript:;" onclick="DekripEnkripSiujk(\'' + id_url +'\''+','+ '\'' + 'dekrip' +'\')" class="btn btn-warning btn-sm"><i class="fas fa-lock-open mr-2"></i>Dekripsi Dokumen</a>');
                     var html_siujk = '<a href="javascript:;" class="btn btn-sm btn-info">' +

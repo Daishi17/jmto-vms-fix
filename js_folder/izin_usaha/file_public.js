@@ -418,10 +418,15 @@ function get_row_vendor() {
                     $('[name="file_dokumen_nib_manipulasi"]').val(response['row_nib']['file_dokumen']);
                     $('[name="no_urut_nib"]').val(response['row_nib']['no_urut']);
                     $('[name="nomor_surat_nib"]').val(response['row_nib']['nomor_surat']);
-                    $('[name="tgl_berlaku_nib"]').val(response['row_nib']['tgl_berlaku']);
                     $('[name="sts_seumur_hidup_nib"]').val(response['row_nib']['sts_seumur_hidup']);
                     $('[name="kualifikasi_izin_nib"]').val(response['row_nib']['kualifikasi_izin']);
                     $('.file_dokumen_nib').text(response['row_nib']['file_dokumen'])
+                    
+                    if (response['row_nib']['sts_seumur_hidup'] == 1) {
+                        $('[name="tgl_berlaku_nib"]').val(response['row_nib']['tgl_berlaku']);
+                    } else {
+                        $('[name="tgl_berlaku_nib"]').val('');
+                    }
                     if (response['row_nib']['sts_token_dokumen'] == 1) {
                         $('.button_enkrip_nib').html('<a href="javascript:;"  onclick="DekripEnkrip_nib(\'' + id_url_nib + '\'' + ',' + '\'' + 'dekrip' + '\')" class="btn btn-warning btn-sm"><i class="fas fa-lock-open mr-2"></i> Dekripsi Dokumen</a>');
                         var html2 = '<a href="javascript:;" style="white-space: nowrap;width: 200px;overflow: hidden;text-overflow: ellipsis;" class="btn btn-sm btn-info btn-block">' +
@@ -446,9 +451,16 @@ function get_row_vendor() {
                     $('[name="no_urut_siup"]').val(response['row_siup']['no_urut']);
                     $('[name="nomor_surat_siup"]').val(response['row_siup']['nomor_surat']);
                     $('[name="kualifikasi_izin_siup"]').val(response['row_siup']['kualifikasi_izin']);
+                    $('[name="sts_seumur_hidup_siup"]').val(response['row_siup']['sts_seumur_hidup']);
                     // console.log(response['row_siup']['tgl_berlaku']);
-                    $('[name="tgl_berlaku_siup"]').val(response['row_siup']['tgl_berlaku']);
                     $('.file_dokumen_siup').text(response['row_siup']['file_dokumen'])
+
+                    
+                    if (response['row_siup']['sts_seumur_hidup'] == 1) {
+                        $('[name="tgl_berlaku_siup"]').val(response['row_siup']['tgl_berlaku']);
+                    } else {
+                        $('[name="tgl_berlaku_siup"]').val('');
+                    }
                     if (response['row_siup']['sts_token_dokumen'] == 1) {
                         $('.button_enkrip_siup').html('<a href="javascript:;"  onclick="DekripEnkrip_siup(\'' + id_url_siup + '\'' + ',' + '\'' + 'dekrip' + '\')" class="btn btn-warning btn-sm"><i class="fas fa-lock-open mr-2"></i> Dekripsi Dokumen</a>');
                         var html2 = '<a href="javascript:;" style="white-space: nowrap;width: 200px;overflow: hidden;text-overflow: ellipsis;" class="btn btn-sm btn-info btn-block">' +
@@ -467,13 +479,22 @@ function get_row_vendor() {
                     
                 } else {
                     var id_url_sbu = response['row_sbu']['id_url'];
+
                     $('[name="file_dokumen_sbu_manipulasi"]').val(response['row_sbu']['file_dokumen']);
                     $('[name="jenis_izin_sbu"]').val(response['row_sbu']['jenis_izin']);
                     $('[name="no_urut_sbu"]').val(response['row_sbu']['no_urut']);
                     $('[name="nomor_surat_sbu"]').val(response['row_sbu']['nomor_surat']);
                     $('[name="kualifikasi_izin_sbu"]').val(response['row_sbu']['kualifikasi_izin']);
                     $('[name="tgl_berlaku_sbu"]').val(response['row_sbu']['tgl_berlaku']);
+                    $('[name="sts_seumur_hidup_sbu"]').val(response['row_sbu']['sts_seumur_hidup']);
                     $('.file_dokumen_sbu').text(response['row_sbu']['file_dokumen'])
+
+                    if (response['row_sbu']['sts_seumur_hidup'] == 1) {
+                        $('[name="tgl_berlaku_sbu"]').val(response['row_sbu']['tgl_berlaku']);
+                    } else {
+                        $('[name="tgl_berlaku_sbu"]').val('');
+                    }
+
                     if (response['row_sbu']['sts_token_dokumen'] == 1) {
                         $('.button_enkrip_sbu').html('<a href="javascript:;"  onclick="DekripEnkrip_sbu(\'' + id_url_sbu + '\'' + ',' + '\'' + 'dekrip' + '\')" class="btn btn-warning btn-sm"><i class="fas fa-lock-open mr-2"></i> Dekripsi Dokumen</a>');
                         var html2 = '<a href="javascript:;" style="white-space: nowrap;width: 200px;overflow: hidden;text-overflow: ellipsis;" class="btn btn-sm btn-info btn-block">' +
@@ -527,6 +548,13 @@ function get_row_vendor() {
                   $('[name="kualifikasi_izin_skdp"]').val(response['row_skdp']['kualifikasi_izin']);
                   $('[name="tgl_berlaku_skdp"]').val(response['row_skdp']['tgl_berlaku']);
                   $('.file_dokumen_skdp').text(response['row_skdp']['file_dokumen'])
+
+                  
+                if (response['row_skdp']['sts_seumur_hidup'] == 1) {
+                    $('[name="tgl_berlaku_skdp"]').val(response['row_skdp']['tgl_berlaku']);
+                } else {
+                    $('[name="tgl_berlaku_skdp"]').val('');
+                }
                   if (response['row_skdp']['sts_token_dokumen'] == 1) {
                       $('.button_enkrip_skdp').html('<a href="javascript:;"  onclick="DekripEnkrip_skdp(\'' + id_url_skdp + '\'' + ',' + '\'' + 'dekrip' + '\')" class="btn btn-warning btn-sm"><i class="fas fa-lock-open mr-2"></i> Dekripsi Dokumen</a>');
                       var html2 = '<a href="javascript:;" style="white-space: nowrap;width: 200px;overflow: hidden;text-overflow: ellipsis;" class="btn btn-sm btn-info btn-block">' +
@@ -553,6 +581,12 @@ function get_row_vendor() {
                     $('[name="kualifikasi_izin_lainnya"]').val(response['row_lainnya']['kualifikasi_izin']);
                     $('[name="tgl_berlaku_lainnya"]').val(response['row_lainnya']['tgl_berlaku']);
                     $('.file_dokumen_lainnya').text(response['row_lainnya']['file_dokumen'])
+
+                    if (response['row_lainnya']['sts_seumur_hidup'] == 1) {
+                        $('[name="tgl_berlaku_lainnya"]').val(response['row_lainnya']['tgl_berlaku']);
+                    } else {
+                        $('[name="tgl_berlaku_lainnya"]').val('');
+                    }
                     if (response['row_lainnya']['sts_token_dokumen'] == 1) {
                         $('.button_enkrip_lainnya').html('<a href="javascript:;"  onclick="DekripEnkrip_lainnya(\'' + id_url_lainnya + '\'' + ',' + '\'' + 'dekrip' + '\')" class="btn btn-warning btn-sm"><i class="fas fa-lock-open mr-2"></i> Dekripsi Dokumen</a>');
                         var html2 = '<a href="javascript:;" style="white-space: nowrap;width: 200px;overflow: hidden;text-overflow: ellipsis;" class="btn btn-sm btn-info btn-block">' +
