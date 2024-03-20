@@ -94,9 +94,9 @@
                             <th>Dokumen Kualifikasi</th>
                             <th>
                                 <div class="row">
-                                    <?php if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
+                                    <?php if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                                         <?php if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai'])) >= date('Y-m-d H:i')) { ?>
-                                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_dokumen_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
+                                        <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_pengadaan['waktu_mulai']))  == date('Y-m-d H:i')) { ?>
                                             <div class="col-md-6">
                                                 <div class="card">
                                                     <div class="card-header bg-primary text-white">

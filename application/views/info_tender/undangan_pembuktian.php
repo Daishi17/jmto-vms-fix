@@ -281,9 +281,23 @@ function terbilang($nilai)
                         <tbody>
                             <?php $i = 1;
                             foreach ($peserta as $key => $value) { ?>
+                                <?php
+                                $subs_string = substr($value['nama_usaha'], 0, 2);
+                                if ($subs_string == 'PT' || $subs_string == 'CV' || $subs_string == 'Koperasi') {
+                                    $nama_perusahaan = $value['nama_usaha'];
+                                } else {
+                                    if ($value['bentuk_usaha'] == 'Perseroan Terbatas (PT)') {
+                                        $nama_perusahaan = 'PT ' . $value['nama_usaha'];
+                                    } else if ($value['bentuk_usaha']  == 'Commanditaire Vennootschap (CV)') {
+                                        $nama_perusahaan = 'CV ' . $value['nama_usaha'];
+                                    } else if ($value['bentuk_usaha']  == 'Koperasi') {
+                                        $nama_perusahaan = $value['nama_usaha'];
+                                    }
+                                }
+                                ?>
                                 <tr>
                                     <td class="text-center"><?= $i++ ?></td>
-                                    <td><b> <?= $value['nama_usaha'] ?></b></td>
+                                    <td><b> <?= $nama_perusahaan ?></b></td>
                                     <td class="text-center"> <?= $value['wkt_undang_pembuktian'] ?></td>
                                     <td class="text-center"><?= $value['metode_pembuktian'] ?></td>
                                 </tr>

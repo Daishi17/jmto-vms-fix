@@ -354,7 +354,7 @@ class M_jadwal extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_jadwal_rup');
         $this->db->where('id_rup', $id_rup);
-        $this->db->where('nama_jadwal_rup', 'Pengambilan Dokumen Pengadaan/Download Dokumen Pengadaan');
+        $this->db->like('nama_jadwal_rup', 'Pengambilan Dokumen Pengadaan/Download Dokumen Pengadaan');
         $query = $this->db->get();
         return $query->row_array();
     }
@@ -517,7 +517,7 @@ class M_jadwal extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_jadwal_rup');
         $this->db->where('id_rup', $id_rup);
-        $this->db->where('nama_jadwal_rup', 'Aanwijzing (Tanya Jawab Dokumen PQ)');
+        $this->db->like('nama_jadwal_rup', 'Aanwijzing (Tanya Jawab Dokumen PQ)');
         $query = $this->db->get();
         return $query->row_array();
     }
@@ -542,6 +542,16 @@ class M_jadwal extends CI_Model
         $this->db->from('tbl_jadwal_rup');
         $this->db->where('id_rup', $id_rup);
         $this->db->where('nama_jadwal_rup', 'Penetapan Pemenang Pengadaan');
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+    public function jadwal_juksung_10($id_rup)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_jadwal_rup');
+        $this->db->where('id_rup', $id_rup);
+        $this->db->where('nama_jadwal_rup', 'Pengambilan Dokumen Pengadaan/Download Dokumen Pengadaan dan Aanwijzing Penawaran');
         $query = $this->db->get();
         return $query->row_array();
     }

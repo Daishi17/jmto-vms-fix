@@ -275,9 +275,24 @@ function terbilang($nilai)
                                     $this->db->where('tbl_vendor_syarat_tambahan.status', 1);
                                     $cek_valid_vendor =  $this->db->count_all_results();
                                     ?>
+
+                                    <?php
+                                    $subs_string = substr($value['nama_usaha'], 0, 2);
+                                    if ($subs_string == 'PT' || $subs_string == 'CV' || $subs_string == 'Koperasi') {
+                                        $nama_perusahaan = $value['nama_usaha'];
+                                    } else {
+                                        if ($value['bentuk_usaha'] == 'Perseroan Terbatas (PT)') {
+                                            $nama_perusahaan = 'PT ' . $value['nama_usaha'];
+                                        } else if ($value['bentuk_usaha']  == 'Commanditaire Vennootschap (CV)') {
+                                            $nama_perusahaan = 'CV ' . $value['nama_usaha'];
+                                        } else if ($value['bentuk_usaha']  == 'Koperasi') {
+                                            $nama_perusahaan = $value['nama_usaha'];
+                                        }
+                                    }
+                                    ?>
                                     <tr>
                                         <td><?= $i++ ?></td>
-                                        <td><?= $value['nama_usaha'] ?></td>
+                                        <td><?= $nama_perusahaan  ?></td>
                                         <td class="text-center">
                                             <?php if ($cek_valid_vendor >= $hitung_syarat) {
                                                 if ($value['sts_suratpernyataan_1'] == 1 && $value['sts_suratpernyataan_2'] == 1 && $value['sts_suratpernyataan_3'] && $value['sts_suratpernyataan_4'] == 1) {
