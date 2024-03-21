@@ -195,9 +195,14 @@ function terbilang($nilai)
                         <td>1. </td>
                         <td>Sanggahan Prakualifikasi</td>
                         <td>
-                            <?= date('d-M-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) ?>
-                            &ensp;S/D&ensp;
-                            <?= date('d-M-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) ?>
+                            <?php if ($rup['id_jadwal_tender'] == 9) { ?>
+                                - &ensp;S/D&ensp; -
+                            <?php } else { ?>
+                                <?= date('d-M-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_mulai'])) ?>
+                                &ensp;S/D&ensp;
+                                <?= date('d-M-Y H:i', strtotime($jadwal_masa_sanggah_kualifikasi['waktu_selesai'])) ?>
+                            <?php } ?>
+
                         </td>
                     </tr>
                     <tr>

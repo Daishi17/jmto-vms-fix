@@ -451,7 +451,7 @@
                                 <?php if ($rup['sts_undangan_penawaran'] == 1) { ?>
                                     <tr>
                                         <th>Undangan Penawaran</th>
-                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/lihat_undangan_penawran/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat Undangan Penawaran</a>
+                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_penunjukan_langsung/lihat_undangan_penawran/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat Undangan Penawaran</a>
                                         <th>
                                     </tr>
                                 <?php } else { ?>
@@ -471,7 +471,7 @@
                                 <?php if ($rup['sts_undangan_penawaran'] == 1) { ?>
                                     <tr>
                                         <th>Undangan Penawaran</th>
-                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/lihat_undangan_penawran/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat Undangan Penawaran</a>
+                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_penunjukan_langsung/lihat_undangan_penawran/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat Undangan Penawaran</a>
                                         <th>
                                     </tr>
                                 <?php } else { ?>

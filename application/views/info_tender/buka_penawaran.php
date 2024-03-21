@@ -58,8 +58,8 @@
 
                                 <?php if ($rup['id_jadwal_tender'] == 1 || $rup['id_jadwal_tender'] == 9) { ?>
                                     <!-- <li class="nav-item" role="presentation">
-                                                                                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-file1" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Dokumen Penawaran</button>
-                                                                                    </li> -->
+                                                                                                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-file1" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Dokumen Penawaran</button>
+                                                                                                </li> -->
                                 <?php } else { ?>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-file1" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Dokumen Penawaran File I</button>
