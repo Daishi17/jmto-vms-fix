@@ -686,6 +686,7 @@ class Tender_diikuti extends CI_Controller
     public function kirim_pesanya($id_rup)
     {
         $isi = $this->input->post('isi');
+        $isi = str_replace(array("\r\n", "\r", "\n"), ' ', $isi);
         $id_pengirim = $this->input->post('id_pengirim');
         $id_penerima = $this->input->post('id_penerima');
         $id_rup = $this->input->post('id_rup');
@@ -918,6 +919,7 @@ class Tender_diikuti extends CI_Controller
     public function kirim_pesanya_penawaran($id_rup)
     {
         $isi = $this->input->post('isi');
+        $isi = str_replace(array("\r\n", "\r", "\n"), ' ', $isi);
         $id_pengirim = $this->input->post('id_pengirim');
         $id_penerima = $this->input->post('id_penerima');
         $id_rup = $this->input->post('id_rup');

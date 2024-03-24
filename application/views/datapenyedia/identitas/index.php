@@ -98,15 +98,9 @@
                                                     <span class="input-group-text"><i class="fa-solid fa-angles-right"></i></span>
                                                     <select name="kualifikasi_usaha" class="form-select" aria-label="Default select example">
                                                         <option value="<?= $row_vendor['kualifikasi_usaha'] ?>"><?= $row_vendor['kualifikasi_usaha'] ?></option>
-                                                        <option>Besar - (B3)</option>
-                                                        <option>Besar - (B2)</option>
-                                                        <option>Besar - (B1)</option>
-                                                        <option>Menengah - (M3)</option>
-                                                        <option>Menengah - (M2)</option>
-                                                        <option>Menengah - (M1)</option>
-                                                        <option>Kecil - (K3)</option>
-                                                        <option>Kecil - (K2)</option>
-                                                        <option>Kecil - (K1)</option>
+                                                        <option value="Kecil">Kecil</option>
+                                                        <option value="Menengah">Menengah</option>
+                                                        <option value="Besar">Besar</option>
                                                     </select>
                                                 </div>
                                             </div>
