@@ -224,6 +224,12 @@ class Tender_diikuti extends CI_Controller
         $data['rup'] = $this->M_tender->get_row_rup($id_url_rup);
         // id_rup non url
         $id_rup = $data['rup']['id_rup'];
+
+        $cek_mengikuti = $this->M_tender->cek_mengikuti($id_rup);
+        if (!$cek_mengikuti) {
+            redirect('auth/logout');
+        }
+
         $nama_rup = $data['rup']['nama_rup'];
         $data['peserta'] = $this->M_tender->peserta($id_rup);
         // count peserta
