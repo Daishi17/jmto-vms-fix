@@ -158,7 +158,7 @@ function terbilang($nilai)
                         <span class="badge bg-success">Sudah Menyetujui</span>
                     <?php } else { ?>
                         <center>
-                            <a href="javascript:;" onclick="setujui_surat('<?= $rup['id_rup'] ?>','sts_suratpernyataan_4')" class="btn btn-sm btn-success">Setujui</a>
+                            <a href="javascript:;" onclick="setujui_surat('<?= $rup['id_rup'] ?>','sts_suratpernyataan_4')" class="btn btn-sm btn-danger">Silahkan Disetujui (Klik Tombol Ini)</a>
                         </center>
                     <?php } ?>
                 <?php  } else { ?>

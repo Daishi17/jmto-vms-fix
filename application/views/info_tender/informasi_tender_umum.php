@@ -191,7 +191,7 @@
                                                                 <?php if ($get_row_mengikuti['sts_suratpernyataan_1'] == 1) { ?>
                                                                     <span class="badge bg-success">Sudah Menyetujui Pakta Integritas</span>
                                                                 <?php } else { ?>
-                                                                    <span class="badge bg-danger">Belum Menyetujui</span>
+                                                                    <span class="badge bg-danger">Silahkan Disetujui (Klik Nama Surat Pernyataan, Tombol Persetujuan Ada Pada Dalam Surat)</span>
                                                                 <?php } ?>
                                                             </td>
                                                             <td>
@@ -211,7 +211,7 @@
                                                                 <?php if ($get_row_mengikuti['sts_suratpernyataan_2'] == 1) { ?>
                                                                     <span class="badge bg-success">Sudah Menyetujui Surat Pernyataan Minat</span>
                                                                 <?php } else { ?>
-                                                                    <span class="badge bg-danger">Belum Menyetujui</span>
+                                                                    <span class="badge bg-danger">Silahkan Disetujui (Klik Nama Surat Pernyataan, Tombol Persetujuan Ada Pada Dalam Surat)</span>
                                                                 <?php } ?>
                                                             </td>
                                                             <td>
@@ -231,7 +231,7 @@
                                                                 <?php if ($get_row_mengikuti['sts_suratpernyataan_3'] == 1) { ?>
                                                                     <span class="badge bg-success">Sudah Menyetujui Surat Pernyataan Kebenaran Data</span>
                                                                 <?php } else { ?>
-                                                                    <span class="badge bg-danger">Belum Menyetujui</span>
+                                                                    <span class="badge bg-danger">Silahkan Disetujui (Klik Nama Surat Pernyataan, Tombol Persetujuan Ada Pada Dalam Surat)</span>
                                                                 <?php } ?>
                                                             </td>
                                                             <td>
@@ -251,7 +251,7 @@
                                                                 <?php if ($get_row_mengikuti['sts_suratpernyataan_4'] == 1) { ?>
                                                                     <span class="badge bg-success">Sudah Menyetujui Surat Pernyataan </span>
                                                                 <?php } else { ?>
-                                                                    <span class="badge bg-danger">Belum Menyetujui</span>
+                                                                    <span class="badge bg-danger">Silahkan Disetujui (Klik Nama Surat Pernyataan, Tombol Persetujuan Ada Pada Dalam Surat)</span>
                                                                 <?php } ?>
                                                             </td>
                                                             <td>
@@ -477,8 +477,6 @@
                         <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
 
                             <?php if ($rup['sts_undangan_penawaran'] == 1) { ?>
-
-                            <?php } else { ?>
                                 <tr>
                                     <th>Dokumen Pengadaan</th>
                                     <th>
@@ -487,7 +485,7 @@
                                                 <div class="col-md-6">
                                                     <div class="card">
                                                         <div class="card-header bg-primary text-white">
-                                                            Downdload Dokumen Pengadaan
+                                                            Download Dokumen Pengadaan
                                                         </div>
                                                         <div class="card-body">
                                                             <table class="table table-bordered">
@@ -549,6 +547,8 @@
                                         <?php } ?>
                                     </th>
                                 </tr>
+                            <?php } else { ?>
+
                             <?php }  ?>
 
 

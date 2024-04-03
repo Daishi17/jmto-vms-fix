@@ -376,8 +376,13 @@ function terbilang($nilai)
                                         <td class="text-center">
                                             <?php if ($cek_valid_vendor >= $hitung_syarat) {
                                                 if ($value['ev_kualifikasi_akhir'] == NULL) {
-                                                    $nilai_akhir = '00.00';
-                                                    $nilai_akhir = '<span class="badge bg-secondary bg-sm">Tidak Dievaluasi</span>';
+                                                    if ($value['ev_kualifikasi_akhir'] == 0) {
+                                                        $nilai_akhir = '00.00';
+                                                        $nilai_akhir = '<span class="badge bg-danger bg-sm">Ggur</span>';
+                                                    } else {
+                                                        $nilai_akhir = '00.00';
+                                                        $nilai_akhir = '<span class="badge bg-secondary bg-sm">Tidak Dievaluasi</span>';
+                                                    }
                                                 } else {
                                                     if ($value['ev_kualifikasi_akhir'] >= 60) {
                                                         $nilai_akhir = number_format($value['ev_kualifikasi_akhir'], 2, ',', '.');
@@ -389,8 +394,13 @@ function terbilang($nilai)
                                                 }
                                             } else {
                                                 if ($value['ev_kualifikasi_akhir'] == NULL) {
-                                                    $nilai_akhir = '00.00';
-                                                    $nilai_akhir = '<span class="badge bg-secondary bg-sm">Tidak Dievaluasi</span>';
+                                                    if ($value['ev_kualifikasi_akhir'] == 0) {
+                                                        $nilai_akhir = '00.00';
+                                                        $nilai_akhir = '<span class="badge bg-danger bg-sm">Gugur</span>';
+                                                    } else {
+                                                        $nilai_akhir = '00.00';
+                                                        $nilai_akhir = '<span class="badge bg-secondary bg-sm">Tidak Dievaluasi</span>';
+                                                    }
                                                 } else {
                                                     if ($value['ev_kualifikasi_akhir'] >= 60) {
                                                         $nilai_akhir = number_format($value['ev_kualifikasi_akhir'], 2, ',', '.');

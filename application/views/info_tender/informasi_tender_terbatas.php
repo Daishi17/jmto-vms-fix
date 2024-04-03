@@ -191,7 +191,7 @@
                                                                 <?php if ($get_row_mengikuti['sts_suratpernyataan_1'] == 1) { ?>
                                                                     <span class="badge bg-success">Sudah Menyetujui Pakta Integritas</span>
                                                                 <?php } else { ?>
-                                                                    <span class="badge bg-danger">Belum Menyetujui</span>
+                                                                    <span class="badge bg-danger">Silahkan Disetujui (Klik Nama Surat Pernyataan, Tombol Persetujuan Ada Pada Dalam Surat)</span>
                                                                 <?php } ?>
                                                             </td>
                                                             <td>
@@ -211,7 +211,7 @@
                                                                 <?php if ($get_row_mengikuti['sts_suratpernyataan_2'] == 1) { ?>
                                                                     <span class="badge bg-success">Sudah Menyetujui Surat Pernyataan Minat</span>
                                                                 <?php } else { ?>
-                                                                    <span class="badge bg-danger">Belum Menyetujui</span>
+                                                                    <span class="badge bg-danger">Silahkan Disetujui (Klik Nama Surat Pernyataan, Tombol Persetujuan Ada Pada Dalam Surat)</span>
                                                                 <?php } ?>
                                                             </td>
                                                             <td>
@@ -231,7 +231,7 @@
                                                                 <?php if ($get_row_mengikuti['sts_suratpernyataan_3'] == 1) { ?>
                                                                     <span class="badge bg-success">Sudah Menyetujui Surat Pernyataan Kebenaran Data</span>
                                                                 <?php } else { ?>
-                                                                    <span class="badge bg-danger">Belum Menyetujui</span>
+                                                                    <span class="badge bg-danger">Silahkan Disetujui (Klik Nama Surat Pernyataan, Tombol Persetujuan Ada Pada Dalam Surat)</span>
                                                                 <?php } ?>
                                                             </td>
                                                             <td>
@@ -251,7 +251,7 @@
                                                                 <?php if ($get_row_mengikuti['sts_suratpernyataan_4'] == 1) { ?>
                                                                     <span class="badge bg-success">Sudah Menyetujui Surat Pernyataan </span>
                                                                 <?php } else { ?>
-                                                                    <span class="badge bg-danger">Belum Menyetujui</span>
+                                                                    <span class="badge bg-danger">Silahkan Disetujui (Klik Nama Surat Pernyataan, Tombol Persetujuan Ada Pada Dalam Surat)</span>
                                                                 <?php } ?>
                                                             </td>
                                                             <td>
