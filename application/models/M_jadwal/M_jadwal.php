@@ -546,12 +546,32 @@ class M_jadwal extends CI_Model
         return $query->row_array();
     }
 
+    public function jadwal_juksung_9($id_rup)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_jadwal_rup');
+        $this->db->where('id_rup', $id_rup);
+        $this->db->like('nama_jadwal_rup', 'Masa Sanggah');
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
     public function jadwal_juksung_10($id_rup)
     {
         $this->db->select('*');
         $this->db->from('tbl_jadwal_rup');
         $this->db->where('id_rup', $id_rup);
         $this->db->where('nama_jadwal_rup', 'Pengambilan Dokumen Pengadaan/Download Dokumen Pengadaan dan Aanwijzing Penawaran');
+        $query = $this->db->get();
+        return $query->row_array();
+    }
+
+    public function jadwal_juksung_12($id_rup)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_jadwal_rup');
+        $this->db->where('id_rup', $id_rup);
+        $this->db->like('nama_jadwal_rup', 'Anwijzing Penawaran');
         $query = $this->db->get();
         return $query->row_array();
     }
