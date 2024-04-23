@@ -5376,7 +5376,10 @@ class Datapenyedia extends CI_Controller
 				$id = str_replace('-', '', $id);
 				// seeting enkrip dokumen
 				$chiper = "AES-128-CBC";
-				$secret = $get_row_enkrip['token_dokumen'];
+				$option = 0;
+				$iv = str_repeat("0", openssl_cipher_iv_length($chiper));
+				$token = random_string('alnum', 16);
+				$secret = $token;
 				$password_dokumen = '1234';
 				// SETTING PATH 
 				$sts_upload = [
@@ -5396,29 +5399,23 @@ class Datapenyedia extends CI_Controller
 				$config['max_size'] = 0;
 				$this->load->library('upload', $config);
 				if ($this->upload->do_upload('file_laporan_auditor')) {
-					$file_laporan_auditordata = $this->upload->data();
-					$post_file_laporan_auditordata = openssl_encrypt($file_laporan_auditordata['file_name'], $chiper, $secret);
-				} else {
-					$file_laporan_auditordata = $get_row_enkrip['file_laporan_auditor'];
-					$post_file_laporan_auditordata = $file_laporan_auditordata;
+					$file_laporan_auditor = $this->upload->data();
 				}
 				if ($this->upload->do_upload('file_laporan_keuangan')) {
-					$file_laporan_keuangandata = $this->upload->data();
-					$post_file_laporan_keuangan = openssl_encrypt($file_laporan_keuangandata['file_name'], $chiper, $secret);
-				} else {
-					$file_laporan_keuangandata = $get_row_enkrip['file_laporan_keuangan'];
-					$post_file_laporan_keuangan = $file_laporan_keuangandata;
+					$file_laporan_keuangan = $this->upload->data();
 				}
 				$where = [
 					'id_vendor_keuangan' => $id_vendor_keuangan
 				];
 				$upload = [
 					'tahun_lapor' => $tahun_lapor,
-					'file_laporan_auditor' => $post_file_laporan_auditordata,
-					'file_laporan_keuangan' => $post_file_laporan_keuangan,
+					'file_laporan_auditor' => openssl_encrypt($file_laporan_auditor['file_name'], $chiper, $secret, $option, $iv),
+					'file_laporan_keuangan' => openssl_encrypt($file_laporan_keuangan['file_name'], $chiper, $secret, $option, $iv),
 					'sts_token_dokumen' => 1,
 					'sts_validasi' => 2,
-					'jenis_audit' => $jenis_audit
+					'jenis_audit' => $jenis_audit,
+					'password_dokumen' => $password_dokumen,
+					'token_dokumen' => $secret
 				];
 				$this->M_datapenyedia->update_keuangan($upload, $where);
 				$this->output->set_content_type('application/json')->set_output(json_encode('success'));
@@ -5521,10 +5518,12 @@ class Datapenyedia extends CI_Controller
 				$upload = [
 					'tahun_lapor' => $tahun_lapor,
 					'file_laporan_auditor' => '-',
-					'file_laporan_keuangan' => $post_file_laporan_keuangan,
+					'file_laporan_keuangan' => openssl_encrypt($file_laporan_keuangan['file_name'], $chiper, $secret, $option, $iv),
 					'sts_token_dokumen' => 1,
 					'sts_validasi' => 2,
-					'jenis_audit' => $jenis_audit
+					'jenis_audit' => $jenis_audit,
+					'password_dokumen' => $password_dokumen,
+					'token_dokumen' => $secret
 				];
 				$this->M_datapenyedia->update_keuangan($upload, $where);
 				$this->output->set_content_type('application/json')->set_output(json_encode('success'));

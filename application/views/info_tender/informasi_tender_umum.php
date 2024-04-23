@@ -616,14 +616,43 @@
                         <?php if (date('Y-m-d H:i', strtotime($jadwal_presentasi_evaluasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
                         <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_presentasi_evaluasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_presentasi_evaluasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
                             <?php if ($get_row_mengikuti['ev_teknis'] >= 60 && $get_row_mengikuti['ev_keuangan'] >= 60) { ?>
-                                <tr>
-                                    <th>Upload Presentasi Teknis Pengadaan</th>
-                                    <th>
-                                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#upload_presentasi_teknis">
-                                            <i class="fa fa-upload" aria-hidden="true"></i> Upload Dokumen Presentasi Teknis
-                                        </button>
-                                    </th>
-                                </tr>
+                                <?php $sts_valid_0 = $get_row_mengikuti['file1_administrasi_sts'] == 0 || $get_row_mengikuti['file1_organisasi_sts'] == 0 || $get_row_mengikuti['file1_pabrikan_sts'] == 0 || $get_row_mengikuti['file1_peralatan_sts'] == 0 || $get_row_mengikuti['file1_personil_sts'] == 0 || $get_row_mengikuti['file1_makalah_teknis_sts'] == 0 || $get_row_mengikuti['file1_pra_rk3_sts'] == 0 || $get_row_mengikuti['file1_spek_sts'] == 0;
+
+                                $sts_valid = $get_row_mengikuti['file1_administrasi_sts'] == 1 && $get_row_mengikuti['file1_organisasi_sts'] == 1 && $get_row_mengikuti['file1_pabrikan_sts'] == 1 && $get_row_mengikuti['file1_peralatan_sts'] == 1 && $get_row_mengikuti['file1_personil_sts'] == 1 && $get_row_mengikuti['file1_makalah_teknis_sts'] == 1 && $get_row_mengikuti['file1_pra_rk3_sts'] == 1 && $get_row_mengikuti['file1_spek_sts'] == 1 || $get_row_mengikuti['file1_administrasi_sts'] == 3 && $get_row_mengikuti['file1_organisasi_sts'] == 3 && $get_row_mengikuti['file1_pabrikan_sts'] == 3 && $get_row_mengikuti['file1_peralatan_sts'] == 3 && $get_row_mengikuti['file1_personil_sts'] == 3 && $get_row_mengikuti['file1_makalah_teknis_sts'] == 3 && $get_row_mengikuti['file1_pra_rk3_sts'] == 3 && $get_row_mengikuti['file1_spek_sts'] == 3;
+
+                                $sts_tdk_valid = $get_row_mengikuti['file1_administrasi_sts'] == 2 || $get_row_mengikuti['file1_organisasi_sts'] == 2 || $get_row_mengikuti['file1_pabrikan_sts'] == 2 || $get_row_mengikuti['file1_peralatan_sts'] == 2 || $get_row_mengikuti['file1_personil_sts'] == 2 || $get_row_mengikuti['file1_makalah_teknis_sts'] == 2 || $get_row_mengikuti['file1_pra_rk3_sts'] == 2 || $get_row_mengikuti['file1_spek_sts'] == 2;
+
+                                if ($sts_valid_0) { ?>
+
+                                <?php } else if ($sts_valid) { ?>
+                                    <tr>
+                                        <th>Upload Presentasi Teknis Pengadaan</th>
+                                        <th>
+                                            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#upload_presentasi_teknis">
+                                                <i class="fa fa-upload" aria-hidden="true"></i> Upload Dokumen Presentasi Teknis
+                                            </button>
+                                        </th>
+                                    </tr>
+                                <?php } else if ($sts_tdk_valid) { ?>
+                                    <tr>
+                                        <th>Upload Presentasi Teknis Pengadaan</th>
+                                        <th>
+                                            <button type="button" class="btn btn-sm btn-danger" disabled>
+                                                <i class="fa fa-folder-close" aria-hidden="true"></i> Anda Telah Gugur Dalam Pengadaan Ini
+                                            </button>
+                                        </th>
+                                    </tr>
+                                <?php } else {   ?>
+                                    <tr>
+                                        <th>Upload Presentasi Teknis Pengadaan</th>
+                                        <th>
+                                            <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#upload_presentasi_teknis">
+                                                <i class="fa fa-upload" aria-hidden="true"></i> Upload Dokumen Presentasi Teknis
+                                            </button>
+                                        </th>
+                                    </tr>
+                                <?php } ?>
+
                             <?php } else { ?>
                                 <tr>
                                     <th>Upload Presentasi Teknis Pengadaan</th>
@@ -712,25 +741,57 @@
 
                                                             <tr>
                                                                 <?php if ($rup['sts_kirim_undangan_presentasi_teknis'] == 1) { ?>
-                                                                    <th>Undangan Rapat Presentasi Teknis</th>
-                                                                    <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/Informasi_tender_umum_pra_2_file/ba_undangan_rapat/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                    <?php $sts_valid_0 = $get_row_mengikuti['file1_administrasi_sts'] == 0 || $get_row_mengikuti['file1_organisasi_sts'] == 0 || $get_row_mengikuti['file1_pabrikan_sts'] == 0 || $get_row_mengikuti['file1_peralatan_sts'] == 0 || $get_row_mengikuti['file1_personil_sts'] == 0 || $get_row_mengikuti['file1_makalah_teknis_sts'] == 0 || $get_row_mengikuti['file1_pra_rk3_sts'] == 0 || $get_row_mengikuti['file1_spek_sts'] == 0;
+
+                                                                    $sts_valid = $get_row_mengikuti['file1_administrasi_sts'] == 1 && $get_row_mengikuti['file1_organisasi_sts'] == 1 && $get_row_mengikuti['file1_pabrikan_sts'] == 1 && $get_row_mengikuti['file1_peralatan_sts'] == 1 && $get_row_mengikuti['file1_personil_sts'] == 1 && $get_row_mengikuti['file1_makalah_teknis_sts'] == 1 && $get_row_mengikuti['file1_pra_rk3_sts'] == 1 && $get_row_mengikuti['file1_spek_sts'] == 1 || $get_row_mengikuti['file1_administrasi_sts'] == 3 && $get_row_mengikuti['file1_organisasi_sts'] == 3 && $get_row_mengikuti['file1_pabrikan_sts'] == 3 && $get_row_mengikuti['file1_peralatan_sts'] == 3 && $get_row_mengikuti['file1_personil_sts'] == 3 && $get_row_mengikuti['file1_makalah_teknis_sts'] == 3 && $get_row_mengikuti['file1_pra_rk3_sts'] == 3 && $get_row_mengikuti['file1_spek_sts'] == 3;
+
+                                                                    $sts_tdk_valid = $get_row_mengikuti['file1_administrasi_sts'] == 2 || $get_row_mengikuti['file1_organisasi_sts'] == 2 || $get_row_mengikuti['file1_pabrikan_sts'] == 2 || $get_row_mengikuti['file1_peralatan_sts'] == 2 || $get_row_mengikuti['file1_personil_sts'] == 2 || $get_row_mengikuti['file1_makalah_teknis_sts'] == 2 || $get_row_mengikuti['file1_pra_rk3_sts'] == 2 || $get_row_mengikuti['file1_spek_sts'] == 2;
+
+                                                                    if ($sts_valid_0) { ?>
+
+
+                                                                    <?php } else if ($sts_valid) { ?>
+                                                                        <th>Undangan Rapat Presentasi Teknis</th>
+                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/Informasi_tender_umum_pra_2_file/ba_undangan_rapat/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                    <?php } else if ($sts_tdk_valid) { ?>
+
+                                                                    <?php } else {   ?>
+                                                                        <th>Undangan Rapat Presentasi Teknis</th>
+                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/Informasi_tender_umum_pra_2_file/ba_undangan_rapat/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                    <?php } ?>
+
+
                                                                 <?php } ?>
                                                             </tr>
 
                                                             <tr>
                                                                 <?php if ($rup['sts_kirim_pengumuman_hasil_evaluasi_teknis'] == 1) { ?>
+
                                                                     <th>Pengumuman Hasil Evaluasi Teknis</th>
                                                                     <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_pengumuman_hasil_evaluasi_teknis/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
                                                                 <?php } ?>
                                                             </tr>
 
                                                             <?php if ($get_row_mengikuti['ev_penawaran_teknis'] >= 60) { ?>
-                                                                <tr>
-                                                                    <?php if ($rup['sts_kirim_ba_sampul2'] == 1) { ?>
-                                                                        <th>Berita Acara Pembukaan Dokumen Penawaran File II</th>
-                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_sampul_II/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
-                                                                    <?php } ?>
-                                                                </tr>
+                                                                <?php $sts_valid_0 = $get_row_mengikuti['file1_administrasi_sts'] == 0 || $get_row_mengikuti['file1_organisasi_sts'] == 0 || $get_row_mengikuti['file1_pabrikan_sts'] == 0 || $get_row_mengikuti['file1_peralatan_sts'] == 0 || $get_row_mengikuti['file1_personil_sts'] == 0 || $get_row_mengikuti['file1_makalah_teknis_sts'] == 0 || $get_row_mengikuti['file1_pra_rk3_sts'] == 0 || $get_row_mengikuti['file1_spek_sts'] == 0;
+
+                                                                $sts_valid = $get_row_mengikuti['file1_administrasi_sts'] == 1 && $get_row_mengikuti['file1_organisasi_sts'] == 1 && $get_row_mengikuti['file1_pabrikan_sts'] == 1 && $get_row_mengikuti['file1_peralatan_sts'] == 1 && $get_row_mengikuti['file1_personil_sts'] == 1 && $get_row_mengikuti['file1_makalah_teknis_sts'] == 1 && $get_row_mengikuti['file1_pra_rk3_sts'] == 1 && $get_row_mengikuti['file1_spek_sts'] == 1 || $get_row_mengikuti['file1_administrasi_sts'] == 3 && $get_row_mengikuti['file1_organisasi_sts'] == 3 && $get_row_mengikuti['file1_pabrikan_sts'] == 3 && $get_row_mengikuti['file1_peralatan_sts'] == 3 && $get_row_mengikuti['file1_personil_sts'] == 3 && $get_row_mengikuti['file1_makalah_teknis_sts'] == 3 && $get_row_mengikuti['file1_pra_rk3_sts'] == 3 && $get_row_mengikuti['file1_spek_sts'] == 3;
+
+                                                                $sts_tdk_valid = $get_row_mengikuti['file1_administrasi_sts'] == 2 || $get_row_mengikuti['file1_organisasi_sts'] == 2 || $get_row_mengikuti['file1_pabrikan_sts'] == 2 || $get_row_mengikuti['file1_peralatan_sts'] == 2 || $get_row_mengikuti['file1_personil_sts'] == 2 || $get_row_mengikuti['file1_makalah_teknis_sts'] == 2 || $get_row_mengikuti['file1_pra_rk3_sts'] == 2 || $get_row_mengikuti['file1_spek_sts'] == 2;
+
+                                                                if ($sts_valid_0) { ?>
+
+                                                                <?php } else if ($sts_valid) { ?>
+                                                                    <tr>
+                                                                        <?php if ($rup['sts_kirim_ba_sampul2'] == 1) { ?>
+                                                                            <th>Berita Acara Pembukaan Dokumen Penawaran File II</th>
+                                                                            <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_sampul_II/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                        <?php } ?>
+                                                                    </tr>
+                                                                <?php } else if ($sts_tdk_valid) { ?>
+                                                                <?php } else {   ?>
+                                                                <?php } ?>
+
                                                             <?php } else { ?>
 
                                                             <?php }   ?>

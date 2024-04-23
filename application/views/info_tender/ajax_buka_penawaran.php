@@ -533,7 +533,7 @@
                             <td>${btn_file1_pra_rk3}</td>
                         </tr>
                         <tr>
-                            <td>&ensp;&ensp; g. Dokumen Spesifikasi Perangkat</td>
+                            <td>&ensp;&ensp; g. Dokumen Spesifikasi Perangkat (Jika Dipersyaratkan)</td>
                             <td>${file1_spek}</td>
                             <td>${btn_file1_spek}</td>
                         </tr>`
@@ -629,7 +629,7 @@
         } else if (type == 'file1_pra_rk3') {
             $('[name="nama_dokumen"]').val('Dokumen Pra RK3-K dan HIRADC')
         } else if (type == 'file1_spek') {
-            $('[name="nama_dokumen"]').val('Dokumen Spesifikasi Perangkat (Khusus IT)')
+            $('[name="nama_dokumen"]').val('Dokumen Spesifikasi Perangkat (Jika Dipersyaratkan)')
         }
         $('#upload_dok_file_1').modal('show')
     }
