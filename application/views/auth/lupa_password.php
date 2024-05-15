@@ -150,7 +150,7 @@
 
         <div class="form-field d-flex align-items-center">
             <i class="fas fa fa-user"></i>
-            <input type="text" name="userName" id="userName" placeholder="Email Atau Npwp">
+            <input type="text" name="userName" id="userName" placeholder="Masukan Email Anda">
         </div>
         <div class="mt-2" style="margin-left: -10px;">
             <center>

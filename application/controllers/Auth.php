@@ -72,15 +72,20 @@ class Auth extends CI_Controller
 					$this->session->set_userdata('userName', $userName);
 					$row_user = $this->Auth_model->login($userName);
 					$email = $row_user->email;
+					$no_telpon = $row_user->no_telpon;
 					// START EMAIL SEND TYPE
 					$type_send_email = 'lupa_password';
 					$data_send_email = [
 						'email' => $email,
+						'no_telpon' => $no_telpon,
 						'token_lupa_password' => $randomString
 					];
+					// var_dump($data_send_email);
+					// die;
 					// $this->whatsapp->send_wa_one_to_one();
 					$this->email_send->sen_row_email($type_send_email, $data_send_email);
-					$this->session->set_flashdata('success', 'Ganti Password Berhasil Silakan Check Email Anda Untuk Mengetahui Link Ubah Password');
+					$this->kirim_wa->kirim_wa_vendor_lupa_password($data_send_email);
+					$this->session->set_flashdata('success', 'Ganti Password Berhasil Silakan Check WhatsApp dan Email Anda Untuk Mengetahui Link Ubah Password');
 					redirect('auth/lupa_password');
 					// END EMAIL SEND TYPE
 				}

@@ -847,6 +847,7 @@
                                                 <span class="input-group-text"><i class="fa-solid fa-bars"></i></span>
                                                 <select name="jenis_spt" id="jenis_spt" class="form-select" aria-label="Default select example">
                                                     <option value="177OS">177OS</option>
+                                                    <option value="1771">1771</option>
                                                     <option value="Lainnya">Lainnya</option>
                                                 </select>
                                             </div>

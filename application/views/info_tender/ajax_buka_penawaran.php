@@ -615,7 +615,7 @@
         if (type == 'file1_administrasi') {
             $('[name="nama_dokumen"]').val('File Penawaran Administrasi')
         } else if (type == 'file1_teknis') {
-            $('[name="nama_dokumen"]').val('File Penawaran Tenis')
+            $('[name="nama_dokumen"]').val('File Penawaran Teknis')
         } else if (type == 'file1_organisasi') {
             $('[name="nama_dokumen"]').val('Struktur Organisasi')
         } else if (type == 'file1_pabrikan') {

@@ -2273,7 +2273,17 @@ class M_datapenyedia extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_vendor_kbli_nib');
         $this->db->where('tbl_vendor_kbli_nib.id_vendor', $id_vendor);
-        $this->db->where_in('tbl_vendor_kbli_nib.sts_kbli_nib', [0, 2]);
+        $this->db->where_in('tbl_vendor_kbli_nib.sts_kbli_nib', [2]);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function get_result_kbli_nib_belum_diperiksa($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_kbli_nib');
+        $this->db->where('tbl_vendor_kbli_nib.id_vendor', $id_vendor);
+        $this->db->where_in('tbl_vendor_kbli_nib.sts_kbli_nib', [0]);
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -2293,7 +2303,17 @@ class M_datapenyedia extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_vendor_kbli_siup');
         $this->db->where('tbl_vendor_kbli_siup.id_vendor', $id_vendor);
-        $this->db->where_in('tbl_vendor_kbli_siup.sts_kbli_siup', [0, 2]);
+        $this->db->where_in('tbl_vendor_kbli_siup.sts_kbli_siup', [2]);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function get_result_kbli_siup_belum_diperiksa($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_kbli_siup');
+        $this->db->where('tbl_vendor_kbli_siup.id_vendor', $id_vendor);
+        $this->db->where_in('tbl_vendor_kbli_siup.sts_kbli_siup', [0]);
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -2313,7 +2333,17 @@ class M_datapenyedia extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_vendor_kbli_sbu');
         $this->db->where('tbl_vendor_kbli_sbu.id_vendor', $id_vendor);
-        $this->db->where_in('tbl_vendor_kbli_sbu.sts_kbli_sbu', [0, 2]);
+        $this->db->where_in('tbl_vendor_kbli_sbu.sts_kbli_sbu', [2]);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function get_result_kbli_sbu_belum_diperiksa($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_kbli_sbu');
+        $this->db->where('tbl_vendor_kbli_sbu.id_vendor', $id_vendor);
+        $this->db->where_in('tbl_vendor_kbli_sbu.sts_kbli_sbu', [0]);
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -2333,7 +2363,17 @@ class M_datapenyedia extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_vendor_kbli_siujk');
         $this->db->where('tbl_vendor_kbli_siujk.id_vendor', $id_vendor);
-        $this->db->where_in('tbl_vendor_kbli_siujk.sts_kbli_siujk', [0, 2]);
+        $this->db->where_in('tbl_vendor_kbli_siujk.sts_kbli_siujk', [2]);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function get_result_kbli_siujk_belum_diperiksa($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_kbli_siujk');
+        $this->db->where('tbl_vendor_kbli_siujk.id_vendor', $id_vendor);
+        $this->db->where_in('tbl_vendor_kbli_siujk.sts_kbli_siujk', [0]);
         $query = $this->db->get();
         return $query->result_array();
     }
@@ -2353,7 +2393,17 @@ class M_datapenyedia extends CI_Model
         $this->db->select('*');
         $this->db->from('tbl_vendor_kbli_skdp');
         $this->db->where('tbl_vendor_kbli_skdp.id_vendor', $id_vendor);
-        $this->db->where_in('tbl_vendor_kbli_skdp.sts_kbli_skdp', [0, 2]);
+        $this->db->where_in('tbl_vendor_kbli_skdp.sts_kbli_skdp', [2]);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function get_result_kbli_skdp_belum_diperiksa($id_vendor)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_kbli_skdp');
+        $this->db->where('tbl_vendor_kbli_skdp.id_vendor', $id_vendor);
+        $this->db->where_in('tbl_vendor_kbli_skdp.sts_kbli_skdp', [0]);
         $query = $this->db->get();
         return $query->result_array();
     }

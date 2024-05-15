@@ -58,6 +58,10 @@ function get_row_vendor() {
                         $('#sts_validasi_nib_kbli_0').css('display','none');
                         $('#sts_validasi_nib_kbli_1').css('display','block');
                         $('#sts_validasi_nib_kbli_2').css('display','none');
+                    } else if(response['validasi_nib'] == 'belum_diperiksa'){
+                        $('#sts_validasi_nib_kbli_0').css('display','block');
+                        $('#sts_validasi_nib_kbli_1').css('display','none');
+                        $('#sts_validasi_nib_kbli_2').css('display','none');
                     } else {
                         $('#sts_validasi_nib_kbli_0').css('display','none');
                         $('#sts_validasi_nib_kbli_1').css('display','none');
@@ -119,6 +123,10 @@ function get_row_vendor() {
                     if (response['validasi_siup'] == 'sudah_tervalidasi') {
                         $('#sts_validasi_siup_kbli_0').css('display','none');
                         $('#sts_validasi_siup_kbli_1').css('display','block');
+                        $('#sts_validasi_siup_kbli_2').css('display','none');
+                    } else if(response['validasi_siup'] == 'belum_diperiksa'){
+                        $('#sts_validasi_siup_kbli_0').css('display','block');
+                        $('#sts_validasi_siup_kbli_1').css('display','none');
                         $('#sts_validasi_siup_kbli_2').css('display','none');
                     } else {
                         $('#sts_validasi_siup_kbli_0').css('display','none');
@@ -188,6 +196,10 @@ function get_row_vendor() {
                         $('#sts_validasi_sbu_kbli_0').css('display','none');
                         $('#sts_validasi_sbu_kbli_1').css('display','block');
                         $('#sts_validasi_sbu_kbli_2').css('display','none');
+                    } else if(response['validasi_sbu'] == 'belum_diperiksa'){
+                        $('#sts_validasi_sbu_kbli_0').css('display','block');
+                        $('#sts_validasi_sbu_kbli_1').css('display','none');
+                        $('#sts_validasi_sbu_kbli_2').css('display','none');
                     } else {
                         $('#sts_validasi_sbu_kbli_0').css('display','none');
                         $('#sts_validasi_sbu_kbli_1').css('display','none');
@@ -249,6 +261,10 @@ function get_row_vendor() {
                         $('#sts_validasi_siujk_kbli_0').css('display','none');
                         $('#sts_validasi_siujk_kbli_1').css('display','block');
                         $('#sts_validasi_siujk_kbli_2').css('display','none');
+                    } else if(response['validasi_siujk'] == 'belum_diperiksa'){
+                        $('#sts_validasi_siujk_kbli_0').css('display','block');
+                        $('#sts_validasi_siujk_kbli_1').css('display','none');
+                        $('#sts_validasi_siujk_kbli_2').css('display','none');
                     } else {
                         $('#sts_validasi_siujk_kbli_0').css('display','none');
                         $('#sts_validasi_siujk_kbli_1').css('display','none');
@@ -308,6 +324,10 @@ function get_row_vendor() {
                     if (response['validasi_skdp'] == 'sudah_tervalidasi') {
                         $('#sts_validasi_skdp_kbli_0').css('display','none');
                         $('#sts_validasi_skdp_kbli_1').css('display','block');
+                        $('#sts_validasi_skdp_kbli_2').css('display','none');
+                    } else if(response['validasi_skdp'] == 'belum_diperiksa'){
+                        $('#sts_validasi_skdp_kbli_0').css('display','block');
+                        $('#sts_validasi_skdp_kbli_1').css('display','none');
                         $('#sts_validasi_skdp_kbli_2').css('display','none');
                     } else {
                         $('#sts_validasi_skdp_kbli_0').css('display','none');
@@ -804,13 +824,13 @@ function EditChangeGlobal_nib() {
 function input_nib_edit() {
     $('#apply_edit_nib').modal('hide')
     $('#modal-xl-kbli-nib').modal('show')
-    $('.nomor_surat_nib').attr("readonly", true);
-    $('.sts_seumur_hidup_nib').attr("disabled", true);
-    $('.tgl_berlaku_nib').attr("readonly", true);
-    $('.kualifikasi_izin_nib').attr("disabled", true);
-    $('.file_dokumen_nib').attr("readonly", true);
-    $('.kbli_nib').attr("readonly", true);
-    $('.file_dokumen_nib').attr("disabled", true);
+    $('.nomor_surat_nib').attr("readonly", false);
+    $('.sts_seumur_hidup_nib').attr("disabled", false);
+    $('.tgl_berlaku_nib').attr("readonly", false);
+    $('.kualifikasi_izin_nib').attr("disabled", false);
+    $('.file_dokumen_nib').attr("readonly", false);
+    $('.kbli_nib').attr("readonly", false);
+    $('.file_dokumen_nib').attr("disabled", false);
     // $('#on_save_nib').attr("disabled", true);
     $('#button_save_kbli_nib').removeClass("disabled");
     $('#button_edit_kbli_nib').removeClass("disabled");
@@ -1266,13 +1286,13 @@ function EditChangeGlobal_siup() {
 function input_siup_edit() {
     $('#apply_edit_siup').modal('hide')
     $('#modal-xl-kbli-siup').modal('show')
-    $('.nomor_surat_siup').attr("readonly", true);
-    $('.sts_seumur_hidup_siup').attr("disabled", true);
-    $('.tgl_berlaku_siup').attr("readonly", true);
-    $('.kualifikasi_izin_siup').attr("disabled", true);
-    $('.file_dokumen_siup').attr("readonly", true);
-    $('.kbli_siup').attr("readonly", true);
-    $('.file_dokumen_siup').attr("disabled", true);
+    $('.nomor_surat_siup').attr("readonly", false);
+    $('.sts_seumur_hidup_siup').attr("disabled", false);
+    $('.tgl_berlaku_siup').attr("readonly", false);
+    $('.kualifikasi_izin_siup').attr("disabled", false);
+    $('.file_dokumen_siup').attr("readonly", false);
+    $('.kbli_siup').attr("readonly", false);
+    $('.file_dokumen_siup').attr("disabled", false);
     // $('#on_save_siup').attr("disabled", true);
     $('#button_save_kbli_siup').removeClass("disabled");
     $('#button_edit_kbli_siup').removeClass("disabled");
@@ -1725,13 +1745,13 @@ function EditChangeGlobal_sbu() {
 function input_sbu_edit() {
     $('#apply_edit_sbu').modal('hide')
     $('#modal-xl-kbli-sbu').modal('show')
-    $('.nomor_surat_sbu').attr("readonly", true);
-    $('.sts_seumur_hidup_sbu').attr("disabled", true);
-    $('.tgl_berlaku_sbu').attr("readonly", true);
-    $('.kualifikasi_izin_sbu').attr("disabled", true);
-    $('.file_dokumen_sbu').attr("readonly", true);
-    $('.kbli_sbu').attr("readonly", true);
-    $('.file_dokumen_sbu').attr("disabled", true);
+    $('.nomor_surat_sbu').attr("readonly", false);
+    $('.sts_seumur_hidup_sbu').attr("disabled", false);
+    $('.tgl_berlaku_sbu').attr("readonly", false);
+    $('.kualifikasi_izin_sbu').attr("disabled", false);
+    $('.file_dokumen_sbu').attr("readonly", false);
+    $('.kbli_sbu').attr("readonly", false);
+    $('.file_dokumen_sbu').attr("disabled", false);
     // $('#on_save_sbu').attr("disabled", true);
     $('#button_save_kbli_sbu').removeClass("disabled");
     $('#button_edit_kbli_sbu').removeClass("disabled");
@@ -2182,13 +2202,13 @@ function EditChangeGlobal_siujk() {
 function input_siujk_edit() {
     $('#apply_edit_siujk').modal('hide')
     $('#modal-xl-kbli-siujk').modal('show')
-    $('.nomor_surat_siujk').attr("readonly", true);
-    $('.sts_seumur_hidup_siujk').attr("disabled", true);
-    $('.tgl_berlaku_siujk').attr("readonly", true);
-    $('.kualifikasi_izin_siujk').attr("disabled", true);
-    $('.file_dokumen_siujk').attr("readonly", true);
-    $('.kbli_siujk').attr("readonly", true);
-    $('.file_dokumen_siujk').attr("disabled", true);
+    $('.nomor_surat_siujk').attr("readonly", false);
+    $('.sts_seumur_hidup_siujk').attr("disabled", false);
+    $('.tgl_berlaku_siujk').attr("readonly", false);
+    $('.kualifikasi_izin_siujk').attr("disabled", false);
+    $('.file_dokumen_siujk').attr("readonly", false);
+    $('.kbli_siujk').attr("readonly", false);
+    $('.file_dokumen_siujk').attr("disabled", false);
     // $('#on_save_siujk').attr("disabled", true);
     $('#button_save_kbli_siujk').removeClass("disabled");
     $('#button_edit_kbli_siujk').removeClass("disabled");
@@ -2535,13 +2555,13 @@ function EditChangeGlobal_skdp() {
 function input_skdp_edit() {
     $('#apply_edit_skdp').modal('hide')
     $('#modal-xl-kbli-skdp').modal('show')
-    $('.nomor_surat_skdp').attr("readonly", true);
-    $('.sts_seumur_hidup_skdp').attr("disabled", true);
-    $('.tgl_berlaku_skdp').attr("readonly", true);
-    $('.kualifikasi_izin_skdp').attr("disabled", true);
-    $('.file_dokumen_skdp').attr("readonly", true);
-    $('.kbli_skdp').attr("readonly", true);
-    $('.file_dokumen_skdp').attr("disabled", true);
+    $('.nomor_surat_skdp').attr("readonly", false);
+    $('.sts_seumur_hidup_skdp').attr("disabled", false);
+    $('.tgl_berlaku_skdp').attr("readonly", false);
+    $('.kualifikasi_izin_skdp').attr("disabled", false);
+    $('.file_dokumen_skdp').attr("readonly", false);
+    $('.kbli_skdp').attr("readonly", false);
+    $('.file_dokumen_skdp').attr("disabled", false);
     // $('#on_save_skdp').attr("disabled", true);
     $('#button_save_kbli_skdp').removeClass("disabled");
     $('#button_edit_kbli_skdp').removeClass("disabled");

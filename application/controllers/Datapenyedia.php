@@ -177,75 +177,107 @@ class Datapenyedia extends CI_Controller
 		// validasi KBLI
 		// NIB
 		$result_kbli_nib = $this->M_datapenyedia->get_result_kbli_nib($id_vendor);
+		$result_kbli_nib_belum_diperiksa = $this->M_datapenyedia->get_result_kbli_nib_belum_diperiksa($id_vendor);
 		$result_cek_kbli_nib = $this->M_datapenyedia->get_result_cek_kbli_nib($id_vendor);
 		if ($result_cek_kbli_nib) {
 			$logika_validasi_kbli_nib_jika_ada = 'ada';
 		} else {
 			$logika_validasi_kbli_nib_jika_ada = 'tidak_ada';
 		}
-		if ($result_kbli_nib) {
-			$logika_validasi_kbli_nib = 'belum_tervalidasi';
+
+		if ($result_kbli_nib_belum_diperiksa) {
+			$logika_validasi_kbli_nib = 'belum_diperiksa';
 		} else {
-			$logika_validasi_kbli_nib = 'sudah_tervalidasi';
+			if ($result_kbli_nib) {
+				$logika_validasi_kbli_nib = 'belum_tervalidasi';
+			} else {
+				$logika_validasi_kbli_nib = 'sudah_tervalidasi';
+			}
 		}
+
 
 		// validasi KBLI
 		// siup
 		$result_kbli_siup = $this->M_datapenyedia->get_result_kbli_siup($id_vendor);
+		$result_kbli_siup_belum_diperiksa = $this->M_datapenyedia->get_result_kbli_siup_belum_diperiksa($id_vendor);
 		$result_cek_kbli_siup = $this->M_datapenyedia->get_result_cek_kbli_siup($id_vendor);
 		if ($result_cek_kbli_siup) {
 			$logika_validasi_kbli_siup_jika_ada = 'ada';
 		} else {
 			$logika_validasi_kbli_siup_jika_ada = 'tidak_ada';
 		}
-		if ($result_kbli_siup) {
-			$logika_validasi_kbli_siup = 'belum_tervalidasi';
+
+		if ($result_kbli_siup_belum_diperiksa) {
+			$logika_validasi_kbli_siup = 'belum_diperiksa';
 		} else {
-			$logika_validasi_kbli_siup = 'sudah_tervalidasi';
+			if ($result_kbli_siup) {
+				$logika_validasi_kbli_siup = 'belum_tervalidasi';
+			} else {
+				$logika_validasi_kbli_siup = 'sudah_tervalidasi';
+			}
 		}
 
 
 		// sbu
 		$result_kbli_sbu = $this->M_datapenyedia->get_result_kbli_sbu($id_vendor);
+		$result_kbli_sbu_belum_diperiksa = $this->M_datapenyedia->get_result_kbli_sbu_belum_diperiksa($id_vendor);
 		$result_cek_kbli_sbu = $this->M_datapenyedia->get_result_cek_kbli_sbu($id_vendor);
 		if ($result_cek_kbli_sbu) {
 			$logika_validasi_kbli_sbu_jika_ada = 'ada';
 		} else {
 			$logika_validasi_kbli_sbu_jika_ada = 'tidak_ada';
 		}
-		if ($result_kbli_sbu) {
-			$logika_validasi_kbli_sbu = 'belum_tervalidasi';
+
+		if ($result_kbli_sbu_belum_diperiksa) {
+			$logika_validasi_kbli_sbu = 'belum_diperiksa';
 		} else {
-			$logika_validasi_kbli_sbu = 'sudah_tervalidasi';
+			if ($result_kbli_sbu) {
+				$logika_validasi_kbli_sbu = 'belum_tervalidasi';
+			} else {
+				$logika_validasi_kbli_sbu = 'sudah_tervalidasi';
+			}
 		}
 
 		// siujk
 		$result_kbli_siujk = $this->M_datapenyedia->get_result_kbli_siujk($id_vendor);
+		$result_kbli_siujk_belum_diperiksa = $this->M_datapenyedia->get_result_kbli_siujk_belum_diperiksa($id_vendor);
 		$result_cek_kbli_siujk = $this->M_datapenyedia->get_result_cek_kbli_siujk($id_vendor);
 		if ($result_cek_kbli_siujk) {
 			$logika_validasi_kbli_siujk_jika_ada = 'ada';
 		} else {
 			$logika_validasi_kbli_siujk_jika_ada = 'tidak_ada';
 		}
-		if ($result_kbli_siujk) {
-			$logika_validasi_kbli_siujk = 'belum_tervalidasi';
+
+		if ($result_kbli_siujk_belum_diperiksa) {
+			$logika_validasi_kbli_siujk = 'belum_diperiksa';
 		} else {
-			$logika_validasi_kbli_siujk = 'sudah_tervalidasi';
+			if ($result_kbli_siujk) {
+				$logika_validasi_kbli_siujk = 'belum_tervalidasi';
+			} else {
+				$logika_validasi_kbli_siujk = 'sudah_tervalidasi';
+			}
 		}
 
 
 		// skdp
 		$result_kbli_skdp = $this->M_datapenyedia->get_result_kbli_skdp($id_vendor);
+		$result_kbli_skdp_belum_diperiksa = $this->M_datapenyedia->get_result_kbli_skdp_belum_diperiksa($id_vendor);
 		$result_cek_kbli_skdp = $this->M_datapenyedia->get_result_cek_kbli_skdp($id_vendor);
 		if ($result_cek_kbli_skdp) {
 			$logika_validasi_kbli_skdp_jika_ada = 'ada';
 		} else {
 			$logika_validasi_kbli_skdp_jika_ada = 'tidak_ada';
 		}
-		if ($result_kbli_skdp) {
-			$logika_validasi_kbli_skdp = 'belum_tervalidasi';
+
+
+		if ($result_kbli_skdp_belum_diperiksa) {
+			$logika_validasi_kbli_skdp = 'belum_diperiksa';
 		} else {
-			$logika_validasi_kbli_skdp = 'sudah_tervalidasi';
+			if ($result_kbli_skdp) {
+				$logika_validasi_kbli_skdp = 'belum_tervalidasi';
+			} else {
+				$logika_validasi_kbli_skdp = 'sudah_tervalidasi';
+			}
 		}
 
 		// 

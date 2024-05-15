@@ -943,138 +943,277 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
 
 <!-- Modal -->
 
-<div class="modal fade" id="modal_warning_dokumen" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header bg-danger text-white">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">PERINGATAN MASA BERLAKU DOKUMEN</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <!-- siup -->
-                <div id="siup_warning" style="display: none;">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_siup"></label>
-                        </div>
-                        <div class="col-md-9">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_siup"></label> <br>
-                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_siup_juni"></label>
+
+<?php
+if ($row_vendor['sts_terundang'] == 1) { ?>
+    <div class="modal fade" id="modal_warning_dokumen" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">PERINGATAN MASA BERLAKU DOKUMEN</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- siup -->
+                    <div id="siup_warning" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_siup"></label>
+                            </div>
+                            <div class="col-md-9">
+                                : <label style="font-weight: bold;font-size:18px;" for="" id="warning_siup"></label> <br>
+                                <label style="font-weight: bold;font-size:18px;" for="" id="warning_siup_juni"></label>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- nib  asd-->
-                <div id="nib_warning" style="display: none;">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_nib"></label>
-                        </div>
-                        <div class="col-md-9">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_nib"></label> <br>
-                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_nib_juni"></label>
+                    <!-- nib  asd-->
+                    <div id="nib_warning" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_nib"></label>
+                            </div>
+                            <div class="col-md-9">
+                                : <label style="font-weight: bold;font-size:18px;" for="" id="warning_nib"></label> <br>
+                                <label style="font-weight: bold;font-size:18px;" for="" id="warning_nib_juni"></label>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- sbu -->
-                <div id="sbu_warning" style="display: none;">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sbu"></label>
-                        </div>
-                        <div class="col-md-9">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_sbu"></label> <br>
-                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_sbu_juni"></label>
+                    <!-- sbu -->
+                    <div id="sbu_warning" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sbu"></label>
+                            </div>
+                            <div class="col-md-9">
+                                : <label style="font-weight: bold;font-size:18px;" for="" id="warning_sbu"></label> <br>
+                                <label style="font-weight: bold;font-size:18px;" for="" id="warning_sbu_juni"></label>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- siujk -->
-                <div id="siujk_warning" style="display: none;">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_siujk"></label>
-                        </div>
-                        <div class="col-md-9">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_siujk"></label> <br>
-                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_siujk_juni"></label>
+                    <!-- siujk -->
+                    <div id="siujk_warning" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_siujk"></label>
+                            </div>
+                            <div class="col-md-9">
+                                : <label style="font-weight: bold;font-size:18px;" for="" id="warning_siujk"></label> <br>
+                                <label style="font-weight: bold;font-size:18px;" for="" id="warning_siujk_juni"></label>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- skdp -->
-                <div id="skdp_warning" style="display: none;">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_skdp"></label>
-                        </div>
-                        <div class="col-md-9">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_skdp"></label> <br>
-                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_skdp_juni"></label>
+                    <!-- skdp -->
+                    <div id="skdp_warning" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_skdp"></label>
+                            </div>
+                            <div class="col-md-9">
+                                : <label style="font-weight: bold;font-size:18px;" for="" id="warning_skdp"></label> <br>
+                                <label style="font-weight: bold;font-size:18px;" for="" id="warning_skdp_juni"></label>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- sppkp -->
-                <div id="sppkp_warning" style="display: none;">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sppkp"></label>
-                        </div>
-                        <div class="col-md-9">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_sppkp"></label> <br>
-                            <label style="font-weight: bold;font-size:18px;" for="" id="warning_sppkp_juni"></label>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <!-- spt -->
-                <div id="spt_warning" style="display: none;">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_spt"></label>
-                        </div>
-                        <div class="col-md-9">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_spt_juni"></label>
+                    <!-- sppkp -->
+                    <div id="sppkp_warning" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sppkp"></label>
+                            </div>
+                            <div class="col-md-9">
+                                : <label style="font-weight: bold;font-size:18px;" for="" id="warning_sppkp"></label> <br>
+                                <label style="font-weight: bold;font-size:18px;" for="" id="warning_sppkp_juni"></label>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- keuangan -->
-                <div id="keuangan_warning" style="display: none;">
+
+
+                    <!-- spt -->
+                    <!-- <div style="display: block;"> -->
                     <div class="row">
                         <div class="col-md-3">
-                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_keuangan"></label>
+                            <label style="font-weight: bold;font-size:18px;" for="">SPT</label>
                         </div>
                         <div class="col-md-9">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_keuangan_juni"></label>
+                            : <label style="font-weight: bold;font-size:18px;" for="">Sebelum Bulan Juni Harap Segera Update Dokumen SPT Tahun Terakhir Anda</label>
                         </div>
                     </div>
-                </div>
+                    <!-- </div> -->
 
-
-                <!-- neraca -->
-                <div id="neraca_warning" style="display: none;">
+                    <!-- keuangan -->
+                    <!-- <div id="keuangan_warning" style="display: block;"> -->
                     <div class="row">
                         <div class="col-md-3">
-                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_neraca"></label>
+                            <label style="font-weight: bold;font-size:18px;" for="">Laporan Kuangan</label>
                         </div>
                         <div class="col-md-9">
-                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_neraca_juni"></label>
+                            : <label style="font-weight: bold;font-size:18px;" for="">Sebelum Bulan Juni Harap Segera Update Dokumen Laporan Keuangan Tahun Terakhir Anda</label>
                         </div>
                     </div>
-                </div>
+                    <!-- </div> -->
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    <!-- neraca -->
+                    <!-- <div id="neraca_warning" style="display: block;"> -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label style="font-weight: bold;font-size:18px;" for="">Neraca Keuangan</label>
+                        </div>
+                        <div class="col-md-9">
+                            : <label style="font-weight: bold;font-size:18px;" for="">Sebelum Bulan Juni Harap Segera Update Dokumen Neraca Keuangan Tahun Terakhir Anda</label>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+<?php } else { ?>
+    <div class="modal fade" id="modal_warning_dokumen" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header bg-danger text-white">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">PERINGATAN MASA BERLAKU DOKUMEN</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- siup -->
+                    <div id="siup_warning" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_siup"></label>
+                            </div>
+                            <div class="col-md-9">
+                                : <label style="font-weight: bold;font-size:18px;" for="" id="warning_siup"></label> <br>
+                                <label style="font-weight: bold;font-size:18px;" for="" id="warning_siup_juni"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- nib  asd-->
+                    <div id="nib_warning" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_nib"></label>
+                            </div>
+                            <div class="col-md-9">
+                                : <label style="font-weight: bold;font-size:18px;" for="" id="warning_nib"></label> <br>
+                                <label style="font-weight: bold;font-size:18px;" for="" id="warning_nib_juni"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- sbu -->
+                    <div id="sbu_warning" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sbu"></label>
+                            </div>
+                            <div class="col-md-9">
+                                : <label style="font-weight: bold;font-size:18px;" for="" id="warning_sbu"></label> <br>
+                                <label style="font-weight: bold;font-size:18px;" for="" id="warning_sbu_juni"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- siujk -->
+                    <div id="siujk_warning" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_siujk"></label>
+                            </div>
+                            <div class="col-md-9">
+                                : <label style="font-weight: bold;font-size:18px;" for="" id="warning_siujk"></label> <br>
+                                <label style="font-weight: bold;font-size:18px;" for="" id="warning_siujk_juni"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- skdp -->
+                    <div id="skdp_warning" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_skdp"></label>
+                            </div>
+                            <div class="col-md-9">
+                                : <label style="font-weight: bold;font-size:18px;" for="" id="warning_skdp"></label> <br>
+                                <label style="font-weight: bold;font-size:18px;" for="" id="warning_skdp_juni"></label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- sppkp -->
+                    <div id="sppkp_warning" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_sppkp"></label>
+                            </div>
+                            <div class="col-md-9">
+                                : <label style="font-weight: bold;font-size:18px;" for="" id="warning_sppkp"></label> <br>
+                                <label style="font-weight: bold;font-size:18px;" for="" id="warning_sppkp_juni"></label>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- spt -->
+                    <!-- <div id="spt_warning" style="display: block;">
+                                                    <div class="row">
+                                                        <div class="col-md-3">
+                                                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_spt">SPT</label>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_spt_juni">Sebelum Bulan Juni Harap Segera Update Dokumen SPT Tahun Terakhir Anda</label>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+
+                    <!-- keuangan -->
+                    <!-- <div id="keuangan_warning" style="display: block;">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_keuangan">Laporan Kuangan</label>
+                                                    </div>
+                                                    <div class="col-md-9">
+                                                        : <label style="font-weight: bold;font-size:18px;" for="" id="warning_keuangan_juni">Sebelum Bulan Juni Harap Segera Update Dokumen Laporan Keuangan Tahun Terakhir Anda</label>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+
+
+                    <!-- neraca -->
+                    <!-- <div id="neraca_warning" style="display: block;">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_neraca">Neraca Keuangan</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    : <label style="font-weight: bold;font-size:18px;" for="" id="warning_neraca_juni">Sebelum Bulan Juni Harap Segera Update Dokumen Neraca Keuangan Tahun Terakhir Anda</label>
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php  }  ?>
+
+
 
 
 

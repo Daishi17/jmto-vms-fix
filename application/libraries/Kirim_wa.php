@@ -91,4 +91,35 @@ class Kirim_wa
         $response = curl_exec($curl);
         curl_close($curl);
     }
+
+
+    public function kirim_wa_vendor_lupa_password($data)
+    {
+        $token_lupa_password = $data['token_lupa_password'];
+        $base_url = 'https://drtproc.jmto.co.id/auth/buat_password/' . $token_lupa_password;
+        $token = '3HGKVEwLaF7rIt@ZhVcV';
+        $target = $data['no_telpon'];
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.fonnte.com/send',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => array(
+                'target' => $target,
+                'message' => "Silakan Klik Link Ini $base_url Untuk Melakukan Prosess Pengubahan Password Anda",
+                'delay' => '120-300',
+            ),
+            CURLOPT_HTTPHEADER => array(
+                "Authorization: $token"
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        curl_close($curl);
+    }
 }

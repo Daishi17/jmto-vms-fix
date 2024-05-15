@@ -65,19 +65,23 @@
                 <div class="card-body">
                     <table class="table table-striped table-bordered">
                         <tr>
-                            <th style="width: 300px;"><small> Kode Pengadaan</small></th>
-                            <th><small> <?= $rup['kode_rup'] ?></small></th>
+                            <th style="width: 300px;"> Kode Pengadaan</th>
+                            <th> <?= $rup['kode_rup'] ?></th>
                         </tr>
                         <tr>
-                            <th><small> Nama Paket</small></th>
-                            <th><small><?= $rup['nama_rup'] ?></small></th>
+                            <th> Nama Paket</th>
+                            <th><?= $rup['nama_rup'] ?></th>
                         </tr>
                         <tr>
-                            <th><small>Nilai HPS</small></th>
-                            <th><small>Rp. <?= number_format($rup['total_hps_rup'], 2, ",", "."); ?> </small></th>
+                            <th>Nilai HPS</th>
+                            <th>Rp. <?= number_format($rup['total_hps_rup'], 2, ",", "."); ?> </th>
                         </tr>
                         <tr>
-                            <th><small>Jangka Waktu Pelaksanaan Pekerjaan</small></th>
+                            <th> Persentase TKDN </th>
+                            <th><?= number_format($rup['persen_pencatatan'], 2, ",", "."); ?> % (<?= $rup['status_pencatatan'] ?>)</th>
+                        </tr>
+                        <tr>
+                            <th>Jangka Waktu Pelaksanaan Pekerjaan</th>
                             <th><?= $rup['jangka_waktu_hari_pelaksanaan'] ?> Hari Kalender</th>
                         </tr>
                         <tr>
@@ -685,7 +689,7 @@
 
 
 
-                                                            <?php if ($get_row_mengikuti['ev_terendah_peringkat_akhir_hea'] == 1) { ?>
+                                                            <?php if ($get_row_mengikuti['ev_terendah_peringkat'] == 1) { ?>
                                                                 <tr>
                                                                     <?php if ($rup['sts_kirim_ba_negosiasi'] == 1) { ?>
                                                                         <th>Berita Acara Evaluasi dan Negosiasi</th>
