@@ -634,6 +634,41 @@
                 }
                 // 
 
+                // neraca keuangan
+
+                if (!response['neraca']) {
+
+                } else {
+                    var html_neraca = ''
+                    for (i = 0; i < response['neraca'].length; i++) {
+                        if (response['neraca'][i].sts_validasi == null || response['neraca'][i].sts_validasi == 0) {
+                            var sts_validasi = '<span class="badge bg-secondary">Belum Di Periksa</span>'
+                        } else if (response['neraca'][i].sts_validasi == 1) {
+                            var sts_validasi = '<span class="badge bg-success">Sudah Valid</span>'
+                        } else if (response['neraca'][i].sts_validasi == 2) {
+                            var sts_validasi = '<span class="badge bg-danger">Tidak Valid</span>'
+                        } else if (response['neraca'][i].sts_validasi == 3) {
+                            var sts_validasi = '<span class="badge bg-warning">Revisi</span>'
+                        }
+                        if (response['neraca'][i].tgl_periksa) {
+                            var tgl_periksa = response['neraca'][i].tgl_periksa
+                        } else {
+                            var tgl_periksa = '-'
+                        }
+                        if (response['neraca'][i].nama_validator) {
+                            var nama_validator = response['neraca'][i].nama_validator
+                        } else {
+                            var nama_validator = '-'
+                        }
+                        html_neraca += '<tr>' +
+
+                            '<td>' + sts_validasi + '</td>' +
+                            '<td>' + tgl_periksa + '</td>' +
+                            '</tr>';
+                    }
+                    $('#rincian_neraca').html(html_neraca);
+                }
+
                 // laporan keuangan
                 if (!response['keuangan']) {
 

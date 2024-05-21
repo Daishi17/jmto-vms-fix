@@ -775,6 +775,27 @@
                 <div class="card">
                     <div class="card-header bg-primary">
                         <center>
+                            <h4 class="text-white">Neraca Keuangan</h4>
+                        </center>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Status Validasi</th>
+                                    <th>Tanggal Periksa</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rincian_neraca">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header bg-primary">
+                        <center>
                             <h4 class="text-white">Laporan Keuangan</h4>
                         </center>
                     </div>
@@ -1169,40 +1190,40 @@ if ($row_vendor['sts_terundang'] == 1) { ?>
 
                     <!-- spt -->
                     <!-- <div id="spt_warning" style="display: block;">
-                                                    <div class="row">
-                                                        <div class="col-md-3">
-                                                            <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_spt">SPT</label>
-                                                        </div>
-                                                        <div class="col-md-9">
-                                                            : <label style="font-weight: bold;font-size:18px;" for="" id="warning_spt_juni">Sebelum Bulan Juni Harap Segera Update Dokumen SPT Tahun Terakhir Anda</label>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
+                                                                <div class="row">
+                                                                    <div class="col-md-3">
+                                                                        <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_spt">SPT</label>
+                                                                    </div>
+                                                                    <div class="col-md-9">
+                                                                        : <label style="font-weight: bold;font-size:18px;" for="" id="warning_spt_juni">Sebelum Bulan Juni Harap Segera Update Dokumen SPT Tahun Terakhir Anda</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div> -->
 
                     <!-- keuangan -->
                     <!-- <div id="keuangan_warning" style="display: block;">
-                                                <div class="row">
-                                                    <div class="col-md-3">
-                                                        <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_keuangan">Laporan Kuangan</label>
-                                                    </div>
-                                                    <div class="col-md-9">
-                                                        : <label style="font-weight: bold;font-size:18px;" for="" id="warning_keuangan_juni">Sebelum Bulan Juni Harap Segera Update Dokumen Laporan Keuangan Tahun Terakhir Anda</label>
-                                                    </div>
-                                                </div>
-                                            </div> -->
+                                                            <div class="row">
+                                                                <div class="col-md-3">
+                                                                    <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_keuangan">Laporan Kuangan</label>
+                                                                </div>
+                                                                <div class="col-md-9">
+                                                                    : <label style="font-weight: bold;font-size:18px;" for="" id="warning_keuangan_juni">Sebelum Bulan Juni Harap Segera Update Dokumen Laporan Keuangan Tahun Terakhir Anda</label>
+                                                                </div>
+                                                            </div>
+                                                        </div> -->
 
 
                     <!-- neraca -->
                     <!-- <div id="neraca_warning" style="display: block;">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_neraca">Neraca Keuangan</label>
-                                                </div>
-                                                <div class="col-md-9">
-                                                    : <label style="font-weight: bold;font-size:18px;" for="" id="warning_neraca_juni">Sebelum Bulan Juni Harap Segera Update Dokumen Neraca Keuangan Tahun Terakhir Anda</label>
-                                                </div>
-                                            </div>
-                                        </div> -->
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <label style="font-weight: bold;font-size:18px;" for="" id="nama_dokumen_neraca">Neraca Keuangan</label>
+                                                            </div>
+                                                            <div class="col-md-9">
+                                                                : <label style="font-weight: bold;font-size:18px;" for="" id="warning_neraca_juni">Sebelum Bulan Juni Harap Segera Update Dokumen Neraca Keuangan Tahun Terakhir Anda</label>
+                                                            </div>
+                                                        </div>
+                                                    </div> -->
 
                 </div>
                 <div class="modal-footer">

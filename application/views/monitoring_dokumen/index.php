@@ -201,7 +201,7 @@
                                                                         <div class="text-center">Status Validasi</div>
                                                                     </small></th>
                                                                 <th style="width:15%;"><small class="text-white">
-                                                                        <div class="text-center">Nama Validator</div>
+                                                                        <div class="text-center">Ket. Validator</div>
                                                                     </small></th>
                                                             </tr>
                                                         </thead>
