@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 date_default_timezone_set("Asia/Jakarta");
-error_reporting(0);
+// error_reporting(0);
 class Dokumen extends CI_Controller
 {
     var $link_dok = 'https://eprocurement.jmto.co.id/file_paket/';
@@ -41,6 +41,7 @@ class Dokumen extends CI_Controller
         $data['peserta'] = $this->M_tender->peserta($data['rup']['id_rup']);
         $data['hitung_syarat'] = $this->M_tender->hitung_total_syarat($data['rup']['id_rup']);
         $data['data_evaluasi'] = $this->M_tender->data_evaluasi($data['rup']['id_rup']);
+        $data['peserta_tender_pq_lolos'] = $this->M_tender->get_peserta_tender_ba_pra_lolos($data['rup']['id_rup']);
 
         if ($data['rup']['id_jadwal_tender'] == 5) {
             $data['jadwal_pengumuman_pengadaan'] =  $this->M_jadwal->jadwal_pra_umum_1($data['rup']['id_rup']);

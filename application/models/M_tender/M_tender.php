@@ -1484,4 +1484,18 @@ class M_tender extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function get_peserta_tender_ba_pra_lolos($id_rup)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_mengikuti_paket');
+        $this->db->join('tbl_vendor', 'tbl_vendor_mengikuti_paket.id_vendor = tbl_vendor.id_vendor');
+        $this->db->where('tbl_vendor_mengikuti_paket.id_rup', $id_rup);
+        $this->db->where('tbl_vendor_mengikuti_paket.sts_mengikuti_paket', 1);
+        $this->db->where('tbl_vendor_mengikuti_paket.ev_keuangan >', 60);
+        $this->db->where('tbl_vendor_mengikuti_paket.ev_teknis >', 60);
+        $this->db->group_by('tbl_vendor.id_vendor');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }

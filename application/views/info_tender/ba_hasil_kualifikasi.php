@@ -205,17 +205,36 @@ function terbilang($nilai)
 
                         </td>
                     </tr>
-                    <tr>
-                        <td>2. </td>
-                        <td>Download Dokumen Pengadaan</td>
-                        <td><?= date('d-M-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) ?> &ensp;S/D&ensp;<?= date('d-M-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) ?></td>
-                    </tr>
-                    <tr>
-                        <td>3. </td>
-                        <td>Rapat Penjelasan</td>
-                        <td><?= date('d-M-Y H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) ?> &ensp;S/D&ensp;<?= date('d-M-Y H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) ?></td>
-                    </tr>
+                    <?php if (count($peserta_tender_pq_lolos) == 0) { ?>
 
+                        <tr>
+                            <td>2. </td>
+                            <td>Download Dokumen Pengadaan</td>
+                            <td>-- &ensp;S/D&ensp;--</td>
+                        </tr>
+                        <tr>
+                            <td>3. </td>
+                            <td>Rapat Penjelasan</td>
+                            <td>-- &ensp;S/D&ensp;--</td>
+                        </tr>
+                    <?php } else { ?>
+                        <tr>
+                            <td>2. </td>
+                            <td>Download Dokumen Pengadaan</td>
+                            <td><?= date('d-M-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_mulai'])) ?> &ensp;S/D&ensp;<?= date('d-M-Y H:i', strtotime($jadwal_download_dokumen_pengadaan['waktu_selesai'])) ?></td>
+                        </tr>
+                        <tr>
+                            <td>3. </td>
+                            <td>Rapat Penjelasan</td>
+                            <td><?= date('d-M-Y H:i', strtotime($jadwal_aanwijzing['waktu_mulai'])) ?> &ensp;S/D&ensp;<?= date('d-M-Y H:i', strtotime($jadwal_aanwijzing['waktu_selesai'])) ?></td>
+                        </tr>
+                    <?php } ?>
+
+                    <tr>
+                        <td>4. </td>
+                        <td>Keterangan</td>
+                        <td><?= $rup['keterangan_pengumuman_hasil_kualifikasi'] ?></td>
+                    </tr>
                 </tbody>
             </table>
 
