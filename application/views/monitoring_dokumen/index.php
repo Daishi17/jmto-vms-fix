@@ -18,7 +18,7 @@
                         </h5>
                         <hr>
                         <small>1. Fiture ini adalah untuk memonitoring kelengkapan status dokumen tervalidasi yang sudah di koreksi oleh pihak validator non penyedia berdasarkan data rangkuman profile perusahan.</small><br>
-                        <small>2. Jika terdapat status dokumen <b>tidak valid</b> segera perbaiki dengan mengklik tombol <b>View</b>.</small><br>
+                        <small>2. Jika terdapat status dokumen tidak valid segera perbaiki dengan masuk ke menu Profil Perusahaan dan Pilih Bagian yang dinyatakan tidak Valid.<br>
                     </div>
                     <div class="card border-dark shadow-lg">
                         <div class="card-header bg-dark d-flex bd-highlight">

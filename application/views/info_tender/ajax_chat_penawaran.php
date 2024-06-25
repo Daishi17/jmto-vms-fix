@@ -154,89 +154,88 @@
                         } else if (parseInt(d.id_pengirim) == id_pengirim) {
                             if (d.dokumen_chat == null) {
                                 html += `<label class="badge badge-primary ml-5" >Panitia</label><div class="d-flex justify-content-start mb-4">
-                        <div class="img_cont_msg">
-                        <img src="<?= base_url('assets/img/test1.png') ?>" alt="" class="rounded-circle user_img_msg">
-                        </div>
-                        <div class="msg_cotainer">
-                           ${d.isi}								
-                           <span class="msg_time">${kapan}, ${time}  	</span>
-                        </div> </div>`;
+                                <div class="img_cont_msg">
+                                <img src="<?= base_url('assets/img/test1.png') ?>" alt="" class="rounded-circle user_img_msg">
+                                </div>
+                                <div class="msg_cotainer">
+                                ${d.isi}								
+                                <span class="msg_time">${kapan}, ${time}  	</span>
+                                </div> </div>`;
                             } else if (d.dokumen_chat) {
                                 html += `<label class="badge badge-primary ml-5" >Panitia</label><div class="d-flex justify-content-start mb-4">
-                        <div class="img_cont_msg">
-                        <img src="<?= base_url('assets/img/test1.png') ?>" alt="" class="rounded-circle user_img_msg">
-                        </div>
-                        <div class="msg_cotainer">
-                        <a href="<?= base_url('/file_chat/') ?>${d.dokumen_chat}"> ${d.dokumen_chat}</a> <br>
-                           ${d.isi}								
-                           <span class="msg_time">${kapan}, ${time}  	</span>
-                        </div>
-                     </div>`;
+                                <div class="img_cont_msg">
+                                <img src="<?= base_url('assets/img/test1.png') ?>" alt="" class="rounded-circle user_img_msg">
+                                </div>
+                                <div class="msg_cotainer">
+                                <a href="https://eprocurement.jmto.co.id/${d.dokumen_chat}"> ${d.dokumen_chat}</a> <br>
+                                ${d.isi}								
+                                <span class="msg_time">${kapan}, ${time}  	</span>
+                                </div>
+                                </div>`;
                             } else if (d.img_chat) {
                                 html += `<label class="badge badge-primary ml-5" >Panitia</label><div class="d-flex justify-content-start mb-4">
-                        <div class="img_cont_msg">
-                        <img src="<?= base_url('assets/img/test1.png') ?>" alt="" class="rounded-circle user_img_msg">
-                        </div>
-                        <div class="msg_cotainer">
-								<img width="100%" src="<?= base_url('file_chat/') ?>${d.img_chat}"> <br>
-                           ${d.isi}								
-                           <span class="msg_time">${kapan}, ${time}  	</span>
-                        </div>
-                      
-                     </div>`;
+                                    <div class="img_cont_msg">
+                                    <img src="<?= base_url('assets/img/test1.png') ?>" alt="" class="rounded-circle user_img_msg">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                            <img width="100%" src="<?= base_url('file_chat/') ?>${d.img_chat}"> <br>
+                                    ${d.isi}								
+                                    <span class="msg_time">${kapan}, ${time}  	</span>
+                                    </div>
+                                
+                                </div>`;
                             } else {
                                 html += `<label class="badge badge-primary ml-5" >Panitia</label><div class="d-flex justify-content-start mb-4">
-                        <div class="img_cont_msg">
-                        <img src="<?= base_url('assets/img/test1.png') ?>" alt="" class="rounded-circle user_img_msg">
-                        </div>
-                        <div class="msg_cotainer">
-                           ${d.isi}								
-                           <span class="msg_time">${kapan}, ${time}	</span>
-                        </div>
-                      
-                     </div>`;
+                                    <div class="img_cont_msg">
+                                    <img src="<?= base_url('assets/img/test1.png') ?>" alt="" class="rounded-circle user_img_msg">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                    ${d.isi}								
+                                    <span class="msg_time">${kapan}, ${time}	</span>
+                                    </div>
+                                </div>`;
                             }
                         } else {
                             if (d.nama_pegawai) {
                                 if (d.replay_tujuan) {
                                     if (d.dokumen_chat == null) {
                                         html += `<label class="badge badge-danger ml-5" >Panitia</label><div class="d-flex justify-content-start mb-4">
-                                    <div class="img_cont_msg">
-                                    <img src="<?= base_url('assets/img/proc.png') ?>" alt="" class="rounded-circle user_img_msg">
-                                    </div>
-                                    <div class="msg_cotainer">
-                                    Membalas Chat : 
-                                    ${d.replay_isi} <br><br>
-                                    ${d.isi}								
-                                    <span class="msg_time">${kapan}, ${time}  	</span>
-                                    </div> </div>`;
+                                                <div class="img_cont_msg">
+                                                <img src="<?= base_url('assets/img/proc.png') ?>" alt="" class="rounded-circle user_img_msg">
+                                                </div>
+                                                <div class="msg_cotainer">
+                                                Membalas Chat : 
+                                                ${d.replay_isi} <br><br>
+                                                ${d.isi}								
+                                                <span class="msg_time">${kapan}, ${time}  	</span>
+                                                </div> </div>`;
                                     } else if (d.dokumen_chat) {
                                         html += `<label class="badge badge-danger ml-5" >Panitia</label><div class="d-flex justify-content-start mb-4">
-                                    <div class="img_cont_msg">
-                                    <img src="<?= base_url('assets/img/proc.png') ?>" alt="" class="rounded-circle user_img_msg">
-                                    </div>
-                                    <div class="msg_cotainer">
-                                    <a href="https://drtproc.jmto.co.id/file_chat/${d.dokumen_chat}"> ${d.dokumen_chat}</a> <br>
-                                    Membalas Chat : 
-                                    ${d.replay_isi} <br><br>
-                                    ${d.isi}								
-                                    <span class="msg_time">${kapan}, ${time}  	</span>
-                                    </div>
-                                </div>`;
+                                                <div class="img_cont_msg">
+                                                <img src="<?= base_url('assets/img/proc.png') ?>" alt="" class="rounded-circle user_img_msg">
+                                                </div>
+                                                <div class="msg_cotainer">
+                                                <a href="https://eprocurement.jmto.co.id/file_chat/${d.dokumen_chat}"> ${d.dokumen_chat}</a> <br>
+                                                Membalas Chat : 
+                                                ${d.replay_isi} <br><br>
+                                                ${d.isi}								
+                                                <span class="msg_time">${kapan}, ${time}  	</span>
+                                                </div>
+                                            </div>`;
                                     } else if (d.img_chat) {
                                         html += `<label class="badge badge-danger ml-5" >Panitia</label><div class="d-flex justify-content-start mb-4">
-                                        <div class="img_cont_msg">
-                                        <img src="<?= base_url('assets/img/proc.png') ?>" alt="" class="rounded-circle user_img_msg">
-                                        </div>
-                                        <div class="msg_cotainer">
-                                                <img width="100%" src="https://drtproc.jmto.co.id/file_chat/${d.img_chat}"> <br>
-                                                Membalas Chat : 
-                                    ${d.replay_isi} <br><br>
-                                    ${d.isi}									
-                                        <span class="msg_time">${kapan}, ${time}  	</span>
-                                        </div>
-                                    
-                                    </div>`;
+                                                    <div class="img_cont_msg">
+                                                    <img src="<?= base_url('assets/img/proc.png') ?>" alt="" class="rounded-circle user_img_msg">
+                                                    </div>
+                                                    <div class="msg_cotainer">
+                                                            <img width="100%" src="https://eprocurement.jmto.co.id/${d.img_chat}"> <br>
+                                                            Membalas Chat : 
+                                                ${d.replay_isi} <br><br>
+                                                ${d.isi}									
+                                                    <span class="msg_time">${kapan}, ${time}  	</span>
+                                                    </div>
+                                                
+                                                </div>`;
                                     } else {
                                         html += '<label class="badge badge-danger ml-5" >' + d.nama_usaha + '</label><div class="d-flex justify-content-start mb-4">' +
                                             '<div class="img_cont_msg">' +
@@ -254,36 +253,36 @@
                                 } else {
                                     if (d.dokumen_chat == null) {
                                         html += `<label class="badge badge-danger ml-5" >Panitia</label><div class="d-flex justify-content-start mb-4">
-                                    <div class="img_cont_msg">
-                                    <img src="<?= base_url('assets/img/proc.png') ?>" alt="" class="rounded-circle user_img_msg">
-                                    </div>
-                                    <div class="msg_cotainer">
-                                    ${d.isi}								
-                                    <span class="msg_time">${kapan}, ${time}  	</span>
-                                    </div> </div>`;
+                                                <div class="img_cont_msg">
+                                                <img src="<?= base_url('assets/img/proc.png') ?>" alt="" class="rounded-circle user_img_msg">
+                                                </div>
+                                                <div class="msg_cotainer">
+                                                ${d.isi}								
+                                                <span class="msg_time">${kapan}, ${time}  	</span>
+                                                </div> </div>`;
                                     } else if (d.dokumen_chat) {
                                         html += `<label class="badge badge-danger ml-5" >Panitia</label><div class="d-flex justify-content-start mb-4">
-                                    <div class="img_cont_msg">
-                                    <img src="<?= base_url('assets/img/proc.png') ?>" alt="" class="rounded-circle user_img_msg">
-                                    </div>
-                                    <div class="msg_cotainer">
-                                    <a href="https://drtproc.jmto.co.id/file_chat/${d.dokumen_chat}"> ${d.dokumen_chat}</a> <br>
-                                    ${d.isi}								
-                                    <span class="msg_time">${kapan}, ${time}  	</span>
-                                    </div>
-                                </div>`;
+                                                <div class="img_cont_msg">
+                                                <img src="<?= base_url('assets/img/proc.png') ?>" alt="" class="rounded-circle user_img_msg">
+                                                </div>
+                                                <div class="msg_cotainer">
+                                                <a href="https://eprocurement.jmto.co.id/${d.dokumen_chat}"> ${d.dokumen_chat}</a> <br>
+                                                ${d.isi}								
+                                                <span class="msg_time">${kapan}, ${time}  	</span>
+                                                </div>
+                                            </div>`;
                                     } else if (d.img_chat) {
                                         html += `<label class="badge badge-danger ml-5" >Panitia</label><div class="d-flex justify-content-start mb-4">
-                                        <div class="img_cont_msg">
-                                        <img src="<?= base_url('assets/img/proc.png') ?>" alt="" class="rounded-circle user_img_msg">
-                                        </div>
-                                        <div class="msg_cotainer">
-                                                <img width="100%" src="https://drtproc.jmto.co.id/file_chat/${d.img_chat}"> <br>
-                                        ${d.isi}								
-                                        <span class="msg_time">${kapan}, ${time}  	</span>
-                                        </div>
-                                    
-                                    </div>`;
+                                                    <div class="img_cont_msg">
+                                                    <img src="<?= base_url('assets/img/proc.png') ?>" alt="" class="rounded-circle user_img_msg">
+                                                    </div>
+                                                    <div class="msg_cotainer">
+                                                            <img width="100%" src="https://eprocurement.jmto.co.id/file_chat/${d.img_chat}"> <br>
+                                                    ${d.isi}								
+                                                    <span class="msg_time">${kapan}, ${time}  	</span>
+                                                    </div>
+                                                
+                                                </div>`;
                                     } else {
                                         html += '<label class="badge badge-danger ml-5" >' + d.nama_usaha + '</label><div class="d-flex justify-content-start mb-4">' +
                                             '<div class="img_cont_msg">' +
@@ -302,36 +301,36 @@
                             } else {
                                 if (d.dokumen_chat == null) {
                                     html += `<label class="badge badge-danger ml-5" >Penyedia</label><div class="d-flex justify-content-start mb-4">
-                        <div class="img_cont_msg">
-                        <img src="<?= base_url('assets/vendor.png') ?>" alt="" class="rounded-circle user_img_msg">
-                        </div>
-                        <div class="msg_cotainer">
-                           ${d.isi}								
-                           <span class="msg_time">${kapan}, ${time}  	</span>
-                        </div> </div>`;
+                                    <div class="img_cont_msg">
+                                    <img src="<?= base_url('assets/vendor.png') ?>" alt="" class="rounded-circle user_img_msg">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                    ${d.isi}								
+                                    <span class="msg_time">${kapan}, ${time}  	</span>
+                                    </div> </div>`;
                                 } else if (d.dokumen_chat) {
                                     html += `<label class="badge badge-danger ml-5" >Penyedia</label><div class="d-flex justify-content-start mb-4">
-                        <div class="img_cont_msg">
-                        <img src="<?= base_url('assets/vendor.png') ?>" alt="" class="rounded-circle user_img_msg">
-                        </div>
-                        <div class="msg_cotainer">
-                        <a href="https://drtproc.jmto.co.id/file_chat/${d.dokumen_chat}"> ${d.dokumen_chat}</a> <br>
-                           ${d.isi}								
-                           <span class="msg_time">${kapan}, ${time}  	</span>
-                        </div>
-                     </div>`;
+                                    <div class="img_cont_msg">
+                                    <img src="<?= base_url('assets/vendor.png') ?>" alt="" class="rounded-circle user_img_msg">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                    <a href="https://drtproc.jmto.co.id/file_chat/${d.dokumen_chat}"> ${d.dokumen_chat}</a> <br>
+                                    ${d.isi}								
+                                    <span class="msg_time">${kapan}, ${time}  	</span>
+                                    </div>
+                                </div>`;
                                 } else if (d.img_chat) {
                                     html += `<label class="badge badge-danger ml-5" >Penyedia</label><div class="d-flex justify-content-start mb-4">
-                        <div class="img_cont_msg">
-                        <img src="<?= base_url('assets/vendor.png') ?>" alt="" class="rounded-circle user_img_msg">
-                        </div>
-                        <div class="msg_cotainer">
-								<img width="100%" src="https://drtproc.jmto.co.id/file_chat/${d.img_chat}"> <br>
-                           ${d.isi}								
-                           <span class="msg_time">${kapan}, ${time}  	</span>
-                        </div>
-                      
-                     </div>`;
+                                    <div class="img_cont_msg">
+                                    <img src="<?= base_url('assets/vendor.png') ?>" alt="" class="rounded-circle user_img_msg">
+                                    </div>
+                                    <div class="msg_cotainer">
+                                            <img width="100%" src="https://drtproc.jmto.co.id/file_chat/${d.img_chat}"> <br>
+                                    ${d.isi}								
+                                    <span class="msg_time">${kapan}, ${time}  	</span>
+                                    </div>
+                                
+                                </div>`;
                                 } else {
                                     html += '<label class="badge badge-danger ml-5" >' + d.nama_usaha + '</label><div class="d-flex justify-content-start mb-4">' +
                                         '<div class="img_cont_msg">' +

@@ -605,7 +605,7 @@
                                     <?php    } ?>
                                 <?php } ?>
                             <?php } else { ?>
-                                <textarea disabled name="isi" class="form-control type_msg" placeholder="Anda Telah Gugur Dalam Pengadaan Ini"></textarea>
+                                <textarea disabled name="isi" class="form-control type_msg" placeholder=""></textarea>
                                 <div class="input-group-append">
                                 </div>
                             <?php }  ?>

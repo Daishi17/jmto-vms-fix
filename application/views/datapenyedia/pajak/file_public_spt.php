@@ -256,6 +256,15 @@
                     $('#jenis_spt').val(response['row_spt'].jenis_spt)
                     $('#tgl_penyampaian').val(response['row_spt'].tgl_penyampaian)
                     $('[name="id_url"]').val(response['row_spt'].id_url)
+
+
+                    $('[name="file_dokumen_manipulasi_spt"]').prop('disabled', true);
+                    $('#nomor_surat').prop('disabled', true);
+                    $('#tahun_lapor').prop('disabled', true);
+                    $('#jenis_spt').prop('disabled', true);
+                    $('#tgl_penyampaian').prop('disabled', true);
+                    $('#btn_edit_spt').prop('disabled', true);
+                    $('[name="id_url"]').prop('disabled', true);
                 } else if (type == 'dekrip') {
                     modal_dekrip_spt.modal('show');
                     $('[name="id_url_spt"]').val(response['row_spt'].id_url);
@@ -269,7 +278,7 @@
                     $('.button_enkrip_spt').html('<a href="javascript:;" onclick="DekripEnkrip_spt(\'' + response['row_spt'].id_url + '\'' + ',' + '\'' + 'enkrip' + '\')" class="btn btn-success btn-sm"><i class="fas fa-lock mr-2"></i> Enkripsi Dokumen</a>');
                     var html2 = '<a href="javascript:;" style="white-space: nowrap;width: 200px;overflow: hidden;text-overflow: ellipsis;" onclick="DownloadFile_spt(\'' + response['row_spt'].id_url + '\')" class="btn btn-sm btn-warning btn-block">' + response['row_spt'].file_dokumen + '</a>';
                     $('.token_generate_spt').html('<div class="input-group"><span class="input-group-text"><i class="fas fa-qrcode"></i></span><textarea class="form-control form-control-sm" disabled>' + response['row_spt'].token_dokumen + '</textarea></div>');
-                }else{
+                } else {
                     Question_hapus_spt(response['row_spt'].id_url);
                 }
             }

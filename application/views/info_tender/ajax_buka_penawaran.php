@@ -449,7 +449,7 @@
 
                     if (response['row']['file2_dkh']) {
                         var file2_dkh = `<a  href="<?= base_url('tender_diikuti/download_dokumen_penawaran_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file2_dkh" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
-                        var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                        var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2_dkh(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                     } else {
                         var file2_dkh = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                         var btn_file2_dkh = `<a href="javascript:;" onclick="upload_file2_dkh(${response['row']['id_vendor_mengikuti_paket']},'file2_dkh')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`
@@ -458,7 +458,7 @@
 
                     if (response['row']['file2_tkdn']) {
                         var file2_tkdn = `<a  href="<?= base_url('tender_diikuti/download_dokumen_penawaran_vendor/') ?>${response['row']['id_vendor_mengikuti_paket']}/file2_tkdn" target="_blank" class="btn btn-sm btn-success text-white"><i class="fa fa-file"></i> Buka</a>`
-                        var btn_file2_tkdn = `<a href="javascript:;" onclick="upload_file2(${response['row']['id_vendor_mengikuti_paket']},'file2_tkdn')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
+                        var btn_file2_tkdn = `<a href="javascript:;" onclick="upload_file2_dkh(${response['row']['id_vendor_mengikuti_paket']},'file2_tkdn')" class="btn btn-sm btn-warning text-white"><i class="fa fa-upload"></i> Ubah</a>`
                     } else {
                         var file2_tkdn = `<span class="badge bg-danger">Tidak Ada Dokumen</span>`
                         var btn_file2_tkdn = `<a href="javascript:;" onclick="upload_file2_dkh(${response['row']['id_vendor_mengikuti_paket']},'file2_tkdn')" class="btn btn-sm btn-danger"><i class="fa fa-upload"></i> Upload</a>`

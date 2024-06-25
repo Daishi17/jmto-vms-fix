@@ -4267,7 +4267,8 @@ class Datapenyedia extends CI_Controller
 			'sts_token_dokumen' => 1,
 			'file_dokumen_neraca' => openssl_encrypt($fileName, $chiper, $secret_token_dokumen1, $option, $iv),
 			'tahun_mulai' => $tahun_mulai,
-			'tahun_selesai' => $tahun_selesai
+			'tahun_selesai' => $tahun_selesai,
+			'sts_validasi' => 3
 		];
 		$this->M_datapenyedia->update_neraca($upload, $where);
 		$this->output->set_content_type('application/json')->set_output(json_encode('success'));
@@ -4313,6 +4314,7 @@ class Datapenyedia extends CI_Controller
 			} else {
 				$row[] = '<span class="badge bg-secondary">Belum Di Periksa</span>';
 			}
+
 			$row[] = '<a  href="javascript:;" class="btn btn-info btn-sm" style="width:150px" onClick="by_id_neraca_keuangan(' . "'" . $rs->id_neraca . "','edit'" . ')"><i class="fa-solid fa-users-viewfinder px-1"></i> View</a>
 			<a  href="javascript:;" class="btn btn-danger btn-sm" style="width:150px" onClick="by_id_neraca_keuangan(' . "'" . $rs->id_neraca . "','hapus'" . ')"><i class="fas fa fa-trash"></i> Delete</a>';
 			$data[] = $row;
@@ -5152,7 +5154,7 @@ class Datapenyedia extends CI_Controller
 					'file_dokumen' => $encryption_string,
 					'token_dokumen' => $secret,
 					'sts_token_dokumen' => 1,
-					'sts_validasi' => 2
+					'sts_validasi' => 3
 				];
 				$where = [
 					'id_url' => $id_url
@@ -5173,7 +5175,7 @@ class Datapenyedia extends CI_Controller
 					'tahun_lapor' => $tahun_lapor,
 					'jenis_spt' => $jenis_spt,
 					'tgl_penyampaian' => $tgl_penyampaian,
-					'sts_validasi' => 2
+					'sts_validasi' => 3
 				];
 				$where = [
 					'id_url' => $id_url

@@ -933,7 +933,7 @@
                     if (type == 'edit') {
                         modal_edit_neraca.modal('show');
                         // tahun belom
-                        console.log(response['row_file_excel']);
+                        // console.log(response['row_file_excel']);
 
 
                         $('[name="tahun_mulai_edit"]').val(response['row_neraca'].tahun_mulai);
@@ -962,6 +962,36 @@
 
                         $('[name="nilai_tahun_kolom_1_8"]').val(response['row_file_excel'][8][2]);
                         $('[name="nilai_tahun_kolom_2_8"]').val(response['row_file_excel'][8][3]);
+
+
+                        $('[name="tahun_mulai_edit"]').prop('disabled', true);
+                        $('[name="tahun_selesai_edit"]').prop('disabled', true);
+
+                        $('[name="nilai_tahun_kolom_1_1"]').prop('disabled', true);
+                        $('[name="nilai_tahun_kolom_2_1"]').prop('disabled', true);
+
+                        $('[name="nilai_tahun_kolom_1_2"]').prop('disabled', true);
+                        $('[name="nilai_tahun_kolom_2_2"]').prop('disabled', true);
+
+                        $('[name="nilai_tahun_kolom_1_3"]').prop('disabled', true);
+                        $('[name="nilai_tahun_kolom_2_3"]').prop('disabled', true);
+
+                        $('[name="nilai_tahun_kolom_1_4"]').prop('disabled', true);
+                        $('[name="nilai_tahun_kolom_2_4"]').prop('disabled', true);
+
+                        $('[name="nilai_tahun_kolom_1_5"]').prop('disabled', true);
+                        $('[name="nilai_tahun_kolom_2_5"]').prop('disabled', true);
+
+                        $('[name="nilai_tahun_kolom_1_6"]').prop('disabled', true);
+                        $('[name="nilai_tahun_kolom_2_6"]').prop('disabled', true);
+
+                        $('[name="nilai_tahun_kolom_1_7"]').prop('disabled', true);
+                        $('[name="nilai_tahun_kolom_2_7"]').prop('disabled', true);
+
+                        $('[name="nilai_tahun_kolom_1_8"]').prop('disabled', true);
+                        $('[name="nilai_tahun_kolom_2_8"]').prop('disabled', true);
+                        $('#btn_edit_neraca').attr("disabled", true);
+
                         $('[name="id_neraca"]').val(response['row_neraca'].id_neraca);
 
                     } else if (type == 'hapus') {
@@ -975,6 +1005,65 @@
 
     }
 
+    function tambah_neraca() {
+        $('#modal-xl-neraca').modal('show');
+        $('[name="tahun_mulai_edit"]').prop('disabled', false);
+        $('[name="tahun_selesai_edit"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_1"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_1"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_2"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_2"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_3"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_3"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_4"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_4"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_5"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_5"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_6"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_6"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_7"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_7"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_8"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_8"]').prop('disabled', false);
+    }
+
+    function open_form_neraca() {
+        $('[name="tahun_mulai_edit"]').prop('disabled', false);
+        $('[name="tahun_selesai_edit"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_1"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_1"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_2"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_2"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_3"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_3"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_4"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_4"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_5"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_5"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_6"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_6"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_7"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_7"]').prop('disabled', false);
+
+        $('[name="nilai_tahun_kolom_1_8"]').prop('disabled', false);
+        $('[name="nilai_tahun_kolom_2_8"]').prop('disabled', false);
+        $('#btn_edit_neraca').attr("disabled", false);
+    }
 
     function Question_hapus_neraca(id_url_neraca, nama_akuntan_public) {
         Swal.fire({

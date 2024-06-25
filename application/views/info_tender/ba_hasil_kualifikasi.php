@@ -403,7 +403,7 @@ function terbilang($nilai)
                                                         $nilai_akhir = '<span class="badge bg-secondary bg-sm">Tidak Dievaluasi</span>';
                                                     }
                                                 } else {
-                                                    if ($value['ev_kualifikasi_akhir'] >= 60) {
+                                                    if ($value['ev_teknis'] >= 60 && $value['ev_keuangan'] >= 60) {
                                                         $nilai_akhir = number_format($value['ev_kualifikasi_akhir'], 2, ',', '.');
                                                         $nilai_akhir = '<span class="badge bg-success bg-sm">Lulus</span>';
                                                     } else {
@@ -421,7 +421,7 @@ function terbilang($nilai)
                                                         $nilai_akhir = '<span class="badge bg-secondary bg-sm">Tidak Dievaluasi</span>';
                                                     }
                                                 } else {
-                                                    if ($value['ev_kualifikasi_akhir'] >= 60) {
+                                                    if ($value['ev_teknis'] >= 60 && $value['ev_keuangan'] >= 60) {
                                                         $nilai_akhir = number_format($value['ev_kualifikasi_akhir'], 2, ',', '.');
                                                         $nilai_akhir = '<span class="badge bg-success bg-sm">Lulus</span>';
                                                     } else {

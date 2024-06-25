@@ -528,7 +528,7 @@
                                                     <?php if ($row_vendor['sts_terundang'] == 1) { ?>
                                                         <?php if ($cek_pengajuan_neraca_keuangan) { ?>
                                                             <div class="bd-highlight">
-                                                                <button type="button" class="btn btn-primary btn-sm shadow-lg" data-bs-toggle="modal" data-bs-target="#modal-xl-neraca">
+                                                                <button type="button" class="btn btn-primary btn-sm shadow-lg" onclick="tambah_neraca()">
                                                                     <i class="fa-solid fa-user-plus px-1"></i>
                                                                     Create Data
                                                                 </button>
@@ -542,7 +542,7 @@
                                                         ?>
                                                     <?php } else { ?>
                                                         <div class="bd-highlight">
-                                                            <button type="button" class="btn btn-primary btn-sm shadow-lg" data-bs-toggle="modal" data-bs-target="#modal-xl-neraca">
+                                                            <button type="button" class="btn btn-primary btn-sm shadow-lg" onclick="tambah_neraca()">
                                                                 <i class="fa-solid fa-user-plus px-1"></i>
                                                                 Create Data
                                                             </button>
@@ -1540,8 +1540,11 @@
                                 </tbody>
                             </table>
                             <div>
-                                <button type="submit" class="btn btn-primary btn-sm btn_simpan_excel">Simpan</button>
+                                <button type="button" class="btn btn-warning btn-sm btn_simpan_excel" onclick="open_form_neraca()">Edit</button>
+                                <button type="submit" class="btn btn-primary btn-sm btn_simpan_excel" id="btn_edit_neraca">Simpan</button>
                             </div>
+
+
                         </form>
                     </div>
                 </div>

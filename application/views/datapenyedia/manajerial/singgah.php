@@ -394,7 +394,7 @@
                                     </tr>
                                     <tr>
                                         <td class="col-sm-2 bg-light">
-                                            <label class="form-label col-form-label-sm"><b>Upload File KTP</b></label>
+                                            <label class="form-label col-form-label-sm"><b>Upload File KTP/Paspor/SIUP/Akta Perusahaan</b></label>
                                         </td>
                                         <td class="col-sm-3">
                                             <input type="file" name="file_ktp" id="file" accept=".pdf">
@@ -404,7 +404,7 @@
                                     </tr>
                                     <tr>
                                         <td class="col-sm-2 bg-light">
-                                            <label class="form-label col-form-label-sm"><b>Upload File NPWP</b></label>
+                                            <label class="form-label col-form-label-sm"><b>Upload File NPWP/Perpajakan Yang Berlaku</b></label>
                                         </td>
                                         <td class="col-sm-3">
                                             <input type="file" name="file_npwp" id="file" accept=".pdf">
@@ -565,7 +565,7 @@
                                     </tr>
                                     <tr>
                                         <td class="col-sm-2 bg-light">
-                                            <label class="form-label col-form-label-sm"><b>Upload File KTP</b></label>
+                                            <label class="form-label col-form-label-sm"><b>Upload File KTP/Paspor/SIUP/Akta Perusahaan</b></label>
                                         </td>
                                         <td class="col-sm-3">
                                             <input type="hidden" name="file_dokumen_manipulasi_ktp_pengurus">
@@ -577,7 +577,7 @@
                                     </tr>
                                     <tr>
                                         <td class="col-sm-2 bg-light">
-                                            <label class="form-label col-form-label-sm"><b>Upload File NPWP</b></label>
+                                            <label class="form-label col-form-label-sm"><b>Upload File NPWP/Perpajakan Yang Berlaku</b></label>
                                         </td>
                                         <td class="col-sm-3">
                                             <input type="hidden" name="file_dokumen_manipulasi_npwp_pengurus">
@@ -854,7 +854,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-sm-2 bg-light">
-                                        <label class="form-label col-form-label-sm"><b>Upload File KTP</b></label>
+                                        <label class="form-label col-form-label-sm"><b>Upload File KTP/Paspor/SIUP/Akta Perusahaan</b></label>
                                     </td>
                                     <td class="col-sm-3">
                                         <input type="hidden" name="file_ktp_manipulasi">
@@ -869,7 +869,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-sm-2 bg-light">
-                                        <label class="form-label col-form-label-sm"><b>Upload File NPWP</b></label>
+                                        <label class="form-label col-form-label-sm"><b>File NPWP/Perpajakan Yang Berlaku</b></label>
                                     </td>
                                     <td class="col-sm-3">
                                         <input type="hidden" name="file_npwp_manipulasi">
@@ -1156,7 +1156,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-sm-2 bg-light">
-                                        <label class="form-label col-form-label-sm"><b>Upload File KTP</b></label>
+                                        <label class="form-label col-form-label-sm"><b>Upload File KTP/Paspor/SIUP/Akta Perusahaan</b></label>
                                     </td>
                                     <td class="col-sm-3">
                                         <input type="hidden" name="file_dokumen_manipulasi_ktp_pengurus">
@@ -1170,7 +1170,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-sm-2 bg-light">
-                                        <label class="form-label col-form-label-sm"><b>Upload File NPWP</b></label>
+                                        <label class="form-label col-form-label-sm"><b>Upload File NPWP/Perpajakan Yang Berlaku</b></label>
                                     </td>
                                     <td class="col-sm-3">
                                         <input type="hidden" name="file_dokumen_manipulasi_npwp_pengurus">
