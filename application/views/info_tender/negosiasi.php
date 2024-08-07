@@ -78,22 +78,45 @@
                 </div>
                 <div class="card-body">
                     <div style="overflow-x: auto;">
-                        <table class="table table-bordered" id="tbl_evaluasi">
-                            <thead class="bg-primary text-white">
-                                <tr>
-                                    <th width="50px">No</th>
-                                    <th width="200px">Nama Peserta</th>
-                                    <th>Tanggal Negosiasi</th>
-                                    <th>Link Meet (Jika Daring)</th>
-                                    <th>Harga Negosiasi</th>
-                                    <th>Keterangan Negosiasi</th>
-                                    <th>Kesepakatan</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tbl_negosiasi">
+                        <?php if ($rup['id_jadwal_tender'] == 5) { ?>
+                            <?php if ($jumlah_peserta_negosiasi >= 3) { ?>
+                            <?php } else { ?>
+                                <table class="table table-bordered" id="tbl_evaluasi">
+                                    <thead class="bg-primary text-white">
+                                        <tr>
+                                            <th width="50px">No</th>
+                                            <th width="200px">Nama Peserta</th>
+                                            <th>Tanggal Negosiasi</th>
+                                            <th>Link Meet (Jika Daring)</th>
+                                            <th>Harga Negosiasi</th>
+                                            <th>Keterangan Negosiasi</th>
+                                            <th>Kesepakatan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbl_negosiasi">
 
-                            </tbody>
-                        </table>
+                                    </tbody>
+                                </table>
+                            <?php } ?>
+                        <?php } else { ?>
+                            <table class="table table-bordered" id="tbl_evaluasi">
+                                <thead class="bg-primary text-white">
+                                    <tr>
+                                        <th width="50px">No</th>
+                                        <th width="200px">Nama Peserta</th>
+                                        <th>Tanggal Negosiasi</th>
+                                        <th>Link Meet (Jika Daring)</th>
+                                        <th>Harga Negosiasi</th>
+                                        <th>Keterangan Negosiasi</th>
+                                        <th>Kesepakatan</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbl_negosiasi">
+
+                                </tbody>
+                            </table>
+                        <?php   }  ?>
+
                     </div>
                 </div>
             </div>

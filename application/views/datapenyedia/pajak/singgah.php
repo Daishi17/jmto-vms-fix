@@ -65,7 +65,8 @@
                             <div class="flex-grow-1 bd-highlight">
                                 <span class="text-white">
                                     <i class="fa-solid fa-chalkboard-user"></i>
-                                    <small><strong>Form Dokumen - Pajak</strong></small>
+                                    <small><strong>Form Dokumen - Pajak dan Keuangan
+                                        </strong></small>
                                 </span>
                             </div>
                         </div>

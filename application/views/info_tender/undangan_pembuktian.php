@@ -275,7 +275,7 @@ function terbilang($nilai)
                                 <th class="text-center">No</th>
                                 <th class="text-center">Peserta Penawaran</th>
                                 <th class="text-center">Waktu</th>
-                                <th class="text-center">Metode</th>
+                                <th class="text-center">Keterangan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -299,7 +299,13 @@ function terbilang($nilai)
                                     <td class="text-center"><?= $i++ ?></td>
                                     <td><b> <?= $nama_perusahaan ?></b></td>
                                     <td class="text-center"> <?= $value['wkt_undang_pembuktian'] ?></td>
-                                    <td class="text-center"><?= $value['metode_pembuktian'] ?></td>
+                                    <?php $subs_string = substr($value['metode_pembuktian'], 0, 5); ?>
+                                    <?php if ($subs_string != 'https') { ?>
+                                        <td class="text-center"><?= $value['metode_pembuktian'] ?></td>
+                                    <?php } else { ?>
+                                        <td class="text-center"><a href="<?= $value['metode_pembuktian'] ?>" target="_blank"><?= $value['metode_pembuktian'] ?></a> </td>
+                                    <?php   } ?>
+
                                 </tr>
                             <?php } ?>
 

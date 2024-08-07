@@ -111,7 +111,9 @@ class Kirim_wa
             CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => array(
                 'target' => $target,
-                'message' => "Silakan Klik Link Ini $base_url Untuk Melakukan Prosess Pengubahan Password Anda",
+                'message' =>
+                "Silakan Klik Link Ini $base_url Untuk Melakukan Prosess Pengubahan Password Anda 
+Note : Agar membuka Link diperangkat dan Browser yang sama.",
                 'delay' => '120-300',
             ),
             CURLOPT_HTTPHEADER => array(

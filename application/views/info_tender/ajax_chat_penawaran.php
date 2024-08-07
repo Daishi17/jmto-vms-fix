@@ -167,7 +167,7 @@
                                 <img src="<?= base_url('assets/img/test1.png') ?>" alt="" class="rounded-circle user_img_msg">
                                 </div>
                                 <div class="msg_cotainer">
-                                <a href="https://eprocurement.jmto.co.id/${d.dokumen_chat}"> ${d.dokumen_chat}</a> <br>
+                                <a href="https://eprocurement.jmto.co.id/file_chat/${d.dokumen_chat}" target="_blank"> ${d.dokumen_chat}</a> <br>
                                 ${d.isi}								
                                 <span class="msg_time">${kapan}, ${time}  	</span>
                                 </div>
@@ -266,7 +266,7 @@
                                                 <img src="<?= base_url('assets/img/proc.png') ?>" alt="" class="rounded-circle user_img_msg">
                                                 </div>
                                                 <div class="msg_cotainer">
-                                                <a href="https://eprocurement.jmto.co.id/${d.dokumen_chat}"> ${d.dokumen_chat}</a> <br>
+                                                <a href="https://eprocurement.jmto.co.id/file_chat/${d.dokumen_chat}" target="_blank"> ${d.dokumen_chat}</a> <br>
                                                 ${d.isi}								
                                                 <span class="msg_time">${kapan}, ${time}  	</span>
                                                 </div>

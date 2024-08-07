@@ -811,27 +811,53 @@
 
                                                             <?php }   ?>
 
-                                                            <?php if ($get_row_mengikuti['ev_penawaran_peringkat'] == 1) { ?>
-                                                                <tr>
-                                                                    <?php if ($rup['sts_kirim_ba_negosiasi'] == 1) { ?>
-                                                                        <th>Berita Acara Evaluasi dan Negosiasi</th>
-                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_negosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
-                                                                        <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_negosiasi">Setujui Berita Acara</a></th>
-                                                                    <?php } ?>
-                                                                </tr>
-                                                                <tr>
-                                                                    <?php if ($rup['sts_kirim_ba_evaluasi_negosiasi'] == 1) { ?>
-                                                                        <th>Berita Acara Klarifikasi & Penilaian Kewajaran Harga</th>
-                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_evaluasinegosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
-                                                                        <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_klarifikasi">Setujui Berita Acara</a></th>
-                                                                    <?php } ?>
-                                                                </tr>
+
+                                                            <?php if ($rup['sts_pindah_pemenang'] == 1) { ?>
+                                                                <?php if ($get_row_mengikuti['sts_pemenang_real'] == 1) { ?>
+                                                                    <tr>
+                                                                        <?php if ($rup['sts_kirim_ba_negosiasi'] == 1) { ?>
+                                                                            <th>Berita Acara Evaluasi dan Negosiasi</th>
+                                                                            <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_negosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                            <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_negosiasi">Setujui Berita Acara</a></th>
+                                                                        <?php } ?>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <?php if ($rup['sts_kirim_ba_evaluasi_negosiasi'] == 1) { ?>
+                                                                            <th>Berita Acara Klarifikasi & Penilaian Kewajaran Harga</th>
+                                                                            <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_evaluasinegosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                            <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_klarifikasi">Setujui Berita Acara</a></th>
+                                                                        <?php } ?>
+                                                                    </tr>
 
 
+                                                                <?php } else { ?>
+
+
+                                                                <?php } ?>
                                                             <?php } else { ?>
+                                                                <?php if ($get_row_mengikuti['ev_penawaran_peringkat'] == 1) { ?>
+                                                                    <tr>
+                                                                        <?php if ($rup['sts_kirim_ba_negosiasi'] == 1) { ?>
+                                                                            <th>Berita Acara Evaluasi dan Negosiasi</th>
+                                                                            <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_negosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                            <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_negosiasi">Setujui Berita Acara</a></th>
+                                                                        <?php } ?>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <?php if ($rup['sts_kirim_ba_evaluasi_negosiasi'] == 1) { ?>
+                                                                            <th>Berita Acara Klarifikasi & Penilaian Kewajaran Harga</th>
+                                                                            <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_evaluasinegosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                            <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_klarifikasi">Setujui Berita Acara</a></th>
+                                                                        <?php } ?>
+                                                                    </tr>
 
 
-                                                            <?php } ?>
+                                                                <?php } else { ?>
+
+
+                                                                <?php } ?>
+                                                            <?php   }   ?>
+
                                                             <tr>
                                                                 <?php if ($rup['sts_kirim_ba_pemenang'] == 1) { ?>
                                                                     <?php if (!$get_row_mengikuti['file1_administrasi']) { ?>

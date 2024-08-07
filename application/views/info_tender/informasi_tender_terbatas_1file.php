@@ -417,7 +417,7 @@
                                 <?php if ($rup['sts_hasil_prakualifikasi'] == 1) { ?>
                                     <tr>
                                         <th>Pengumuman Hasil Kualifikasi</th>
-                                        <th><a href="<?= base_url('tender_diikuti/lihat_pengumuman_hasil_kualifikasi/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-info text-white" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Pengumuman Hasil Kualifikasi</a></th>
+                                        <th><a href="<?= base_url('dokumen/lihat_pengumuman_hasil_kualifikasi/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-info text-white" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Pengumuman Hasil Kualifikasi</a></th>
                                     </tr>
                                 <?php } else { ?>
                                 <?php } ?>
@@ -425,7 +425,7 @@
                                 <?php if ($rup['sts_hasil_prakualifikasi'] == 1) { ?>
                                     <tr>
                                         <th>Pengumuman Hasil Kualifikasi</th>
-                                        <th><a href="<?= base_url('tender_diikuti/lihat_pengumuman_hasil_kualifikasi/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-info text-white" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Pengumuman Hasil Kualifikasi</a></th>
+                                        <th><a href="<?= base_url('dokumen/lihat_pengumuman_hasil_kualifikasi/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-info text-white" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Pengumuman Hasil Kualifikasi</a></th>
                                     </tr>
                                 <?php } else { ?>
                                 <?php } ?>
@@ -435,15 +435,21 @@
                             if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_hasil_kualifikasi['waktu_mulai']))  >= date('Y-m-d H:i')) { ?>
 
                             <?php    } else if (date('Y-m-d H:i', strtotime($jadwal_pengumuman_hasil_kualifikasi['waktu_selesai'])) >= date('Y-m-d H:i') || date('Y-m-d H:i', strtotime($jadwal_pengumuman_hasil_kualifikasi['waktu_mulai'])) == date('Y-m-d H:i')) { ?>
-                                <tr>
-                                    <th>Pengumuman Hasil Kualifikasi</th>
-                                    <th><a href="<?= base_url('tender_diikuti/lihat_pengumuman_hasil_kualifikasi/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-info text-white" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Pengumuman Hasil Kualifikasi</a></th>
-                                </tr>
+                                <?php if ($rup['sts_hasil_prakualifikasi'] == 1) { ?>
+                                    <tr>
+                                        <th>Pengumuman Hasil Kualifikasi</th>
+                                        <th><a href="<?= base_url('dokumen/lihat_pengumuman_hasil_kualifikasi/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-info text-white" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Pengumuman Hasil Kualifikasi</a></th>
+                                    </tr>
+                                <?php } else { ?>
+                                <?php } ?>
                             <?php    } else { ?>
-                                <tr>
-                                    <th>Pengumuman Hasil Kualifikasi</th>
-                                    <th><a href="<?= base_url('tender_diikuti/lihat_pengumuman_hasil_kualifikasi/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-info text-white" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Pengumuman Hasil Kualifikasi</a></th>
-                                </tr>
+                                <?php if ($rup['sts_hasil_prakualifikasi'] == 1) { ?>
+                                    <tr>
+                                        <th>Pengumuman Hasil Kualifikasi</th>
+                                        <th><a href="<?= base_url('dokumen/lihat_pengumuman_hasil_kualifikasi/' . $rup['id_url_rup']) ?>" class="btn btn-sm btn-info text-white" target="_blank"> <i class="fa fa-download" aria-hidden="true"></i> Lihat Pengumuman Hasil Kualifikasi</a></th>
+                                    </tr>
+                                <?php } else { ?>
+                                <?php } ?>
                             <?php    } ?>
                         <?php } ?>
 
@@ -688,28 +694,54 @@
                                                             </tr>
 
 
+                                                            <?php if ($rup['sts_pindah_pemenang'] == 1) { ?>
+                                                                <?php if ($get_row_mengikuti['sts_pemenang_real'] == 1) { ?>
+                                                                    <tr>
+                                                                        <?php if ($rup['sts_kirim_ba_negosiasi'] == 1) { ?>
+                                                                            <th>Berita Acara Evaluasi dan Negosiasi</th>
+                                                                            <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_negosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                            <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_negosiasi">Setujui Berita Acara</a></th>
+                                                                        <?php } ?>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <?php if ($rup['sts_kirim_ba_evaluasi_negosiasi'] == 1) { ?>
+                                                                            <th>Berita Acara Klarifikasi & Penilaian Kewajaran Harga</th>
+                                                                            <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_evaluasinegosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                            <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_klarifikasi">Setujui Berita Acara</a></th>
+                                                                        <?php } ?>
+                                                                    </tr>
 
-                                                            <?php if ($get_row_mengikuti['ev_terendah_peringkat'] == 1) { ?>
-                                                                <tr>
-                                                                    <?php if ($rup['sts_kirim_ba_negosiasi'] == 1) { ?>
-                                                                        <th>Berita Acara Evaluasi dan Negosiasi</th>
-                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_negosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
-                                                                        <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_negosiasi">Setujui Berita Acara</a></th>
-                                                                    <?php } ?>
-                                                                </tr>
-                                                                <tr>
-                                                                    <?php if ($rup['sts_kirim_ba_evaluasi_negosiasi'] == 1) { ?>
-                                                                        <th>Berita Acara Klarifikasi & Penilaian Kewajaran Harga</th>
-                                                                        <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_evaluasinegosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
-                                                                        <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_klarifikasi">Setujui Berita Acara</a></th>
-                                                                    <?php } ?>
-                                                                </tr>
+
+                                                                <?php } else { ?>
 
 
+                                                                <?php } ?>
                                                             <?php } else { ?>
+                                                                <?php if ($get_row_mengikuti['ev_terendah_peringkat'] == 1) { ?>
+                                                                    <tr>
+                                                                        <?php if ($rup['sts_kirim_ba_negosiasi'] == 1) { ?>
+                                                                            <th>Berita Acara Evaluasi dan Negosiasi</th>
+                                                                            <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_negosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                            <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_negosiasi">Setujui Berita Acara</a></th>
+                                                                        <?php } ?>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <?php if ($rup['sts_kirim_ba_evaluasi_negosiasi'] == 1) { ?>
+                                                                            <th>Berita Acara Klarifikasi & Penilaian Kewajaran Harga</th>
+                                                                            <th><a target="_blank" class="btn btn-sm btn-info text-white" href="https://eprocurement.jmto.co.id/panitia/info_tender/informasi_tender_umum_pra_2_file/ba_evaluasinegosiasi/<?= $rup['id_url_rup'] ?>"><i class="fa fa-eye"></i> Lihat</a></th>
+                                                                            <th><a href="javascript:;" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modal_setujui_ba_klarifikasi">Setujui Berita Acara</a></th>
+                                                                        <?php } ?>
+                                                                    </tr>
 
 
-                                                            <?php } ?>
+                                                                <?php } else { ?>
+
+
+                                                                <?php } ?>
+                                                            <?php   }   ?>
+
+
+
                                                             <tr>
                                                                 <?php if ($rup['sts_kirim_ba_pemenang'] == 1) { ?>
                                                                     <th>Pengumuman Pemenang Pengadaan</th>

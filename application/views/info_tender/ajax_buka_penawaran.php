@@ -508,12 +508,12 @@
                             <td>${btn_file1_organisasi}</td>
                         </tr>
                         <tr>
-                            <td>&ensp;&ensp; b. Surat Dukungan Pabrikan / Dealer</td>
+                            <td>&ensp;&ensp; b. Surat Dukungan Pabrikan / Dealer (Jika disyaratkan)</td>
                             <td>${file1_pabrikan}</td>
                             <td>${btn_file1_pabrikan}</td>
                         </tr>
                         <tr>
-                            <td>&ensp;&ensp; c. Data Peralatan Pendukung Pekerjaan</td>
+                            <td>&ensp;&ensp; c. Data Peralatan Pendukung Pekerjaan (Jika disyaratkan)</td>
                             <td>${file1_peralatan}</td>
                             <td>${btn_file1_peralatan}</td>
                         </tr>

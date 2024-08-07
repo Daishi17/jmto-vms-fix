@@ -75,9 +75,13 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'kintekindo.net',
-	'username' => 'u1064384_eprocjmto',
-	'password' => 'low***bet123#',
+	// 'hostname' => 'kintekindo.net',
+	// 'username' => 'u1064384_eprocjmto',
+	// 'password' => 'low***bet123#',
+	// 'database' => 'u1064384_eprocjmto',
+	'hostname' => '34.101.46.10',
+	'username' => 'root',
+	'password' => 'DBjmto***123456#',
 	'database' => 'u1064384_eprocjmto',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

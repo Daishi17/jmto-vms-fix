@@ -692,7 +692,7 @@
 
 
 
-                                                            <?php if ($get_row_mengikuti['ev_terendah_peringkat_akhir_hea'] == 1) { ?>
+                                                            <?php if ($get_row_mengikuti['ev_terendah_peringkat'] == 1) { ?>
                                                                 <tr>
                                                                     <?php if ($rup['sts_kirim_ba_negosiasi'] == 1) { ?>
                                                                         <th>Berita Acara Evaluasi dan Negosiasi</th>

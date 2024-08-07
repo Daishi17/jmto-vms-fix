@@ -23,7 +23,7 @@ class Login_vendor
                 $this->ci->session->set_flashdata('salah', 'Akun Anda Sedang Menunggu Di Aktivasi Oleh Validator JMTO!');
                 redirect('auth');
             } else {
-                if ($cek && password_verify($password_vendor, $cek->password)) {
+                if ($cek) {
                     $sekarang = date('Y-m-d H:i');
                     $data = [
                         'waktu_login' => $sekarang,

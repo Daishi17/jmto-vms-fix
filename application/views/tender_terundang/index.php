@@ -338,8 +338,8 @@
                                 <th class="col-2 vertical-align: middle; bg-light"><small>Persentase TKDN</small></th>
                                 <td class="col-4 vertical-align: middle;">
                                     <small>
-                                        <i class="fa-solid fa-percent px-1"></i>
                                         <label for="" id="persen_pencatatan"></label>
+                                        <i class="fa-solid fa-percent px-1"></i>
                                     </small>
                                 </td>
 

@@ -397,7 +397,7 @@ function terbilang($nilai)
                                                 if ($value['ev_kualifikasi_akhir'] == NULL) {
                                                     if ($value['ev_kualifikasi_akhir'] == 0) {
                                                         $nilai_akhir = '00.00';
-                                                        $nilai_akhir = '<span class="badge bg-danger bg-sm">Ggur</span>';
+                                                        $nilai_akhir = '<span class="badge bg-danger bg-sm">Gugur</span>';
                                                     } else {
                                                         $nilai_akhir = '00.00';
                                                         $nilai_akhir = '<span class="badge bg-secondary bg-sm">Tidak Dievaluasi</span>';

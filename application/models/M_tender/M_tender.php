@@ -1498,4 +1498,22 @@ class M_tender extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function jumlah_peserta_negosiasi($id_rup)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_vendor_mengikuti_paket');
+        $this->db->join('tbl_rup', 'tbl_vendor_mengikuti_paket.id_rup = tbl_rup.id_rup', 'left');
+        $this->db->join('tbl_vendor', 'tbl_vendor_mengikuti_paket.id_vendor = tbl_vendor.id_vendor', 'left');
+        $this->db->where('tbl_vendor_mengikuti_paket.id_rup', $id_rup);
+        $this->db->where_in('tbl_vendor_mengikuti_paket.file1_administrasi_sts', [1, 3]);
+        $this->db->where_in('tbl_vendor_mengikuti_paket.file1_pabrikan_sts', [1, 3]);
+        $this->db->where_in('tbl_vendor_mengikuti_paket.file1_organisasi_sts', [1, 3]);
+        $this->db->where_in('tbl_vendor_mengikuti_paket.file1_peralatan_sts', [1, 3]);
+        $this->db->where_in('tbl_vendor_mengikuti_paket.file1_personil_sts', [1, 3]);
+        $this->db->where_in('tbl_vendor_mengikuti_paket.file1_makalah_teknis_sts', [1, 3]);
+        $this->db->where_in('tbl_vendor_mengikuti_paket.file1_pra_rk3_sts', [1, 3]);
+        $this->db->where_in('tbl_vendor_mengikuti_paket.file1_spek_sts', [1, 3]);
+        return $this->db->count_all_results();
+    }
 }

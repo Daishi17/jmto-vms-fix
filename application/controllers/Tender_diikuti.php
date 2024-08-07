@@ -1493,6 +1493,7 @@ class Tender_diikuti extends CI_Controller
             $data['jadwal_pengumuman_pemenang'] =  $this->M_jadwal->jadwal_pra_umum_19($data['rup']['id_rup']);
             $data['jadwal_masa_sanggah_akhir'] =  $this->M_jadwal->jadwal_pra_umum_20($data['rup']['id_rup']);
             $data['jadwal_upload_surat_penunjukan'] =  $this->M_jadwal->jadwal_pra_umum_21($data['rup']['id_rup']);
+            $data['jumlah_peserta_negosiasi'] = $this->M_tender->jumlah_peserta_negosiasi($id_rup);
             // end get tahap
         } else if ($data['rup']['id_jadwal_tender'] == 2 || $data['rup']['id_jadwal_tender'] == 10) {
             $data['jadwal_pengumuman_pengadaan'] =  $this->M_jadwal->jadwal_pra_umum_1($data['rup']['id_rup']);
